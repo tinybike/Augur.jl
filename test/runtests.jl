@@ -1,5 +1,7 @@
-using Simulator
+@everywhere using Simulator
 using Base.Test
 
-# write your own tests here
-@test 1 == 1
+liar_thresholds = 0.1:0.1:0.9
+
+# Run simulations, plot results and save to file
+plot_simulations(run_simulations(liar_thresholds))
