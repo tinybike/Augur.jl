@@ -25,19 +25,19 @@ function run_simulations(ltr::Range)
     end
 
     # Sort results using liar_threshold values
-    for (row, liar_threshold) in enumerate(ltr)
+    @inbounds for (row, liar_threshold) in enumerate(ltr)
         i = 1
         matched = Dict{String,Dict}()
-        for i = 1:gridrows
+        @inbounds for i = 1:gridrows
             if raw[i]["liar_threshold"] == liar_threshold
                 matched = splice!(raw, i)
                 break
             end
         end
         results["iterate"] = matched["iterate"]
-        for algo in sim.ALGOS
-            for s in sim.STATISTICS
-                for m in sim.METRICS
+        @inbounds for algo in sim.ALGOS
+            @inbounds for s in sim.STATISTICS
+                @inbounds for m in sim.METRICS
                     results[algo][s][m][row,1] = matched[algo][s][m]
                 end
             end

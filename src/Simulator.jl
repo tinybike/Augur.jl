@@ -57,13 +57,13 @@ module Simulator
         METRICS::Vector{ASCIIString}
         STATISTICS::Vector{ASCIIString}
 
-        Simulation(;events::Int=30,
-                    reporters::Int=60,
-                    itermax::Int=10,
+        Simulation(;events::Int=25,
+                    reporters::Int=50,
+                    itermax::Int=50,
                     timesteps::Int=1,
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
-                    variance::Float64=0.25,
+                    variance_threshold::Float64=0.9,
                     distort::Float64=0.0,
                     responses::UnitRange{Int}=-1:1,
                     rep_range::UnitRange{Int}=1:25,
@@ -90,7 +90,7 @@ module Simulator
                 timesteps,
                 steadystate,
                 liar_threshold,
-                variance,
+                variance_threshold,
                 distort,
                 responses,
                 rep_range,

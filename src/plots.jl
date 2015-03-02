@@ -71,14 +71,16 @@ function build_dataframe(sim_data::Dict{String,Any})
 
     # Plot metrics vs liar_threshold parameter
     optstr = ""
-    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE)
+    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
         optstr *= (sim_data["sim"].(flag)) ? " " * string(flag) : ""
     end
     infoblurb = string(
         sim_data["sim"].REPORTERS,
         " users reporting on ",
         sim_data["sim"].EVENTS,
-        " events (",
+        " events over ",
+        sim_data["sim"].TIMESTEPS,
+        " timesteps (",
         sim_data["sim"].ITERMAX,
         " iterations @ γ = ",
         sim_data["sim"].COLLUDE,
