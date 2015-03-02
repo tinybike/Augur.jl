@@ -1,4 +1,6 @@
 using Simulator
+using DataFrames
+using Gadfly
 
 function build_dataframe(sim_data::Dict{String,Any})
     const num_algos = length(sim_data["sim"].ALGOS)

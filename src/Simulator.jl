@@ -39,6 +39,12 @@ module Simulator
         # -1:1 for {-1, 0, 1}, -1:2:1 for {-1, 1}, etc.
         RESPONSES::UnitRange{Int}
 
+        # Reputation update smoothing parameter
+        ALPHA::Float64
+
+        # Mixed simulation weighting parameter
+        BETA::Float64
+
         # Allowed initial reputation values and whether randomized
         REP_RANGE::UnitRange{Int}
         REP_RAND::Bool
@@ -66,6 +72,8 @@ module Simulator
                     variance_threshold::Float64=0.9,
                     distort::Float64=0.0,
                     responses::UnitRange{Int}=-1:1,
+                    alpha::Float64=0.2,
+                    beta::Float64=0.8,
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
                     collude::Float64=0.3,
@@ -74,9 +82,12 @@ module Simulator
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
                     algos::Vector{ASCIIString}=["sztorc",
-                                                # "cokurtosis",
-                                                # "FVT+cokurtosis",
-                                                "fixed-variance"],
+                                                "fixed-variance",
+                                                "covariance",
+                                                "cokurtosis",
+                                                "inverse-scores",
+                                                "coskewness",
+                                                "FVT+cokurtosis"],
                     metrics::Vector{ASCIIString}=["beats",
                                                   "liars_bonus",
                                                   "correct",
@@ -93,6 +104,8 @@ module Simulator
                 variance_threshold,
                 distort,
                 responses,
+                alpha,
+                beta,
                 rep_range,
                 rep_rand,
                 collude,
@@ -105,7 +118,6 @@ module Simulator
                 statistics)
     end
 
-    include("simulation.jl")
     include("simulate.jl")
     include("plots.jl")
 
