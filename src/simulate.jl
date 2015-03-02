@@ -30,8 +30,8 @@ function compute_metrics(sim::Simulation,
     ]
 end
 
-function generate_data(sim::Simulation)
-
+function create_reporters(sim::Simulation)
+    
     # simplest version: no distortion
     distort_threshold = sim.LIAR_THRESHOLD
 
@@ -64,28 +64,54 @@ function generate_data(sim::Simulation)
         num_liars = length(liars)
     end
 
-    correct_answers = rand(sim.RESPONSES, sim.EVENTS)
+    (Symbol => Any)[
+        :reporters => reporters,
+        :trues => trues,
+        :distorts => distorts,
+        :liars => liars,
+        :num_trues => num_trues,
+        :num_distorts => num_distorts,
+        :num_liars => num_liars,
+        :honesty => honesty,
+        :aux => nothing,
+    ]
+end
+
+function generate_data(sim::Simulation, data::Dict{Symbol,Any})
+    data[:correct_answers] = rand(sim.RESPONSES, sim.EVENTS)
 
     # True: always report correct answer
-    reports = zeros(sim.REPORTERS, sim.EVENTS)
-    reports[trues,:] = convert(Matrix{Float64}, repmat(correct_answers', num_trues))
+    data[:reports] = zeros(sim.REPORTERS, sim.EVENTS)
+    data[:reports][trues,:] = convert
+        Matrix{Float64},
+        repmat(data[:correct_answers]', num_trues)
+    )
 
     # Distort: sometimes report incorrect answers at random
     distmask = rand(num_distorts, sim.EVENTS) .< sim.DISTORT
-    correct = convert(Matrix{Float64}, repmat(correct_answers', num_distorts))
-    randomized = convert(Matrix{Float64}, rand(sim.RESPONSES, num_distorts, sim.EVENTS))
-    reports[distorts,:] = correct.*~distmask + randomized.*distmask
+    correct = convert(
+        Matrix{Float64},
+        repmat(data[:correct_answers]', num_distorts)
+    )
+    randomized = convert(
+        Matrix{Float64},
+        rand(sim.RESPONSES, num_distorts, sim.EVENTS)
+    )
+    data[:reports][distorts,:] = correct.*~distmask + randomized.*distmask
 
     # Liar: report answers at random (but with a high chance
     #       of being equal to other liars' answers)
-    reports[liars,:] = convert(Matrix{Float64}, rand(sim.RESPONSES, num_liars, sim.EVENTS))
+    data[:reports][liars,:] = convert(
+        Matrix{Float64},
+        rand(sim.RESPONSES, num_liars, sim.EVENTS)
+    )
 
     # "allwrong": liars always answer incorrectly
     if sim.ALLWRONG
         @inbounds for i = 1:num_liars
-            @inbounds for j = 1:sim.EVENTS
-                @inbounds while reports[liars[i],j] == correct_answers[j]
-                    reports[liars[i],j] = rand(sim.RESPONSES)
+            for j = 1:sim.EVENTS
+                while data[:reports][liars[i],j] == data[:correct_answers][j]
+                    data[:reports][liars[i],j] = rand(sim.RESPONSES)
                 end
             end
         end
@@ -96,7 +122,7 @@ function generate_data(sim::Simulation)
         @inbounds for i = 1:num_liars-1
             diceroll = first(rand(1))
             if diceroll < sim.COLLUDE
-                reports[liars[i],:] = reports[liars[1],:]
+                data[:reports][liars[i],:] = data[:reports][liars[1],:]
             end
         end
     end
@@ -109,17 +135,17 @@ function generate_data(sim::Simulation)
             diceroll = first(rand(1))
             if diceroll < sim.COLLUDE
                 target = int(ceil(first(rand(1))) * sim.REPORTERS)
-                reports[target,:] = reports[liars[i],:]
+                data[:reports][target,:] = data[:reports][liars[i],:]
 
                 # Triples
                 if diceroll < sim.COLLUDE^2
                     target2 = int(ceil(first(rand(1))) * sim.REPORTERS)
-                    reports[target2,:] = reports[liars[i],:]
+                    data[:reports][target2,:] = data[:reports][liars[i],:]
 
                     # Quadruples
                     if diceroll < sim.COLLUDE^3
                         target3 = int(ceil(first(rand(1))) * sim.REPORTERS)
-                        reports[target3,:] = reports[liars[i],:]
+                        data[:reports][target3,:] = data[:reports][liars[i],:]
                     end
                 end
             end
@@ -133,17 +159,17 @@ function generate_data(sim::Simulation)
             # Pairs
             diceroll = first(rand(1))
             if diceroll < sim.COLLUDE
-                reports[liars[i+1],:] = reports[liars[i],:]
+                data[:reports][liars[i+1],:] = data[:reports][liars[i],:]
 
                 # Triples
                 if i + 2 < num_liars
                     if diceroll < sim.COLLUDE^2
-                        reports[liars[i+2],:] = reports[liars[i],:]
+                        data[:reports][liars[i+2],:] = data[:reports][liars[i],:]
         
                         # Quadruples
                         if i + 3 < num_liars
                             if diceroll < sim.COLLUDE^3
-                                reports[liars[i+3],:] = reports[liars[i],:]
+                                data[:reports][liars[i+3],:] = data[:reports][liars[i],:]
                             end
                         end
                     end
@@ -151,23 +177,8 @@ function generate_data(sim::Simulation)
             end
         end
     end
-
-    reputation = (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
-    ~sim.VERBOSE || display([reporters reports])
-    [
-        :reports => reports,
-        :reputation => reputation,
-        :reporters => reporters,
-        :correct_answers => correct_answers,
-        :trues => trues,
-        :distorts => distorts,
-        :liars => liars,
-        :num_trues => num_trues,
-        :num_distorts => num_distorts,
-        :num_liars => num_liars,
-        :honesty => honesty,
-        :aux => nothing,
-    ]
+    ~sim.VERBOSE || display([data[:reporters] data[:reports]])
+    data
 end
 
 function simulate(sim::Simulation)
@@ -182,12 +193,30 @@ function simulate(sim::Simulation)
         end
     end
     @inbounds while i <= sim.ITERMAX
-        data = generate_data(sim)
-        A = Dict()
-        @inbounds for algo in sim.ALGOS
-            A[algo] = { "convergence" => false }
-            metrics = Dict()
-            while ~A[algo]["convergence"]
+        A = Dict{String,Any}()
+        for algo in sim.ALGOS
+            A[algo] = Dict{String,Any}()
+            metrics = Dict{Symbol,Float64}()
+
+            # Create reporters and assign each reporter a label
+            reporters = create_reporters(sim)
+
+            # Simulate over #TIMESTEPS consensus resolutions:
+            #   - The previous (smoothed) reputation is used as an input to
+            #     the next time step
+            #   - Reporters' labels (true, liar, etc.) do not change
+            #   - Correct answers and reports are generated fresh at each
+            #     time step
+            for t = 1:sim.TIMESTEPS
+                data = generate_data(sim, reporters)
+                
+                # Assign/update reputation
+                if t == 1
+                    reputation = (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
+                else
+                    reputation = A[algo]["agents"]["smooth_rep"]
+                end
+                
                 if algo == "coskewness"
 
                     # Coskewness tensor (cube)
@@ -219,20 +248,20 @@ function simulate(sim::Simulation)
                 # Use pyconsensus for event resolution
                 A[algo] = pyconsensus.Oracle(
                     reports=data[:reports],
-                    reputation=data[:reputation],
+                    reputation=reputation,
                     alpha=sim.ALPHA,
                     variance_threshold=sim.VARIANCE_THRESHOLD,
                     aux=data[:aux],
                     beta=sim.BETA,
                     algorithm=algo,
                 )[:consensus]()
-                metrics = compute_metrics(
-                    sim,
-                    data,
-                    A[algo]["events"]["outcomes_final"],
-                    A[algo]["agents"]["this_rep"],
-                )
             end
+            metrics = compute_metrics(
+                sim,
+                data,
+                A[algo]["events"]["outcomes_final"],
+                A[algo]["agents"]["this_rep"],
+            )
             push!(B[algo]["liars_bonus"], metrics[:liars_bonus])
             push!(B[algo]["beats"], metrics[:beats])
             push!(B[algo]["correct"], metrics[:correct])
@@ -240,9 +269,6 @@ function simulate(sim::Simulation)
         end
 
         push!(iterate, i)
-        if sim.VERBOSE
-            (i == sim.ITERMAX) || (i % 10 == 0) ? println('.') : print('.')
-        end
         i += 1
     end
 
@@ -269,13 +295,15 @@ function simulate(sim::Simulation)
     return C
 end
 
-function run_simulations(ltr::Range)
-    println("Running simulations...")
+function run_simulations(ltr::Range;
+                         algos::Vector{String}=["sztorc", "fixed-variance"])
+    println("Simulating:")
 
     # Run parallel simulations
     sim = Simulation()
+    sim.ALGOS = algos
     raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr
-        println(round(lt * 100, 2), "% random")
+        println(lt)
         sim.LIAR_THRESHOLD = lt
         simulate(sim)
     end
@@ -285,9 +313,9 @@ function run_simulations(ltr::Range)
     results = Dict{String,Any}()
     @inbounds for algo in sim.ALGOS
         results[algo] = Dict{String,Dict}()
-        @inbounds for s in sim.STATISTICS
+        for s in sim.STATISTICS
             results[algo][s] = Dict{String,Array}()
-            @inbounds for m in sim.METRICS
+            for m in sim.METRICS
                 results[algo][s][m] = zeros(gridrows)
             end
         end
@@ -297,16 +325,16 @@ function run_simulations(ltr::Range)
     @inbounds for (row, liar_threshold) in enumerate(ltr)
         i = 1
         matched = Dict{String,Dict}()
-        @inbounds for i = 1:gridrows
+        for i = 1:gridrows
             if raw[i]["liar_threshold"] == liar_threshold
                 matched = splice!(raw, i)
                 break
             end
         end
         results["iterate"] = matched["iterate"]
-        @inbounds for algo in sim.ALGOS
-            @inbounds for s in sim.STATISTICS
-                @inbounds for m in sim.METRICS
+        @simd for algo in sim.ALGOS
+            @simd for s in sim.STATISTICS
+                @simd for m in sim.METRICS
                     results[algo][s][m][row,1] = matched[algo][s][m]
                 end
             end
