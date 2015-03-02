@@ -4,7 +4,7 @@ liar_thresholds = 0.05:0.05:0.95
 algos = [
     "sztorc",
     "cokurtosis",
-    "FVT+cokurtosis",
+    # "FVT+cokurtosis",
     "fixed-variance",
 ]
 

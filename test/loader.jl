@@ -1,6 +1,6 @@
 using Simulator
 
-EXAMPLE = "sim_2015-03-01T18:59:21.jld"
+EXAMPLE = "sim_2015-03-02T05:56:36.jld"
 
 function load_and_plot_data(datafile::String)
     println("Loading $datafile...")
