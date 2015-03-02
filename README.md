@@ -1,4 +1,4 @@
-# Augur Consensus Simulator
+# Consensus Simulator
 
 [![Build Status](https://travis-ci.org/AugurProject/Simulator.jl.svg?branch=master)](https://travis-ci.org/AugurProject/Simulator.jl) [![Coverage Status](https://coveralls.io/repos/AugurProject/Simulator.jl/badge.svg)](https://coveralls.io/r/AugurProject/Simulator.jl)
 
