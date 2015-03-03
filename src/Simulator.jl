@@ -56,6 +56,7 @@ module Simulator
         VERBOSE::Bool
         CONSPIRACY::Bool
         ALLWRONG::Bool
+        SAVE_RAW_DATA::Bool
 
         # Event resolution algorithms to test, metrics used to evaluate them,
         # and statistics of these metrics to calculate
@@ -66,7 +67,7 @@ module Simulator
         Simulation(;events::Int=25,
                     reporters::Int=50,
                     itermax::Int=50,
-                    timesteps::Int=10,
+                    timesteps::Int=25,
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
                     variance_threshold::Float64=0.9,
@@ -77,10 +78,11 @@ module Simulator
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
                     collude::Float64=0.3,
-                    indiscriminate::Bool=true,
+                    indiscriminate::Bool=false,
                     verbose::Bool=false,
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
+                    save_raw_data::Bool=false,
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
                                                 "covariance",
@@ -91,7 +93,11 @@ module Simulator
                     metrics::Vector{ASCIIString}=["beats",
                                                   "liars_bonus",
                                                   "correct",
-                                                  "components"],
+                                                  "sensitivity",
+                                                  "fallout",
+                                                  "precision",
+                                                  "F1",
+                                                  "MCC"],
                     statistics::Vector{ASCIIString}=["mean",
                                                      "stderr"]) =
             new(events,
@@ -113,12 +119,16 @@ module Simulator
                 verbose,
                 conspiracy,
                 allwrong,
+                save_raw_data,
                 algos,
                 metrics,
                 statistics)
     end
 
     include("simulate.jl")
+    include("makedata.jl")
+    include("metrics.jl")
     include("plots.jl")
+    include("files.jl")
 
 end # module

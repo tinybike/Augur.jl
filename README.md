@@ -21,3 +21,15 @@ Monte Carlo simulations, statistics and plotting tools for [Augur](http://www.au
 The simulations are parallelized.  To run parallel simulations using all available cores:
 
     $ cd test && julia -p `nproc` runtests.jl
+
+### NYI
+
+- label pairs, triples, quadruples
+- mix conspiracy with regular collusion
+- scalar event resolution -- check reward/vote slopes
+- sensitivity analysis for FVT+cokurtosis parameter beta
+- port "winning" algo to Serpent
+- Sztorc algo quality vs PC1 variance explained
+- plot number of components + % variance explained (scree plots)
+- "resolving power"/quality: MCC? F1?
+- pass in parameters from command line

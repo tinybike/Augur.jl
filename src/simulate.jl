@@ -1,195 +1,17 @@
 @pyimport pyconsensus
 
-# todo:
-#   - label pairs, triples, quadruples
-#   - mix conspiracy with regular collusion
-#   - scalar event resolution (check reward/vote slopes)
-#   - sensitivity analysis for FVT+cokurtosis parameter beta
-#   - time-evolution of scalar statistics
-#   - port "winning" algo to Serpent
-#   - does Sztorc algo work better when PC1 accounts for more variance?
-#   - plot number of components + % variance explained (scree plots)
-#   - simulate repeatedly to get steady-state metrics
-
-function compute_metrics(sim::Simulation,
-                         data::Dict{Symbol,Any},
-                         outcomes::Vector{Any},
-                         this_rep::Vector{Float64})
-
-    # "this_rep" is the reputation awarded this round (before smoothing)
-    liars_bonus = this_rep - this_rep[first(find(data[:reporters] .== "true"))]
-    [
-        # "liars_bonus": bonus reward liars received (in excess of true reporters')
-        :liars_bonus => sum(liars_bonus),
-
-        # "beats" are liars that escaped punishment
-        :beats => sum(liars_bonus[data[:liars]] .> 0) / data[:num_liars] * 100,
-
-        # Outcomes that matched our known correct answers list
-        :correct => countnz(outcomes .== data[:correct_answers]) / sim.EVENTS * 100,
-    ]
-end
-
-function create_reporters(sim::Simulation)
-    
-    # simplest version: no distortion
-    distort_threshold = sim.LIAR_THRESHOLD
-
-    # 1. Generate artificial "true, distort, liar" list
-    honesty = rand(sim.REPORTERS)
-    reporters = fill("", sim.REPORTERS)
-    reporters[honesty .>= distort_threshold] = "true"
-    reporters[sim.LIAR_THRESHOLD .< honesty .< distort_threshold] = "distort"
-    reporters[honesty .<= sim.LIAR_THRESHOLD] = "liar"
-
-    # 2. Build report matrix from this list
-    trues = find(reporters .== "true")
-    distorts = find(reporters .== "distort")
-    liars = find(reporters .== "liar")
-    num_trues = length(trues)
-    num_distorts = length(distorts)
-    num_liars = length(liars)
-
-    while num_trues == 0 || num_liars == 0
-        honesty = rand(sim.REPORTERS)
-        reporters = fill("", sim.REPORTERS)
-        reporters[honesty .>= distort_threshold] = "true"
-        reporters[sim.LIAR_THRESHOLD .< honesty .< distort_threshold] = "distort"
-        reporters[honesty .<= sim.LIAR_THRESHOLD] = "liar"
-        trues = find(reporters .== "true")
-        distorts = find(reporters .== "distort")
-        liars = find(reporters .== "liar")
-        num_trues = length(trues)
-        num_distorts = length(distorts)
-        num_liars = length(liars)
-    end
-
-    (Symbol => Any)[
-        :reporters => reporters,
-        :trues => trues,
-        :distorts => distorts,
-        :liars => liars,
-        :num_trues => num_trues,
-        :num_distorts => num_distorts,
-        :num_liars => num_liars,
-        :honesty => honesty,
-        :aux => nothing,
-    ]
-end
-
-function generate_data(sim::Simulation, data::Dict{Symbol,Any})
-    data[:correct_answers] = rand(sim.RESPONSES, sim.EVENTS)
-
-    # True: always report correct answer
-    data[:reports] = zeros(sim.REPORTERS, sim.EVENTS)
-    data[:reports][data[:trues],:] = convert(
-        Matrix{Float64},
-        repmat(data[:correct_answers]', data[:num_trues])
-    )
-
-    # Distort: sometimes report incorrect answers at random
-    distmask = rand(data[:num_distorts], sim.EVENTS) .< sim.DISTORT
-    correct = convert(
-        Matrix{Float64},
-        repmat(data[:correct_answers]', data[:num_distorts])
-    )
-    randomized = convert(
-        Matrix{Float64},
-        rand(sim.RESPONSES, data[:num_distorts], sim.EVENTS)
-    )
-    data[:reports][data[:distorts],:] = correct.*~distmask + randomized.*distmask
-
-    # Liar: report answers at random (but with a high chance
-    #       of being equal to other liars' answers)
-    data[:reports][data[:liars],:] = convert(
-        Matrix{Float64},
-        rand(sim.RESPONSES, data[:num_liars], sim.EVENTS)
-    )
-
-    # "allwrong": liars always answer incorrectly
-    if sim.ALLWRONG
-        @inbounds for i = 1:data[:num_liars]
-            for j = 1:sim.EVENTS
-                while data[:reports][data[:liars][i],j] == data[:correct_answers][j]
-                    data[:reports][data[:liars][i],j] = rand(sim.RESPONSES)
-                end
-            end
-        end
-    end
-
-    # All-or-nothing collusion ("conspiracy")
-    if sim.CONSPIRACY
-        @inbounds for i = 1:data[:num_liars]-1
-            diceroll = first(rand(1))
-            if diceroll < sim.COLLUDE
-                data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
-            end
-        end
-    end
-
-    # Indiscriminate copying: liars copy anyone, not just other liars
-    if sim.INDISCRIMINATE
-        @inbounds for i = 1:data[:num_liars]
-
-            # Pairs
-            diceroll = first(rand(1))
-            if diceroll < sim.COLLUDE
-                target = int(ceil(first(rand(1))) * sim.REPORTERS)
-                data[:reports][target,:] = data[:reports][data[:liars][i],:]
-
-                # Triples
-                if diceroll < sim.COLLUDE^2
-                    target2 = int(ceil(first(rand(1))) * sim.REPORTERS)
-                    data[:reports][target2,:] = data[:reports][data[:liars][i],:]
-
-                    # Quadruples
-                    if diceroll < sim.COLLUDE^3
-                        target3 = int(ceil(first(rand(1))) * sim.REPORTERS)
-                        data[:reports][target3,:] = data[:reports][data[:liars][i],:]
-                    end
-                end
-            end
-        end
-
-    # "Ordinary" (ladder) collusion
-    # todo: remove num_liars upper bounds (these decrease collusion probs)
-    else
-        @inbounds for i = 1:data[:num_liars]-1
-
-            # Pairs
-            diceroll = first(rand(1))
-            if diceroll < sim.COLLUDE
-                data[:reports][data[:liars][i+1],:] = data[:reports][data[:liars][i],:]
-
-                # Triples
-                if i + 2 < data[:num_liars]
-                    if diceroll < sim.COLLUDE^2
-                        data[:reports][data[:liars][i+2],:] = data[:reports][data[:liars][i],:]
-        
-                        # Quadruples
-                        if i + 3 < data[:num_liars]
-                            if diceroll < sim.COLLUDE^3
-                                data[:reports][data[:liars][i+3],:] = data[:reports][data[:liars][i],:]
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
-    ~sim.VERBOSE || display([data[:reporters] data[:reports]])
-    data
-end
-
 function simulate(sim::Simulation)
     iterate = (Int64)[]
     i = 1
     reporters = []
-    B = Dict()
+    raw_data = (String => Any)[ "sim" => sim ]
     @inbounds for algo in sim.ALGOS
-        B[algo] = Dict()
-        for m in sim.METRICS
-            B[algo][m] = (Float64)[]
+        raw_data[algo] = Dict{String,Any}()
+        for m in [sim.METRICS, "components"]
+            raw_data[algo][m] = Dict{Int,Vector{Float64}}()
+            for t in 1:sim.TIMESTEPS
+                raw_data[algo][m][t] = (Float64)[]
+            end
         end
     end
     @inbounds while i <= sim.ITERMAX
@@ -213,7 +35,9 @@ function simulate(sim::Simulation)
                 
                 # Assign/update reputation
                 if t == 1
-                    reputation = (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
+                    reputation = normalize(
+                        (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
+                    )
                 else
                     reputation = A[algo]["agents"]["smooth_rep"]
                 end
@@ -256,54 +80,63 @@ function simulate(sim::Simulation)
                     beta=sim.BETA,
                     algorithm=algo,
                 )[:consensus]()
+
+                # Measure this algorithm's performance
+                metrics = compute_metrics(
+                    sim,
+                    data,
+                    A[algo]["events"]["outcomes_final"],
+                    reputation,
+                    A[algo]["agents"]["smooth_rep"],
+                )
+                if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
+                    for m in sim.METRICS
+                        push!(raw_data[algo][m][t], metrics[symbol(m)])
+                    end
+                    push!(raw_data[algo]["components"][t], A[algo]["components"])
+                end
             end
-            metrics = compute_metrics(
-                sim,
-                data,
-                A[algo]["events"]["outcomes_final"],
-                A[algo]["agents"]["this_rep"],
-            )
-            push!(B[algo]["liars_bonus"], metrics[:liars_bonus])
-            push!(B[algo]["beats"], metrics[:beats])
-            push!(B[algo]["correct"], metrics[:correct])
-            push!(B[algo]["components"], A[algo]["components"])
         end
 
         push!(iterate, i)
         i += 1
     end
+    if sim.SAVE_RAW_DATA
+        filename = "data/raw_sim_" * repr(now()) * ".jld"
+        jldopen(filename, "w") do file
+            write(file, "raw_data", raw_data)
+        end
+    end
 
-    C = (String => Any)[
+    # Convert raw data into means and standard errors for plotting
+    processed_data = (String => Any)[
         "iterate" => iterate,
         "liar_threshold" => sim.LIAR_THRESHOLD,
     ]
     @inbounds for algo in sim.ALGOS
-        C[algo] = (String => Dict{String,Float64})[
-            "mean" => (String => Float64)[
-                "liars_bonus" => mean(B[algo]["liars_bonus"]),
-                "beats" => mean(B[algo]["beats"]),
-                "correct" => mean(B[algo]["correct"]),
-                "components" => mean(B[algo]["components"]),
-            ],
-            "stderr" => (String => Float64)[
-                "liars_bonus" => std(B[algo]["liars_bonus"]) / sim.SQRTN,
-                "beats" => std(B[algo]["beats"]) / sim.SQRTN,
-                "correct" => std(B[algo]["correct"]) / sim.SQRTN,
-                "components" => std(B[algo]["components"]) / sim.SQRTN,
-            ],
-        ]
+        processed_data[algo] = Dict{String,Dict{String,Float64}}()
+        for s in sim.STATISTICS
+            processed_data[algo][s] = Dict{String,Float64}()
+            sfun = (s == "mean") ? mean : (v) -> std(v) / sim.SQRTN
+            for m in [sim.METRICS, "components"]
+                processed_data[algo][s][m] = sfun(raw_data[algo][m][sim.TIMESTEPS])
+            end
+        end
     end
-    return C
+    display(processed_data["sztorc"]["mean"])
+    processed_data
 end
 
 function run_simulations(ltr::Range;
                          algos::Vector{ASCIIString}=["sztorc",
-                                                     "fixed-variance"])
+                                                     "fixed-variance"],
+                         save_raw_data::Bool=false)
     println("Simulating:")
 
     # Run parallel simulations
     sim = Simulation()
     sim.ALGOS = algos
+    sim.SAVE_RAW_DATA = save_raw_data
     raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr
         println(lt)
         sim.LIAR_THRESHOLD = lt
@@ -317,7 +150,7 @@ function run_simulations(ltr::Range;
         results[algo] = Dict{String,Dict}()
         for s in sim.STATISTICS
             results[algo][s] = Dict{String,Array}()
-            for m in sim.METRICS
+            for m in [sim.METRICS, "components"]
                 results[algo][s][m] = zeros(gridrows)
             end
         end
@@ -336,49 +169,11 @@ function run_simulations(ltr::Range;
         results["iterate"] = matched["iterate"]
         for algo in sim.ALGOS
             for s in sim.STATISTICS
-                for m in sim.METRICS
+                for m in [sim.METRICS, "components"]
                     results[algo][s][m][row,1] = matched[algo][s][m]
                 end
             end
         end
     end
     save_data(sim, results, ltr)
-end
-
-# Save data to .jld file
-function save_data(sim::Simulation,
-                   results::Dict,
-                   ltr::Range;
-                   parametrize::Bool=false)
-    sim_data = (String => Any)[
-        "sim" => sim,
-        "parametrize" => parametrize,
-        "liar_threshold" => convert(Array, ltr),
-        "iterate" => results["iterate"],
-    ]
-    @inbounds for algo in sim.ALGOS
-        sim_data[algo] = (String => Array)[
-            "liars_bonus" => results[algo]["mean"]["liars_bonus"],
-            "beats" => results[algo]["mean"]["beats"],
-            "correct" => results[algo]["mean"]["correct"],
-            "components" => results[algo]["mean"]["components"],
-            "liars_bonus_std" => results[algo]["stderr"]["liars_bonus"],
-            "beats_std" => results[algo]["stderr"]["beats"],
-            "correct_std" => results[algo]["stderr"]["correct"],
-            "components_std" => results[algo]["stderr"]["components"],
-        ]
-    end
-    filename = "data/sim_" * repr(now()) * ".jld"
-    jldopen(filename, "w") do file
-        write(file, "sim_data", sim_data)
-    end
-    println("Data saved to ", filename)
-    return sim_data
-end
-
-# Load data from .jld file
-function load_data(datafile::String)
-    jldopen(datafile, "r") do file
-        read(file, "sim_data")
-    end
 end

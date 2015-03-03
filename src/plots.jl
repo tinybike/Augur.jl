@@ -1,10 +1,11 @@
 using Simulator
 using DataFrames
 using Gadfly
+using Debug
 
-function build_dataframe(sim_data::Dict{String,Any})
+@debug function build_dataframe(sim_data::Dict{String,Any})
     const num_algos = length(sim_data["sim"].ALGOS)
-    const num_metrics = length(sim_data["sim"].METRICS) - 1  # -1 for components
+    const num_metrics = length(sim_data["sim"].METRICS)
     const gridrows = length(sim_data["liar_threshold"])
 
     # Build plotting dataframe
@@ -17,7 +18,7 @@ function build_dataframe(sim_data::Dict{String,Any})
     error_minus = (Float64)[]
     error_plus = (Float64)[]
     for algo in sim_data["sim"].ALGOS
-        if sim_data["parametrize"] && algo in ("fixed-var-length", "fixed-variance")
+        if sim_data["parametrize"] && algo == "fixed-variance"
             target = last(findmax(sum(sim_data[algo]["correct"], 1)))
         else
             target = 1
@@ -27,24 +28,44 @@ function build_dataframe(sim_data::Dict{String,Any})
             sim_data[algo]["beats"][:,target],
             sim_data[algo]["liars_bonus"][:,target],
             sim_data[algo]["correct"][:,target],
+            sim_data[algo]["sensitivity"][:,target],
+            sim_data[algo]["fallout"][:,target],
+            sim_data[algo]["precision"][:,target],
+            sim_data[algo]["F1"][:,target],
+            sim_data[algo]["MCC"][:,target],
         ]
         metrics = [
             metrics,
-            fill!(Array(String, gridrows), "% beats"),
+            fill!(Array(String, gridrows), "beats"),
             fill!(Array(String, gridrows), "liars' bonus"),
-            fill!(Array(String, gridrows), "% correct"),
+            fill!(Array(String, gridrows), "correct"),
+            fill!(Array(String, gridrows), "sensitivity"),
+            fill!(Array(String, gridrows), "fallout"),
+            fill!(Array(String, gridrows), "precision"),
+            fill!(Array(String, gridrows), "F1"),
+            fill!(Array(String, gridrows), "MCC"),
         ]
         error_minus = [
             error_minus,
             sim_data[algo]["beats"][:,target] - sim_data[algo]["beats_std"][:,target],
             sim_data[algo]["liars_bonus"][:,target] - sim_data[algo]["liars_bonus_std"][:,target],
             sim_data[algo]["correct"][:,target] - sim_data[algo]["correct_std"][:,target],
+            sim_data[algo]["sensitivity"][:,target] - sim_data[algo]["sensitivity_std"][:,target],
+            sim_data[algo]["fallout"][:,target] - sim_data[algo]["fallout_std"][:,target],
+            sim_data[algo]["precision"][:,target] - sim_data[algo]["precision_std"][:,target],
+            sim_data[algo]["F1"][:,target] - sim_data[algo]["F1_std"][:,target],
+            sim_data[algo]["MCC"][:,target] - sim_data[algo]["MCC_std"][:,target],
         ]
         error_plus = [
             error_plus,
             sim_data[algo]["beats"][:,target] + sim_data[algo]["beats_std"][:,target],
             sim_data[algo]["liars_bonus"][:,target] + sim_data[algo]["liars_bonus_std"][:,target],
             sim_data[algo]["correct"][:,target] + sim_data[algo]["correct_std"][:,target],
+            sim_data[algo]["sensitivity"][:,target] + sim_data[algo]["sensitivity_std"][:,target],
+            sim_data[algo]["fallout"][:,target] + sim_data[algo]["fallout_std"][:,target],
+            sim_data[algo]["precision"][:,target] + sim_data[algo]["precision_std"][:,target],
+            sim_data[algo]["F1"][:,target] + sim_data[algo]["F1_std"][:,target],
+            sim_data[algo]["MCC"][:,target] + sim_data[algo]["MCC_std"][:,target],
         ]
         if algo == "first-component" || algo == "sztorc"
             algo = "Sztorc"
@@ -61,7 +82,7 @@ function build_dataframe(sim_data::Dict{String,Any})
         end
         algos = [
             algos,
-            repmat(fill!(Array(String, gridrows), algo), 3, 1)[:],
+            repmat(fill!(Array(String, gridrows), algo), num_metrics, 1)[:],
         ]
     end
     df = DataFrame(metric=metrics[:],
@@ -113,12 +134,13 @@ function plot_dataframe(df::DataFrame, infoblurb::String)
         ),
     )
     pl_file = "plots/metrics_" * repr(now()) * ".svg"
-    draw(SVG(pl_file, 10inch, 12inch), pl)
+    draw(SVG(pl_file, 12inch, 12inch), pl)
     println("Plot saved to ", pl_file)
 end
 
+# Gadfly plots
 function plot_simulations(sim_data::Dict{String,Any})
     println("Building plots...")
     df, infoblurb = build_dataframe(sim_data)
-    plot_dataframe(df, infoblurb)
+    plot_dataframe(df, infoblurb)    
 end
