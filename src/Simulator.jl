@@ -65,8 +65,8 @@ module Simulator
 
         Simulation(;events::Int=25,
                     reporters::Int=50,
-                    itermax::Int=100,
-                    timesteps::Int=1,
+                    itermax::Int=50,
+                    timesteps::Int=10,
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
                     variance_threshold::Float64=0.9,
