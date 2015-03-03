@@ -1,9 +1,8 @@
 using Simulator
 using DataFrames
 using Gadfly
-using Debug
 
-@debug function build_dataframe(sim_data::Dict{String,Any})
+function build_dataframe(sim_data::Dict{String,Any})
     const num_algos = length(sim_data["sim"].ALGOS)
     const num_metrics = length(sim_data["sim"].METRICS)
     const gridrows = length(sim_data["liar_threshold"])
