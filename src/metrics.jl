@@ -46,7 +46,7 @@ function compute_metrics(sim::Simulation,
         :liars_bonus => sum(bonus),
 
         # "beats" are liars that escaped punishment (i.e, false negatives)
-        :beats => sum(bonus[data[:liars]]) / data[:num_liars],
+        :beats => sum(bonus[data[:liars]] .>= 0) / data[:num_liars],
 
         # Outcomes that matched our known correct answers list
         :correct => countnz(outcomes .== data[:correct_answers]) / sim.EVENTS,

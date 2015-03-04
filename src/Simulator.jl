@@ -64,10 +64,10 @@ module Simulator
         METRICS::Vector{ASCIIString}
         STATISTICS::Vector{ASCIIString}
 
-        Simulation(;events::Int=25,
-                    reporters::Int=50,
-                    itermax::Int=50,
-                    timesteps::Int=25,
+        Simulation(;events::Int=50,
+                    reporters::Int=100,
+                    itermax::Int=250,
+                    timesteps::Int=100,
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
                     variance_threshold::Float64=0.9,
@@ -78,7 +78,7 @@ module Simulator
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
                     collude::Float64=0.3,
-                    indiscriminate::Bool=false,
+                    indiscriminate::Bool=true,
                     verbose::Bool=false,
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
@@ -96,7 +96,6 @@ module Simulator
                                                   "sensitivity",
                                                   "fallout",
                                                   "precision",
-                                                  "F1",
                                                   "MCC"],
                     statistics::Vector{ASCIIString}=["mean",
                                                      "stderr"]) =

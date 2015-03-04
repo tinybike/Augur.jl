@@ -123,7 +123,6 @@ function simulate(sim::Simulation)
             end
         end
     end
-    display(processed_data["sztorc"]["mean"])
     processed_data
 end
 

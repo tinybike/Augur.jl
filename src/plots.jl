@@ -30,7 +30,7 @@ function build_dataframe(sim_data::Dict{String,Any})
             sim_data[algo]["sensitivity"][:,target],
             sim_data[algo]["fallout"][:,target],
             sim_data[algo]["precision"][:,target],
-            sim_data[algo]["F1"][:,target],
+            # sim_data[algo]["F1"][:,target],
             sim_data[algo]["MCC"][:,target],
         ]
         metrics = [
@@ -41,7 +41,7 @@ function build_dataframe(sim_data::Dict{String,Any})
             fill!(Array(String, gridrows), "sensitivity"),
             fill!(Array(String, gridrows), "fallout"),
             fill!(Array(String, gridrows), "precision"),
-            fill!(Array(String, gridrows), "F1"),
+            # fill!(Array(String, gridrows), "F1"),
             fill!(Array(String, gridrows), "MCC"),
         ]
         error_minus = [
@@ -52,7 +52,7 @@ function build_dataframe(sim_data::Dict{String,Any})
             sim_data[algo]["sensitivity"][:,target] - sim_data[algo]["sensitivity_std"][:,target],
             sim_data[algo]["fallout"][:,target] - sim_data[algo]["fallout_std"][:,target],
             sim_data[algo]["precision"][:,target] - sim_data[algo]["precision_std"][:,target],
-            sim_data[algo]["F1"][:,target] - sim_data[algo]["F1_std"][:,target],
+            # sim_data[algo]["F1"][:,target] - sim_data[algo]["F1_std"][:,target],
             sim_data[algo]["MCC"][:,target] - sim_data[algo]["MCC_std"][:,target],
         ]
         error_plus = [
@@ -63,7 +63,7 @@ function build_dataframe(sim_data::Dict{String,Any})
             sim_data[algo]["sensitivity"][:,target] + sim_data[algo]["sensitivity_std"][:,target],
             sim_data[algo]["fallout"][:,target] + sim_data[algo]["fallout_std"][:,target],
             sim_data[algo]["precision"][:,target] + sim_data[algo]["precision_std"][:,target],
-            sim_data[algo]["F1"][:,target] + sim_data[algo]["F1_std"][:,target],
+            # sim_data[algo]["F1"][:,target] + sim_data[algo]["F1_std"][:,target],
             sim_data[algo]["MCC"][:,target] + sim_data[algo]["MCC_std"][:,target],
         ]
         if algo == "first-component" || algo == "sztorc"
