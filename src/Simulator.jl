@@ -64,9 +64,15 @@ module Simulator
         METRICS::Vector{ASCIIString}
         STATISTICS::Vector{ASCIIString}
 
+<<<<<<< Updated upstream
         Simulation(;events::Int=50,
                     reporters::Int=100,
                     itermax::Int=250,
+=======
+        Simulation(;events::Int=25,
+                    reporters::Int=50,
+                    itermax::Int=50,
+>>>>>>> Stashed changes
                     timesteps::Int=100,
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
@@ -74,7 +80,7 @@ module Simulator
                     distort::Float64=0.0,
                     responses::UnitRange{Int}=-1:1,
                     alpha::Float64=0.2,
-                    beta::Float64=0.5,
+                    beta::Float64=0.75,
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
                     collude::Float64=0.3,
