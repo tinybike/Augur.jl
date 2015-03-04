@@ -64,16 +64,10 @@ module Simulator
         METRICS::Vector{ASCIIString}
         STATISTICS::Vector{ASCIIString}
 
-<<<<<<< Updated upstream
-        Simulation(;events::Int=50,
-                    reporters::Int=100,
-                    itermax::Int=250,
-=======
-        Simulation(;events::Int=25,
-                    reporters::Int=50,
-                    itermax::Int=50,
->>>>>>> Stashed changes
-                    timesteps::Int=100,
+        Simulation(;events::Int=20,
+                    reporters::Int=40,
+                    itermax::Int=20,
+                    timesteps::Int=50,
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
                     variance_threshold::Float64=0.9,

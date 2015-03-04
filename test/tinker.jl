@@ -1,6 +1,7 @@
 @everywhere using Simulator
 
-liar_thresholds = 0.05:0.05:0.95
+# liar_thresholds = 0.05:0.05:0.95
+liar_thresholds = 0.1:0.1:0.9
 algos = [
     "sztorc",
     "cokurtosis",
