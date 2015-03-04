@@ -129,7 +129,6 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
     )
     pl_file = "plots/single/" * metric * "_" * repr(now()) * ".svg"
     draw(SVG(pl_file, 10inch, 7inch), pl)
-    println("Individual plots saved to plots/single directory")
 end
 
 # String containing info about simulation (goes in figure title)
@@ -165,4 +164,5 @@ function plot_simulations(sim_data::Dict{String,Any})
     for m in sim_data["sim"].METRICS
         plot_dataframe(build_dataframe(sim_data, m), title, m)
     end
+    println("Individual plots saved to plots/single/")
 end
