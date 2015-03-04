@@ -2,12 +2,11 @@ using Simulator
 using DataFrames
 using Gadfly
 
+# Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})
     const num_algos = length(sim_data["sim"].ALGOS)
     const num_metrics = length(sim_data["sim"].METRICS)
     const gridrows = length(sim_data["liar_threshold"])
-
-    # Build plotting dataframe
     const liar_threshold = repmat(sim_data["liar_threshold"],
                                   num_algos*num_metrics,
                                   1)[:] * 100
@@ -17,102 +16,76 @@ function build_dataframe(sim_data::Dict{String,Any})
     error_minus = (Float64)[]
     error_plus = (Float64)[]
     for algo in sim_data["sim"].ALGOS
-        if sim_data["parametrize"] && algo == "fixed-variance"
-            target = last(findmax(sum(sim_data[algo]["correct"], 1)))
-        else
-            target = 1
-        end
-        data = [
-            data,
-            sim_data[algo]["beats"][:,target],
-            sim_data[algo]["liars_bonus"][:,target],
-            sim_data[algo]["correct"][:,target],
-            sim_data[algo]["sensitivity"][:,target],
-            sim_data[algo]["fallout"][:,target],
-            sim_data[algo]["precision"][:,target],
-            # sim_data[algo]["F1"][:,target],
-            sim_data[algo]["MCC"][:,target],
-        ]
-        metrics = [
-            metrics,
-            fill!(Array(String, gridrows), "beats"),
-            fill!(Array(String, gridrows), "liars' bonus"),
-            fill!(Array(String, gridrows), "correct"),
-            fill!(Array(String, gridrows), "sensitivity"),
-            fill!(Array(String, gridrows), "fallout"),
-            fill!(Array(String, gridrows), "precision"),
-            # fill!(Array(String, gridrows), "F1"),
-            fill!(Array(String, gridrows), "MCC"),
-        ]
-        error_minus = [
-            error_minus,
-            sim_data[algo]["beats"][:,target] - sim_data[algo]["beats_std"][:,target],
-            sim_data[algo]["liars_bonus"][:,target] - sim_data[algo]["liars_bonus_std"][:,target],
-            sim_data[algo]["correct"][:,target] - sim_data[algo]["correct_std"][:,target],
-            sim_data[algo]["sensitivity"][:,target] - sim_data[algo]["sensitivity_std"][:,target],
-            sim_data[algo]["fallout"][:,target] - sim_data[algo]["fallout_std"][:,target],
-            sim_data[algo]["precision"][:,target] - sim_data[algo]["precision_std"][:,target],
-            # sim_data[algo]["F1"][:,target] - sim_data[algo]["F1_std"][:,target],
-            sim_data[algo]["MCC"][:,target] - sim_data[algo]["MCC_std"][:,target],
-        ]
-        error_plus = [
-            error_plus,
-            sim_data[algo]["beats"][:,target] + sim_data[algo]["beats_std"][:,target],
-            sim_data[algo]["liars_bonus"][:,target] + sim_data[algo]["liars_bonus_std"][:,target],
-            sim_data[algo]["correct"][:,target] + sim_data[algo]["correct_std"][:,target],
-            sim_data[algo]["sensitivity"][:,target] + sim_data[algo]["sensitivity_std"][:,target],
-            sim_data[algo]["fallout"][:,target] + sim_data[algo]["fallout_std"][:,target],
-            sim_data[algo]["precision"][:,target] + sim_data[algo]["precision_std"][:,target],
-            # sim_data[algo]["F1"][:,target] + sim_data[algo]["F1_std"][:,target],
-            sim_data[algo]["MCC"][:,target] + sim_data[algo]["MCC_std"][:,target],
-        ]
-        if algo == "first-component" || algo == "sztorc"
-            algo = "Sztorc"
-        elseif algo == "fourth-cumulant" || algo == "cokurtosis"
-            algo = "Cokurtosis"
-        elseif algo == "covariance-ratio" || algo == "covariance"
-            algo = "Covariance"
-        elseif algo == "fixed-variance"
-            algo = "Fixed-variance"
-        elseif algo == "coskewness"
-            algo = "Coskewness"
-        elseif algo == "FVT+cokurtosis"
-            algo = "FVT + Cokurtosis"
+        for m in sim_data["sim"].METRICS
+            m_std = m * "_std"
+            data = [data, sim_data[algo][m][:,1]]
+            metrics = [metrics, fill!(Array(String, gridrows), m)]
+            error_minus = [
+                error_minus,
+                sim_data[algo][m][:,1] - sim_data[algo][m_std][:,1],
+            ]
+            error_plus = [
+                error_plus,
+                sim_data[algo][m][:,1] + sim_data[algo][m_std][:,1],
+            ]
         end
         algos = [
             algos,
-            repmat(fill!(Array(String, gridrows), algo), num_metrics, 1)[:],
+            repmat(fill!(Array(String, gridrows),
+                         string(uppercase(algo[1]), algo[2:end])),
+                   num_metrics, 1)[:],
         ]
     end
-    df = DataFrame(metric=metrics[:],
-                   liar_threshold=liar_threshold[:],
-                   data=data[:],
-                   error_minus=error_minus[:],
-                   error_plus=error_plus[:],
-                   algorithm=algos[:])
-
-    # Plot metrics vs liar_threshold parameter
-    optstr = ""
-    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
-        optstr *= (sim_data["sim"].(flag)) ? " " * string(flag) : ""
-    end
-    infoblurb = string(
-        sim_data["sim"].REPORTERS,
-        " users reporting on ",
-        sim_data["sim"].EVENTS,
-        " events over ",
-        sim_data["sim"].TIMESTEPS,
-        " timesteps (",
-        sim_data["sim"].ITERMAX,
-        " iterations @ γ = ",
-        sim_data["sim"].COLLUDE,
-        ")",
-        optstr,
+    DataFrame(
+        metric=metrics[:],
+        liar_threshold=liar_threshold[:],
+        data=data[:],
+        error_minus=error_minus[:],
+        error_plus=error_plus[:],
+        algorithm=algos[:],
     )
-    (df, infoblurb)
 end
 
-function plot_dataframe(df::DataFrame, infoblurb::String)
+# Plotting dataframe for each metric separately
+function build_dataframe(sim_data::Dict{String,Any}, metric::String)
+    const num_algos = length(sim_data["sim"].ALGOS)
+    const gridrows = length(sim_data["liar_threshold"])
+    const liar_threshold = repmat(sim_data["liar_threshold"],
+                                  1, 1)[:] * 100
+    data = (Float64)[]
+    algos = (String)[]
+    metrics = (String)[]
+    error_minus = (Float64)[]
+    error_plus = (Float64)[]
+    for algo in sim_data["sim"].ALGOS
+        data = [data, sim_data[algo][metric][:,1]]
+        metrics = [metrics, fill!(Array(String, gridrows), metric)]
+        error_minus = [
+            error_minus,
+            sim_data[algo][metric][:,1] - sim_data[algo][metric * "_std"][:,1],
+        ]
+        error_plus = [
+            error_plus,
+            sim_data[algo][metric][:,1] + sim_data[algo][metric * "_std"][:,1],
+        ]
+        algos = [
+            algos,
+            repmat(fill!(Array(String, gridrows),
+                         string(uppercase(algo[1]), algo[2:end])),
+                   1, 1)[:],
+        ]
+    end
+    DataFrame(
+        liar_threshold=liar_threshold[:],
+        data=data[:],
+        error_minus=error_minus[:],
+        error_plus=error_plus[:],
+        algorithm=algos[:],
+    )
+end
+
+# Plot all metrics vs liar_threshold value
+function plot_dataframe(df::DataFrame, title::String)
     pl = plot(df,
         x=:liar_threshold,
         y=:data,
@@ -122,7 +95,7 @@ function plot_dataframe(df::DataFrame, infoblurb::String)
         color=:algorithm,
         Guide.XLabel("% liars"),
         Guide.YLabel(""),
-        Guide.Title(infoblurb),
+        Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
         Scale.y_continuous(format=:plain),
         Geom.subplot_grid(
@@ -137,9 +110,61 @@ function plot_dataframe(df::DataFrame, infoblurb::String)
     println("Plot saved to ", pl_file)
 end
 
+function plot_dataframe(df::DataFrame, title::String, metric::String)
+    pl = plot(df,
+        x=:liar_threshold,
+        y=:data,
+        ymin=:error_minus,
+        ymax=:error_plus,
+        color=:algorithm,
+        Guide.XLabel("% liars"),
+        Guide.YLabel(metric),
+        Guide.Title(title),
+        Theme(panel_stroke=color("#848484")),
+        Scale.y_continuous(
+            format=:plain,
+            minvalue=minimum(df[:error_minus]),
+            maxvalue=maximum(df[:error_plus]),
+        ),
+        Geom.point,
+        Geom.line,
+        Geom.errorbar,
+    )
+    pl_file = "plots/single/$metric_" * repr(now()) * ".svg"
+    draw(SVG(pl_file, 10inch, 7inch), pl)
+end
+
+# String containing info about simulation (goes in figure title)
+function build_title(sim_data::Dict{String,Any})
+    optstr = ""
+    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
+        optstr *= (sim_data["sim"].(flag)) ? " " * string(flag) : ""
+    end
+    string(
+        sim_data["sim"].REPORTERS,
+        " users reporting on ",
+        sim_data["sim"].EVENTS,
+        " events over ",
+        sim_data["sim"].TIMESTEPS,
+        " timesteps (",
+        sim_data["sim"].ITERMAX,
+        " iterations @ γ = ",
+        sim_data["sim"].COLLUDE,
+        ")",
+        optstr,
+    )
+end
+
 # Gadfly plots
 function plot_simulations(sim_data::Dict{String,Any})
     println("Building plots...")
-    df, infoblurb = build_dataframe(sim_data)
-    plot_dataframe(df, infoblurb)    
+    title = build_title(sim_data)
+    
+    # Stacked plots with all metrics
+    plot_dataframe(build_dataframe(sim_data), title)
+
+    # Separate plots for each metric
+    for m in sim_data["sim"].METRICS
+        plot_dataframe(build_dataframe(sim_data, m), title, m)
+    end
 end

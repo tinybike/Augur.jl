@@ -126,16 +126,10 @@ function simulate(sim::Simulation)
     processed_data
 end
 
-function run_simulations(ltr::Range;
-                         algos::Vector{ASCIIString}=["sztorc",
-                                                     "fixed-variance"],
-                         save_raw_data::Bool=false)
+function run_simulations(ltr::Range, sim::Simulation)
     println("Simulating:")
 
     # Run parallel simulations
-    sim = Simulation()
-    sim.ALGOS = algos
-    sim.SAVE_RAW_DATA = save_raw_data
     raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr
         println(lt)
         sim.LIAR_THRESHOLD = lt
@@ -175,4 +169,14 @@ function run_simulations(ltr::Range;
         end
     end
     save_data(sim, results, ltr)
+end
+
+function run_simulations(ltr::Range;
+                         algos::Vector{ASCIIString}=["sztorc",
+                                                     "fixed-variance"],
+                         save_raw_data::Bool=false)
+    sim = Simulation()
+    sim.ALGOS = algos
+    sim.SAVE_RAW_DATA = save_raw_data
+    run_simulations(ltr, sim)
 end

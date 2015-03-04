@@ -28,15 +28,12 @@ function compute_metrics(sim::Simulation,
     # Precision (positive predictive value): liars punished / total punished
     precision = liars_punished / total_punished
 
-    metrix = (Symbol => Float64)[
+    (Symbol => Float64)[
         :sensitivity => sensitivity,
         :precision => precision,
 
         # Fall-out/false positive rate (1 - specificity): 1 - trues rewarded / num trues
         :fallout => 1.0 - sum(~tested_as_liars[data[:trues]]) / data[:num_trues],
-
-        # F1 score: harmonic mean of precision and sensitivity
-        :F1 => 2 * precision * sensitivity / (precision + sensitivity),
 
         # Matthews correlation coefficient
         :MCC => (liars_punished*trues_rewarded - liars_rewarded*trues_punished) / sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded),
