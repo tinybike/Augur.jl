@@ -1,13 +1,12 @@
 @everywhere using Simulator
 
-# liar_thresholds = 0.05:0.05:0.95
-liar_thresholds = 0.1:0.4:0.9
+liar_thresholds = 0.05:0.05:0.95
 
 sim = Simulation()
-sim.EVENTS = 5
-sim.REPORTERS = 10 
-sim.ITERMAX = 10
-sim.TIMESTEPS = 2
+sim.EVENTS = 25
+sim.REPORTERS = 50 
+sim.ITERMAX = 50
+sim.TIMESTEPS = 25
 # sim.STEADYSTATE = false
 # sim.LIAR_THRESHOLD = 0.6
 # sim.VARIANCE_THRESHOLD = 0.9

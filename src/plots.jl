@@ -50,16 +50,13 @@ end
 function build_dataframe(sim_data::Dict{String,Any}, metric::String)
     const num_algos = length(sim_data["sim"].ALGOS)
     const gridrows = length(sim_data["liar_threshold"])
-    const liar_threshold = repmat(sim_data["liar_threshold"],
-                                  1, 1)[:] * 100
+    const liar_threshold = repmat(sim_data["liar_threshold"], num_algos, 1)[:] * 100
     data = (Float64)[]
     algos = (String)[]
-    metrics = (String)[]
     error_minus = (Float64)[]
     error_plus = (Float64)[]
     for algo in sim_data["sim"].ALGOS
         data = [data, sim_data[algo][metric][:,1]]
-        metrics = [metrics, fill!(Array(String, gridrows), metric)]
         error_minus = [
             error_minus,
             sim_data[algo][metric][:,1] - sim_data[algo][metric * "_std"][:,1],
@@ -130,8 +127,9 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
         Geom.line,
         Geom.errorbar,
     )
-    pl_file = "plots/single/$metric_" * repr(now()) * ".svg"
+    pl_file = "plots/single/" * metric * "_" * repr(now()) * ".svg"
     draw(SVG(pl_file, 10inch, 7inch), pl)
+    println("Individual plots saved to plots/single directory")
 end
 
 # String containing info about simulation (goes in figure title)
