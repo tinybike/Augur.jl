@@ -102,7 +102,7 @@ function simulate(sim::Simulation)
         i += 1
     end
     if sim.SAVE_RAW_DATA
-        filename = "data/raw_sim_" * repr(now()) * ".jld"
+        filename = "data/raw/raw_sim_" * repr(now()) * ".jld"
         jldopen(filename, "w") do file
             write(file, "raw_data", raw_data)
         end

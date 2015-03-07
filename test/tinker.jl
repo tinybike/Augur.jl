@@ -1,12 +1,12 @@
 @everywhere using Simulator
 
-liar_thresholds = 0.05:0.05:0.95
+liar_thresholds = 0.025:0.025:0.95
 
 sim = Simulation()
-sim.EVENTS = 25
-sim.REPORTERS = 50 
-sim.ITERMAX = 100
-sim.TIMESTEPS = 100
+sim.EVENTS = 50
+sim.REPORTERS = 100 
+sim.ITERMAX = 500
+sim.TIMESTEPS = 1000
 # sim.STEADYSTATE = false
 # sim.LIAR_THRESHOLD = 0.6
 # sim.VARIANCE_THRESHOLD = 0.9
@@ -26,7 +26,7 @@ sim.ALGOS = [
     "sztorc",
     "fixed-variance",
     # "covariance",
-    "cokurtosis",
+    # "cokurtosis",
     # "inverse-scores",
     # "coskewness",
 ]
