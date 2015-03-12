@@ -44,29 +44,19 @@ function simulate(sim::Simulation)
                 
                 if algo == "coskewness"
 
-                    # Coskewness tensor (cube)
-                    tensor = coskew(data[:reports]'; standardize=true, bias=1)
-
                     # Per-user coskewness contribution
-                    contrib = sum(sum(tensor, 3), 2)[:]
+                    contrib = contraction(data[:reports]', 3; standardize=true, bias=0)
                     data[:aux] = [ :coskew => contrib / sum(contrib) ]
 
                 elseif algo == "cokurtosis"
 
-                    # Cokurtosis tensor (tesseract)
-                    tensor = cokurt(data[:reports]'; standardize=true, bias=1)
-
                     # Per-user cokurtosis contribution
-                    contrib = sum(sum(sum(tensor, 4), 3), 2)[:]
+                    contrib = contraction(data[:reports]', 4; standardize=true, bias=0)
                     data[:aux] = [ :cokurt => contrib / sum(contrib) ]
 
                 elseif algo == "FVT+cokurtosis"
 
-                    # Cokurtosis tensor (tesseract)
-                    tensor = cokurt(data[:reports]'; standardize=true, bias=1)
-
-                    # Per-user cokurtosis contribution
-                    contrib = sum(sum(sum(tensor, 4), 3), 2)[:]
+                    contrib = contraction(data[:reports]', 4; standardize=true, bias=0)
                     data[:aux] = [ :cokurt => contrib / sum(contrib) ]
                 end
 
