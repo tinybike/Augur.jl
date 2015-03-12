@@ -162,8 +162,7 @@ function run_simulations(ltr::Range, sim::Simulation)
 end
 
 function run_simulations(ltr::Range;
-                         algos::Vector{ASCIIString}=["sztorc",
-                                                     "fixed-variance"],
+                         algos::Vector{ASCIIString}=["fixed-variance"],
                          save_raw_data::Bool=false)
     sim = Simulation()
     sim.ALGOS = algos

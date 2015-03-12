@@ -4,9 +4,9 @@ liar_thresholds = 0.1:0.1:0.9
 
 sim = Simulation()
 sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 100
-sim.TIMESTEPS = 5
+sim.REPORTERS = 25
+sim.ITERMAX = 50
+sim.TIMESTEPS = 10
 # sim.STEADYSTATE = false
 # sim.LIAR_THRESHOLD = 0.6
 # sim.VARIANCE_THRESHOLD = 0.9
@@ -23,9 +23,9 @@ sim.INDISCRIMINATE = true
 # sim.ALLWRONG = false
 sim.SAVE_RAW_DATA = true
 sim.ALGOS = [
-    "sztorc",
-    "fixed-variance",
-    "covariance",
+    # "sztorc",
+    # "fixed-variance",
+    # "covariance",
     "cokurtosis",
     # "inverse-scores",
     # "coskewness",
@@ -42,5 +42,9 @@ sim.METRICS = [
 sim.STATISTICS = ["mean", "stderr"]
 
 # Run simulations and save results
-@time sim_data = run_simulations(liar_thresholds, sim)
-plot_simulations(sim_data)
+# @time sim_data = run_simulations(liar_thresholds, sim)
+# plot_simulations(sim_data)
+
+complexity(10:5:100, sim, param="REPORTERS")
+complexity(10:5:100, sim, param="EVENTS")
+complexity(10:5:100, sim, param="BOTH")

@@ -18,7 +18,7 @@ Monte Carlo simulations, statistics and plotting tools for [Augur](http://www.au
 
     julia> plot_simulations(simulation_results)
 
-The simulations are parallelized.  To run parallel simulations using all available cores:
+The simulations are parallelized.  To run using all available cores:
 
     $ cd test && julia -p `nproc` runtests.jl
 

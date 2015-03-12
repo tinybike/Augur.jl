@@ -14,7 +14,9 @@ module Simulator
         run_simulations,
         plot_simulations,
         load_data,
-        save_data
+        save_data,
+        complexity_reporters,
+        complexity_events
 
     type Simulation
 
@@ -125,6 +127,7 @@ module Simulator
     end
 
     include("simulate.jl")
+    include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")
     include("plots.jl")
