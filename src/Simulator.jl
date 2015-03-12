@@ -15,8 +15,7 @@ module Simulator
         plot_simulations,
         load_data,
         save_data,
-        complexity_reporters,
-        complexity_events
+        complexity
 
     type Simulation
 

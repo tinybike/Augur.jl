@@ -5,8 +5,8 @@ liar_thresholds = 0.1:0.1:0.9
 sim = Simulation()
 sim.EVENTS = 25
 sim.REPORTERS = 25
-sim.ITERMAX = 50
-sim.TIMESTEPS = 10
+sim.ITERMAX = 1
+sim.TIMESTEPS = 2
 # sim.STEADYSTATE = false
 # sim.LIAR_THRESHOLD = 0.6
 # sim.VARIANCE_THRESHOLD = 0.9
@@ -45,6 +45,6 @@ sim.STATISTICS = ["mean", "stderr"]
 # @time sim_data = run_simulations(liar_thresholds, sim)
 # plot_simulations(sim_data)
 
-complexity(10:5:100, sim, param="REPORTERS")
-complexity(10:5:100, sim, param="EVENTS")
-complexity(10:5:100, sim, param="BOTH")
+complexity(10:5:100, sim, iterations=5, param="REPORTERS")
+complexity(10:5:100, sim, iterations=5, param="EVENTS")
+complexity(10:5:100, sim, iterations=5, param="BOTH")

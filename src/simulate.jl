@@ -41,7 +41,7 @@ function simulate(sim::Simulation)
                 else
                     reputation = A[algo]["agents"]["smooth_rep"]
                 end
-                
+
                 if algo == "coskewness"
 
                     # Per-user coskewness contribution
