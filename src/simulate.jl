@@ -54,10 +54,6 @@ function simulate(sim::Simulation)
                     contrib = contraction(data[:reports]', 4; standardize=true, bias=0)
                     data[:aux] = [ :cokurt => contrib / sum(contrib) ]
 
-                elseif algo == "FVT+cokurtosis"
-
-                    contrib = contraction(data[:reports]', 4; standardize=true, bias=0)
-                    data[:aux] = [ :cokurt => contrib / sum(contrib) ]
                 end
 
                 # Use pyconsensus for event resolution

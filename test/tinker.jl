@@ -4,8 +4,18 @@ liar_thresholds = 0.1:0.1:0.9
 
 sim = Simulation()
 
-# include("defaults_liar.jl")
-include("defaults_cplx.jl")
+simtype = "cplx"
+if length(ARGS) > 0
+    if ARGS[1] == "cplx"
+        simtype = "cplx"
+    elseif ARGS[2] == "liar"
+        simtype = "liar"
+    else
+        exit("Unknown mode")
+    end
+end
+
+include("defaults_" * simtype * ".jl")
 
 sim.SAVE_RAW_DATA = true
 sim.ALGOS = [
@@ -14,10 +24,18 @@ sim.ALGOS = [
     "cokurtosis",
 ]
 
-# Run simulations and save results
-# @time sim_data = run_simulations(liar_thresholds, sim)
-# plot_simulations(sim_data)
+# Run simulations and save results:
+#   - binary classifier quality metrics
+#   - graphical algorithm comparison
+if simtype == "liar"
+    @time sim_data = run_simulations(liar_thresholds, sim)
+    plot_simulations(sim_data)
 
-@time complexity(10:10:100, sim; iterations=5, param="reporters")
-# @time complexity(10:5:100, sim; iterations=5, param="events")
-# @time complexity(10:5:100, sim; iterations=5, param="both")
+# Timing/complexity
+elseif simtype == "cplx"
+    println("Timed simulations:")
+    param_range = 10:5:100
+    @time complexity(param_range, sim; iterations=10, param="reporters")
+    @time complexity(param_range, sim; iterations=10, param="events")
+    @time complexity(param_range, sim; iterations=10, param="both")
+end

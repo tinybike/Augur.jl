@@ -1,5 +1,5 @@
-sim.EVENTS = 25
-sim.REPORTERS = 25
+sim.EVENTS = 10
+sim.REPORTERS = 10
 sim.ITERMAX = 1
 sim.TIMESTEPS = 1
 # sim.STEADYSTATE = false

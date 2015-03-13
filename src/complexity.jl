@@ -7,17 +7,32 @@ function save_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
     println("Data saved to ", filename)
 end
 
-function plot_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
-                           timestamp::String,
-                           param::String,
-                           algorithm::String)
-    df = DataFrame(
-        param=[param_range],
-        time_elapsed=time_elapsed[:mean],
-        error_minus=time_elapsed[:mean]-time_elapsed[:std],
-        error_plus=time_elapsed[:mean]+time_elapsed[:std],
+function infostring(sim::Simulation)
+    optstr = ""
+    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
+        optstr *= (sim.(flag)) ? " " * string(flag) : ""
+    end
+    string(
+        first(sim.ALGOS),
+        ": ",
+        sim.REPORTERS,
+        " users reporting on ",
+        sim.EVENTS,
+        " events over ",
+        sim.TIMESTEPS,
+        " timesteps (",
+        sim.ITERMAX,
+        " iterations @ γ = ",
+        sim.COLLUDE,
+        ")",
+        optstr,
     )
-    println(display(df))
+end
+
+function plot_time_elapsed(df::DataFrame,
+                           timestamp::String,
+                           parameter::String,
+                           title::String)    
     pl = plot(df,
         x=:param,
         y=:time_elapsed,
@@ -25,24 +40,18 @@ function plot_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
         ymax=:error_plus,
         Guide.XLabel(param),
         Guide.YLabel("seconds elapsed"),
-        Guide.Title(algorithm),
+        Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
         Geom.point,
         Geom.line,
         Geom.errorbar,
     )
-    pl_file = "plots/time_" * param * "_" * timestamp * ".svg"
+    pl_file = "plots/time_" * parameter * "_" * timestamp * ".svg"
     draw(SVG(pl_file, 10inch, 7inch), pl)
     println("Plot saved to ", pl_file)
 end
 
-function complexity(param_range::Range,
-                    sim::Simulation;
-                    iterations::Int=1,
-                    param::String="events")
-    println("Timed simulations: varying $param")
-
-    # Warmup run
+function warmup(sim::Simulation, param::String)
     @sync @parallel (vcat) for n = 1:nprocs()
         println("warming up")
         if param == "reporters"
@@ -55,12 +64,22 @@ function complexity(param_range::Range,
         end
         @elapsed simulate(sim)
     end
+end
+
+function complexity(param_range::Range,
+                    sim::Simulation;
+                    iterations::Int=1,
+                    param::String="events")    
+    println("Varying $param...")
+
+    # Warmup run (needed for accurate timing)
+    warmup(sim, param)
 
     # Measure time elapsed
     raw::Array = @sync @parallel (vcat) for n in param_range
         println(n)
-        sim.REPORTERS = 25
-        sim.EVENTS = 25
+        sim.REPORTERS = 10
+        sim.EVENTS = 10
         if param == "reporters"
             sim.REPORTERS = n
         elseif param == "events"
@@ -79,7 +98,7 @@ function complexity(param_range::Range,
     # Timestamp when simulations complete
     timestamp = repr(now())
 
-    # Juggle, save, and plot data
+    # Juggle and save data
     L = length(param_range)
     time_elapsed = (Symbol => Vector{Float64})[
         :mean => zeros(L),
@@ -90,5 +109,14 @@ function complexity(param_range::Range,
         time_elapsed[:std][i] = raw[i][2]
     end
     save_time_elapsed(time_elapsed, timestamp)
-    plot_time_elapsed(time_elapsed, timestamp, param, first(sim.ALGOS))
+
+    # Plot data
+    df = DataFrame(
+        param=[param_range],
+        time_elapsed=time_elapsed[:mean],
+        error_minus=time_elapsed[:mean]-time_elapsed[:std],
+        error_plus=time_elapsed[:mean]+time_elapsed[:std],
+    )
+    println(display(df))
+    plot_time_elapsed(df, timestamp, parameter, infostring(sim))
 end
