@@ -70,7 +70,7 @@ function complexity(param_range::Range,
                     sim::Simulation;
                     iterations::Int=1,
                     param::String="events")    
-    println("Varying $param...")
+    println("    Varying $param...")
 
     # Warmup run (needed for accurate timing)
     warmup(sim, param)
