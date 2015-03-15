@@ -1,5 +1,8 @@
 @everywhere using Simulator
 
+liar_thresholds = 0.1:0.1:0.9
+param_range = 5:5:250
+
 sim = Simulation()
 
 simtype = "cplx"
@@ -19,22 +22,21 @@ sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
 #    "sztorc",
 #    "fixed-variance",
-    "cokurtosis",
+#    "cokurtosis",
+    "cokurtosis-old",
 ]
 
 # Run simulations and save results:
 #   - binary classifier quality metrics
 #   - graphical algorithm comparison
 if simtype == "liar"
-    liar_thresholds = 0.1:0.1:0.9
     @time sim_data = run_simulations(liar_thresholds, sim)
     plot_simulations(sim_data)
 
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    param_range = 5:5:250
-    @time complexity(param_range, sim; iterations=250, param="reporters")
-    @time complexity(param_range, sim; iterations=250, param="events")
+    # @time complexity(param_range, sim; iterations=250, param="reporters")
+    # @time complexity(param_range, sim; iterations=250, param="events")
     @time complexity(param_range, sim; iterations=250, param="both")
 end

@@ -54,6 +54,15 @@ function simulate(sim::Simulation)
                     contrib = coalesce(data[:reports]', 4; standardize=true, bias=0)
                     data[:aux] = [ :cokurt => contrib / sum(contrib) ]
 
+                elseif algo == "cokurtosis-old"
+
+                    # Cokurtosis tensor
+                    tensor = cokurt(data[:reports]'; standardize=true, bias=1)
+
+                    # Per-user cokurtosis contribution
+                    contrib = sum(sum(sum(tensor, 4), 3), 2)[:]
+                    data[:aux] = [ :cokurt => contrib / sum(contrib) ]
+
                 end
 
                 # Use pyconsensus for event resolution
@@ -158,7 +167,7 @@ function run_simulations(ltr::Range, sim::Simulation)
 end
 
 function run_simulations(ltr::Range;
-                         algos::Vector{ASCIIString}=["fixed-variance"],
+                         algos::Vector{ASCIIString}=["cokurtosis"],
                          save_raw_data::Bool=false)
     sim = Simulation()
     sim.ALGOS = algos
