@@ -17,9 +17,9 @@ include("defaults_" * simtype * ".jl")
 
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    "sztorc",
+#    "sztorc",
 #    "fixed-variance",
-#    "cokurtosis",
+    "cokurtosis",
 ]
 
 # Run simulations and save results:
@@ -34,7 +34,7 @@ if simtype == "liar"
 elseif simtype == "cplx"
     println("Timed simulations:")
     param_range = 10:5:100
-    @time complexity(param_range, sim; iterations=50, param="reporters")
-    @time complexity(param_range, sim; iterations=50, param="events")
-    @time complexity(param_range, sim; iterations=50, param="both")
+    @time complexity(param_range, sim; iterations=250, param="reporters")
+    @time complexity(param_range, sim; iterations=250, param="events")
+    @time complexity(param_range, sim; iterations=250, param="both")
 end
