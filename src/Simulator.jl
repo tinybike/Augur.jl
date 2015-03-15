@@ -15,7 +15,11 @@ module Simulator
         plot_simulations,
         load_data,
         save_data,
-        complexity
+        complexity,
+        load_time_elapsed,
+        save_time_elapsed,
+        plot_time_elapsed,
+        infostring
 
     type Simulation
 

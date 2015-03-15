@@ -1,45 +1,56 @@
 function save_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
                            timestamp::String,
-                           param::String)
+                           param::String,
+                           sim::Simulation,
+                           iterations::Int,
+                           param_range::Range)
     filename = "data/time_" * param * "_" * timestamp * ".jld"
     jldopen(filename, "w") do file
         write(file, "time_elapsed", time_elapsed)
+        write(file, "sim", sim)
+        write(file, "param", param)
+        write(file, "iterations", iterations)
+        write(file, "param_range", param_range)
+        write(file, "timestamp", timestamp)
     end
     println("Data saved to ", filename)
 end
 
-function infostring(sim::Simulation)
-    optstr = ""
-    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
-        optstr *= (sim.(flag)) ? " " * string(flag) : ""
+function load_time_elapsed(datafile::String)
+    jldopen(datafile, "r") do file
+        time_elapsed = read(file, "time_elapsed")
+        sim = read(file, "sim")
+        param = read(file, "param")
+        iterations = read(file, "iterations")
+        param_range = read(file, "param_range")
+        timestamp = read(file, "timestamp")
+        (time_elapsed, sim, param, iterations, param_range, timestamp)
     end
+end
+
+function infostring(sim::Simulation, iterations::Int)
     string(
         first(sim.ALGOS),
-        ": ",
-        sim.REPORTERS,
-        " users reporting on ",
-        sim.EVENTS,
-        " events over ",
-        sim.TIMESTEPS,
-        " timesteps (",
-        sim.ITERMAX,
-        " iterations @ γ = ",
-        sim.COLLUDE,
-        ")",
-        optstr,
+        " timing (",
+        repr(iterations),
+        " simulations)",
     )
 end
 
 function plot_time_elapsed(df::DataFrame,
                            timestamp::String,
                            parameter::String,
-                           title::String)    
+                           title::String)
+    xlabel = (parameter == "both") ? "events + reporters" : parameter
+    if parameter == "both"
+        df[:param] *= 2
+    end
     pl = plot(df,
         x=:param,
         y=:time_elapsed,
         ymin=:error_minus,
         ymax=:error_plus,
-        Guide.XLabel(parameter),
+        Guide.XLabel(xlabel),
         Guide.YLabel("seconds elapsed"),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
@@ -86,8 +97,8 @@ function complexity(param_range::Range,
             # println("iter " * repr(i))
             elapsed[i] = @elapsed simulate(sim)
         end
-        println((mean(elapsed), std(elapsed) / sqrt(iterations)))
-        (mean(elapsed), std(elapsed) / sqrt(iterations))
+        println((mean(elapsed), std(elapsed)))
+        (mean(elapsed), std(elapsed))
     end
 
     # Timestamp when simulations complete
@@ -103,7 +114,12 @@ function complexity(param_range::Range,
         time_elapsed[:mean][i] = raw[i][1]
         time_elapsed[:std][i] = raw[i][2]
     end
-    save_time_elapsed(time_elapsed, timestamp, param)
+    save_time_elapsed(time_elapsed,
+                      timestamp,
+                      param,
+                      sim,
+                      iterations,
+                      param_range)
 
     # Plot data
     df = DataFrame(
@@ -112,6 +128,5 @@ function complexity(param_range::Range,
         error_minus=time_elapsed[:mean]-time_elapsed[:std],
         error_plus=time_elapsed[:mean]+time_elapsed[:std],
     )
-    println(display(df))
-    plot_time_elapsed(df, timestamp, param, infostring(sim))
+    plot_time_elapsed(df, timestamp, param, infostring(sim, iterations))
 end
