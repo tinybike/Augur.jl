@@ -1,5 +1,6 @@
 function save_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
-                           timestamp::String)
+                           timestamp::String,
+                           param::String)
     filename = "data/time_" * param * "_" * timestamp * ".jld"
     jldopen(filename, "w") do file
         write(file, "time_elapsed", time_elapsed)
@@ -38,7 +39,7 @@ function plot_time_elapsed(df::DataFrame,
         y=:time_elapsed,
         ymin=:error_minus,
         ymax=:error_plus,
-        Guide.XLabel(param),
+        Guide.XLabel(parameter),
         Guide.YLabel("seconds elapsed"),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
@@ -54,14 +55,6 @@ end
 function warmup(sim::Simulation, param::String)
     @sync @parallel (vcat) for n = 1:nprocs()
         println("warming up")
-        if param == "reporters"
-            sim.REPORTERS = n
-        elseif param == "events"
-            sim.EVENTS = n
-        elseif param == "both"
-            sim.REPORTERS = n
-            sim.EVENTS = n
-        end
         @elapsed simulate(sim)
     end
 end
@@ -90,8 +83,10 @@ function complexity(param_range::Range,
         end
         elapsed = zeros(iterations)
         for i = 1:iterations
+            # println("iter " * repr(i))
             elapsed[i] = @elapsed simulate(sim)
         end
+        println((mean(elapsed), std(elapsed) / sqrt(iterations)))
         (mean(elapsed), std(elapsed) / sqrt(iterations))
     end
 
@@ -108,7 +103,7 @@ function complexity(param_range::Range,
         time_elapsed[:mean][i] = raw[i][1]
         time_elapsed[:std][i] = raw[i][2]
     end
-    save_time_elapsed(time_elapsed, timestamp)
+    save_time_elapsed(time_elapsed, timestamp, param)
 
     # Plot data
     df = DataFrame(
@@ -118,5 +113,5 @@ function complexity(param_range::Range,
         error_plus=time_elapsed[:mean]+time_elapsed[:std],
     )
     println(display(df))
-    plot_time_elapsed(df, timestamp, parameter, infostring(sim))
+    plot_time_elapsed(df, timestamp, param, infostring(sim))
 end

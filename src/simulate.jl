@@ -15,8 +15,10 @@ function simulate(sim::Simulation)
         end
     end
     @inbounds while i <= sim.ITERMAX
+        # println("subiter: " * repr(i))
         A = Dict{String,Any}()
         for algo in sim.ALGOS
+            # println("algo: " * algo)
             A[algo] = Dict{String,Any}()
             metrics = Dict{Symbol,Float64}()
 
@@ -31,6 +33,7 @@ function simulate(sim::Simulation)
             #     time step
             data = Dict{Symbol,Any}()
             for t = 1:sim.TIMESTEPS
+                # println("timestep " * repr(t))
                 data = generate_data(sim, reporters)
                 
                 # Assign/update reputation
@@ -56,6 +59,8 @@ function simulate(sim::Simulation)
 
                 end
 
+                # println("Oracle")
+
                 # Use pyconsensus for event resolution
                 A[algo] = pyconsensus.Oracle(
                     reports=data[:reports],
@@ -67,6 +72,8 @@ function simulate(sim::Simulation)
                     algorithm=algo,
                 )[:consensus]()
 
+                # println("Metrics")
+
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
                     sim,
@@ -76,11 +83,13 @@ function simulate(sim::Simulation)
                     A[algo]["agents"]["smooth_rep"],
                 )
                 if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
+                    # println("saving")
                     for m in sim.METRICS
                         push!(raw_data[algo][m][t], metrics[symbol(m)])
                     end
                     push!(raw_data[algo]["components"][t], A[algo]["components"])
                 end
+                # println("ok")
             end
         end
 
@@ -88,6 +97,7 @@ function simulate(sim::Simulation)
         i += 1
     end
     if sim.SAVE_RAW_DATA
+        # println("saving raw")
         filename = "data/raw/raw_sim_" * repr(now()) * ".jld"
         jldopen(filename, "w") do file
             write(file, "raw_data", raw_data)
@@ -95,6 +105,7 @@ function simulate(sim::Simulation)
     end
 
     # Convert raw data into means and standard errors for plotting
+    # println("convert data")
     processed_data = (String => Any)[
         "iterate" => iterate,
         "liar_threshold" => sim.LIAR_THRESHOLD,
@@ -109,6 +120,7 @@ function simulate(sim::Simulation)
             end
         end
     end
+    # println("done")
     processed_data
 end
 

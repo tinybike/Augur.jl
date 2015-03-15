@@ -18,8 +18,8 @@ include("defaults_" * simtype * ".jl")
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "sztorc",
-    "fixed-variance",
-    "cokurtosis",
+#    "fixed-variance",
+#    "cokurtosis",
 ]
 
 # Run simulations and save results:
