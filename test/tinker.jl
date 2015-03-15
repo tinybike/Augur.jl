@@ -1,7 +1,7 @@
 @everywhere using Simulator
 
 liar_thresholds = 0.1:0.1:0.9
-param_range = 5:5:250
+param_range = 10:5:40
 
 sim = Simulation()
 
@@ -38,5 +38,5 @@ elseif simtype == "cplx"
     println("Timed simulations:")
     # @time complexity(param_range, sim; iterations=250, param="reporters")
     # @time complexity(param_range, sim; iterations=250, param="events")
-    @time complexity(param_range, sim; iterations=250, param="both")
+    @time complexity(param_range, sim; iterations=25, param="both")
 end
