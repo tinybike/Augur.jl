@@ -94,7 +94,6 @@ function complexity(param_range::Range,
         end
         elapsed = zeros(iterations)
         for i = 1:iterations
-            # println("iter " * repr(i))
             elapsed[i] = @elapsed simulate(sim)
         end
         println((mean(elapsed), std(elapsed)))

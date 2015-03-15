@@ -1,6 +1,4 @@
 function create_reporters(sim::Simulation)
-    
-    # println("create_reporters")
 
     # simplest version: no distortion
     distort_threshold = sim.LIAR_THRESHOLD
@@ -20,15 +18,8 @@ function create_reporters(sim::Simulation)
     num_distorts = length(distorts)
     num_liars = length(liars)
 
-    # println("building")
 
     while num_trues == 0 || num_liars == 0
-        # println(reporters)
-        # println(num_trues)
-        # println(num_liars)
-        # println("")
-        # println("REPORTERS: " * repr(sim.REPORTERS))
-        # println("EVENTS: " * repr(sim.EVENTS))
         honesty = rand(sim.REPORTERS)
         reporters = fill("", sim.REPORTERS)
         reporters[honesty .>= distort_threshold] = "true"
