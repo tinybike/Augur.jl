@@ -33,7 +33,7 @@ if simtype == "liar"
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    param_range = 10:5:100
+    param_range = 5:5:250
     @time complexity(param_range, sim; iterations=250, param="reporters")
     @time complexity(param_range, sim; iterations=250, param="events")
     @time complexity(param_range, sim; iterations=250, param="both")
