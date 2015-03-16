@@ -82,8 +82,8 @@ function complexity(param_range::Range,
     # Measure time elapsed
     raw::Array = @sync @parallel (vcat) for n in param_range
         println(n)
-        sim.REPORTERS = 10
-        sim.EVENTS = 10
+        sim.REPORTERS = 25
+        sim.EVENTS = 25
         if param == "reporters"
             sim.REPORTERS = n
         elseif param == "events"
@@ -96,8 +96,7 @@ function complexity(param_range::Range,
         for i = 1:iterations
             elapsed[i] = @elapsed simulate(sim)
         end
-        println((mean(elapsed), std(elapsed)))
-        (mean(elapsed), std(elapsed))
+        (mean(elapsed), std(elapsed) / sim.SQRTN)
     end
 
     # Timestamp when simulations complete
