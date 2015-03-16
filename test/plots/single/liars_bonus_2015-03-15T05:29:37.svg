@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-1e109009ea374ad891082ca9bdeef9af-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-1e109009ea374ad891082ca9bdeef9af-element-2">
+    <text x="126.29" y="169.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-1e109009ea374ad891082ca9bdeef9af-element-3">
+    <text x="21.75" y="162.19" text-anchor="middle">0</text>
+    <text x="74.02" y="162.19" text-anchor="middle">25</text>
+    <text x="126.29" y="162.19" text-anchor="middle">50</text>
+    <text x="178.56" y="162.19" text-anchor="middle">75</text>
+    <text x="230.83" y="162.19" text-anchor="middle">100</text>
+  </g>
+  <g class="guide colorkey" id="fig-1e109009ea374ad891082ca9bdeef9af-element-4">
+    <g class="color_Sztorc" id="fig-1e109009ea374ad891082ca9bdeef9af-element-5">
+      <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-1e109009ea374ad891082ca9bdeef9af-element-6">
+        <text x="236.64" y="87.38" dy="0.35em">Sztorc</text>
+      </g>
+      <g fill="#00BFFF" stroke="none" id="fig-1e109009ea374ad891082ca9bdeef9af-element-7">
+        <rect x="233.83" y="86.47" width="1.81" height="1.81"/>
+      </g>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-1e109009ea374ad891082ca9bdeef9af-element-8">
+      <text x="233.83" y="83.56">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-1e109009ea374ad891082ca9bdeef9af-element-10)" id="fig-1e109009ea374ad891082ca9bdeef9af-element-9">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-1e109009ea374ad891082ca9bdeef9af-element-11">
+      <rect x="19.75" y="12.61" width="213.08" height="145.9"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-1e109009ea374ad891082ca9bdeef9af-element-12">
+      <path fill="none" d="M19.75,156.51 L 232.83 156.51"/>
+      <path fill="none" d="M19.75,128.13 L 232.83 128.13"/>
+      <path fill="none" d="M19.75,99.75 L 232.83 99.75"/>
+      <path fill="none" d="M19.75,71.37 L 232.83 71.37"/>
+      <path fill="none" d="M19.75,42.99 L 232.83 42.99"/>
+      <path fill="none" d="M19.75,14.61 L 232.83 14.61"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-1e109009ea374ad891082ca9bdeef9af-element-13">
+      <path fill="none" d="M21.75,12.61 L 21.75 158.51"/>
+      <path fill="none" d="M74.02,12.61 L 74.02 158.51"/>
+      <path fill="none" d="M126.29,12.61 L 126.29 158.51"/>
+      <path fill="none" d="M178.56,12.61 L 178.56 158.51"/>
+      <path fill="none" d="M230.83,12.61 L 230.83 158.51"/>
+    </g>
+    <g class="plotpanel" id="fig-1e109009ea374ad891082ca9bdeef9af-element-14">
+      <g stroke-width="0.3" id="fig-1e109009ea374ad891082ca9bdeef9af-element-15">
+        <path fill="none" d="M41.15,105.42 L 44.15 105.42" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M62.06,111.67 L 65.06 111.67" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M82.97,118.95 L 85.97 118.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M103.88,127.73 L 106.88 127.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M124.79,136.75 L 127.79 136.75" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M145.7,127.64 L 148.7 127.64" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M166.6,80.92 L 169.6 80.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M187.51,58.39 L 190.51 58.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M208.42,46.32 L 211.42 46.32" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M42.65,104.93 L 42.65 105.42" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M63.56,110.76 L 63.56 111.67" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M84.47,117.53 L 84.47 118.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M105.38,125.66 L 105.38 127.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M126.29,133.72 L 126.29 136.75" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M147.2,121.68 L 147.2 127.64" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M168.1,73.32 L 168.1 80.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M189.01,52.94 L 189.01 58.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M209.92,41.96 L 209.92 46.32" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M41.15,104.93 L 44.15 104.93" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M62.06,110.76 L 65.06 110.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M82.97,117.53 L 85.97 117.53" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M103.88,125.66 L 106.88 125.66" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M124.79,133.72 L 127.79 133.72" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M145.7,121.68 L 148.7 121.68" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M166.6,73.32 L 169.6 73.32" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M187.51,52.94 L 190.51 52.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M208.42,41.96 L 211.42 41.96" class="geometry color_Sztorc" stroke="#0096D4"/>
+      </g>
+      <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-1e109009ea374ad891082ca9bdeef9af-element-16">
+        <path fill="none" d="M42.65,105.17 L 63.56 111.22 84.47 118.24 105.38 126.7 126.29 135.24 147.2 124.66 168.1 77.12 189.01 55.67 209.92 44.14"/>
+      </g>
+      <g class="geometry" id="fig-1e109009ea374ad891082ca9bdeef9af-element-17">
+        <g stroke-width="0.3" id="fig-1e109009ea374ad891082ca9bdeef9af-element-18">
+          <circle cx="42.65" cy="105.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="63.56" cy="111.22" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="84.47" cy="118.24" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="105.38" cy="126.7" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="126.29" cy="135.24" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="147.2" cy="124.66" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="168.1" cy="77.12" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="189.01" cy="55.67" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="209.92" cy="44.14" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-1e109009ea374ad891082ca9bdeef9af-element-19">
+    <text x="18.75" y="156.51" text-anchor="end" dy="0.35em">-0.2</text>
+    <text x="18.75" y="128.13" text-anchor="end" dy="0.35em">-0.1</text>
+    <text x="18.75" y="99.75" text-anchor="end" dy="0.35em">0.0</text>
+    <text x="18.75" y="71.37" text-anchor="end" dy="0.35em">0.1</text>
+    <text x="18.75" y="42.99" text-anchor="end" dy="0.35em">0.2</text>
+    <text x="18.75" y="14.61" text-anchor="end" dy="0.35em">0.3</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-1e109009ea374ad891082ca9bdeef9af-element-20">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)">liars_bonus</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-1e109009ea374ad891082ca9bdeef9af-element-21">
+    <text x="126.29" y="10.61" text-anchor="middle">100 users reporting on 50 events over 1 timesteps (250 iterations @ γ = 0.3) INDISCRIMINATE</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-1e109009ea374ad891082ca9bdeef9af-element-10">
+  <path d="M19.75,12.61 L 232.83 12.61 232.83 158.51 19.75 158.51" />
+</clipPath
+></defs>
+</svg>

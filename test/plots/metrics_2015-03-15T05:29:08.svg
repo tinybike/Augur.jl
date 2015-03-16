@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="304.8mm" height="304.8mm" viewBox="0 0 304.8 304.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-2">
+    <text x="144.31" y="296.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide colorkey" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-3">
+    <g class="color_Sztorc" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-4">
+      <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-5">
+        <text x="287.44" y="153.21" dy="0.35em">Sztorc</text>
+      </g>
+      <g fill="#00BFFF" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-6">
+        <rect x="284.63" y="152.31" width="1.81" height="1.81"/>
+      </g>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-7">
+      <text x="284.63" y="149.39">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-9)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-8">
+    <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-10">
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-12)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-11">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-13">
+          <rect x="19.75" y="252.53" width="261.88" height="37.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-14">
+          <path fill="none" d="M19.75,288.19 L 281.63 288.19"/>
+          <path fill="none" d="M19.75,279.77 L 281.63 279.77"/>
+          <path fill="none" d="M19.75,271.36 L 281.63 271.36"/>
+          <path fill="none" d="M19.75,262.95 L 281.63 262.95"/>
+          <path fill="none" d="M19.75,254.53 L 281.63 254.53"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-15">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-16">
+            <path fill="none" d="M46.03,255.41 L 49.03 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.98 L 74.82 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.83 L 100.61 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.76 L 126.4 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,255.51 L 152.19 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,261.73 L 177.98 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,278.48 L 203.76 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,283.08 L 229.55 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.79 L 255.34 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.41 L 49.03 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.98 L 74.82 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.83 L 100.61 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.76 L 126.4 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,255.51 L 152.19 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,261.73 L 177.98 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,278.48 L 203.76 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,283.08 L 229.55 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.79 L 255.34 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.41 L 49.03 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.98 L 74.82 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.83 L 100.61 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.76 L 126.4 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,255.51 L 152.19 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,261.73 L 177.98 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,278.48 L 203.76 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,283.08 L 229.55 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.79 L 255.34 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.41 L 49.03 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.98 L 74.82 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.83 L 100.61 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.76 L 126.4 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,255.51 L 152.19 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,261.73 L 177.98 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,278.48 L 203.76 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,283.08 L 229.55 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.79 L 255.34 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,255.35 L 47.53 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,254.95 L 73.32 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,254.81 L 99.11 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,254.74 L 124.9 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,254.99 L 150.69 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,260.11 L 176.48 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,276.65 L 202.26 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,282.19 L 228.05 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,278.47 L 253.84 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,255.35 L 47.53 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,254.95 L 73.32 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,254.81 L 99.11 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,254.74 L 124.9 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,254.99 L 150.69 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,260.11 L 176.48 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,276.65 L 202.26 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,282.19 L 228.05 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,278.47 L 253.84 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,255.35 L 47.53 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,254.95 L 73.32 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,254.81 L 99.11 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,254.74 L 124.9 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,254.99 L 150.69 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,260.11 L 176.48 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,276.65 L 202.26 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,282.19 L 228.05 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,278.47 L 253.84 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,255.35 L 47.53 255.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,254.95 L 73.32 254.98" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,254.81 L 99.11 254.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,254.74 L 124.9 254.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,254.99 L 150.69 255.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,260.11 L 176.48 261.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,276.65 L 202.26 278.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,282.19 L 228.05 283.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,278.47 L 253.84 278.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.35 L 49.03 255.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.95 L 74.82 254.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.81 L 100.61 254.81" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.74 L 126.4 254.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,254.99 L 152.19 254.99" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,260.11 L 177.98 260.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,276.65 L 203.76 276.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,282.19 L 229.55 282.19" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.47 L 255.34 278.47" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.35 L 49.03 255.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.95 L 74.82 254.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.81 L 100.61 254.81" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.74 L 126.4 254.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,254.99 L 152.19 254.99" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,260.11 L 177.98 260.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,276.65 L 203.76 276.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,282.19 L 229.55 282.19" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.47 L 255.34 278.47" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.35 L 49.03 255.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.95 L 74.82 254.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.81 L 100.61 254.81" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.74 L 126.4 254.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,254.99 L 152.19 254.99" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,260.11 L 177.98 260.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,276.65 L 203.76 276.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,282.19 L 229.55 282.19" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.47 L 255.34 278.47" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,255.35 L 49.03 255.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,254.95 L 74.82 254.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,254.81 L 100.61 254.81" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,254.74 L 126.4 254.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,254.99 L 152.19 254.99" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,260.11 L 177.98 260.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,276.65 L 203.76 276.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,282.19 L 229.55 282.19" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,278.47 L 255.34 278.47" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-17">
+            <path fill="none" d="M47.53,255.38 L 47.53 255.38 47.53 255.38 47.53 255.38 73.32 254.96 73.32 254.96 73.32 254.96 73.32 254.96 99.11 254.82 99.11 254.82 99.11 254.82 99.11 254.82 124.9 254.75 124.9 254.75 124.9 254.75 124.9 254.75 150.69 255.25 150.69 255.25 150.69 255.25 150.69 255.25 176.48 260.92 176.48 260.92 176.48 260.92 176.48 260.92 202.26 277.56 202.26 277.56 202.26 277.56 202.26 277.56 228.05 282.63 228.05 282.63 228.05 282.63 228.05 282.63 253.84 278.63 253.84 278.63 253.84 278.63 253.84 278.63"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-18">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-19">
+              <circle cx="47.53" cy="255.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="254.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="254.82" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="254.75" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="255.25" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="260.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="277.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="282.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="278.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="255.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="254.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="254.82" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="254.75" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="255.25" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="260.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="277.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="282.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="278.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="255.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="254.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="254.82" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="254.75" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="255.25" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="260.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="277.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="282.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="278.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="255.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="254.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="254.82" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="254.75" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="255.25" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="260.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="277.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="282.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="278.63" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-20">
+        <text x="18.75" y="288.19" text-anchor="end" dy="0.35em">-1.0</text>
+        <text x="18.75" y="279.77" text-anchor="end" dy="0.35em">-0.5</text>
+        <text x="18.75" y="271.36" text-anchor="end" dy="0.35em">0.0</text>
+        <text x="18.75" y="262.95" text-anchor="end" dy="0.35em">0.5</text>
+        <text x="18.75" y="254.53" text-anchor="end" dy="0.35em">1.0</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-21">
+        <text x="8.81" y="269.36" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 271.36)">MCC</text>
+      </g>
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-23)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-22">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-24">
+          <rect x="19.75" y="212.88" width="261.88" height="35.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-25">
+          <path fill="none" d="M19.75,246.53 L 281.63 246.53"/>
+          <path fill="none" d="M19.75,240.2 L 281.63 240.2"/>
+          <path fill="none" d="M19.75,233.87 L 281.63 233.87"/>
+          <path fill="none" d="M19.75,227.54 L 281.63 227.54"/>
+          <path fill="none" d="M19.75,221.21 L 281.63 221.21"/>
+          <path fill="none" d="M19.75,214.88 L 281.63 214.88"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-26">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-27">
+            <path fill="none" d="M46.03,217.77 L 49.03 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.21 L 74.82 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.65 L 100.61 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.39 L 126.4 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.94 L 152.19 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,221.52 L 177.98 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,235.89 L 203.76 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,235.87 L 229.55 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,224.13 L 255.34 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.77 L 49.03 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.21 L 74.82 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.65 L 100.61 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.39 L 126.4 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.94 L 152.19 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,221.52 L 177.98 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,235.89 L 203.76 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,235.87 L 229.55 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,224.13 L 255.34 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.77 L 49.03 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.21 L 74.82 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.65 L 100.61 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.39 L 126.4 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.94 L 152.19 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,221.52 L 177.98 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,235.89 L 203.76 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,235.87 L 229.55 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,224.13 L 255.34 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.77 L 49.03 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.21 L 74.82 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.65 L 100.61 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.39 L 126.4 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.94 L 152.19 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,221.52 L 177.98 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,235.89 L 203.76 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,235.87 L 229.55 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,224.13 L 255.34 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,217.6 L 47.53 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,216.12 L 73.32 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,215.59 L 99.11 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,215.34 L 124.9 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,215.45 L 150.69 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,220.02 L 176.48 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,234.23 L 202.26 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,234.95 L 228.05 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,223.61 L 253.84 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,217.6 L 47.53 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,216.12 L 73.32 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,215.59 L 99.11 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,215.34 L 124.9 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,215.45 L 150.69 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,220.02 L 176.48 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,234.23 L 202.26 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,234.95 L 228.05 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,223.61 L 253.84 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,217.6 L 47.53 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,216.12 L 73.32 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,215.59 L 99.11 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,215.34 L 124.9 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,215.45 L 150.69 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,220.02 L 176.48 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,234.23 L 202.26 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,234.95 L 228.05 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,223.61 L 253.84 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,217.6 L 47.53 217.77" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,216.12 L 73.32 216.21" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,215.59 L 99.11 215.65" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,215.34 L 124.9 215.39" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,215.45 L 150.69 215.94" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,220.02 L 176.48 221.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,234.23 L 202.26 235.89" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,234.95 L 228.05 235.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,223.61 L 253.84 224.13" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.6 L 49.03 217.6" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.12 L 74.82 216.12" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.59 L 100.61 215.59" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.34 L 126.4 215.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.45 L 152.19 215.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,220.02 L 177.98 220.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,234.23 L 203.76 234.23" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,234.95 L 229.55 234.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,223.61 L 255.34 223.61" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.6 L 49.03 217.6" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.12 L 74.82 216.12" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.59 L 100.61 215.59" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.34 L 126.4 215.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.45 L 152.19 215.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,220.02 L 177.98 220.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,234.23 L 203.76 234.23" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,234.95 L 229.55 234.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,223.61 L 255.34 223.61" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.6 L 49.03 217.6" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.12 L 74.82 216.12" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.59 L 100.61 215.59" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.34 L 126.4 215.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.45 L 152.19 215.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,220.02 L 177.98 220.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,234.23 L 203.76 234.23" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,234.95 L 229.55 234.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,223.61 L 255.34 223.61" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,217.6 L 49.03 217.6" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,216.12 L 74.82 216.12" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,215.59 L 100.61 215.59" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,215.34 L 126.4 215.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,215.45 L 152.19 215.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,220.02 L 177.98 220.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,234.23 L 203.76 234.23" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,234.95 L 229.55 234.95" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,223.61 L 255.34 223.61" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-28">
+            <path fill="none" d="M47.53,217.68 L 47.53 217.68 47.53 217.68 47.53 217.68 73.32 216.17 73.32 216.17 73.32 216.17 73.32 216.17 99.11 215.62 99.11 215.62 99.11 215.62 99.11 215.62 124.9 215.36 124.9 215.36 124.9 215.36 124.9 215.36 150.69 215.7 150.69 215.7 150.69 215.7 150.69 215.7 176.48 220.77 176.48 220.77 176.48 220.77 176.48 220.77 202.26 235.06 202.26 235.06 202.26 235.06 202.26 235.06 228.05 235.41 228.05 235.41 228.05 235.41 228.05 235.41 253.84 223.87 253.84 223.87 253.84 223.87 253.84 223.87"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-29">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-30">
+              <circle cx="47.53" cy="217.68" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="216.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="215.62" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="215.36" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="215.7" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="220.77" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="235.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="235.41" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="223.87" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="217.68" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="216.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="215.62" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="215.36" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="215.7" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="220.77" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="235.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="235.41" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="223.87" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="217.68" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="216.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="215.62" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="215.36" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="215.7" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="220.77" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="235.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="235.41" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="223.87" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="217.68" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="216.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="215.62" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="215.36" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="215.7" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="220.77" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="235.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="235.41" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="223.87" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-31">
+        <text x="18.75" y="246.53" text-anchor="end" dy="0.35em">0.0</text>
+        <text x="18.75" y="240.2" text-anchor="end" dy="0.35em">0.2</text>
+        <text x="18.75" y="233.87" text-anchor="end" dy="0.35em">0.4</text>
+        <text x="18.75" y="227.54" text-anchor="end" dy="0.35em">0.6</text>
+        <text x="18.75" y="221.21" text-anchor="end" dy="0.35em">0.8</text>
+        <text x="18.75" y="214.88" text-anchor="end" dy="0.35em">1.0</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-32">
+        <text x="8.81" y="228.71" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 230.71)">precision</text>
+      </g>
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-34)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-33">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-35">
+          <rect x="19.75" y="173.23" width="261.88" height="35.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-36">
+          <path fill="none" d="M19.75,206.88 L 281.63 206.88"/>
+          <path fill="none" d="M19.75,191.05 L 281.63 191.05"/>
+          <path fill="none" d="M19.75,175.23 L 281.63 175.23"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-37">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-38">
+            <path fill="none" d="M46.03,206.58 L 49.03 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.57 L 74.82 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.58 L 100.61 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.58 L 126.4 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,206.31 L 152.19 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,201.51 L 177.98 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,185.49 L 203.76 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,178.04 L 229.55 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,176.22 L 255.34 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.58 L 49.03 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.57 L 74.82 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.58 L 100.61 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.58 L 126.4 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,206.31 L 152.19 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,201.51 L 177.98 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,185.49 L 203.76 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,178.04 L 229.55 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,176.22 L 255.34 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.58 L 49.03 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.57 L 74.82 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.58 L 100.61 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.58 L 126.4 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,206.31 L 152.19 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,201.51 L 177.98 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,185.49 L 203.76 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,178.04 L 229.55 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,176.22 L 255.34 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.58 L 49.03 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.57 L 74.82 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.58 L 100.61 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.58 L 126.4 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,206.31 L 152.19 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,201.51 L 177.98 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,185.49 L 203.76 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,178.04 L 229.55 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,176.22 L 255.34 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,206.56 L 47.53 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,206.55 L 73.32 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,206.55 L 99.11 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,206.54 L 124.9 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,205.82 L 150.69 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,199.97 L 176.48 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,183.69 L 202.26 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,177.07 L 228.05 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,175.71 L 253.84 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,206.56 L 47.53 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,206.55 L 73.32 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,206.55 L 99.11 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,206.54 L 124.9 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,205.82 L 150.69 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,199.97 L 176.48 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,183.69 L 202.26 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,177.07 L 228.05 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,175.71 L 253.84 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,206.56 L 47.53 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,206.55 L 73.32 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,206.55 L 99.11 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,206.54 L 124.9 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,205.82 L 150.69 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,199.97 L 176.48 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,183.69 L 202.26 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,177.07 L 228.05 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,175.71 L 253.84 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,206.56 L 47.53 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,206.55 L 73.32 206.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,206.55 L 99.11 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,206.54 L 124.9 206.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,205.82 L 150.69 206.31" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,199.97 L 176.48 201.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,183.69 L 202.26 185.49" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,177.07 L 228.05 178.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,175.71 L 253.84 176.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.56 L 49.03 206.56" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.55 L 74.82 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.55 L 100.61 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.54 L 126.4 206.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,205.82 L 152.19 205.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,199.97 L 177.98 199.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,183.69 L 203.76 183.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,177.07 L 229.55 177.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,175.71 L 255.34 175.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.56 L 49.03 206.56" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.55 L 74.82 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.55 L 100.61 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.54 L 126.4 206.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,205.82 L 152.19 205.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,199.97 L 177.98 199.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,183.69 L 203.76 183.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,177.07 L 229.55 177.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,175.71 L 255.34 175.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.56 L 49.03 206.56" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.55 L 74.82 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.55 L 100.61 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.54 L 126.4 206.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,205.82 L 152.19 205.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,199.97 L 177.98 199.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,183.69 L 203.76 183.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,177.07 L 229.55 177.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,175.71 L 255.34 175.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,206.56 L 49.03 206.56" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,206.55 L 74.82 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,206.55 L 100.61 206.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,206.54 L 126.4 206.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,205.82 L 152.19 205.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,199.97 L 177.98 199.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,183.69 L 203.76 183.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,177.07 L 229.55 177.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,175.71 L 255.34 175.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-39">
+            <path fill="none" d="M47.53,206.57 L 47.53 206.57 47.53 206.57 47.53 206.57 73.32 206.56 73.32 206.56 73.32 206.56 73.32 206.56 99.11 206.56 99.11 206.56 99.11 206.56 99.11 206.56 124.9 206.56 124.9 206.56 124.9 206.56 124.9 206.56 150.69 206.06 150.69 206.06 150.69 206.06 150.69 206.06 176.48 200.74 176.48 200.74 176.48 200.74 176.48 200.74 202.26 184.59 202.26 184.59 202.26 184.59 202.26 184.59 228.05 177.55 228.05 177.55 228.05 177.55 228.05 177.55 253.84 175.97 253.84 175.97 253.84 175.97 253.84 175.97"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-40">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-41">
+              <circle cx="47.53" cy="206.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="206.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="200.74" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="184.59" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="177.55" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="175.97" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="206.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="206.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="200.74" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="184.59" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="177.55" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="175.97" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="206.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="206.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="200.74" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="184.59" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="177.55" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="175.97" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="206.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="206.56" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="206.06" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="200.74" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="184.59" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="177.55" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="175.97" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-42">
+        <text x="18.75" y="206.88" text-anchor="end" dy="0.35em">0.0</text>
+        <text x="18.75" y="191.05" text-anchor="end" dy="0.35em">0.5</text>
+        <text x="18.75" y="175.23" text-anchor="end" dy="0.35em">1.0</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-43">
+        <text x="8.81" y="189.05" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 191.05)">fallout</text>
+      </g>
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-45)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-44">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-46">
+          <rect x="19.75" y="133.57" width="261.88" height="35.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-47">
+          <path fill="none" d="M19.75,167.23 L 281.63 167.23"/>
+          <path fill="none" d="M19.75,151.4 L 281.63 151.4"/>
+          <path fill="none" d="M19.75,135.57 L 281.63 135.57"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-48">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-49">
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.58 L 126.4 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,136.35 L 152.19 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,142.26 L 177.98 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,158.02 L 203.76 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,162.38 L 229.55 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,158.07 L 255.34 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.58 L 126.4 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,136.35 L 152.19 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,142.26 L 177.98 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,158.02 L 203.76 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,162.38 L 229.55 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,158.07 L 255.34 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.58 L 126.4 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,136.35 L 152.19 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,142.26 L 177.98 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,158.02 L 203.76 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,162.38 L 229.55 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,158.07 L 255.34 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.58 L 126.4 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,136.35 L 152.19 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,142.26 L 177.98 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,158.02 L 203.76 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,162.38 L 229.55 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,158.07 L 255.34 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,135.57 L 47.53 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,135.57 L 73.32 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,135.57 L 99.11 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,135.57 L 124.9 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,135.85 L 150.69 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,140.73 L 176.48 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,156.29 L 202.26 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,161.54 L 228.05 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,157.69 L 253.84 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,135.57 L 47.53 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,135.57 L 73.32 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,135.57 L 99.11 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,135.57 L 124.9 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,135.85 L 150.69 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,140.73 L 176.48 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,156.29 L 202.26 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,161.54 L 228.05 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,157.69 L 253.84 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,135.57 L 47.53 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,135.57 L 73.32 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,135.57 L 99.11 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,135.57 L 124.9 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,135.85 L 150.69 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,140.73 L 176.48 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,156.29 L 202.26 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,161.54 L 228.05 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,157.69 L 253.84 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,135.57 L 47.53 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,135.57 L 73.32 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,135.57 L 99.11 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,135.57 L 124.9 135.58" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,135.85 L 150.69 136.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,140.73 L 176.48 142.26" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,156.29 L 202.26 158.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,161.54 L 228.05 162.38" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,157.69 L 253.84 158.07" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.57 L 126.4 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,135.85 L 152.19 135.85" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,140.73 L 177.98 140.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,156.29 L 203.76 156.29" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,161.54 L 229.55 161.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,157.69 L 255.34 157.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.57 L 126.4 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,135.85 L 152.19 135.85" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,140.73 L 177.98 140.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,156.29 L 203.76 156.29" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,161.54 L 229.55 161.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,157.69 L 255.34 157.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.57 L 126.4 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,135.85 L 152.19 135.85" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,140.73 L 177.98 140.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,156.29 L 203.76 156.29" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,161.54 L 229.55 161.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,157.69 L 255.34 157.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,135.57 L 49.03 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,135.57 L 74.82 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,135.57 L 100.61 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,135.57 L 126.4 135.57" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,135.85 L 152.19 135.85" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,140.73 L 177.98 140.73" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,156.29 L 203.76 156.29" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,161.54 L 229.55 161.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,157.69 L 255.34 157.69" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-50">
+            <path fill="none" d="M47.53,135.57 L 47.53 135.57 47.53 135.57 47.53 135.57 73.32 135.57 73.32 135.57 73.32 135.57 73.32 135.57 99.11 135.57 99.11 135.57 99.11 135.57 99.11 135.57 124.9 135.58 124.9 135.58 124.9 135.58 124.9 135.58 150.69 136.1 150.69 136.1 150.69 136.1 150.69 136.1 176.48 141.49 176.48 141.49 176.48 141.49 176.48 141.49 202.26 157.16 202.26 157.16 202.26 157.16 202.26 157.16 228.05 161.96 228.05 161.96 228.05 161.96 228.05 161.96 253.84 157.88 253.84 157.88 253.84 157.88 253.84 157.88"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-51">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-52">
+              <circle cx="47.53" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="135.58" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="136.1" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="141.49" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="157.16" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="161.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="157.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="135.58" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="136.1" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="141.49" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="157.16" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="161.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="157.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="135.58" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="136.1" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="141.49" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="157.16" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="161.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="157.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="135.57" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="135.58" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="136.1" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="141.49" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="157.16" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="161.96" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="157.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-53">
+        <text x="18.75" y="167.23" text-anchor="end" dy="0.35em">0.0</text>
+        <text x="18.75" y="151.4" text-anchor="end" dy="0.35em">0.5</text>
+        <text x="18.75" y="135.57" text-anchor="end" dy="0.35em">1.0</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-54">
+        <text x="8.81" y="149.4" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 151.4)">sensitivity</text>
+      </g>
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-56)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-55">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-57">
+          <rect x="19.75" y="93.92" width="261.88" height="35.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-58">
+          <path fill="none" d="M19.75,127.57 L 281.63 127.57"/>
+          <path fill="none" d="M19.75,122.3 L 281.63 122.3"/>
+          <path fill="none" d="M19.75,117.02 L 281.63 117.02"/>
+          <path fill="none" d="M19.75,111.75 L 281.63 111.75"/>
+          <path fill="none" d="M19.75,106.47 L 281.63 106.47"/>
+          <path fill="none" d="M19.75,101.19 L 281.63 101.19"/>
+          <path fill="none" d="M19.75,95.92 L 281.63 95.92"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-59">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-60">
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.08 L 74.82 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.45 L 100.61 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,97.01 L 126.4 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.74 L 152.19 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,99.01 L 177.98 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,103.11 L 203.76 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,110.71 L 229.55 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.76 L 255.34 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.08 L 74.82 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.45 L 100.61 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,97.01 L 126.4 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.74 L 152.19 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,99.01 L 177.98 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,103.11 L 203.76 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,110.71 L 229.55 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.76 L 255.34 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.08 L 74.82 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.45 L 100.61 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,97.01 L 126.4 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.74 L 152.19 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,99.01 L 177.98 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,103.11 L 203.76 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,110.71 L 229.55 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.76 L 255.34 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.08 L 74.82 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.45 L 100.61 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,97.01 L 126.4 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.74 L 152.19 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,99.01 L 177.98 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,103.11 L 203.76 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,110.71 L 229.55 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.76 L 255.34 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,95.92 L 47.53 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,96.02 L 73.32 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,96.35 L 99.11 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,96.87 L 124.9 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,97.55 L 150.69 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,98.7 L 176.48 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,102.55 L 202.26 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,109.92 L 228.05 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,122.1 L 253.84 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,95.92 L 47.53 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,96.02 L 73.32 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,96.35 L 99.11 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,96.87 L 124.9 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,97.55 L 150.69 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,98.7 L 176.48 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,102.55 L 202.26 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,109.92 L 228.05 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,122.1 L 253.84 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,95.92 L 47.53 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,96.02 L 73.32 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,96.35 L 99.11 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,96.87 L 124.9 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,97.55 L 150.69 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,98.7 L 176.48 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,102.55 L 202.26 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,109.92 L 228.05 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,122.1 L 253.84 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,95.92 L 47.53 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,96.02 L 73.32 96.08" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,96.35 L 99.11 96.45" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,96.87 L 124.9 97.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,97.55 L 150.69 97.74" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,98.7 L 176.48 99.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,102.55 L 202.26 103.11" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,109.92 L 228.05 110.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,122.1 L 253.84 122.76" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.02 L 74.82 96.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.35 L 100.61 96.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,96.87 L 126.4 96.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.55 L 152.19 97.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,98.7 L 177.98 98.7" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,102.55 L 203.76 102.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,109.92 L 229.55 109.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.1 L 255.34 122.1" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.02 L 74.82 96.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.35 L 100.61 96.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,96.87 L 126.4 96.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.55 L 152.19 97.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,98.7 L 177.98 98.7" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,102.55 L 203.76 102.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,109.92 L 229.55 109.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.1 L 255.34 122.1" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.02 L 74.82 96.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.35 L 100.61 96.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,96.87 L 126.4 96.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.55 L 152.19 97.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,98.7 L 177.98 98.7" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,102.55 L 203.76 102.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,109.92 L 229.55 109.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.1 L 255.34 122.1" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,95.92 L 49.03 95.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,96.02 L 74.82 96.02" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,96.35 L 100.61 96.35" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,96.87 L 126.4 96.87" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,97.55 L 152.19 97.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,98.7 L 177.98 98.7" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,102.55 L 203.76 102.55" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,109.92 L 229.55 109.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,122.1 L 255.34 122.1" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-61">
+            <path fill="none" d="M47.53,95.92 L 47.53 95.92 47.53 95.92 47.53 95.92 73.32 96.05 73.32 96.05 73.32 96.05 73.32 96.05 99.11 96.4 99.11 96.4 99.11 96.4 99.11 96.4 124.9 96.94 124.9 96.94 124.9 96.94 124.9 96.94 150.69 97.65 150.69 97.65 150.69 97.65 150.69 97.65 176.48 98.86 176.48 98.86 176.48 98.86 176.48 98.86 202.26 102.83 202.26 102.83 202.26 102.83 202.26 102.83 228.05 110.32 228.05 110.32 228.05 110.32 228.05 110.32 253.84 122.43 253.84 122.43 253.84 122.43 253.84 122.43"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-62">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-63">
+              <circle cx="47.53" cy="95.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="96.05" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="96.4" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="96.94" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="97.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="98.86" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="102.83" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="110.32" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="122.43" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="95.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="96.05" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="96.4" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="96.94" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="97.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="98.86" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="102.83" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="110.32" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="122.43" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="95.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="96.05" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="96.4" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="96.94" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="97.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="98.86" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="102.83" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="110.32" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="122.43" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="95.92" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="96.05" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="96.4" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="96.94" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="97.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="98.86" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="102.83" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="110.32" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="122.43" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-64">
+        <text x="18.75" y="127.57" text-anchor="end" dy="0.35em">0.4</text>
+        <text x="18.75" y="122.3" text-anchor="end" dy="0.35em">0.5</text>
+        <text x="18.75" y="117.02" text-anchor="end" dy="0.35em">0.6</text>
+        <text x="18.75" y="111.75" text-anchor="end" dy="0.35em">0.7</text>
+        <text x="18.75" y="106.47" text-anchor="end" dy="0.35em">0.8</text>
+        <text x="18.75" y="101.19" text-anchor="end" dy="0.35em">0.9</text>
+        <text x="18.75" y="95.92" text-anchor="end" dy="0.35em">1.0</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-65">
+        <text x="8.81" y="109.75" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 111.75)">correct</text>
+      </g>
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-67)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-66">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-68">
+          <rect x="19.75" y="54.27" width="261.88" height="35.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-69">
+          <path fill="none" d="M19.75,87.92 L 281.63 87.92"/>
+          <path fill="none" d="M19.75,81.59 L 281.63 81.59"/>
+          <path fill="none" d="M19.75,75.26 L 281.63 75.26"/>
+          <path fill="none" d="M19.75,68.93 L 281.63 68.93"/>
+          <path fill="none" d="M19.75,62.6 L 281.63 62.6"/>
+          <path fill="none" d="M19.75,56.27 L 281.63 56.27"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-70">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-71">
+            <path fill="none" d="M46.03,76.52 L 49.03 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.92 L 74.82 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.54 L 100.61 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.5 L 126.4 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,83.51 L 152.19 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,81.48 L 177.98 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,71.06 L 203.76 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,66.03 L 229.55 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,63.34 L 255.34 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.52 L 49.03 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.92 L 74.82 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.54 L 100.61 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.5 L 126.4 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,83.51 L 152.19 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,81.48 L 177.98 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,71.06 L 203.76 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,66.03 L 229.55 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,63.34 L 255.34 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.52 L 49.03 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.92 L 74.82 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.54 L 100.61 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.5 L 126.4 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,83.51 L 152.19 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,81.48 L 177.98 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,71.06 L 203.76 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,66.03 L 229.55 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,63.34 L 255.34 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.52 L 49.03 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.92 L 74.82 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.54 L 100.61 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.5 L 126.4 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,83.51 L 152.19 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,81.48 L 177.98 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,71.06 L 203.76 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,66.03 L 229.55 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,63.34 L 255.34 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,76.41 L 47.53 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,77.71 L 73.32 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,79.22 L 99.11 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,81.04 L 124.9 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,82.83 L 150.69 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,80.15 L 176.48 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,69.36 L 202.26 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,64.82 L 228.05 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,62.37 L 253.84 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,76.41 L 47.53 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,77.71 L 73.32 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,79.22 L 99.11 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,81.04 L 124.9 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,82.83 L 150.69 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,80.15 L 176.48 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,69.36 L 202.26 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,64.82 L 228.05 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,62.37 L 253.84 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,76.41 L 47.53 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,77.71 L 73.32 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,79.22 L 99.11 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,81.04 L 124.9 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,82.83 L 150.69 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,80.15 L 176.48 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,69.36 L 202.26 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,64.82 L 228.05 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,62.37 L 253.84 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,76.41 L 47.53 76.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,77.71 L 73.32 77.92" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,79.22 L 99.11 79.54" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,81.04 L 124.9 81.5" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,82.83 L 150.69 83.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,80.15 L 176.48 81.48" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,69.36 L 202.26 71.06" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,64.82 L 228.05 66.03" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,62.37 L 253.84 63.34" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.41 L 49.03 76.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.71 L 74.82 77.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.22 L 100.61 79.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.04 L 126.4 81.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,82.83 L 152.19 82.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,80.15 L 177.98 80.15" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,69.36 L 203.76 69.36" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,64.82 L 229.55 64.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,62.37 L 255.34 62.37" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.41 L 49.03 76.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.71 L 74.82 77.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.22 L 100.61 79.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.04 L 126.4 81.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,82.83 L 152.19 82.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,80.15 L 177.98 80.15" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,69.36 L 203.76 69.36" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,64.82 L 229.55 64.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,62.37 L 255.34 62.37" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.41 L 49.03 76.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.71 L 74.82 77.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.22 L 100.61 79.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.04 L 126.4 81.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,82.83 L 152.19 82.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,80.15 L 177.98 80.15" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,69.36 L 203.76 69.36" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,64.82 L 229.55 64.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,62.37 L 255.34 62.37" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,76.41 L 49.03 76.41" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,77.71 L 74.82 77.71" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,79.22 L 100.61 79.22" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,81.04 L 126.4 81.04" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,82.83 L 152.19 82.83" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,80.15 L 177.98 80.15" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,69.36 L 203.76 69.36" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,64.82 L 229.55 64.82" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,62.37 L 255.34 62.37" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-72">
+            <path fill="none" d="M47.53,76.47 L 47.53 76.47 47.53 76.47 47.53 76.47 73.32 77.81 73.32 77.81 73.32 77.81 73.32 77.81 99.11 79.38 99.11 79.38 99.11 79.38 99.11 79.38 124.9 81.27 124.9 81.27 124.9 81.27 124.9 81.27 150.69 83.17 150.69 83.17 150.69 83.17 150.69 83.17 176.48 80.81 176.48 80.81 176.48 80.81 176.48 80.81 202.26 70.21 202.26 70.21 202.26 70.21 202.26 70.21 228.05 65.42 228.05 65.42 228.05 65.42 228.05 65.42 253.84 62.85 253.84 62.85 253.84 62.85 253.84 62.85"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-73">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-74">
+              <circle cx="47.53" cy="76.47" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="77.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="79.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="81.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="83.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="80.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="70.21" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="65.42" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="62.85" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="76.47" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="77.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="79.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="81.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="83.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="80.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="70.21" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="65.42" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="62.85" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="76.47" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="77.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="79.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="81.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="83.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="80.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="70.21" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="65.42" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="62.85" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="76.47" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="77.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="79.38" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="81.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="83.17" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="80.81" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="70.21" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="65.42" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="62.85" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-75">
+        <text x="18.75" y="87.92" text-anchor="end" dy="0.35em">-0.2</text>
+        <text x="18.75" y="81.59" text-anchor="end" dy="0.35em">-0.1</text>
+        <text x="18.75" y="75.26" text-anchor="end" dy="0.35em">0.0</text>
+        <text x="18.75" y="68.93" text-anchor="end" dy="0.35em">0.1</text>
+        <text x="18.75" y="62.6" text-anchor="end" dy="0.35em">0.2</text>
+        <text x="18.75" y="56.27" text-anchor="end" dy="0.35em">0.3</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-76">
+        <text x="8.81" y="70.09" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 72.09)">liars_bonus</text>
+      </g>
+      <g clip-path="url(#fig-7bce3eed06e444e0b591454bb1afa2b8-element-78)" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-77">
+        <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-79">
+          <rect x="19.75" y="14.61" width="261.88" height="35.65"/>
+        </g>
+        <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-80">
+          <path fill="none" d="M19.75,48.27 L 281.63 48.27"/>
+          <path fill="none" d="M19.75,32.44 L 281.63 32.44"/>
+          <path fill="none" d="M19.75,16.61 L 281.63 16.61"/>
+        </g>
+        <g class="plotpanel" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-81">
+          <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-82">
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,48.01 L 152.19 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,43.09 L 177.98 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,26.79 L 203.76 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,19.28 L 229.55 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.88 L 255.34 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,48.01 L 152.19 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,43.09 L 177.98 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,26.79 L 203.76 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,19.28 L 229.55 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.88 L 255.34 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,48.01 L 152.19 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,43.09 L 177.98 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,26.79 L 203.76 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,19.28 L 229.55 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.88 L 255.34 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,48.01 L 152.19 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,43.09 L 177.98 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,26.79 L 203.76 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,19.28 L 229.55 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.88 L 255.34 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,48.27 L 47.53 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,48.27 L 73.32 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,48.27 L 99.11 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,48.27 L 124.9 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,47.51 L 150.69 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,41.52 L 176.48 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,24.97 L 202.26 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,18.3 L 228.05 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,17.42 L 253.84 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,48.27 L 47.53 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,48.27 L 73.32 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,48.27 L 99.11 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,48.27 L 124.9 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,47.51 L 150.69 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,41.52 L 176.48 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,24.97 L 202.26 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,18.3 L 228.05 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,17.42 L 253.84 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,48.27 L 47.53 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,48.27 L 73.32 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,48.27 L 99.11 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,48.27 L 124.9 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,47.51 L 150.69 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,41.52 L 176.48 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,24.97 L 202.26 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,18.3 L 228.05 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,17.42 L 253.84 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M47.53,48.27 L 47.53 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M73.32,48.27 L 73.32 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M99.11,48.27 L 99.11 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M124.9,48.27 L 124.9 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M150.69,47.51 L 150.69 48.01" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M176.48,41.52 L 176.48 43.09" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M202.26,24.97 L 202.26 26.79" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M228.05,18.3 L 228.05 19.28" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M253.84,17.42 L 253.84 17.88" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,47.51 L 152.19 47.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,41.52 L 177.98 41.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,24.97 L 203.76 24.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,18.3 L 229.55 18.3" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.42 L 255.34 17.42" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,47.51 L 152.19 47.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,41.52 L 177.98 41.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,24.97 L 203.76 24.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,18.3 L 229.55 18.3" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.42 L 255.34 17.42" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,47.51 L 152.19 47.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,41.52 L 177.98 41.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,24.97 L 203.76 24.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,18.3 L 229.55 18.3" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.42 L 255.34 17.42" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M46.03,48.27 L 49.03 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M71.82,48.27 L 74.82 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M97.61,48.27 L 100.61 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M123.4,48.27 L 126.4 48.27" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M149.19,47.51 L 152.19 47.51" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M174.98,41.52 L 177.98 41.52" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M200.76,24.97 L 203.76 24.97" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M226.55,18.3 L 229.55 18.3" class="geometry color_Sztorc" stroke="#0096D4"/>
+            <path fill="none" d="M252.34,17.42 L 255.34 17.42" class="geometry color_Sztorc" stroke="#0096D4"/>
+          </g>
+          <g stroke-width="0.3" fill="none" class="geometry color_Sztorc" stroke="#00BFFF" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-83">
+            <path fill="none" d="M47.53,48.27 L 47.53 48.27 47.53 48.27 47.53 48.27 73.32 48.27 73.32 48.27 73.32 48.27 73.32 48.27 99.11 48.27 99.11 48.27 99.11 48.27 99.11 48.27 124.9 48.27 124.9 48.27 124.9 48.27 124.9 48.27 150.69 47.76 150.69 47.76 150.69 47.76 150.69 47.76 176.48 42.31 176.48 42.31 176.48 42.31 176.48 42.31 202.26 25.88 202.26 25.88 202.26 25.88 202.26 25.88 228.05 18.79 228.05 18.79 228.05 18.79 228.05 18.79 253.84 17.65 253.84 17.65 253.84 17.65 253.84 17.65"/>
+          </g>
+          <g class="geometry" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-84">
+            <g stroke-width="0.3" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-85">
+              <circle cx="47.53" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="47.76" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="42.31" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="25.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="18.79" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="17.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="47.76" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="42.31" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="25.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="18.79" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="17.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="47.76" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="42.31" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="25.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="18.79" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="17.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="47.53" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="73.32" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="99.11" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="124.9" cy="48.27" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="150.69" cy="47.76" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="176.48" cy="42.31" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="202.26" cy="25.88" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="228.05" cy="18.79" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+              <circle cx="253.84" cy="17.65" r="0.9" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-86">
+        <text x="18.75" y="48.27" text-anchor="end" dy="0.35em">0.0</text>
+        <text x="18.75" y="32.44" text-anchor="end" dy="0.35em">0.5</text>
+        <text x="18.75" y="16.61" text-anchor="end" dy="0.35em">1.0</text>
+      </g>
+      <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-87">
+        <text x="8.81" y="30.44" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 32.44)">beats</text>
+      </g>
+    </g>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-88">
+    <text x="144.31" y="10.61" text-anchor="middle">100 users reporting on 50 events over 1 timesteps (250 iterations @ γ = 0.3) INDISCRIMINATE</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-9">
+  <path d="M5,12.61 L 283.63 12.61 283.63 290.19 5 290.19" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-78">
+  <path d="M19.75,14.61 L 281.63 14.61 281.63 50.27 19.75 50.27" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-67">
+  <path d="M19.75,54.27 L 281.63 54.27 281.63 89.92 19.75 89.92" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-23">
+  <path d="M19.75,212.88 L 281.63 212.88 281.63 248.53 19.75 248.53" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-12">
+  <path d="M19.75,252.53 L 281.63 252.53 281.63 290.19 19.75 290.19" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-34">
+  <path d="M19.75,173.23 L 281.63 173.23 281.63 208.88 19.75 208.88" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-56">
+  <path d="M19.75,93.92 L 281.63 93.92 281.63 129.57 19.75 129.57" />
+</clipPath
+><clipPath id="fig-7bce3eed06e444e0b591454bb1afa2b8-element-45">
+  <path d="M19.75,133.57 L 281.63 133.57 281.63 169.23 19.75 169.23" />
+</clipPath
+></defs>
+</svg>

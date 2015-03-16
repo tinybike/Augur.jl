@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-2">
+    <text x="124.71" y="169.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-3">
+    <text x="23.98" y="162.19" text-anchor="middle">0</text>
+    <text x="124.71" y="162.19" text-anchor="middle">50</text>
+    <text x="225.43" y="162.19" text-anchor="middle">100</text>
+  </g>
+  <g class="guide colorkey" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-5">
+      <text x="231.25" y="85.56" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-6" class="color_Sztorc">Sztorc</text>
+      <text x="231.25" y="89.19" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-7" class="color_Fixed-variance">Fixed-variance</text>
+    </g>
+    <g stroke="none" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-8">
+      <rect x="228.43" y="84.66" width="1.81" height="1.81" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-9" class="color_Sztorc" fill="#00BFFF"/>
+      <rect x="228.43" y="88.28" width="1.81" height="1.81" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-10" class="color_Fixed-variance" fill="#D4CA3A"/>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-11">
+      <text x="228.43" y="81.74" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-12">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-84e3e73ef9574ba79aab58c2fbc333e2-element-14)" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-13">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-15">
+      <rect x="21.98" y="12.61" width="205.46" height="145.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-16"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-17">
+      <path fill="none" d="M21.98,156.52 L 227.43 156.52" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-18"/>
+      <path fill="none" d="M21.98,121.04 L 227.43 121.04" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-19"/>
+      <path fill="none" d="M21.98,85.56 L 227.43 85.56" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-20"/>
+      <path fill="none" d="M21.98,50.09 L 227.43 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-21"/>
+      <path fill="none" d="M21.98,14.61 L 227.43 14.61" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-22"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-23">
+      <path fill="none" d="M23.98,12.61 L 23.98 158.52" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-24"/>
+      <path fill="none" d="M124.71,12.61 L 124.71 158.52" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-25"/>
+      <path fill="none" d="M225.43,12.61 L 225.43 158.52" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-26"/>
+    </g>
+    <g class="plotpanel" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-27">
+      <g stroke-width="0.3" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-28">
+        <path fill="none" d="M27.51,50.09 L 30.51 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-29" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M32.55,50.09 L 35.55 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-30" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M37.59,50.09 L 40.59 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-31" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M42.62,50.09 L 45.62 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-32" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M47.66,50.09 L 50.66 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-33" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M52.7,50.09 L 55.7 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-34" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M57.73,50.09 L 60.73 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-35" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M62.77,50.09 L 65.77 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-36" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M67.81,50.09 L 70.81 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-37" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M72.84,50.09 L 75.84 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-38" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M77.88,50.09 L 80.88 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-39" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M82.91,50.09 L 85.91 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-40" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M87.95,50.09 L 90.95 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-41" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M92.99,50.09 L 95.99 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-42" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M98.02,50.09 L 101.02 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-43" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M103.06,50.09 L 106.06 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-44" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M108.1,50.09 L 111.1 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-45" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M113.13,50.73 L 116.13 50.73" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-46" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M118.17,78.15 L 121.17 78.15" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-47" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M123.21,53.46 L 126.21 53.46" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-48" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M128.24,57.04 L 131.24 57.04" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-49" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M133.28,58.86 L 136.28 58.86" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-50" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M138.31,69.58 L 141.31 69.58" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-51" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M143.35,77.82 L 146.35 77.82" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-52" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M148.39,84.66 L 151.39 84.66" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-53" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M153.42,103.37 L 156.42 103.37" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-54" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M158.46,112.45 L 161.46 112.45" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-55" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M163.5,126.9 L 166.5 126.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-56" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M168.53,132.41 L 171.53 132.41" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-57" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M173.57,137.16 L 176.57 137.16" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-58" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M178.61,140.95 L 181.61 140.95" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-59" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M183.64,141.95 L 186.64 141.95" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-60" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M188.68,141.76 L 191.68 141.76" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-61" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M193.72,138.39 L 196.72 138.39" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-62" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M198.75,137.93 L 201.75 137.93" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-63" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M203.79,134.27 L 206.79 134.27" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-64" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M208.82,131.34 L 211.82 131.34" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-65" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M213.86,126.49 L 216.86 126.49" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-66" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M27.51,50.09 L 30.51 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-67" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M32.55,50.09 L 35.55 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-68" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M37.59,50.09 L 40.59 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-69" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M42.62,50.09 L 45.62 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-70" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M47.66,50.09 L 50.66 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-71" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M52.7,50.09 L 55.7 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-72" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M57.73,50.09 L 60.73 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-73" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M62.77,50.09 L 65.77 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-74" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M67.81,50.09 L 70.81 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-75" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M72.84,50.09 L 75.84 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-76" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M77.88,50.09 L 80.88 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-77" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M82.91,50.09 L 85.91 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-78" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M87.95,50.09 L 90.95 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-79" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M92.99,50.09 L 95.99 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-80" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M98.02,50.09 L 101.02 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-81" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M103.06,50.09 L 106.06 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-82" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M108.1,50.09 L 111.1 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-83" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M113.13,50.09 L 116.13 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-84" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M118.17,50.09 L 121.17 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-85" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M123.21,50.66 L 126.21 50.66" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-86" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M128.24,52.51 L 131.24 52.51" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-87" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M133.28,52.82 L 136.28 52.82" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-88" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M138.31,58.37 L 141.31 58.37" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-89" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M143.35,59.41 L 146.35 59.41" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-90" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M148.39,67.49 L 151.39 67.49" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-91" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M153.42,74.3 L 156.42 74.3" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-92" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M158.46,86.87 L 161.46 86.87" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-93" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M163.5,92.56 L 166.5 92.56" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-94" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M168.53,100.54 L 171.53 100.54" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-95" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M173.57,107.25 L 176.57 107.25" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-96" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M178.61,112.8 L 181.61 112.8" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-97" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M183.64,114.46 L 186.64 114.46" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-98" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M188.68,116.04 L 191.68 116.04" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-99" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M193.72,110.25 L 196.72 110.25" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-100" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M198.75,108.3 L 201.75 108.3" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-101" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M203.79,107.75 L 206.79 107.75" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-102" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M208.82,105.47 L 211.82 105.47" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-103" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M213.86,105.91 L 216.86 105.91" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-104" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M29.01,50.09 L 29.01 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-105" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M34.05,50.09 L 34.05 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-106" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M39.09,50.09 L 39.09 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-107" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M44.12,50.09 L 44.12 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-108" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M49.16,50.09 L 49.16 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-109" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M54.2,50.09 L 54.2 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-110" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M59.23,50.09 L 59.23 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-111" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M64.27,50.09 L 64.27 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-112" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M69.31,50.09 L 69.31 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-113" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M74.34,50.09 L 74.34 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-114" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M79.38,50.09 L 79.38 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-115" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M84.41,50.09 L 84.41 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-116" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M89.45,50.09 L 89.45 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-117" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M94.49,50.09 L 94.49 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-118" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M99.52,50.09 L 99.52 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-119" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M104.56,50.09 L 104.56 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-120" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M109.6,50.09 L 109.6 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-121" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M114.63,49.98 L 114.63 50.73" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-122" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M119.67,45.58 L 119.67 78.15" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-123" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M124.71,51.04 L 124.71 53.46" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-124" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M129.74,53.5 L 129.74 57.04" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-125" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M134.78,54.87 L 134.78 58.86" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-126" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M139.81,63.9 L 139.81 69.58" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-127" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M144.85,71.31 L 144.85 77.82" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-128" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M149.89,77.7 L 149.89 84.66" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-129" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M154.92,95.75 L 154.92 103.37" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-130" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M159.96,104.71 L 159.96 112.45" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-131" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M165,119.68 L 165 126.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-132" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M170.03,125.65 L 170.03 132.41" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-133" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M175.07,131.55 L 175.07 137.16" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-134" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M180.11,136.26 L 180.11 140.95" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-135" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M185.14,137.56 L 185.14 141.95" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-136" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M190.18,137.96 L 190.18 141.76" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-137" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M195.22,135.26 L 195.22 138.39" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-138" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M200.25,134.98 L 200.25 137.93" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-139" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M205.29,131.7 L 205.29 134.27" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-140" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M210.32,129 L 210.32 131.34" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-141" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M215.36,125.13 L 215.36 126.49" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-142" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M29.01,50.09 L 29.01 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-143" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M34.05,50.09 L 34.05 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-144" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M39.09,50.09 L 39.09 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-145" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M44.12,50.09 L 44.12 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-146" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M49.16,50.09 L 49.16 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-147" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M54.2,50.09 L 54.2 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-148" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M59.23,50.09 L 59.23 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-149" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M64.27,50.09 L 64.27 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-150" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M69.31,50.09 L 69.31 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-151" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M74.34,50.09 L 74.34 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-152" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M79.38,50.09 L 79.38 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-153" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M84.41,50.09 L 84.41 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-154" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M89.45,50.09 L 89.45 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-155" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M94.49,50.09 L 94.49 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-156" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M99.52,50.09 L 99.52 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-157" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M104.56,50.09 L 104.56 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-158" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M109.6,50.09 L 109.6 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-159" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M114.63,50.09 L 114.63 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-160" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M119.67,50.09 L 119.67 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-161" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M124.71,49.99 L 124.71 50.66" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-162" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M129.74,50.83 L 129.74 52.51" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-163" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M134.78,51 L 134.78 52.82" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-164" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M139.81,54.9 L 139.81 58.37" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-165" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M144.85,55.66 L 144.85 59.41" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-166" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M149.89,62.59 L 149.89 67.49" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-167" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M154.92,68.53 L 154.92 74.3" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-168" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M159.96,80.23 L 159.96 86.87" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-169" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M165,86.01 L 165 92.56" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-170" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M170.03,93.73 L 170.03 100.54" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-171" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M175.07,100.75 L 175.07 107.25" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-172" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M180.11,106.67 L 180.11 112.8" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-173" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M185.14,108.24 L 185.14 114.46" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-174" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M190.18,110.56 L 190.18 116.04" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-175" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M195.22,104.79 L 195.22 110.25" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-176" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M200.25,102.63 L 200.25 108.3" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-177" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M205.29,102.7 L 205.29 107.75" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-178" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M210.32,100.19 L 210.32 105.47" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-179" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M215.36,100.73 L 215.36 105.91" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-180" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M27.51,50.09 L 30.51 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-181" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M32.55,50.09 L 35.55 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-182" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M37.59,50.09 L 40.59 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-183" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M42.62,50.09 L 45.62 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-184" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M47.66,50.09 L 50.66 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-185" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M52.7,50.09 L 55.7 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-186" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M57.73,50.09 L 60.73 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-187" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M62.77,50.09 L 65.77 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-188" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M67.81,50.09 L 70.81 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-189" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M72.84,50.09 L 75.84 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-190" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M77.88,50.09 L 80.88 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-191" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M82.91,50.09 L 85.91 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-192" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M87.95,50.09 L 90.95 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-193" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M92.99,50.09 L 95.99 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-194" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M98.02,50.09 L 101.02 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-195" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M103.06,50.09 L 106.06 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-196" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M108.1,50.09 L 111.1 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-197" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M113.13,49.98 L 116.13 49.98" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-198" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M118.17,45.58 L 121.17 45.58" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-199" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M123.21,51.04 L 126.21 51.04" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-200" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M128.24,53.5 L 131.24 53.5" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-201" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M133.28,54.87 L 136.28 54.87" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-202" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M138.31,63.9 L 141.31 63.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-203" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M143.35,71.31 L 146.35 71.31" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-204" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M148.39,77.7 L 151.39 77.7" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-205" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M153.42,95.75 L 156.42 95.75" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-206" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M158.46,104.71 L 161.46 104.71" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-207" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M163.5,119.68 L 166.5 119.68" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-208" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M168.53,125.65 L 171.53 125.65" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-209" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M173.57,131.55 L 176.57 131.55" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-210" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M178.61,136.26 L 181.61 136.26" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-211" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M183.64,137.56 L 186.64 137.56" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-212" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M188.68,137.96 L 191.68 137.96" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-213" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M193.72,135.26 L 196.72 135.26" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-214" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M198.75,134.98 L 201.75 134.98" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-215" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M203.79,131.7 L 206.79 131.7" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-216" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M208.82,129 L 211.82 129" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-217" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M213.86,125.13 L 216.86 125.13" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-218" stroke="#0096D4" class="geometry color_Sztorc"/>
+        <path fill="none" d="M27.51,50.09 L 30.51 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-219" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M32.55,50.09 L 35.55 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-220" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M37.59,50.09 L 40.59 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-221" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M42.62,50.09 L 45.62 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-222" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M47.66,50.09 L 50.66 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-223" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M52.7,50.09 L 55.7 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-224" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M57.73,50.09 L 60.73 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-225" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M62.77,50.09 L 65.77 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-226" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M67.81,50.09 L 70.81 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-227" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M72.84,50.09 L 75.84 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-228" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M77.88,50.09 L 80.88 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-229" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M82.91,50.09 L 85.91 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-230" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M87.95,50.09 L 90.95 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-231" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M92.99,50.09 L 95.99 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-232" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M98.02,50.09 L 101.02 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-233" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M103.06,50.09 L 106.06 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-234" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M108.1,50.09 L 111.1 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-235" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M113.13,50.09 L 116.13 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-236" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M118.17,50.09 L 121.17 50.09" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-237" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M123.21,49.99 L 126.21 49.99" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-238" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M128.24,50.83 L 131.24 50.83" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-239" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M133.28,51 L 136.28 51" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-240" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M138.31,54.9 L 141.31 54.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-241" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M143.35,55.66 L 146.35 55.66" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-242" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M148.39,62.59 L 151.39 62.59" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-243" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M153.42,68.53 L 156.42 68.53" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-244" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M158.46,80.23 L 161.46 80.23" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-245" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M163.5,86.01 L 166.5 86.01" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-246" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M168.53,93.73 L 171.53 93.73" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-247" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M173.57,100.75 L 176.57 100.75" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-248" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M178.61,106.67 L 181.61 106.67" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-249" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M183.64,108.24 L 186.64 108.24" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-250" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M188.68,110.56 L 191.68 110.56" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-251" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M193.72,104.79 L 196.72 104.79" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-252" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M198.75,102.63 L 201.75 102.63" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-253" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M203.79,102.7 L 206.79 102.7" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-254" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M208.82,100.19 L 211.82 100.19" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-255" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+        <path fill="none" d="M213.86,100.73 L 216.86 100.73" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-256" stroke="#A8A200" class="geometry color_Fixed-variance"/>
+      </g>
+      <g stroke-width="0.3" fill="none" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-257">
+        <path fill="none" d="M29.01,50.09 L 34.05 50.09 39.09 50.09 44.12 50.09 49.16 50.09 54.2 50.09 59.23 50.09 64.27 50.09 69.31 50.09 74.34 50.09 79.38 50.09 84.41 50.09 89.45 50.09 94.49 50.09 99.52 50.09 104.56 50.09 109.6 50.09 114.63 50.36 119.67 61.86 124.71 52.25 129.74 55.27 134.78 56.86 139.81 66.74 144.85 74.57 149.89 81.18 154.92 99.56 159.96 108.58 165 123.29 170.03 129.03 175.07 134.35 180.11 138.61 185.14 139.76 190.18 139.86 195.22 136.82 200.25 136.46 205.29 132.99 210.32 130.17 215.36 125.81" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-258" stroke="#00BFFF" class="geometry color_Sztorc"/>
+        <path fill="none" d="M29.01,50.09 L 34.05 50.09 39.09 50.09 44.12 50.09 49.16 50.09 54.2 50.09 59.23 50.09 64.27 50.09 69.31 50.09 74.34 50.09 79.38 50.09 84.41 50.09 89.45 50.09 94.49 50.09 99.52 50.09 104.56 50.09 109.6 50.09 114.63 50.09 119.67 50.09 124.71 50.32 129.74 51.67 134.78 51.91 139.81 56.63 144.85 57.54 149.89 65.04 154.92 71.41 159.96 83.55 165 89.29 170.03 97.14 175.07 104 180.11 109.73 185.14 111.35 190.18 113.3 195.22 107.52 200.25 105.46 205.29 105.23 210.32 102.83 215.36 103.32" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-259" stroke="#D4CA3A" class="geometry color_Fixed-variance"/>
+      </g>
+      <g class="geometry" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-260">
+        <g stroke-width="0.3" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-261">
+          <circle cx="29.01" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-262" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="34.05" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-263" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="39.09" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-264" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="44.12" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-265" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="49.16" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-266" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="54.2" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-267" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="59.23" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-268" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="64.27" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-269" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="69.31" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-270" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="74.34" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-271" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="79.38" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-272" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="84.41" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-273" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="89.45" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-274" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="94.49" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-275" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="99.52" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-276" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="104.56" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-277" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="109.6" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-278" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="114.63" cy="50.36" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-279" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="119.67" cy="61.86" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-280" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="124.71" cy="52.25" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-281" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="129.74" cy="55.27" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-282" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="134.78" cy="56.86" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-283" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="139.81" cy="66.74" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-284" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="144.85" cy="74.57" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-285" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="149.89" cy="81.18" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-286" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="154.92" cy="99.56" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-287" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="159.96" cy="108.58" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-288" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="165" cy="123.29" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-289" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="170.03" cy="129.03" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-290" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="175.07" cy="134.35" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-291" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="180.11" cy="138.61" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-292" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="185.14" cy="139.76" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-293" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="190.18" cy="139.86" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-294" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="195.22" cy="136.82" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-295" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="200.25" cy="136.46" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-296" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="205.29" cy="132.99" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-297" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="210.32" cy="130.17" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-298" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="215.36" cy="125.81" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-299" stroke="#FFFFFF" class="color_Sztorc" fill="#00BFFF"/>
+          <circle cx="29.01" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-300" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="34.05" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-301" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="39.09" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-302" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="44.12" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-303" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="49.16" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-304" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="54.2" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-305" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="59.23" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-306" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="64.27" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-307" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="69.31" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-308" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="74.34" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-309" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="79.38" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-310" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="84.41" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-311" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="89.45" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-312" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="94.49" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-313" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="99.52" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-314" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="104.56" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-315" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="109.6" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-316" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="114.63" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-317" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="119.67" cy="50.09" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-318" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="124.71" cy="50.32" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-319" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="129.74" cy="51.67" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-320" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="134.78" cy="51.91" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-321" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="139.81" cy="56.63" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-322" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="144.85" cy="57.54" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-323" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="149.89" cy="65.04" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-324" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="154.92" cy="71.41" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-325" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="159.96" cy="83.55" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-326" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="165" cy="89.29" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-327" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="170.03" cy="97.14" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-328" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="175.07" cy="104" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-329" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="180.11" cy="109.73" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-330" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="185.14" cy="111.35" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-331" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="190.18" cy="113.3" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-332" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="195.22" cy="107.52" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-333" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="200.25" cy="105.46" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-334" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="205.29" cy="105.23" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-335" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="210.32" cy="102.83" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-336" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+          <circle cx="215.36" cy="103.32" r="0.9" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-337" stroke="#FFFFFF" class="color_Fixed-variance" fill="#D4CA3A"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-338">
+    <text x="20.98" y="156.52" text-anchor="end" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-339">0.985</text>
+    <text x="20.98" y="121.04" text-anchor="end" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-340">0.990</text>
+    <text x="20.98" y="85.56" text-anchor="end" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-341">0.995</text>
+    <text x="20.98" y="50.09" text-anchor="end" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-342">1.000</text>
+    <text x="20.98" y="14.61" text-anchor="end" dy="0.35em" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-343">1.005</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-344">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-345">sensitivity</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-346">
+    <text x="124.71" y="10.61" text-anchor="middle" id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-347">100 users reporting on 50 events over 1000 timesteps (500 iterations @ γ = 0.3) INDISCRIMINATE</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-84e3e73ef9574ba79aab58c2fbc333e2-element-14">
+  <path d="M21.98,12.61 L 227.43 12.61 227.43 158.52 21.98 158.52" />
+</clipPath
+></defs>
+</svg>
