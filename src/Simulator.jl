@@ -47,9 +47,6 @@ module Simulator
         # Reputation update smoothing parameter
         ALPHA::Float64
 
-        # Mixed simulation weighting parameter
-        BETA::Float64
-
         # Allowed initial reputation values and whether randomized
         REP_RANGE::UnitRange{Int}
         REP_RAND::Bool
@@ -62,6 +59,7 @@ module Simulator
         CONSPIRACY::Bool
         ALLWRONG::Bool
         SAVE_RAW_DATA::Bool
+        DISTORTS::Bool
 
         # Event resolution algorithms to test, metrics used to evaluate them,
         # and statistics of these metrics to calculate
@@ -79,7 +77,6 @@ module Simulator
                     distort::Float64=0.0,
                     responses::UnitRange{Int}=-1:1,
                     alpha::Float64=0.2,
-                    beta::Float64=0.75,
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
                     collude::Float64=0.3,
@@ -88,6 +85,7 @@ module Simulator
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
                     save_raw_data::Bool=false,
+                    distorts::Bool=false,
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
                                                 "covariance",
@@ -115,7 +113,6 @@ module Simulator
                 distort,
                 responses,
                 alpha,
-                beta,
                 rep_range,
                 rep_rand,
                 collude,
@@ -124,6 +121,7 @@ module Simulator
                 conspiracy,
                 allwrong,
                 save_raw_data,
+                distorts,
                 algos,
                 metrics,
                 statistics)

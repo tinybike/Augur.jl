@@ -31,3 +31,5 @@ The simulations are parallelized.  To run using all available cores:
 - Sztorc algo quality vs PC1 variance explained
 - plot number of components + % variance explained (scree plots)
 - plot simulation size vs # components
+- weight + center data matrix -> simulate
+- Joey request: the ones with one voter doing 25 truthfully 5 lies, people not colluding w/ him ---- does he get punished as well as w/ pca

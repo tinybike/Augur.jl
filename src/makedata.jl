@@ -18,7 +18,6 @@ function create_reporters(sim::Simulation)
     num_distorts = length(distorts)
     num_liars = length(liars)
 
-
     while num_trues == 0 || num_liars == 0
         honesty = rand(sim.REPORTERS)
         reporters = fill("", sim.REPORTERS)

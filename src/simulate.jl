@@ -72,7 +72,6 @@ function simulate(sim::Simulation)
                     alpha=sim.ALPHA,
                     variance_threshold=sim.VARIANCE_THRESHOLD,
                     aux=data[:aux],
-                    beta=sim.BETA,
                     algorithm=algo,
                 )[:consensus]()
 
