@@ -22,8 +22,6 @@ sim.ALGOS = [
     # "fixed-variance",
     # "covariance",
     "cokurtosis",
-    # "inverse-scores",
-    # "coskewness",
 ]
 sim.METRICS = [
     "beats",

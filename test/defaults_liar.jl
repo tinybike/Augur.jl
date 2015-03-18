@@ -10,20 +10,18 @@ sim.VARIANCE_THRESHOLD = 0.9
 # sim.ALPHA = 0.2
 # sim.BETA = 0.75
 sim.REP_RANGE = 1:100
-sim.REP_RAND = true
+sim.REP_RAND = false
 sim.COLLUDE = 0.3
 sim.INDISCRIMINATE = true
 # sim.VERBOSE = false
 # sim.CONSPIRACY = false
 # sim.ALLWRONG = false
-sim.SAVE_RAW_DATA = true
+sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "sztorc",
     "fixed-variance",
     # "covariance",
     "cokurtosis",
-    # "inverse-scores",
-    # "coskewness",
 ]
 sim.METRICS = [
     "beats",

@@ -42,22 +42,28 @@ function simulate(sim::Simulation)
                     reputation = A[algo]["agents"]["smooth_rep"]
                 end
 
-                if algo == "coskewness"
-
-                    # Per-user coskewness contribution
-                    contrib = coalesce(data[:reports]', 3; standardize=true, bias=0)
-                    data[:aux] = [ :coskew => contrib / sum(contrib) ]
-
-                elseif algo == "cokurtosis"
+                if algo == "cokurtosis"
 
                     # Per-user cokurtosis contribution
-                    contrib = coalesce(data[:reports]', 4; standardize=true, bias=0)
+                    contrib = collapse(data[:reports]', reputation, 4;
+                                       standardize=true,
+                                       bias=0)
+                    
                     data[:aux] = [ :cokurt => contrib / sum(contrib) ]
 
                 elseif algo == "cokurtosis-old"
 
+                    # Per-user cokurtosis contribution
+                    contrib = collapse(data[:reports]', 4;
+                                       standardize=true,
+                                       bias=0)
+                    
+                    data[:aux] = [ :cokurt => contrib / sum(contrib) ]
+
+                elseif algo == "legacy"
+
                     # Cokurtosis tensor
-                    tensor = cokurt(data[:reports]'; standardize=true, bias=1)
+                    tensor = cokurt(data[:reports]'; standardize=true, bias=0)
 
                     # Per-user cokurtosis contribution
                     contrib = sum(sum(sum(tensor, 4), 3), 2)[:]

@@ -1,6 +1,6 @@
 @everywhere using Simulator
 
-liar_thresholds = 0.1:0.1:0.9
+liar_thresholds = 0.05:0.05:0.95
 param_range = 5:5:1000
 
 sim = Simulation()
@@ -20,9 +20,10 @@ include("defaults_" * simtype * ".jl")
 
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-#    "sztorc",
-#    "fixed-variance",
+   "sztorc",
+   "fixed-variance",
    "cokurtosis",
+   "cokurtosis-old",
 ]
 
 # Run simulations and save results:
@@ -35,7 +36,7 @@ if simtype == "liar"
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    @time complexity(param_range, sim; iterations=1000, param="reporters")
+    # @time complexity(param_range, sim; iterations=1000, param="reporters")
     # @time complexity(param_range, sim; iterations=1000, param="events")
-    # @time complexity(param_range, sim; iterations=1000, param="both")
+    @time complexity(param_range, sim; iterations=1000, param="both")
 end
