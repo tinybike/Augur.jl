@@ -36,7 +36,7 @@ function compute_metrics(sim::Simulation,
     bins = linspace(0, 1, sim.REP_BINS)
     repcount = [i::Float64 => 0 for i in bins]
     for r in updated_rep
-        repcount[indmin(abs(bins - r))] += 1
+        repcount[bins[indmin(abs(bins - r))]] += 1
     end
 
     # Gini coefficient
