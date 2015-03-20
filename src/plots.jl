@@ -171,7 +171,7 @@ function plot_trajectory(sim_data::Dict{String,Any}, title::String)
     for algo in sim.ALGOS
         for tr in sim.TRACK
             data = [data, trajectory[algo][tr][:mean]]
-            metrics = [metrics, fill!(Array(String, gridrows), tr)]
+            metrics = [metrics, fill!(Array(String, gridrows), string(tr))]
             error_minus = [
                 error_minus,
                 trajectory[algo][tr][:mean] - trajectory[algo][tr][:stderr],
