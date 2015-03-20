@@ -48,7 +48,7 @@ end
 
 # Plotting dataframe for each metric separately
 function build_dataframe(sim_data::Dict{String,Any}, metric::String)
-    const num_algos = length(sim_data["sim"].ALGOS)
+    const num_algos = (metric == "components") ? 1 : length(sim_data["sim"].ALGOS)
     const gridrows = length(sim_data["liar_threshold"])
     const liar_threshold = repmat(sim_data["liar_threshold"], num_algos, 1)[:] * 100
     data = (Float64)[]
@@ -56,6 +56,9 @@ function build_dataframe(sim_data::Dict{String,Any}, metric::String)
     error_minus = (Float64)[]
     error_plus = (Float64)[]
     for algo in sim_data["sim"].ALGOS
+        if metric == "components" && algo != "fixed-variance"
+            continue
+        end
         data = [data, sim_data[algo][metric][:,1]]
         error_minus = [
             error_minus,
@@ -152,6 +155,71 @@ function build_title(sim_data::Dict{String,Any})
     )
 end
 
+# Time series plots
+function plot_trajectory(sim_data::Dict{String,Any}, title::String)
+    const sim = pop!(sim_data, "sim")
+    const trajectory = pop!(sim_data, "trajectory")
+    const timesteps = [1:sim.TIMESTEPS]
+    const num_algos = length(sim.ALGOS)
+    const num_metrics = length(sim.TRACK)
+    const gridrows = length(timesteps)
+    data = (Float64)[]
+    metrics = (String)[]
+    error_minus = (Float64)[]
+    error_plus = (Float64)[]
+    algos = (String)[]
+    for algo in sim.ALGOS
+        for tr in sim.TRACK
+            data = [data, trajectory[algo][tr][:mean]]
+            metrics = [metrics, fill!(Array(String, gridrows), tr)]
+            error_minus = [
+                error_minus,
+                trajectory[algo][tr][:mean] - trajectory[algo][tr][:stderr],
+            ]
+            error_plus = [
+                error_plus,
+                trajectory[algo][tr][:mean] + trajectory[algo][tr][:stderr],
+            ]
+        end
+        algos = [
+            algos,
+            repmat(fill!(Array(String, gridrows),
+                         string(uppercase(algo[1]), algo[2:end])),
+                   num_metrics, 1)[:],
+        ]
+    end
+    df = DataFrame(
+        metric=metrics[:],
+        timesteps=timesteps[:],
+        data=data[:],
+        error_minus=error_minus[:],
+        error_plus=error_plus[:],
+        algorithm=algos[:],
+    )
+    pl = plot(df,
+        x=:timesteps,
+        y=:data,
+        ymin=:error_minus,
+        ymax=:error_plus,
+        ygroup=:metric,
+        color=:algorithm,
+        Guide.XLabel("report round"),
+        Guide.YLabel(""),
+        Guide.Title(title),
+        Theme(panel_stroke=color("#848484")),
+        Scale.y_continuous(format=:plain),
+        Geom.subplot_grid(
+            Geom.point,
+            Geom.line,
+            Geom.errorbar,
+            free_y_axis=false,
+        ),
+    )
+    pl_file = "plots/trajectory_" * repr(now()) * ".svg"
+    draw(SVG(pl_file, 12inch, 12inch), pl)
+    println("Plot saved to ", pl_file)
+end
+
 # Gadfly plots
 function plot_simulations(sim_data::Dict{String,Any})
     println("Building plots...")
@@ -161,8 +229,16 @@ function plot_simulations(sim_data::Dict{String,Any})
     plot_dataframe(build_dataframe(sim_data), title)
 
     # Separate plots for each metric
-    for m in sim_data["sim"].METRICS
+    if "fixed-variance" in sim_data["sim"].ALGOS
+        metrics = [sim_data["sim"].METRICS, "components"]
+    else
+        metrics = sim_data["sim"].METRICS
+    end
+    for m in metrics
         plot_dataframe(build_dataframe(sim_data, m), title, m)
     end
     println("Individual plots saved to plots/single/")
+
+    # Time series plots
+    plot_trajectory(sim_data, title)
 end

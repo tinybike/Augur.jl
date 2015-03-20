@@ -48,6 +48,7 @@ module Simulator
         ALPHA::Float64
 
         # Allowed initial reputation values and whether randomized
+        REP_BINS::Int
         REP_RANGE::UnitRange{Int}
         REP_RAND::Bool
 
@@ -66,6 +67,9 @@ module Simulator
         ALGOS::Vector{ASCIIString}
         METRICS::Vector{ASCIIString}
         STATISTICS::Vector{ASCIIString}
+
+        # Tracking statistics for time series analysis
+        TRACK::Vector{Symbol}
 
         Simulation(;events::Int=25,
                     reporters::Int=50,
@@ -98,7 +102,10 @@ module Simulator
                                                   "precision",
                                                   "MCC"],
                     statistics::Vector{ASCIIString}=["mean",
-                                                     "stderr"]) =
+                                                     "stderr"],
+                    track::Vector{Symbol}=[:gini,
+                                           :MCC,
+                                           :correct]) =
             new(events,
                 reporters,
                 itermax,
@@ -110,6 +117,7 @@ module Simulator
                 distort,
                 responses,
                 alpha,
+                int(reporters/10),
                 rep_range,
                 rep_rand,
                 collude,
@@ -121,7 +129,8 @@ module Simulator
                 distorts,
                 algos,
                 metrics,
-                statistics)
+                statistics,
+                track)
     end
 
     include("simulate.jl")

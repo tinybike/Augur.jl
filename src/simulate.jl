@@ -5,13 +5,25 @@ function simulate(sim::Simulation)
     i = 1
     reporters = []
     raw_data = (String => Any)[ "sim" => sim ]
+    timesteps = (sim.SAVE_RAW_DATA) ? 1:sim.TIMESTEPS : sim.TIMESTEPS
     @inbounds for algo in sim.ALGOS
         raw_data[algo] = Dict{String,Any}()
         for m in [sim.METRICS, "components"]
             raw_data[algo][m] = Dict{Int,Vector{Float64}}()
-            for t in 1:sim.TIMESTEPS
-                raw_data[algo][m][t] = (Float64)[]
+            for t in timesteps
+                raw_data[algo][m][t] = Float64[]
             end
+        end
+        raw_data[algo]["repcount"] = Dict{Int,Vector{Dict{Float64,Int}}}()
+        for t in timesteps
+            raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
+        end
+    end
+    track = Dict{String,Dict{Symbol,Matrix{Float64}}}()
+    for algo in sim.ALGOS
+        track[algo] = Dict{Symbol,Matrix{Float64}}()
+        for tr in sim.TRACK
+            track[algo][tr] = zeros(sim.TIMESTEPS, sim.ITERMAX)
         end
     end
     @inbounds while i <= sim.ITERMAX
@@ -101,6 +113,12 @@ function simulate(sim::Simulation)
                         push!(raw_data[algo][m][t], metrics[symbol(m)])
                     end
                     push!(raw_data[algo]["components"][t], A[algo]["components"])
+                    push!(raw_data[algo]["repcount"][t], metrics[:repcount])
+                end
+
+                # Track the system's evolution
+                for tr in sim.TRACK
+                    track[algo][tr][t,i] = metrics[tr]
                 end
             end
         end
@@ -112,6 +130,19 @@ function simulate(sim::Simulation)
         filename = "data/raw/raw_sim_" * repr(now()) * ".jld"
         jldopen(filename, "w") do file
             write(file, "raw_data", raw_data)
+            write(file, "track", track)
+        end
+    end
+
+    # Tracking stats: mean +/- standard error time series
+    trajectory = Dict{String,Dict{Symbol,Dict{Symbol,Vector{Float64}}}}()
+    for algo in sim.ALGOS
+        trajectory[algo] = Dict{Symbol,Dict{Symbol,Vector{Float64}}}()
+        for tr in sim.TRACK
+            trajectory[algo][tr] = (Symbol => Vector{Float64})[
+                :mean => mean(track[algo][tr], 2)[:],
+                :stderr => std(track[algo][tr], 2)[:] / sim.SQRTN,
+            ]
         end
     end
 
@@ -119,6 +150,7 @@ function simulate(sim::Simulation)
     processed_data = (String => Any)[
         "iterate" => iterate,
         "liar_threshold" => sim.LIAR_THRESHOLD,
+        "trajectory" => trajectory,
     ]
     @inbounds for algo in sim.ALGOS
         processed_data[algo] = Dict{String,Dict{String,Float64}}()
@@ -167,6 +199,7 @@ function run_simulations(ltr::Range, sim::Simulation)
             end
         end
         results["iterate"] = matched["iterate"]
+        results["trajectory"] = matched["trajectory"]
         for algo in sim.ALGOS
             for s in sim.STATISTICS
                 for m in [sim.METRICS, "components"]

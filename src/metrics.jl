@@ -28,15 +28,28 @@ function compute_metrics(sim::Simulation,
     # Precision (positive predictive value): liars punished / total punished
     precision = liars_punished / total_punished
 
-    (Symbol => Float64)[
+    # Matthews correlation coefficient
+    MCC = liars_punished*trues_rewarded - liars_rewarded*trues_punished
+    MCC /= sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded)
+
+    # Reputation distribution (key=bin center, value=count)
+    bins = linspace(0, 1, sim.REP_BINS)
+    repcount = [i::Float64 => 0 for i in bins]
+    for r in updated_rep
+        repcount[indmin(abs(bins - r))] += 1
+    end
+
+    # Gini coefficient
+    gini = sum([i*r for (i,r) in enumerate(sort(updated_rep))]) / sum(updated_rep)
+    gini *= 2 / sim.REPORTERS
+    gini -= 1 + 1 / sim.REPORTERS
+
+    (Symbol => Union(Float64, Dict{Float64,Int}))[
         :sensitivity => sensitivity,
         :precision => precision,
 
         # Fall-out/false positive rate (1 - specificity): 1 - trues rewarded / num trues
         :fallout => 1.0 - sum(~tested_as_liars[data[:trues]]) / data[:num_trues],
-
-        # Matthews correlation coefficient
-        :MCC => (liars_punished*trues_rewarded - liars_rewarded*trues_punished) / sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded),
 
         # "liars_bonus": total bonus reward liars received (in excess of
         #                true reporters') relative to total reputation
@@ -47,5 +60,9 @@ function compute_metrics(sim::Simulation,
 
         # Outcomes that matched our known correct answers list
         :correct => countnz(outcomes .== data[:correct_answers]) / sim.EVENTS,
+
+        :MCC => MCC,
+        :repcount => repcount,
+        :gini => gini,
     ]
 end
