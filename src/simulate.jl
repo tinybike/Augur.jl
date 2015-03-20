@@ -45,29 +45,36 @@ function simulate(sim::Simulation)
                 if algo == "cokurtosis"
 
                     # Per-user cokurtosis contribution
-                    contrib = collapse(data[:reports]', reputation, 4;
-                                       standardize=true,
-                                       bias=0)
-                    
-                    data[:aux] = [ :cokurt => contrib / sum(contrib) ]
+                    data[:aux] = [
+                        :cokurt => normalize(collapse(
+                            data[:reports]',
+                            reputation,
+                            4;
+                            standardize=true,
+                            axis=2,
+                        ))
+                    ]
 
                 elseif algo == "cokurtosis-old"
 
                     # Per-user cokurtosis contribution
-                    contrib = collapse(data[:reports]', 4;
-                                       standardize=true,
-                                       bias=0)
-                    
-                    data[:aux] = [ :cokurt => contrib / sum(contrib) ]
+                    data[:aux] = [
+                        :cokurt => normalize(collapse(
+                            data[:reports]',
+                            4;
+                            standardize=true,
+                        ))
+                    ]
 
                 elseif algo == "legacy"
 
                     # Cokurtosis tensor
-                    tensor = cokurt(data[:reports]'; standardize=true, bias=0)
+                    tensor = cokurt(data[:reports]'; standardize=true)
 
                     # Per-user cokurtosis contribution
-                    contrib = sum(sum(sum(tensor, 4), 3), 2)[:]
-                    data[:aux] = [ :cokurt => contrib / sum(contrib) ]
+                    data[:aux] = [
+                        :cokurt => normalize(sum(sum(sum(tensor, 4), 3), 2)[:])
+                    ]
 
                 end
 
