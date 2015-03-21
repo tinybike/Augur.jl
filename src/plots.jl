@@ -173,7 +173,7 @@ function plot_trajectories(sim::Simulation,
     error_plus = Float64[]
     timesteps = Int[]
     liars = String[]
-    for (i, lt) in enumerate(sim_data["liar_threshold"])
+    for (i, lt) in enumerate(liar_thresholds)
         for algo in sim.ALGOS
             for tr in sim.TRACK
                 data = [data, trajectories[i][algo][tr][:mean]]
