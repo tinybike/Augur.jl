@@ -166,7 +166,7 @@ function simulate(sim::Simulation)
 end
 
 function run_simulations(ltr::Range, sim::Simulation)
-    println("Simulating:")
+    print_with_color(:red, "Simulating:\n")
 
     # Run parallel simulations
     raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr

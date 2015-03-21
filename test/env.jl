@@ -3,7 +3,7 @@ using DataFrames
 using Dates
 using Debug
 
-datafile = "data/sim_2015-03-21T03:16:45.jld"
+datafile = "data/sim_2015-03-21T14:08:39.jld"
 
 if ~isinteractive() && length(ARGS) > 0
     datafile = ARGS[1]
@@ -14,11 +14,28 @@ sim = sim_data["sim"]
 trajectories = sim_data["trajectories"]
 
 if ~isinteractive()
-    for algo in sim.ALGOS
-        plot_trajectories(sim,
-                          trajectories,
-                          sim_data["liar_threshold"],
-                          algo,
-                          build_title(sim, algo))
-    end
+    plot_simulations(sim_data)
+
+    # Time series plots only
+    # sim = pop!(sim_data, "sim")
+    # for algo in sim.ALGOS
+    #     trajectory_title = build_title(sim, algo)
+
+    #     # Stacked plots
+    #     plot_trajectories(sim,
+    #                       trajectories,
+    #                       sim_data["liar_threshold"],
+    #                       algo,
+    #                       trajectory_title)
+
+    #     # Separate tracking metrics
+    #     for tr in sim.TRACK
+    #         plot_trajectories(sim,
+    #                           trajectories,
+    #                           sim_data["liar_threshold"],
+    #                           algo,
+    #                           trajectory_title,
+    #                           tr)
+    #     end
+    # end
 end

@@ -23,7 +23,8 @@ function save_data(sim::Simulation,
     jldopen(filename, "w") do file
         write(file, "sim_data", sim_data)
     end
-    println("Data saved to ", filename)
+    print_with_color(:white, "Data saved to ")
+    print_with_color(:cyan, "$filename\n")
     return sim_data
 end
 
@@ -49,7 +50,8 @@ function save_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
         write(file, "param_range", param_range)
         write(file, "timestamp", timestamp)
     end
-    println("Data saved to ", filename)
+    print_with_color(:white, "Data saved to ")
+    print_with_color(:cyan, "$filename\n")
 end
 
 function load_time_elapsed(datafile::String)
