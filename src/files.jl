@@ -5,7 +5,7 @@ function save_data(sim::Simulation,
                    parametrize::Bool=false)
     sim_data = (String => Any)[
         "sim" => sim,
-        "trajectory" => results["trajectory"],
+        "trajectories" => results["trajectories"],
         "parametrize" => parametrize,
         "liar_threshold" => convert(Array, ltr),
         "iterate" => results["iterate"],

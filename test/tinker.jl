@@ -18,15 +18,25 @@ end
 
 include("defaults_" * simtype * ".jl")
 
+# Quick run-thru
+# sim.EVENTS = 10
+# sim.REPORTERS = 25
+# sim.ITERMAX = 10
+# sim.TIMESTEPS = 5
+
+# Full(er) run
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 250
+sim.TIMESTEPS = 250
+
 sim.REP_RAND = true
-sim.TIMESTEPS = 10
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   # "sztorc",
+   "sztorc",
    "fixed-variance",
-   # "covariance",
+   "covariance",
    "cokurtosis",
-   # "cokurtosis-old",
 ]
 
 # Run simulations and save results:

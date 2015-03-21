@@ -16,7 +16,7 @@ module Simulator
         run_simulations,
         plot_simulations,
         build_title,
-        plot_trajectory,
+        plot_trajectories,
         load_data,
         save_data,
         complexity,

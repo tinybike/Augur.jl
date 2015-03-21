@@ -189,7 +189,7 @@ function run_simulations(ltr::Range, sim::Simulation)
     end
 
     # Sort results using liar_threshold values
-    results["trajectories"] = Vector{Trajectory}
+    results["trajectories"] = Array(Trajectory, gridrows)
     @inbounds for (row, liar_threshold) in enumerate(ltr)
         i = 1
         matched = Dict{String,Dict}()
@@ -200,7 +200,7 @@ function run_simulations(ltr::Range, sim::Simulation)
             end
         end
         results["iterate"] = matched["iterate"]
-        push!(results["trajectories"], matched["trajectory"])
+        results["trajectories"][row] = matched["trajectory"]
         for algo in sim.ALGOS
             for s in sim.STATISTICS
                 for m in [sim.METRICS, "components"]

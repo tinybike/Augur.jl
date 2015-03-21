@@ -174,24 +174,22 @@ function plot_trajectories(sim::Simulation,
     timesteps = Int[]
     liars = String[]
     for (i, lt) in enumerate(liar_thresholds)
-        for algo in sim.ALGOS
-            for tr in sim.TRACK
-                data = [data, trajectories[i][algo][tr][:mean]]
-                metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
-                error_minus = [
-                    error_minus,
-                    trajectories[i][algo][tr][:mean] - trajectories[i][algo][tr][:stderr],
-                ]
-                error_plus = [
-                    error_plus,
-                    trajectories[i][algo][tr][:mean] + trajectories[i][algo][tr][:stderr],
-                ]
-                timesteps = [timesteps, [1:sim.TIMESTEPS]]
-                liars = [
-                    liars,
-                    fill!(Array(String, sim.TIMESTEPS), string(lt))[:],
-                ]
-            end
+        for tr in sim.TRACK
+            data = [data, trajectories[i][algo][tr][:mean]]
+            metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
+            error_minus = [
+                error_minus,
+                trajectories[i][algo][tr][:mean] - trajectories[i][algo][tr][:stderr],
+            ]
+            error_plus = [
+                error_plus,
+                trajectories[i][algo][tr][:mean] + trajectories[i][algo][tr][:stderr],
+            ]
+            timesteps = [timesteps, [1:sim.TIMESTEPS]]
+            liars = [
+                liars,
+                fill!(Array(String, sim.TIMESTEPS), string(lt))[:],
+            ]
         end
     end
     df = DataFrame(
@@ -202,6 +200,8 @@ function plot_trajectories(sim::Simulation,
         error_plus=error_plus[:],
         liars=liars[:],
     )
+    display(df)
+    println("")
     pl = plot(df,
         x=:timesteps,
         y=:data,
@@ -209,14 +209,13 @@ function plot_trajectories(sim::Simulation,
         ymax=:error_plus,
         ygroup=:metric,
         color=:liars,
-        Guide.XLabel("report round"),
+        # Guide.xticks(ticks=timesteps),
+        Guide.XLabel("time (reporting round)"),
         Guide.YLabel(""),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
         Scale.y_continuous(format=:plain),
         Geom.subplot_grid(
-            Stat.xticks(ticks=liar_thresholds),
-            Geom.point,
             Geom.line,
             Geom.ribbon,
             free_y_axis=false,
@@ -224,7 +223,7 @@ function plot_trajectories(sim::Simulation,
     )
     pl_file = string("plots/trajectory_", algo, "_", repr(now()), ".svg")
     draw(SVG(pl_file, 12inch, 12inch), pl)
-    println("$algo time series plot: ", pl_file)
+    println("$algo time series: ", pl_file)
 end
 
 # Gadfly plots
