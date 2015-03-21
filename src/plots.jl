@@ -1,6 +1,7 @@
 using Simulator
 using DataFrames
 using Gadfly
+using Debug
 
 # Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})
@@ -135,43 +136,40 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
 end
 
 # String containing info about simulation (goes in figure title)
-function build_title(sim_data::Dict{String,Any})
+function build_title(sim::Simulation)
     optstr = ""
     for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
-        optstr *= (sim_data["sim"].(flag)) ? " " * string(flag) : ""
+        optstr *= (sim.(flag)) ? " " * string(flag) : ""
     end
     string(
-        sim_data["sim"].REPORTERS,
+        sim.REPORTERS,
         " users reporting on ",
-        sim_data["sim"].EVENTS,
+        sim.EVENTS,
         " events over ",
-        sim_data["sim"].TIMESTEPS,
+        sim.TIMESTEPS,
         " timesteps (",
-        sim_data["sim"].ITERMAX,
+        sim.ITERMAX,
         " iterations @ γ = ",
-        sim_data["sim"].COLLUDE,
+        sim.COLLUDE,
         ")",
         optstr,
     )
 end
 
 # Time series plots
-function plot_trajectory(sim_data::Dict{String,Any}, title::String)
-    const sim = pop!(sim_data, "sim")
-    const trajectory = pop!(sim_data, "trajectory")
-    const timesteps = [1:sim.TIMESTEPS]
-    const num_algos = length(sim.ALGOS)
-    const num_metrics = length(sim.TRACK)
-    const gridrows = length(timesteps)
-    data = (Float64)[]
-    metrics = (String)[]
-    error_minus = (Float64)[]
-    error_plus = (Float64)[]
-    algos = (String)[]
+@debug function plot_trajectory(sim::Simulation,
+                         trajectory::Dict{String,Dict{Symbol,Dict{Symbol,Vector{Float64}}}},
+                         title::String)
+    data = Float64[]
+    metrics = String[]
+    error_minus = Float64[]
+    error_plus = Float64[]
+    timesteps = Int[]
+    algos = String[]
     for algo in sim.ALGOS
         for tr in sim.TRACK
             data = [data, trajectory[algo][tr][:mean]]
-            metrics = [metrics, fill!(Array(String, gridrows), string(tr))]
+            metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
             error_minus = [
                 error_minus,
                 trajectory[algo][tr][:mean] - trajectory[algo][tr][:stderr],
@@ -180,14 +178,16 @@ function plot_trajectory(sim_data::Dict{String,Any}, title::String)
                 error_plus,
                 trajectory[algo][tr][:mean] + trajectory[algo][tr][:stderr],
             ]
+            timesteps = [timesteps, [1:sim.TIMESTEPS]]
         end
         algos = [
             algos,
-            repmat(fill!(Array(String, gridrows),
+            repmat(fill!(Array(String, sim.TIMESTEPS),
                          string(uppercase(algo[1]), algo[2:end])),
-                   num_metrics, 1)[:],
+                   length(sim.TRACK), 1)[:],
         ]
     end
+    @bp
     df = DataFrame(
         metric=metrics[:],
         timesteps=timesteps[:],
@@ -217,13 +217,13 @@ function plot_trajectory(sim_data::Dict{String,Any}, title::String)
     )
     pl_file = "plots/trajectory_" * repr(now()) * ".svg"
     draw(SVG(pl_file, 12inch, 12inch), pl)
-    println("Plot saved to ", pl_file)
+    println("Time-series plot saved to ", pl_file)
 end
 
 # Gadfly plots
 function plot_simulations(sim_data::Dict{String,Any})
     println("Building plots...")
-    title = build_title(sim_data)
+    title = build_title(sim_data["sim"])
     
     # Stacked plots with all metrics
     plot_dataframe(build_dataframe(sim_data), title)
@@ -240,5 +240,7 @@ function plot_simulations(sim_data::Dict{String,Any})
     println("Individual plots saved to plots/single/")
 
     # Time series plots
-    plot_trajectory(sim_data, title)
+    sim = pop!(sim_data, "sim")
+    trajectory = pop!(sim_data, "trajectory")
+    plot_trajectory(sim, trajectory, title)
 end
