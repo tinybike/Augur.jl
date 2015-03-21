@@ -1,7 +1,6 @@
 using Simulator
 using DataFrames
 using Gadfly
-using Debug
 
 # Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})
@@ -135,6 +134,8 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
     draw(SVG(pl_file, 10inch, 7inch), pl)
 end
 
+capitalize(algo::String) = string(uppercase(algo[1]), algo[2:end])
+
 # String containing info about simulation (goes in figure title)
 function build_title(sim::Simulation)
     optstr = ""
@@ -156,45 +157,50 @@ function build_title(sim::Simulation)
     )
 end
 
+build_title(sim::Simulation, algo::String) = string(capitalize(algo),
+                                                    ": ",
+                                                    build_title(sim))
+
 # Time series plots
-@debug function plot_trajectory(sim::Simulation,
-                         trajectory::Dict{String,Dict{Symbol,Dict{Symbol,Vector{Float64}}}},
-                         title::String)
+function plot_trajectories(sim::Simulation,
+                           trajectories::Vector{Trajectory},
+                           liar_thresholds::Vector{Float64},
+                           algo::String,
+                           title::String)
     data = Float64[]
     metrics = String[]
     error_minus = Float64[]
     error_plus = Float64[]
     timesteps = Int[]
-    algos = String[]
-    for algo in sim.ALGOS
-        for tr in sim.TRACK
-            data = [data, trajectory[algo][tr][:mean]]
-            metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
-            error_minus = [
-                error_minus,
-                trajectory[algo][tr][:mean] - trajectory[algo][tr][:stderr],
-            ]
-            error_plus = [
-                error_plus,
-                trajectory[algo][tr][:mean] + trajectory[algo][tr][:stderr],
-            ]
-            timesteps = [timesteps, [1:sim.TIMESTEPS]]
+    liars = String[]
+    for (i, lt) in enumerate(sim_data["liar_threshold"])
+        for algo in sim.ALGOS
+            for tr in sim.TRACK
+                data = [data, trajectories[i][algo][tr][:mean]]
+                metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
+                error_minus = [
+                    error_minus,
+                    trajectories[i][algo][tr][:mean] - trajectories[i][algo][tr][:stderr],
+                ]
+                error_plus = [
+                    error_plus,
+                    trajectories[i][algo][tr][:mean] + trajectories[i][algo][tr][:stderr],
+                ]
+                timesteps = [timesteps, [1:sim.TIMESTEPS]]
+                liars = [
+                    liars,
+                    fill!(Array(String, sim.TIMESTEPS), string(lt))[:],
+                ]
+            end
         end
-        algos = [
-            algos,
-            repmat(fill!(Array(String, sim.TIMESTEPS),
-                         string(uppercase(algo[1]), algo[2:end])),
-                   length(sim.TRACK), 1)[:],
-        ]
     end
-    @bp
     df = DataFrame(
         metric=metrics[:],
         timesteps=timesteps[:],
         data=data[:],
         error_minus=error_minus[:],
         error_plus=error_plus[:],
-        algorithm=algos[:],
+        liars=liars[:],
     )
     pl = plot(df,
         x=:timesteps,
@@ -202,27 +208,30 @@ end
         ymin=:error_minus,
         ymax=:error_plus,
         ygroup=:metric,
-        color=:algorithm,
+        color=:liars,
         Guide.XLabel("report round"),
         Guide.YLabel(""),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
         Scale.y_continuous(format=:plain),
         Geom.subplot_grid(
+            Stat.xticks(ticks=liar_thresholds),
             Geom.point,
             Geom.line,
-            Geom.errorbar,
+            Geom.ribbon,
             free_y_axis=false,
         ),
     )
-    pl_file = "plots/trajectory_" * repr(now()) * ".svg"
+    pl_file = string("plots/trajectory_", algo, "_", repr(now()), ".svg")
     draw(SVG(pl_file, 12inch, 12inch), pl)
-    println("Time-series plot saved to ", pl_file)
+    println("$algo time series plot: ", pl_file)
 end
 
 # Gadfly plots
 function plot_simulations(sim_data::Dict{String,Any})
     println("Building plots...")
+
+    trajectories = pop!(sim_data, "trajectories")
     title = build_title(sim_data["sim"])
     
     # Stacked plots with all metrics
@@ -241,6 +250,11 @@ function plot_simulations(sim_data::Dict{String,Any})
 
     # Time series plots
     sim = pop!(sim_data, "sim")
-    trajectory = pop!(sim_data, "trajectory")
-    plot_trajectory(sim, trajectory, title)
+    for algo in sim.ALGOS
+        plot_trajectories(sim,
+                          trajectories,
+                          sim_data["liar_threshold"],
+                          algo,
+                          build_title(sim, algo))
+    end
 end

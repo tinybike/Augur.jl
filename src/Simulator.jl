@@ -9,6 +9,8 @@ module Simulator
 
     export
         Simulation,
+        Trajectory,
+        Track,
         generate_data,
         simulate,
         run_simulations,
@@ -134,6 +136,9 @@ module Simulator
                 statistics,
                 track)
     end
+
+    Track = Dict{Symbol,Dict{Symbol,Vector{Float64}}}
+    Trajectory = Dict{String,Track}
 
     include("simulate.jl")
     include("complexity.jl")

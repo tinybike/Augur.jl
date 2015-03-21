@@ -1,6 +1,6 @@
 @everywhere using Simulator
 
-liar_thresholds = 0.05:0.05:0.95
+liar_thresholds = 0.1:0.4:0.9
 param_range = 5:5:1000
 
 sim = Simulation()
@@ -19,7 +19,7 @@ end
 include("defaults_" * simtype * ".jl")
 
 sim.REP_RAND = true
-sim.TIMESTEPS = 100
+sim.TIMESTEPS = 10
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
    # "sztorc",

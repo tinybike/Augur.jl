@@ -10,6 +10,5 @@ if ~isinteractive() && length(ARGS) > 0
 end
 
 sim_data = load_data(datafile)
-sim = pop!(sim_data, "sim")
-trajectory = pop!(sim_data, "trajectory")
-plot_trajectory(sim, trajectory, build_title(sim))
+sim = sim_data["sim"]
+trajectories = sim_data["trajectories"]

@@ -113,7 +113,7 @@ function simulate(sim::Simulation)
                         push!(raw_data[algo][m][t], metrics[symbol(m)])
                     end
                     push!(raw_data[algo]["components"][t], A[algo]["components"])
-                    push!(raw_data[algo]["repcount"][t], metrics[:repcount])
+                    # push!(raw_data[algo]["repcount"][t], metrics[:repcount])
                 end
 
                 # Track the system's evolution
@@ -135,9 +135,9 @@ function simulate(sim::Simulation)
     end
 
     # Tracking stats: mean +/- standard error time series
-    trajectory = Dict{String,Dict{Symbol,Dict{Symbol,Vector{Float64}}}}()
+    trajectory = Trajectory()
     for algo in sim.ALGOS
-        trajectory[algo] = Dict{Symbol,Dict{Symbol,Vector{Float64}}}()
+        trajectory[algo] = Track()
         for tr in sim.TRACK
             trajectory[algo][tr] = (Symbol => Vector{Float64})[
                 :mean => mean(track[algo][tr], 2)[:],
@@ -189,6 +189,7 @@ function run_simulations(ltr::Range, sim::Simulation)
     end
 
     # Sort results using liar_threshold values
+    results["trajectories"] = Vector{Trajectory}
     @inbounds for (row, liar_threshold) in enumerate(ltr)
         i = 1
         matched = Dict{String,Dict}()
@@ -199,7 +200,7 @@ function run_simulations(ltr::Range, sim::Simulation)
             end
         end
         results["iterate"] = matched["iterate"]
-        results["trajectory"] = matched["trajectory"]
+        push!(results["trajectories"], matched["trajectory"])
         for algo in sim.ALGOS
             for s in sim.STATISTICS
                 for m in [sim.METRICS, "components"]
