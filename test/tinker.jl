@@ -1,6 +1,6 @@
 @everywhere using Simulator
 
-liar_thresholds = 0.1:0.4:0.9
+liar_thresholds = 0.1:0.1:0.9
 param_range = 5:5:1000
 
 sim = Simulation()
@@ -37,6 +37,7 @@ sim.ALGOS = [
    "fixed-variance",
    "covariance",
    "cokurtosis",
+   "cokurtosis-old",
 ]
 
 # Run simulations and save results:
