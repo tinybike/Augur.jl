@@ -1,6 +1,6 @@
 @everywhere using Simulator
 
-liar_thresholds = 0.1:0.2:0.9
+liar_thresholds = 0.5:0.05:0.95
 param_range = 5:5:1000
 
 sim = Simulation()
