@@ -2,7 +2,7 @@ tic()
 
 @everywhere using Simulator
 
-liar_thresholds = 0.45:0.05:0.95
+liar_thresholds = 0.45:0.1:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -22,15 +22,15 @@ end
 include("defaults_" * simtype * ".jl")
 
 # Quick run-thru
-# sim.EVENTS = 20
-# sim.REPORTERS = 40
-# sim.ITERMAX = 25
-# sim.TIMESTEPS = 10
+sim.EVENTS = 20
+sim.REPORTERS = 40
+sim.ITERMAX = 25
+sim.TIMESTEPS = 5
 
 # Full(er) run
-sim.EVENTS = 50
-sim.REPORTERS = 100
-sim.ITERMAX = 250
+# sim.EVENTS = 50
+# sim.REPORTERS = 100
+# sim.ITERMAX = 250
 # sim.TIMESTEPS = 250
 
 # sim.DISTORTER = true
