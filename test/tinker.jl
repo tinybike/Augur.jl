@@ -53,9 +53,9 @@ if simtype == "liar"
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    @time complexity(param_range, sim; iterations=50, param="reporters")
-    @time complexity(param_range, sim; iterations=50, param="events")
-    @time complexity(param_range, sim; iterations=50, param="both")
+    @time complexity(param_range, sim; iterations=500, param="reporters")
+    @time complexity(param_range, sim; iterations=500, param="events")
+    @time complexity(param_range, sim; iterations=500, param="both")
 end
 
 print_with_color(:white, string(round(toq()/60, 2), " minutes elapsed"))
