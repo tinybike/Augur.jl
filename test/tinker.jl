@@ -33,13 +33,11 @@ sim.TIMESTEPS = 5
 # sim.ITERMAX = 250
 # sim.TIMESTEPS = 250
 
-sim.REP_RAND = false
+sim.REP_RAND = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   "sztorc",
-   "fixed-variance",
+   # "fixed-variance",
    "cokurtosis",
-   "cokurtosis-old",
 ]
 
 # Run simulations and save results:
@@ -52,9 +50,9 @@ if simtype == "liar"
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    @time complexity(param_range, sim; iterations=100, param="reporters")
-    @time complexity(param_range, sim; iterations=100, param="events")
-    @time complexity(param_range, sim; iterations=100, param="both")
+    @time complexity(param_range, sim; iterations=1000, param="reporters")
+    @time complexity(param_range, sim; iterations=1000, param="events")
+    @time complexity(param_range, sim; iterations=1000, param="both")
 end
 
-print_with_color(:white, string("Minutes elapsed: ", round(toq()/60, 2)))
+print_with_color(:white, string(round(toq()/60, 2), " minutes elapsed"))

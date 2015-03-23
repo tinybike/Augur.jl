@@ -75,18 +75,6 @@ function simulate(sim::Simulation)
                     # println("Collapsed:")
                     # println(data[:aux])
 
-                elseif algo == "cokurtosis-old"
-
-                    # Per-user cokurtosis contribution
-                    data[:aux] = [
-                        :cokurt => collapse(
-                            data[:reports]';
-                            order=4,
-                            standardize=true,
-                            normalized=true,
-                        )
-                    ]
-
                 end
 
                 # Use pyconsensus for event resolution
