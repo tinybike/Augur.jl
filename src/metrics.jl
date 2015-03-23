@@ -32,12 +32,7 @@ function compute_metrics(sim::Simulation,
     MCC = liars_punished*trues_rewarded - liars_rewarded*trues_punished
     MCC /= sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded)
 
-    # Reputation distribution (key=bin center, value=count)
-    # bins = linspace(0, 1, sim.REP_BINS)
-    # repcount = [i::Float64 => 0 for i in bins]
-    # for r in updated_rep
-    #     repcount[bins[indmin(abs(bins - r))]] += 1
-    # end
+    # repcount = reputation_distribution(updated_rep)
 
     # Gini coefficient
     gini = sum([i*r for (i,r) in enumerate(sort(updated_rep))]) / sum(updated_rep)
@@ -73,4 +68,14 @@ function compute_metrics(sim::Simulation,
         :liar_rep => liar_rep,
         :gap => true_rep - liar_rep,
     ]
+end
+
+# Reputation distribution (key=bin center, value=count)
+function reputation_distribution(updated_rep)
+    bins = linspace(0, 1, sim.REP_BINS)
+    repcount = [i::Float64 => 0 for i in bins]
+    for r in updated_rep
+        repcount[bins[indmin(abs(bins - r))]] += 1
+    end
+    repcount
 end

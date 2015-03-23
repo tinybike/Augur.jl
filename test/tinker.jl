@@ -22,15 +22,15 @@ end
 include("defaults_" * simtype * ".jl")
 
 # Quick run-thru
-sim.EVENTS = 20
-sim.REPORTERS = 40
+# sim.EVENTS = 20
+# sim.REPORTERS = 40
 # sim.ITERMAX = 25
 # sim.TIMESTEPS = 10
 
 # Full(er) run
-# sim.EVENTS = 50
-# sim.REPORTERS = 100
-# sim.ITERMAX = 250
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 250
 # sim.TIMESTEPS = 250
 
 # sim.DISTORTER = true
@@ -38,9 +38,9 @@ sim.DISTORT = 0.2
 sim.REP_RAND = false
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   # "sztorc",
+   "sztorc",
    "fixed-variance",
-   # "cokurtosis",
+   "cokurtosis",
 ]
 
 # Run simulations and save results:
@@ -58,4 +58,4 @@ elseif simtype == "cplx"
     @time complexity(param_range, sim; iterations=500, param="both")
 end
 
-print_with_color(:white, string(round(toq()/60, 2), " minutes elapsed"))
+print_with_color(:white, string(round(toq()/60, 2), " minutes elapsed\n"))
