@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 
 liar_thresholds = 0.45:0.05:0.95
-param_range = 10:10:1000
+param_range = 5:5:100
 
 sim = Simulation()
 
@@ -24,8 +24,8 @@ include("defaults_" * simtype * ".jl")
 # Quick run-thru
 sim.EVENTS = 20
 sim.REPORTERS = 40
-sim.ITERMAX = 25
-sim.TIMESTEPS = 10
+# sim.ITERMAX = 25
+# sim.TIMESTEPS = 10
 
 # Full(er) run
 # sim.EVENTS = 50
@@ -33,13 +33,13 @@ sim.TIMESTEPS = 10
 # sim.ITERMAX = 250
 # sim.TIMESTEPS = 250
 
-sim.DISTORTER = true
+# sim.DISTORTER = true
 sim.DISTORT = 0.2
 sim.REP_RAND = false
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    "sztorc",
-    "fixed-variance",
+   # "sztorc",
+   # "fixed-variance",
     "cokurtosis",
 ]
 
@@ -53,9 +53,9 @@ if simtype == "liar"
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    @time complexity(param_range, sim; iterations=1000, param="reporters")
-    @time complexity(param_range, sim; iterations=1000, param="events")
-    @time complexity(param_range, sim; iterations=1000, param="both")
+    @time complexity(param_range, sim; iterations=50, param="reporters")
+    @time complexity(param_range, sim; iterations=50, param="events")
+    @time complexity(param_range, sim; iterations=50, param="both")
 end
 
 print_with_color(:white, string(round(toq()/60, 2), " minutes elapsed"))
