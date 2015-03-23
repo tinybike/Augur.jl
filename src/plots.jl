@@ -107,7 +107,7 @@ function plot_dataframe(df::DataFrame, title::String)
     )
     pl_file = "plots/metrics_" * repr(now()) * ".svg"
     draw(SVG(pl_file, 12inch, 12inch), pl)
-    print_with_color(:white, "Stacked plot: ")
+    print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
 end
 
@@ -133,6 +133,68 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
     )
     pl_file = "plots/single/" * metric * "_" * repr(now()) * ".svg"
     draw(SVG(pl_file, 10inch, 7inch), pl)
+    println("    -> $pl_file")
+end
+
+function plot_median_rep(sim_data::Dict{String,Any}, metric::String, algo::String)
+    const num_algos = (metric == "components") ? 1 : length(sim_data["sim"].ALGOS)
+    const gridrows = length(sim_data["liar_threshold"])
+    const liar_threshold = repmat(sim_data["liar_threshold"], num_algos, 1)[:] * 100
+    data = Float64[]
+    algos = String[]
+    metrics = String[]
+    error_minus = Float64[]
+    error_plus = Float64[]
+    for honesty in ("true", "liar")
+        if metric == "components" && algo != "fixed-variance"
+            continue
+        end
+        data = [data, sim_data[algo][metric][:,1]]
+        error_minus = [
+            error_minus,
+            sim_data[algo][metric][:,1] - sim_data[algo][metric * "_std"][:,1],
+        ]
+        error_plus = [
+            error_plus,
+            sim_data[algo][metric][:,1] + sim_data[algo][metric * "_std"][:,1],
+        ]
+        algos = [
+            algos,
+            repmat(fill!(Array(String, gridrows),
+                         string(uppercase(algo[1]), algo[2:end])),
+                   1, 1)[:],
+        ]
+        metrics = [metrics, fill!(Array(String, gridrows), honesty)]
+    end
+    df = DataFrame(
+        liar_threshold=liar_threshold[:],
+        data=data[:],
+        metric=metrics[:],
+        error_minus=error_minus[:],
+        error_plus=error_plus[:],
+    )
+    pl = plot(df,
+        x=:liar_threshold,
+        y=:data,
+        ymin=:error_minus,
+        ymax=:error_plus,
+        color=:metric,
+        Guide.XLabel("% liars"),
+        Guide.YLabel("median reputation fraction"),
+        Guide.Title(title),
+        Theme(panel_stroke=color("#848484")),
+        Scale.y_continuous(
+            format=:plain,
+            minvalue=minimum(df[:error_minus]),
+            maxvalue=maximum(df[:error_plus]),
+        ),
+        Geom.point,
+        Geom.line,
+        Geom.errorbar,
+    )
+    pl_file = "plots/single/median_rep_" * algo * "_" * repr(now()) * ".svg"
+    draw(SVG(pl_file, 10inch, 7inch), pl)
+    println("    -> $pl_file")
 end
 
 capitalize(algo::String) = string(uppercase(algo[1]), algo[2:end])
@@ -208,7 +270,6 @@ function plot_trajectories(sim::Simulation,
         ymax=:error_plus,
         ygroup=:metric,
         color=:liars,
-        # Guide.xticks(ticks=timesteps),
         Guide.XLabel("time (reporting round)"),
         Guide.YLabel(""),
         Guide.Title(title),
@@ -222,7 +283,7 @@ function plot_trajectories(sim::Simulation,
     )
     pl_file = string("plots/trajectory_", algo, "_", repr(now()), ".svg")
     draw(SVG(pl_file, 12inch, 12inch), pl)
-    print_with_color(:yellow, algo)
+    print_with_color(:yellow, "  $algo")
     print_with_color(:white, " time series: ")
     print_with_color(:cyan, "$pl_file\n")
 end
@@ -282,7 +343,7 @@ function plot_trajectories(sim::Simulation,
     pl_file = string("plots/single/trajectory_",
                      algo, "_", tr, "_", repr(now()), ".svg")
     draw(SVG(pl_file, 10inch, 7inch), pl)
-    println("  -> ", pl_file)
+    println("    -> ", pl_file)
 end
 
 # Gadfly plots
@@ -304,8 +365,6 @@ function plot_simulations(sim_data::Dict{String,Any})
     for m in metrics
         plot_dataframe(build_dataframe(sim_data, m), title, m)
     end
-    print_with_color(:white, "Individual plots saved to ")
-    print_with_color(:cyan, "plots/single/\n")
 
     # Time series plots
     sim = pop!(sim_data, "sim")

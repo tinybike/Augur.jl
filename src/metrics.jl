@@ -44,6 +44,9 @@ function compute_metrics(sim::Simulation,
     gini *= 2 / sim.REPORTERS
     gini -= 1 + 1 / sim.REPORTERS
 
+    true_rep = median(updated_rep[data[:trues]])
+    liar_rep = median(updated_rep[data[:liars]])
+
     # (Symbol => Union(Float64, Dict{Float64,Int}))[
     (Symbol => Float64)[
         :sensitivity => sensitivity,
@@ -62,8 +65,11 @@ function compute_metrics(sim::Simulation,
         # Outcomes that matched our known correct answers list
         :correct => countnz(outcomes .== data[:correct_answers]) / sim.EVENTS,
 
-        :MCC => MCC,
         # :repcount => repcount,
+        :MCC => MCC,
         :gini => gini,
+        :true_rep => true_rep,
+        :liar_rep => liar_rep,
+        :gap => true_rep - liar_rep,
     ]
 end

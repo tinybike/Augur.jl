@@ -54,38 +54,37 @@ function simulate(sim::Simulation)
                     reputation = A[algo]["agents"]["smooth_rep"]
                 end
 
+                # println("Reputation:")
+                # println(reputation)
+                # println("Reports:")
+                # println(data[:reports])
+
                 if algo == "cokurtosis"
 
                     # Per-user cokurtosis contribution
                     data[:aux] = [
-                        :cokurt => normalize(collapse(
-                            data[:reports]',
-                            reputation,
-                            4;
+                        :cokurt => collapse(
+                            data[:reports],
+                            reputation;
+                            order=4,
                             standardize=true,
                             axis=2,
-                        ))
+                            normalized=true,
+                        )
                     ]
+                    # println("Collapsed:")
+                    # println(data[:aux])
 
                 elseif algo == "cokurtosis-old"
 
                     # Per-user cokurtosis contribution
                     data[:aux] = [
-                        :cokurt => normalize(collapse(
-                            data[:reports]',
-                            4;
+                        :cokurt => collapse(
+                            data[:reports]';
+                            order=4,
                             standardize=true,
-                        ))
-                    ]
-
-                elseif algo == "legacy"
-
-                    # Cokurtosis tensor
-                    tensor = cokurt(data[:reports]'; standardize=true)
-
-                    # Per-user cokurtosis contribution
-                    data[:aux] = [
-                        :cokurt => normalize(sum(sum(sum(tensor, 4), 3), 2)[:])
+                            normalized=true,
+                        )
                     ]
 
                 end
@@ -100,6 +99,9 @@ function simulate(sim::Simulation)
                     algorithm=algo,
                 )[:consensus]()
 
+                # println("A[algo]:")
+                # println(A[algo])
+
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
                     sim,
@@ -108,6 +110,10 @@ function simulate(sim::Simulation)
                     reputation,
                     A[algo]["agents"]["smooth_rep"],
                 )
+
+                # println("metrics:")
+                # println(metrics)
+
                 if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
                     for m in sim.METRICS
                         push!(raw_data[algo][m][t], metrics[symbol(m)])
@@ -165,15 +171,34 @@ function simulate(sim::Simulation)
     processed_data
 end
 
-function run_simulations(ltr::Range, sim::Simulation)
+function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     print_with_color(:red, "Simulating:\n")
 
     # Run parallel simulations
-    raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr
-        println(lt)
-        sim.LIAR_THRESHOLD = lt
-        simulate(sim)
+    if parallel && nprocs() > 1
+        raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr
+            println(lt)
+            sim.LIAR_THRESHOLD = lt
+            simulate(sim)
+        end
+
+    # Regular (serial) simulation
+    else
+        raw = Dict{String,Any}[]
+        for (i, lt) in enumerate(ltr)
+            println(lt)
+            sim.LIAR_THRESHOLD = lt
+            raw = vcat(raw, simulate(sim))
+        end
     end
+
+    # println("Ok.")
+    # println("Raw:")
+    # display(raw)
+    # println("")
+    # println(raw)
+    # println("")
+    # println("")
 
     # Set up final results dictionary
     gridrows = length(ltr)
