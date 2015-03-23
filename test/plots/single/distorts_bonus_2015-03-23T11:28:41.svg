@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-d11248fdf24e42a887551220e47c7d61-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-d11248fdf24e42a887551220e47c7d61-element-2">
+    <text x="124.46" y="169.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-d11248fdf24e42a887551220e47c7d61-element-3">
+    <text x="18.29" y="162.19" text-anchor="middle">40</text>
+    <text x="53.68" y="162.19" text-anchor="middle">50</text>
+    <text x="89.07" y="162.19" text-anchor="middle">60</text>
+    <text x="124.46" y="162.19" text-anchor="middle">70</text>
+    <text x="159.85" y="162.19" text-anchor="middle">80</text>
+    <text x="195.24" y="162.19" text-anchor="middle">90</text>
+    <text x="230.63" y="162.19" text-anchor="middle">100</text>
+  </g>
+  <g class="guide colorkey" id="fig-d11248fdf24e42a887551220e47c7d61-element-4">
+    <g class="color_Cokurtosis" id="fig-d11248fdf24e42a887551220e47c7d61-element-5">
+      <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-d11248fdf24e42a887551220e47c7d61-element-6">
+        <text x="236.44" y="87.38" dy="0.35em">Cokurtosis</text>
+      </g>
+      <g fill="#00BFFF" stroke="none" id="fig-d11248fdf24e42a887551220e47c7d61-element-7">
+        <rect x="233.63" y="86.47" width="1.81" height="1.81"/>
+      </g>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-d11248fdf24e42a887551220e47c7d61-element-8">
+      <text x="233.63" y="83.56">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-d11248fdf24e42a887551220e47c7d61-element-10)" id="fig-d11248fdf24e42a887551220e47c7d61-element-9">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-d11248fdf24e42a887551220e47c7d61-element-11">
+      <rect x="16.28" y="12.61" width="216.34" height="145.9"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-d11248fdf24e42a887551220e47c7d61-element-12">
+      <path fill="none" d="M16.28,85.56 L 232.63 85.56"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-d11248fdf24e42a887551220e47c7d61-element-13">
+      <path fill="none" d="M18.29,12.61 L 18.29 158.51"/>
+      <path fill="none" d="M53.68,12.61 L 53.68 158.51"/>
+      <path fill="none" d="M89.07,12.61 L 89.07 158.51"/>
+      <path fill="none" d="M124.46,12.61 L 124.46 158.51"/>
+      <path fill="none" d="M159.85,12.61 L 159.85 158.51"/>
+      <path fill="none" d="M195.24,12.61 L 195.24 158.51"/>
+      <path fill="none" d="M230.63,12.61 L 230.63 158.51"/>
+    </g>
+    <g class="plotpanel" id="fig-d11248fdf24e42a887551220e47c7d61-element-14">
+      <g stroke-width="0.3" id="fig-d11248fdf24e42a887551220e47c7d61-element-15">
+        <path fill="none" d="M34.48,85.56 L 37.48 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M52.18,85.56 L 55.18 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M69.87,85.56 L 72.87 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M87.57,85.56 L 90.57 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M105.26,85.56 L 108.26 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M122.96,85.56 L 125.96 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M140.65,85.56 L 143.65 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M158.35,85.56 L 161.35 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M176.04,85.56 L 179.04 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M193.74,85.56 L 196.74 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M211.43,85.56 L 214.43 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M35.98,85.56 L 35.98 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M53.68,85.56 L 53.68 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M71.37,85.56 L 71.37 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M89.07,85.56 L 89.07 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M106.76,85.56 L 106.76 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M124.46,85.56 L 124.46 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M142.15,85.56 L 142.15 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M159.85,85.56 L 159.85 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M177.54,85.56 L 177.54 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M195.24,85.56 L 195.24 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M212.93,85.56 L 212.93 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M34.48,85.56 L 37.48 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M52.18,85.56 L 55.18 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M69.87,85.56 L 72.87 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M87.57,85.56 L 90.57 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M105.26,85.56 L 108.26 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M122.96,85.56 L 125.96 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M140.65,85.56 L 143.65 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M158.35,85.56 L 161.35 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M176.04,85.56 L 179.04 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M193.74,85.56 L 196.74 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+        <path fill="none" d="M211.43,85.56 L 214.43 85.56" stroke="#0096D4" class="geometry color_Cokurtosis"/>
+      </g>
+      <g stroke-width="0.3" fill="none" class="geometry color_Cokurtosis" stroke="#00BFFF" id="fig-d11248fdf24e42a887551220e47c7d61-element-16">
+        <path fill="none" d="M35.98,85.56 L 53.68 85.56 71.37 85.56 89.07 85.56 106.76 85.56 124.46 85.56 142.15 85.56 159.85 85.56 177.54 85.56 195.24 85.56 212.93 85.56"/>
+      </g>
+      <g class="geometry" id="fig-d11248fdf24e42a887551220e47c7d61-element-17">
+        <g stroke-width="0.3" id="fig-d11248fdf24e42a887551220e47c7d61-element-18">
+          <circle cx="35.98" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="53.68" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="71.37" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="89.07" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="106.76" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="124.46" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="142.15" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="159.85" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="177.54" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="195.24" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+          <circle cx="212.93" cy="85.56" r="0.9" stroke="#FFFFFF" fill="#00BFFF" class="color_Cokurtosis"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-d11248fdf24e42a887551220e47c7d61-element-19">
+    <text x="15.29" y="85.56" text-anchor="end" dy="0.35em">0</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-d11248fdf24e42a887551220e47c7d61-element-20">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)">distorts_bonus</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-d11248fdf24e42a887551220e47c7d61-element-21">
+    <text x="124.46" y="10.61" text-anchor="middle">40 users reporting on 20 events over 1 timesteps (250 iterations @ γ = 0.3) INDISCRIMINATE</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-d11248fdf24e42a887551220e47c7d61-element-10">
+  <path d="M16.28,12.61 L 232.63 12.61 232.63 158.51 16.28 158.51" />
+</clipPath
+></defs>
+</svg>
