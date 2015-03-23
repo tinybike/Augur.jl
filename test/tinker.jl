@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 
 liar_thresholds = 0.45:0.05:0.95
-param_range = 5:5:100
+param_range = 5:5:250
 
 sim = Simulation()
 
@@ -39,8 +39,8 @@ sim.REP_RAND = false
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
    # "sztorc",
-   # "fixed-variance",
-    "cokurtosis",
+   "fixed-variance",
+   # "cokurtosis",
 ]
 
 # Run simulations and save results:
