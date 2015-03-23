@@ -67,9 +67,10 @@ function simulate(sim::Simulation)
                             data[:reports],
                             reputation;
                             order=4,
-                            standardize=true,
+                            standardize=false,
                             axis=2,
                             normalized=true,
+                            bias=0,
                         )
                     ]
                     # println("Collapsed:")
@@ -179,14 +180,6 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
             raw = vcat(raw, simulate(sim))
         end
     end
-
-    # println("Ok.")
-    # println("Raw:")
-    # display(raw)
-    # println("")
-    # println(raw)
-    # println("")
-    # println("")
 
     # Set up final results dictionary
     gridrows = length(ltr)

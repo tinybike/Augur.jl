@@ -202,7 +202,13 @@ capitalize(algo::String) = string(uppercase(algo[1]), algo[2:end])
 # String containing info about simulation (goes in figure title)
 function build_title(sim::Simulation)
     optstr = ""
-    for flag in (:CONSPIRACY, :ALLWRONG, :INDISCRIMINATE, :STEADYSTATE)
+    flags = (:REP_RAND,
+             :DISTORTER,
+             :CONSPIRACY,
+             :ALLWRONG,
+             :INDISCRIMINATE,
+             :STEADYSTATE)
+    for flag in flags
         optstr *= (sim.(flag)) ? " " * string(flag) : ""
     end
     string(

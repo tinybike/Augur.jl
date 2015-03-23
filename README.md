@@ -28,7 +28,6 @@ The simulations are parallelized.  To run using all available cores:
 - mix conspiracy with regular collusion
 - scalar event resolution -- check reward/vote slopes
 - port "winning" algo to Serpent
-- Sztorc algo quality vs PC1 variance explained
 - plot number of components + % variance explained (scree plots)
 - plot simulation size vs # components
-- Joey request: the ones with one voter doing 25 truthfully 5 lies, people not colluding w/ him ---- does he get punished as well as w/ pca
+- the ones with one voter doing 25 truthfully 5 lies, people not colluding w/ him ---- does he get punished as well as w/ pca

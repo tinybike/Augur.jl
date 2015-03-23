@@ -1,7 +1,10 @@
 function create_reporters(sim::Simulation)
-
-    # simplest version: no distortion
-    distort_threshold = sim.LIAR_THRESHOLD
+    if sim.DISTORTER
+        distort_threshold = sim.LIAR_THRESHOLD + sim.DISTORT_THRESHOLD
+        distort_threshold <= 1.0 || throw(BoundsError())
+    else
+        distort_threshold = sim.LIAR_THRESHOLD
+    end
 
     # 1. Generate artificial "true, distort, liar" list
     honesty = rand(sim.REPORTERS)
@@ -55,7 +58,7 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
         repmat(data[:correct_answers]', data[:num_trues])
     )
 
-    # Distort: sometimes report incorrect answers at random
+    # Distort: report incorrect answers to DISTORT fraction of events
     distmask = rand(data[:num_distorts], sim.EVENTS) .< sim.DISTORT
     correct = convert(
         Matrix{Float64},
@@ -65,6 +68,13 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
         Matrix{Float64},
         rand(sim.RESPONSES, data[:num_distorts], sim.EVENTS)
     )
+    for i = 1:data[:num_distorts]
+        for j = 1:sim.EVENTS
+            while randomized[i,j] == data[:correct_answers][j]
+                randomized[i,j] = rand(sim.RESPONSES)
+            end
+        end
+    end
     data[:reports][data[:distorts],:] = correct.*~distmask + randomized.*distmask
 
     # Liar: report answers at random (but with a high chance

@@ -42,7 +42,18 @@ module Simulator
         # Empirically, a 90% variance threshold seems best for the
         # fixed-variance threshold algorithm
         VARIANCE_THRESHOLD::Float64
+
+        # True if there are "distort" type users that answer a fixed fraction
+        # of events incorrectly
+        DISTORTER::Bool
+
+        # Fraction of incorrect responses from "distort" users
         DISTORT::Float64
+
+        # Fraction of distorting users
+        # i.e., LIAR_THRESHOLD=0.6    -> 60% liars
+        #       DISTORT_THRESHOLD=0.2 -> 20% distorts
+        DISTORT_THRESHOLD::Float64
 
         # Range of possible responses
         # -1:1 for {-1, 0, 1}, -1:2:1 for {-1, 1}, etc.
@@ -64,7 +75,6 @@ module Simulator
         CONSPIRACY::Bool
         ALLWRONG::Bool
         SAVE_RAW_DATA::Bool
-        DISTORTS::Bool
 
         # Event resolution algorithms to test, metrics used to evaluate them,
         # and statistics of these metrics to calculate
@@ -82,7 +92,9 @@ module Simulator
                     steadystate::Bool=false,
                     liar_threshold::Float64=0.6,
                     variance_threshold::Float64=0.9,
+                    distorter::Bool=false,
                     distort::Float64=0.0,
+                    distort_threshold::Float64=0.1,
                     responses::UnitRange{Int}=-1:1,
                     alpha::Float64=0.2,
                     rep_range::UnitRange{Int}=1:25,
@@ -93,7 +105,6 @@ module Simulator
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
                     save_raw_data::Bool=false,
-                    distorts::Bool=false,
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
                                                 "covariance",
@@ -118,7 +129,9 @@ module Simulator
                 steadystate,
                 liar_threshold,
                 variance_threshold,
+                distorter,
                 distort,
+                distort_threshold,
                 responses,
                 alpha,
                 int(reporters/10),
@@ -130,7 +143,6 @@ module Simulator
                 conspiracy,
                 allwrong,
                 save_raw_data,
-                distorts,
                 algos,
                 metrics,
                 statistics,

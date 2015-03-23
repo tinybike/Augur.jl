@@ -4,8 +4,10 @@ sim.ITERMAX = 250
 sim.TIMESTEPS = 1
 # sim.STEADYSTATE = false
 sim.LIAR_THRESHOLD = 0.6
+# sim.DISTORT_THRESHOLD = 0.1
 sim.VARIANCE_THRESHOLD = 0.9
 # sim.DISTORT = 0.0
+# sim.DISTORTER = false
 # sim.RESPONSES = -1:1
 # sim.ALPHA = 0.2
 # sim.REP_BINS = int(sim.REPORTERS/10)
@@ -26,6 +28,7 @@ sim.ALGOS = [
 sim.METRICS = [
     "beats",
     "liars_bonus",
+    "distorts_bonus",
     "correct",
     "sensitivity",
     "fallout",

@@ -57,7 +57,8 @@ function compute_metrics(sim::Simulation,
 
         # "liars_bonus": total bonus reward liars received (in excess of
         #                true reporters') relative to total reputation
-        :liars_bonus => sum(bonus),
+        :liars_bonus => sum(bonus[data[:liars]]),
+        :distorts_bonus => sum(bonus[data[:distorts]]),
 
         # "beats" are liars that escaped punishment (i.e, false negatives)
         :beats => sum(bonus[data[:liars]] .>= 0) / data[:num_liars],
