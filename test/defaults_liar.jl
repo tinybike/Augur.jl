@@ -37,6 +37,7 @@ sim.METRICS = [
     "gini",
     "true_rep",
     "liar_rep",
+    "distorts_rep",
     "gap",
 ]
 sim.TRACK = [
@@ -44,5 +45,8 @@ sim.TRACK = [
     :MCC,
     :correct,
     :gap,
+    :distorts_rep,
+    :true_rep,
+    :liar_rep,
 ]
 sim.STATISTICS = ["mean", "stderr"]

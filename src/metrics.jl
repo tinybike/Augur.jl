@@ -54,6 +54,7 @@ function compute_metrics(sim::Simulation,
         #                true reporters') relative to total reputation
         :liars_bonus => sum(bonus[data[:liars]]),
         :distorts_bonus => sum(bonus[data[:distorts]]),
+        :distorts_rep => median(updated_rep[:distorts]),
 
         # "beats" are liars that escaped punishment (i.e, false negatives)
         :beats => sum(bonus[data[:liars]] .>= 0) / data[:num_liars],
@@ -71,7 +72,7 @@ function compute_metrics(sim::Simulation,
 end
 
 # Reputation distribution (key=bin center, value=count)
-function reputation_distribution(updated_rep)
+function reputation_distribution(updated_rep::Vector{Float64})
     bins = linspace(0, 1, sim.REP_BINS)
     repcount = [i::Float64 => 0 for i in bins]
     for r in updated_rep
