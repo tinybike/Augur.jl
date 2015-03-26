@@ -173,8 +173,25 @@ function simulate(sim::Simulation)
     processed_data
 end
 
+function preprocess(sim::Simulation)
+    if ~sim.DISTORTER
+        for x in (:distorts_bonus, :distorts_rep)
+            sim.METRICS = sim.METRICS[sim.METRICS .!= string(x)]
+            sim.TRACK = sim.TRACK[sim.TRACK .!= x]
+        end
+    else
+        for x in (:MCC, :sensitivity, :fallout, :precision)
+            sim.METRICS = sim.METRICS[sim.METRICS .!= string(x)]
+            sim.TRACK = sim.TRACK[sim.TRACK .!= x]
+        end
+    end
+    sim
+end
+
 function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     print_with_color(:red, "Simulating:\n")
+
+    sim = preprocess(sim)
 
     # Run parallel simulations
     if parallel && nprocs() > 1
