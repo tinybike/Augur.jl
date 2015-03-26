@@ -30,8 +30,8 @@ include("defaults_" * simtype * ".jl")
 # Full(er) run
 sim.EVENTS = 50
 sim.REPORTERS = 100
-sim.ITERMAX = 250
-sim.TIMESTEPS = 500
+sim.ITERMAX = 10
+sim.TIMESTEPS = 50
 
 sim.DISTORTER = true
 sim.DISTORT = 0.2
