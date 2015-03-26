@@ -30,13 +30,14 @@ include("defaults_" * simtype * ".jl")
 # Full(er) run
 sim.EVENTS = 50
 sim.REPORTERS = 100
-sim.ITERMAX = 10
-sim.TIMESTEPS = 50
+sim.ITERMAX = 250
+sim.TIMESTEPS = 500
 
-sim.DISTORTER = true
-sim.DISTORT = 0.2
-sim.DISTORT_THRESHOLD = 0.35
+sim.DISTORTER = false
+# sim.DISTORT = 0.2
+# sim.DISTORT_THRESHOLD = 0.35
 sim.REP_RAND = true
+sim.REP_RANGE = 1:1000 # rep_range > timesteps
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
    "sztorc",
