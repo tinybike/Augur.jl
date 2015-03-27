@@ -22,10 +22,10 @@ end
 include("defaults_" * simtype * ".jl")
 
 # Quick run-thru
-# sim.EVENTS = 20
-# sim.REPORTERS = 40
-# sim.ITERMAX = 5
-# sim.TIMESTEPS = 2
+sim.EVENTS = 20
+sim.REPORTERS = 40
+sim.ITERMAX = 25
+sim.TIMESTEPS = 10
 
 # Full(er) run
 sim.EVENTS = 50

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-2">
+    <text x="133.48" y="169.8" text-anchor="middle">reporters</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-3">
+    <text x="19.96" y="162.19" text-anchor="middle">0</text>
+    <text x="65.37" y="162.19" text-anchor="middle">50</text>
+    <text x="110.77" y="162.19" text-anchor="middle">100</text>
+    <text x="156.18" y="162.19" text-anchor="middle">150</text>
+    <text x="201.59" y="162.19" text-anchor="middle">200</text>
+    <text x="247" y="162.19" text-anchor="middle">250</text>
+  </g>
+  <g clip-path="url(#fig-47e551f0e44d48ab8d6e75d5f452b30d-element-5)" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-4">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-6">
+      <rect x="17.96" y="12.61" width="231.04" height="145.9"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-7">
+      <path fill="none" d="M17.96,156.51 L 249 156.51"/>
+      <path fill="none" d="M17.96,128.13 L 249 128.13"/>
+      <path fill="none" d="M17.96,99.75 L 249 99.75"/>
+      <path fill="none" d="M17.96,71.37 L 249 71.37"/>
+      <path fill="none" d="M17.96,42.99 L 249 42.99"/>
+      <path fill="none" d="M17.96,14.61 L 249 14.61"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-8">
+      <path fill="none" d="M19.96,12.61 L 19.96 158.51"/>
+      <path fill="none" d="M65.37,12.61 L 65.37 158.51"/>
+      <path fill="none" d="M110.77,12.61 L 110.77 158.51"/>
+      <path fill="none" d="M156.18,12.61 L 156.18 158.51"/>
+      <path fill="none" d="M201.59,12.61 L 201.59 158.51"/>
+      <path fill="none" d="M247,12.61 L 247 158.51"/>
+    </g>
+    <g class="plotpanel" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-9">
+      <g class="geometry color_RGB{Float32}(0.0f0,0.74736935f0,1.0f0)" stroke-width="0.3" stroke="#0096D4" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-10">
+        <path fill="none" d="M23,116.11 L 26 116.11"/>
+        <path fill="none" d="M27.54,110.9 L 30.54 110.9"/>
+        <path fill="none" d="M32.08,106.82 L 35.08 106.82"/>
+        <path fill="none" d="M36.62,120.11 L 39.62 120.11"/>
+        <path fill="none" d="M41.16,102.92 L 44.16 102.92"/>
+        <path fill="none" d="M45.7,98.09 L 48.7 98.09"/>
+        <path fill="none" d="M50.24,94.59 L 53.24 94.59"/>
+        <path fill="none" d="M54.79,130.47 L 57.79 130.47"/>
+        <path fill="none" d="M59.33,92.56 L 62.33 92.56"/>
+        <path fill="none" d="M63.87,88.91 L 66.87 88.91"/>
+        <path fill="none" d="M68.41,85.67 L 71.41 85.67"/>
+        <path fill="none" d="M72.95,86.27 L 75.95 86.27"/>
+        <path fill="none" d="M77.49,82.94 L 80.49 82.94"/>
+        <path fill="none" d="M82.03,82.19 L 85.03 82.19"/>
+        <path fill="none" d="M86.57,81.55 L 89.57 81.55"/>
+        <path fill="none" d="M91.11,77.18 L 94.11 77.18"/>
+        <path fill="none" d="M95.65,79.67 L 98.65 79.67"/>
+        <path fill="none" d="M100.19,73.41 L 103.19 73.41"/>
+        <path fill="none" d="M104.73,68.86 L 107.73 68.86"/>
+        <path fill="none" d="M109.27,78.49 L 112.27 78.49"/>
+        <path fill="none" d="M113.82,66.89 L 116.82 66.89"/>
+        <path fill="none" d="M118.36,62.61 L 121.36 62.61"/>
+        <path fill="none" d="M122.9,79.27 L 125.9 79.27"/>
+        <path fill="none" d="M127.44,64.27 L 130.44 64.27"/>
+        <path fill="none" d="M131.98,59.08 L 134.98 59.08"/>
+        <path fill="none" d="M136.52,79.27 L 139.52 79.27"/>
+        <path fill="none" d="M141.06,55.24 L 144.06 55.24"/>
+        <path fill="none" d="M145.6,50.83 L 148.6 50.83"/>
+        <path fill="none" d="M150.14,83.49 L 153.14 83.49"/>
+        <path fill="none" d="M154.68,49.85 L 157.68 49.85"/>
+        <path fill="none" d="M159.22,45.76 L 162.22 45.76"/>
+        <path fill="none" d="M163.76,86.5 L 166.77 86.5"/>
+        <path fill="none" d="M168.31,44.68 L 171.31 44.68"/>
+        <path fill="none" d="M172.85,39.74 L 175.85 39.74"/>
+        <path fill="none" d="M177.39,91.82 L 180.39 91.82"/>
+        <path fill="none" d="M181.93,40.69 L 184.93 40.69"/>
+        <path fill="none" d="M186.47,36.52 L 189.47 36.52"/>
+        <path fill="none" d="M191.01,95.77 L 194.01 95.77"/>
+        <path fill="none" d="M195.55,35.67 L 198.55 35.67"/>
+        <path fill="none" d="M200.09,32.75 L 203.09 32.75"/>
+        <path fill="none" d="M204.63,100.76 L 207.63 100.76"/>
+        <path fill="none" d="M209.17,30.39 L 212.17 30.39"/>
+        <path fill="none" d="M213.71,26.96 L 216.71 26.96"/>
+        <path fill="none" d="M218.26,106.55 L 221.26 106.55"/>
+        <path fill="none" d="M222.8,29.8 L 225.8 29.8"/>
+        <path fill="none" d="M227.34,25.91 L 230.34 25.91"/>
+        <path fill="none" d="M231.88,107.02 L 234.88 107.02"/>
+        <path fill="none" d="M236.42,25.42 L 239.42 25.42"/>
+        <path fill="none" d="M240.96,22.99 L 243.96 22.99"/>
+        <path fill="none" d="M245.5,111.58 L 248.5 111.58"/>
+        <path fill="none" d="M24.5,115.95 L 24.5 116.11"/>
+        <path fill="none" d="M29.04,110.76 L 29.04 110.9"/>
+        <path fill="none" d="M33.58,106.73 L 33.58 106.82"/>
+        <path fill="none" d="M38.12,118.06 L 38.12 120.11"/>
+        <path fill="none" d="M42.66,102.77 L 42.66 102.92"/>
+        <path fill="none" d="M47.2,97.93 L 47.2 98.09"/>
+        <path fill="none" d="M51.74,94.48 L 51.74 94.59"/>
+        <path fill="none" d="M56.29,127.27 L 56.29 130.47"/>
+        <path fill="none" d="M60.83,92.42 L 60.83 92.56"/>
+        <path fill="none" d="M65.37,88.74 L 65.37 88.91"/>
+        <path fill="none" d="M69.91,85.56 L 69.91 85.67"/>
+        <path fill="none" d="M74.45,86.1 L 74.45 86.27"/>
+        <path fill="none" d="M78.99,82.78 L 78.99 82.94"/>
+        <path fill="none" d="M83.53,81.47 L 83.53 82.19"/>
+        <path fill="none" d="M88.07,81.41 L 88.07 81.55"/>
+        <path fill="none" d="M92.61,77.01 L 92.61 77.18"/>
+        <path fill="none" d="M97.15,78.32 L 97.15 79.67"/>
+        <path fill="none" d="M101.69,73.24 L 101.69 73.41"/>
+        <path fill="none" d="M106.23,68.68 L 106.23 68.86"/>
+        <path fill="none" d="M110.77,76.33 L 110.77 78.49"/>
+        <path fill="none" d="M115.32,66.67 L 115.32 66.89"/>
+        <path fill="none" d="M119.86,62.48 L 119.86 62.61"/>
+        <path fill="none" d="M124.4,76.42 L 124.4 79.27"/>
+        <path fill="none" d="M128.94,64.08 L 128.94 64.27"/>
+        <path fill="none" d="M133.48,58.92 L 133.48 59.08"/>
+        <path fill="none" d="M138.02,75.95 L 138.02 79.27"/>
+        <path fill="none" d="M142.56,55.07 L 142.56 55.24"/>
+        <path fill="none" d="M147.1,50.68 L 147.1 50.83"/>
+        <path fill="none" d="M151.64,79.32 L 151.64 83.49"/>
+        <path fill="none" d="M156.18,49.7 L 156.18 49.85"/>
+        <path fill="none" d="M160.72,45.62 L 160.72 45.76"/>
+        <path fill="none" d="M165.27,81.77 L 165.27 86.5"/>
+        <path fill="none" d="M169.81,44.47 L 169.81 44.68"/>
+        <path fill="none" d="M174.35,39.61 L 174.35 39.74"/>
+        <path fill="none" d="M178.89,86.36 L 178.89 91.82"/>
+        <path fill="none" d="M183.43,40.49 L 183.43 40.69"/>
+        <path fill="none" d="M187.97,36.4 L 187.97 36.52"/>
+        <path fill="none" d="M192.51,89.81 L 192.51 95.77"/>
+        <path fill="none" d="M197.05,35.47 L 197.05 35.67"/>
+        <path fill="none" d="M201.59,32.65 L 201.59 32.75"/>
+        <path fill="none" d="M206.13,94.34 L 206.13 100.76"/>
+        <path fill="none" d="M210.67,30.23 L 210.67 30.39"/>
+        <path fill="none" d="M215.21,26.86 L 215.21 26.96"/>
+        <path fill="none" d="M219.76,99.74 L 219.76 106.55"/>
+        <path fill="none" d="M224.3,29.64 L 224.3 29.8"/>
+        <path fill="none" d="M228.84,25.8 L 228.84 25.91"/>
+        <path fill="none" d="M233.38,100.11 L 233.38 107.02"/>
+        <path fill="none" d="M237.92,25.23 L 237.92 25.42"/>
+        <path fill="none" d="M242.46,22.87 L 242.46 22.99"/>
+        <path fill="none" d="M247,104.6 L 247 111.58"/>
+        <path fill="none" d="M23,115.95 L 26 115.95"/>
+        <path fill="none" d="M27.54,110.76 L 30.54 110.76"/>
+        <path fill="none" d="M32.08,106.73 L 35.08 106.73"/>
+        <path fill="none" d="M36.62,118.06 L 39.62 118.06"/>
+        <path fill="none" d="M41.16,102.77 L 44.16 102.77"/>
+        <path fill="none" d="M45.7,97.93 L 48.7 97.93"/>
+        <path fill="none" d="M50.24,94.48 L 53.24 94.48"/>
+        <path fill="none" d="M54.79,127.27 L 57.79 127.27"/>
+        <path fill="none" d="M59.33,92.42 L 62.33 92.42"/>
+        <path fill="none" d="M63.87,88.74 L 66.87 88.74"/>
+        <path fill="none" d="M68.41,85.56 L 71.41 85.56"/>
+        <path fill="none" d="M72.95,86.1 L 75.95 86.1"/>
+        <path fill="none" d="M77.49,82.78 L 80.49 82.78"/>
+        <path fill="none" d="M82.03,81.47 L 85.03 81.47"/>
+        <path fill="none" d="M86.57,81.41 L 89.57 81.41"/>
+        <path fill="none" d="M91.11,77.01 L 94.11 77.01"/>
+        <path fill="none" d="M95.65,78.32 L 98.65 78.32"/>
+        <path fill="none" d="M100.19,73.24 L 103.19 73.24"/>
+        <path fill="none" d="M104.73,68.68 L 107.73 68.68"/>
+        <path fill="none" d="M109.27,76.33 L 112.27 76.33"/>
+        <path fill="none" d="M113.82,66.67 L 116.82 66.67"/>
+        <path fill="none" d="M118.36,62.48 L 121.36 62.48"/>
+        <path fill="none" d="M122.9,76.42 L 125.9 76.42"/>
+        <path fill="none" d="M127.44,64.08 L 130.44 64.08"/>
+        <path fill="none" d="M131.98,58.92 L 134.98 58.92"/>
+        <path fill="none" d="M136.52,75.95 L 139.52 75.95"/>
+        <path fill="none" d="M141.06,55.07 L 144.06 55.07"/>
+        <path fill="none" d="M145.6,50.68 L 148.6 50.68"/>
+        <path fill="none" d="M150.14,79.32 L 153.14 79.32"/>
+        <path fill="none" d="M154.68,49.7 L 157.68 49.7"/>
+        <path fill="none" d="M159.22,45.62 L 162.22 45.62"/>
+        <path fill="none" d="M163.76,81.77 L 166.77 81.77"/>
+        <path fill="none" d="M168.31,44.47 L 171.31 44.47"/>
+        <path fill="none" d="M172.85,39.61 L 175.85 39.61"/>
+        <path fill="none" d="M177.39,86.36 L 180.39 86.36"/>
+        <path fill="none" d="M181.93,40.49 L 184.93 40.49"/>
+        <path fill="none" d="M186.47,36.4 L 189.47 36.4"/>
+        <path fill="none" d="M191.01,89.81 L 194.01 89.81"/>
+        <path fill="none" d="M195.55,35.47 L 198.55 35.47"/>
+        <path fill="none" d="M200.09,32.65 L 203.09 32.65"/>
+        <path fill="none" d="M204.63,94.34 L 207.63 94.34"/>
+        <path fill="none" d="M209.17,30.23 L 212.17 30.23"/>
+        <path fill="none" d="M213.71,26.86 L 216.71 26.86"/>
+        <path fill="none" d="M218.26,99.74 L 221.26 99.74"/>
+        <path fill="none" d="M222.8,29.64 L 225.8 29.64"/>
+        <path fill="none" d="M227.34,25.8 L 230.34 25.8"/>
+        <path fill="none" d="M231.88,100.11 L 234.88 100.11"/>
+        <path fill="none" d="M236.42,25.23 L 239.42 25.23"/>
+        <path fill="none" d="M240.96,22.87 L 243.96 22.87"/>
+        <path fill="none" d="M245.5,104.6 L 248.5 104.6"/>
+      </g>
+      <g stroke-width="0.3" fill="none" class="geometry" stroke="#00BFFF" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-11">
+        <path fill="none" d="M24.5,116.03 L 29.04 110.83 33.58 106.78 38.12 119.08 42.66 102.85 47.2 98.01 51.74 94.54 56.29 128.87 60.83 92.49 65.37 88.83 69.91 85.61 74.45 86.19 78.99 82.86 83.53 81.83 88.07 81.48 92.61 77.1 97.15 78.99 101.69 73.33 106.23 68.77 110.77 77.41 115.32 66.78 119.86 62.54 124.4 77.84 128.94 64.17 133.48 59 138.02 77.61 142.56 55.16 147.1 50.75 151.64 81.4 156.18 49.77 160.72 45.69 165.27 84.14 169.81 44.57 174.35 39.68 178.89 89.09 183.43 40.59 187.97 36.46 192.51 92.79 197.05 35.57 201.59 32.7 206.13 97.55 210.67 30.31 215.21 26.91 219.76 103.14 224.3 29.72 228.84 25.86 233.38 103.56 237.92 25.33 242.46 22.93 247 108.09"/>
+      </g>
+      <g class="geometry" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-12">
+        <g class="color_RGB{Float32}(0.0f0,0.74736935f0,1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-13">
+          <circle cx="24.5" cy="116.03" r="0.9"/>
+          <circle cx="29.04" cy="110.83" r="0.9"/>
+          <circle cx="33.58" cy="106.78" r="0.9"/>
+          <circle cx="38.12" cy="119.08" r="0.9"/>
+          <circle cx="42.66" cy="102.85" r="0.9"/>
+          <circle cx="47.2" cy="98.01" r="0.9"/>
+          <circle cx="51.74" cy="94.54" r="0.9"/>
+          <circle cx="56.29" cy="128.87" r="0.9"/>
+          <circle cx="60.83" cy="92.49" r="0.9"/>
+          <circle cx="65.37" cy="88.83" r="0.9"/>
+          <circle cx="69.91" cy="85.61" r="0.9"/>
+          <circle cx="74.45" cy="86.19" r="0.9"/>
+          <circle cx="78.99" cy="82.86" r="0.9"/>
+          <circle cx="83.53" cy="81.83" r="0.9"/>
+          <circle cx="88.07" cy="81.48" r="0.9"/>
+          <circle cx="92.61" cy="77.1" r="0.9"/>
+          <circle cx="97.15" cy="78.99" r="0.9"/>
+          <circle cx="101.69" cy="73.33" r="0.9"/>
+          <circle cx="106.23" cy="68.77" r="0.9"/>
+          <circle cx="110.77" cy="77.41" r="0.9"/>
+          <circle cx="115.32" cy="66.78" r="0.9"/>
+          <circle cx="119.86" cy="62.54" r="0.9"/>
+          <circle cx="124.4" cy="77.84" r="0.9"/>
+          <circle cx="128.94" cy="64.17" r="0.9"/>
+          <circle cx="133.48" cy="59" r="0.9"/>
+          <circle cx="138.02" cy="77.61" r="0.9"/>
+          <circle cx="142.56" cy="55.16" r="0.9"/>
+          <circle cx="147.1" cy="50.75" r="0.9"/>
+          <circle cx="151.64" cy="81.4" r="0.9"/>
+          <circle cx="156.18" cy="49.77" r="0.9"/>
+          <circle cx="160.72" cy="45.69" r="0.9"/>
+          <circle cx="165.27" cy="84.14" r="0.9"/>
+          <circle cx="169.81" cy="44.57" r="0.9"/>
+          <circle cx="174.35" cy="39.68" r="0.9"/>
+          <circle cx="178.89" cy="89.09" r="0.9"/>
+          <circle cx="183.43" cy="40.59" r="0.9"/>
+          <circle cx="187.97" cy="36.46" r="0.9"/>
+          <circle cx="192.51" cy="92.79" r="0.9"/>
+          <circle cx="197.05" cy="35.57" r="0.9"/>
+          <circle cx="201.59" cy="32.7" r="0.9"/>
+          <circle cx="206.13" cy="97.55" r="0.9"/>
+          <circle cx="210.67" cy="30.31" r="0.9"/>
+          <circle cx="215.21" cy="26.91" r="0.9"/>
+          <circle cx="219.76" cy="103.14" r="0.9"/>
+          <circle cx="224.3" cy="29.72" r="0.9"/>
+          <circle cx="228.84" cy="25.86" r="0.9"/>
+          <circle cx="233.38" cy="103.56" r="0.9"/>
+          <circle cx="237.92" cy="25.33" r="0.9"/>
+          <circle cx="242.46" cy="22.93" r="0.9"/>
+          <circle cx="247" cy="108.09" r="0.9"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-14">
+    <text x="16.96" y="156.51" text-anchor="end" dy="0.35em">30</text>
+    <text x="16.96" y="128.13" text-anchor="end" dy="0.35em">40</text>
+    <text x="16.96" y="99.75" text-anchor="end" dy="0.35em">50</text>
+    <text x="16.96" y="71.37" text-anchor="end" dy="0.35em">60</text>
+    <text x="16.96" y="42.99" text-anchor="end" dy="0.35em">70</text>
+    <text x="16.96" y="14.61" text-anchor="end" dy="0.35em">80</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-15">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)">seconds elapsed</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-16">
+    <text x="133.48" y="10.61" text-anchor="middle">sztorc timing (500 simulations)</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-47e551f0e44d48ab8d6e75d5f452b30d-element-5">
+  <path d="M17.96,12.61 L 249 12.61 249 158.51 17.96 158.51" />
+</clipPath
+></defs>
+</svg>
