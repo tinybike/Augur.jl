@@ -48,9 +48,37 @@ function create_reporters(sim::Simulation)
     ]
 end
 
-function generate_data(sim::Simulation, data::Dict{Symbol,Any})
-    data[:correct_answers] = rand(sim.RESPONSES, sim.EVENTS)
+function generate_answers(sim::Simulation, data::Dict{Symbol,Any})
+    data[:correct_answers] = convert(Vector{Float64}, rand(sim.RESPONSES, sim.EVENTS))
+    if sim.SCALARS > 0
+        data[:stepsize] = 0.00001
+        data[:scalarmask] = rand(sim.EVENTS) .< sim.SCALARS
+        data[:scalarmin] = rand(sim.SCALARMIN:data[:stepsize]:sim.SCALARMAX, sim.EVENTS) .* data[:scalarmask]
+        data[:scalarmax] = zeros(sim.EVENTS)
+        for i = 1:sim.EVENTS
+            if data[:scalarmask][i]
+                data[:scalarmax][i] = rand(data[:scalarmin][i]:data[:stepsize]:sim.SCALARMAX)
+            end
+        end
+        data[:scalarmax] .*= data[:scalarmask]
+        for i = 1:sim.EVENTS
+            if data[:scalarmask][i]
+                data[:correct_answers][i] = rand(data[:scalarmin][i]:data[:stepsize]:data[:scalarmax][i])
+            end
+        end
+    end
+    # if sim.VERBOSE
+    #     display([data[:scalarmask] data[:scalarmin] data[:scalarmax]])
+    #     println("")
+    #     display(data[:correct_answers])
+    #     println("")
+    #     println("% scalars: ", sum(data[:scalarmask]) / sim.EVENTS)
+    # end
+    data
+end
 
+function generate_reports(sim, data)
+    
     # True: always report correct answer
     data[:reports] = zeros(sim.REPORTERS, sim.EVENTS)
     data[:reports][data[:trues],:] = convert(
@@ -59,23 +87,25 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
     )
 
     # Distort: report incorrect answers to DISTORT fraction of events
-    distmask = rand(data[:num_distorts], sim.EVENTS) .< sim.DISTORT
-    correct = convert(
-        Matrix{Float64},
-        repmat(data[:correct_answers]', data[:num_distorts])
-    )
-    randomized = convert(
-        Matrix{Float64},
-        rand(sim.RESPONSES, data[:num_distorts], sim.EVENTS)
-    )
-    for i = 1:data[:num_distorts]
-        for j = 1:sim.EVENTS
-            while randomized[i,j] == data[:correct_answers][j]
-                randomized[i,j] = rand(sim.RESPONSES)
+    if sim.DISTORTER
+        distmask = rand(data[:num_distorts], sim.EVENTS) .< sim.DISTORT
+        correct = convert(
+            Matrix{Float64},
+            repmat(data[:correct_answers]', data[:num_distorts])
+        )
+        randomized = convert(
+            Matrix{Float64},
+            rand(sim.RESPONSES, data[:num_distorts], sim.EVENTS)
+        )
+        for i = 1:data[:num_distorts]
+            for j = 1:sim.EVENTS
+                while randomized[i,j] == data[:correct_answers][j]
+                    randomized[i,j] = rand(sim.RESPONSES)
+                end
             end
         end
+        data[:reports][data[:distorts],:] = correct.*~distmask + randomized.*distmask
     end
-    data[:reports][data[:distorts],:] = correct.*~distmask + randomized.*distmask
 
     # Liar: report answers at random (but with a high chance
     #       of being equal to other liars' answers)
@@ -83,8 +113,20 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
         Matrix{Float64},
         rand(sim.RESPONSES, data[:num_liars], sim.EVENTS)
     )
+    if sim.SCALARS > 0
+        for i = 1:sim.EVENTS
+            if data[:scalarmask][i]
+                for j = 1:sim.REPORTERS
+                    if j in data[:liars]
+                        data[:reports][j,i] = rand(data[:scalarmin][i]:data[:stepsize]:data[:scalarmax][i])
+                    end
+                end
+            end
+        end
+    end
 
     # "allwrong": liars always answer incorrectly
+    # [scalars not supported]
     if sim.ALLWRONG
         @inbounds for i = 1:data[:num_liars]
             for j = 1:sim.EVENTS
@@ -155,6 +197,8 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
             end
         end
     end
-    ~sim.VERBOSE || display([data[:reporters] data[:reports]])
     data
 end
+
+generate_data(sim::Simulation, data::Dict{Symbol,Any}) = 
+    generate_reports(sim, generate_answers(sim, data))

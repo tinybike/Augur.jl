@@ -34,7 +34,11 @@ module Simulator
         ITERMAX::Int
         SQRTN::Float64
         TIMESTEPS::Int
-        STEADYSTATE::Bool
+
+        # Fraction of scalar (non-boolean) events
+        SCALARS::Float64
+        SCALARMIN::Float64
+        SCALARMAX::Float64
 
         # Fraction of dishonest/lazy reporters
         LIAR_THRESHOLD::Float64
@@ -89,7 +93,9 @@ module Simulator
                     reporters::Int=50,
                     itermax::Int=250,
                     timesteps::Int=100,
-                    steadystate::Bool=false,
+                    scalars::Float64=0.0,
+                    scalarmin::Float64=0.0,
+                    scalarmax::Float64=0.0,
                     liar_threshold::Float64=0.6,
                     variance_threshold::Float64=0.9,
                     distorter::Bool=false,
@@ -126,7 +132,9 @@ module Simulator
                 itermax,
                 sqrt(itermax),
                 timesteps,
-                steadystate,
+                scalars,
+                scalarmin,
+                scalarmax,
                 liar_threshold,
                 variance_threshold,
                 distorter,

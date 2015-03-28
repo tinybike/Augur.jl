@@ -206,8 +206,7 @@ function build_title(sim::Simulation)
              :DISTORTER,
              :CONSPIRACY,
              :ALLWRONG,
-             :INDISCRIMINATE,
-             :STEADYSTATE)
+             :INDISCRIMINATE)
     for flag in flags
         optstr *= (sim.(flag)) ? " " * string(flag) : ""
     end

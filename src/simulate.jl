@@ -54,10 +54,12 @@ function simulate(sim::Simulation)
                     reputation = A[algo]["agents"]["smooth_rep"]
                 end
 
-                # println("Reputation:")
-                # println(reputation)
-                # println("Reports:")
-                # println(data[:reports])
+                if sim.VERBOSE
+                    println("Reputation:")
+                    println(reputation)
+                    println("Reports:")
+                    println(data[:reports])
+                end
 
                 if algo == "cokurtosis"
 
@@ -101,8 +103,10 @@ function simulate(sim::Simulation)
                     algorithm=algo,
                 )[:consensus]()
 
-                # println("A[algo]:")
-                # println(A[algo])
+                if sim.VERBOSE
+                    println("A[algo]:")
+                    println(A[algo])
+                end
 
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
@@ -113,8 +117,10 @@ function simulate(sim::Simulation)
                     A[algo]["agents"]["smooth_rep"],
                 )
 
-                # println("metrics:")
-                # println(metrics)
+                if sim.VERBOSE
+                    println("metrics:")
+                    println(metrics)
+                end
 
                 if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
                     for m in sim.METRICS
