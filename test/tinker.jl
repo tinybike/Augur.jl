@@ -25,28 +25,28 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 20
-sim.REPORTERS = 40
-sim.ITERMAX = 10
-sim.TIMESTEPS = 50
+# sim.EVENTS = 20
+# sim.REPORTERS = 40
+# sim.ITERMAX = 10
+# sim.TIMESTEPS = 50
 
 # Full(er) run
-# sim.EVENTS = 50
-# sim.REPORTERS = 100
-# sim.ITERMAX = 50
-# sim.TIMESTEPS = 150
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 50
+sim.TIMESTEPS = 150
 
 sim.SCALARS = 0.0
-sim.REP_RAND = false
-sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
-# sim.REP_RANGE = 1:sim.TIMESTEPS
+sim.REP_RAND = true
+# sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
+sim.REP_RANGE = 1:sim.TIMESTEPS
 # sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   # "sztorc",
+   "sztorc",
    "fixed-variance",
-   # "cokurtosis",
-   # "cokurtosis-old",
+   "cokurtosis",
+   "cokurtosis-old",
 ]
 
 # Run simulations and save results:
@@ -55,7 +55,7 @@ sim.ALGOS = [
 if simtype == "liar"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
     plot_reptrack(sim_data)
-    # plot_simulations(sim_data)
+    plot_simulations(sim_data)
 
 # Timing/complexity
 elseif simtype == "cplx"
