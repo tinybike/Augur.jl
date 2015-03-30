@@ -5,3 +5,5 @@ DataFrames
 JointMoments
 HDF5
 Gadfly
+QuantEcon
+PyPlot

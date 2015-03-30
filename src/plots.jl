@@ -86,7 +86,7 @@ end
 
 # Plot all metrics vs liar_threshold value
 function plot_dataframe(df::DataFrame, title::String)
-    pl = plot(df,
+    pl = Gadfly.plot(df,
         x=:liar_threshold,
         y=:data,
         ymin=:error_minus,
@@ -106,13 +106,13 @@ function plot_dataframe(df::DataFrame, title::String)
         ),
     )
     pl_file = "plots/metrics_" * repr(now()) * ".svg"
-    draw(SVG(pl_file, 12inch, 12inch), pl)
+    Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
     print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
 end
 
 function plot_dataframe(df::DataFrame, title::String, metric::String)
-    pl = plot(df,
+    pl = Gadfly.plot(df,
         x=:liar_threshold,
         y=:data,
         ymin=:error_minus,
@@ -132,7 +132,7 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
         Geom.errorbar,
     )
     pl_file = "plots/single/" * metric * "_" * repr(now()) * ".svg"
-    draw(SVG(pl_file, 10inch, 7inch), pl)
+    Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> $pl_file")
 end
 
@@ -173,7 +173,7 @@ function plot_median_rep(sim_data::Dict{String,Any}, metric::String, algo::Strin
         error_minus=error_minus[:],
         error_plus=error_plus[:],
     )
-    pl = plot(df,
+    pl = Gadfly.plot(df,
         x=:liar_threshold,
         y=:data,
         ymin=:error_minus,
@@ -193,7 +193,7 @@ function plot_median_rep(sim_data::Dict{String,Any}, metric::String, algo::Strin
         Geom.errorbar,
     )
     pl_file = "plots/single/median_rep_" * algo * "_" * repr(now()) * ".svg"
-    draw(SVG(pl_file, 10inch, 7inch), pl)
+    Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> $pl_file")
 end
 
@@ -268,7 +268,7 @@ function plot_trajectories(sim::Simulation,
         error_plus=error_plus[:],
         liars=liars[:],
     )
-    pl = plot(df,
+    pl = Gadfly.plot(df,
         x=:timesteps,
         y=:data,
         ymin=:error_minus,
@@ -287,7 +287,7 @@ function plot_trajectories(sim::Simulation,
         ),
     )
     pl_file = string("plots/trajectory_", algo, "_", repr(now()), ".svg")
-    draw(SVG(pl_file, 12inch, 12inch), pl)
+    Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
     print_with_color(:yellow, "  $algo")
     print_with_color(:white, " time series: ")
     print_with_color(:cyan, "$pl_file\n")
@@ -327,7 +327,7 @@ function plot_trajectories(sim::Simulation,
         error_plus=error_plus[:],
         liars=liars[:],
     )
-    pl = plot(df,
+    pl = Gadfly.plot(df,
         x=:timesteps,
         y=:data,
         ymin=:error_minus,
@@ -347,7 +347,7 @@ function plot_trajectories(sim::Simulation,
     )
     pl_file = string("plots/single/trajectory_",
                      algo, "_", tr, "_", repr(now()), ".svg")
-    draw(SVG(pl_file, 10inch, 7inch), pl)
+    Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> ", pl_file)
 end
 
@@ -357,7 +357,7 @@ function plot_simulations(sim_data::Dict{String,Any})
 
     trajectories = pop!(sim_data, "trajectories")
     title = build_title(sim_data["sim"])
-    
+
     # Stacked plots with all metrics
     plot_dataframe(build_dataframe(sim_data), title)
 

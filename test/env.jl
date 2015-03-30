@@ -3,7 +3,7 @@ using DataFrames
 using Dates
 using Debug
 
-datafile = "data/sim_2015-03-21T14:08:39.jld"
+datafile = "data/sim_2015-03-28T02:17:28.jld"
 
 if ~isinteractive() && length(ARGS) > 0
     datafile = ARGS[1]

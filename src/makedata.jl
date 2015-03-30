@@ -202,3 +202,7 @@ end
 
 generate_data(sim::Simulation, data::Dict{Symbol,Any}) = 
     generate_reports(sim, generate_answers(sim, data))
+
+init_reputation(sim::Simulation) = normalize(
+    (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
+)

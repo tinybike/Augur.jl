@@ -14,51 +14,61 @@ function simulate(sim::Simulation)
                 raw_data[algo][m][t] = Float64[]
             end
         end
-        raw_data[algo]["repcount"] = Dict{Int,Vector{Dict{Float64,Int}}}()
-        for t in timesteps
-            raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
-        end
+        # raw_data[algo]["repcount"] = Dict{Int,Vector{Dict{Float64,Int}}}()
+        # for t in timesteps
+        #     raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
+        # end
     end
     track = Dict{String,Dict{Symbol,Matrix{Float64}}}()
+    A = Dict{String,Any}()
     for algo in sim.ALGOS
+        A[algo] = Dict{String,Any}()
         track[algo] = Dict{Symbol,Matrix{Float64}}()
         for tr in sim.TRACK
             track[algo][tr] = zeros(sim.TIMESTEPS, sim.ITERMAX)
         end
     end
+
+    # Reputation time series (repbox):
+    # - column t is the reputation vector at time t
+    # - third axis = iteration
+    repbox = Dict{String,Array{Float64,3}}()
+    for algo in sim.ALGOS
+        repbox[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
+    end
+
     @inbounds while i <= sim.ITERMAX
-        A = Dict{String,Any}()
-        for algo in sim.ALGOS
-            A[algo] = Dict{String,Any}()
-            metrics = Dict{Symbol,Float64}()
+
+        # Simulate over #TIMESTEPS consensus resolutions:
+        #   - The previous (smoothed) reputation is used as an input to
+        #     the next time step
+        #   - Reporters' labels (true, liar, etc.) do not change
+        #   - Correct answers and reports are generated fresh at each
+        #     time step
+        for t = 1:sim.TIMESTEPS
 
             # Create reporters and assign each reporter a label
-            reporters = create_reporters(sim)
+            # Generate reports and correct answers
+            data = generate_data(sim, create_reporters(sim))
 
-            # Simulate over #TIMESTEPS consensus resolutions:
-            #   - The previous (smoothed) reputation is used as an input to
-            #     the next time step
-            #   - Reporters' labels (true, liar, etc.) do not change
-            #   - Correct answers and reports are generated fresh at each
-            #     time step
-            data = Dict{Symbol,Any}()
-            for t = 1:sim.TIMESTEPS
-                data = generate_data(sim, reporters)
+            for algo in sim.ALGOS
+                metrics = Dict{Symbol,Float64}()
 
                 # Assign/update reputation
-                if t == 1
-                    reputation = normalize(
-                        (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
-                    )
-                else
-                    reputation = A[algo]["agents"]["smooth_rep"]
-                end
+                reputation = (t == 1) ?
+                    init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
+                repbox[algo][:,t,i] = reputation
+                print_with_color(:white, "t = $t:\n")
+                display(repbox[algo])
+                println("")
 
                 if sim.VERBOSE
-                    println("Reputation:")
-                    println(reputation)
-                    println("Reports:")
-                    println(data[:reports])
+                    print_with_color(:white, "Reputation [" * algo * "]:\n")
+                    display(reputation')
+                    println("")
+                    # print_with_color(:white, "Reports [" * algo * "]:\n")
+                    # display(data[:reports])
+                    # println("")
                 end
 
                 if algo == "cokurtosis"
@@ -75,8 +85,11 @@ function simulate(sim::Simulation)
                             bias=0,
                         )
                     ]
-                    # println("Collapsed:")
-                    # println(data[:aux])
+                    if sim.VERBOSE
+                        print_with_color(:white, "Collapsed [" * algo * "]:\n")
+                        display(data[:aux])
+                        println("")
+                    end
 
                 elseif algo == "cokurtosis-old"
 
@@ -90,7 +103,11 @@ function simulate(sim::Simulation)
                             bias=0,
                         )
                     ]
-
+                    if sim.VERBOSE
+                        print_with_color(:white, "Collapsed [" * algo * "]:\n")
+                        display(data[:aux])
+                        println("")
+                    end
                 end
 
                 # Use pyconsensus for event resolution
@@ -103,11 +120,6 @@ function simulate(sim::Simulation)
                     algorithm=algo,
                 )[:consensus]()
 
-                if sim.VERBOSE
-                    println("A[algo]:")
-                    println(A[algo])
-                end
-
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
                     sim,
@@ -118,8 +130,17 @@ function simulate(sim::Simulation)
                 )
 
                 if sim.VERBOSE
-                    println("metrics:")
-                    println(metrics)
+                    print_with_color(:white, "Oracle output [" * algo * "]:\n")
+                    display(A[algo])
+                    println("")
+                    display(A[algo]["agents"])
+                    println("")
+                    display(A[algo]["events"])
+                    println("")
+
+                    print_with_color(:white, "Metrics [" * algo * "]:\n")
+                    display(metrics)
+                    println("")
                 end
 
                 if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
@@ -145,6 +166,7 @@ function simulate(sim::Simulation)
         jldopen(filename, "w") do file
             write(file, "raw_data", raw_data)
             write(file, "track", track)
+            write(file, "repbox", repbox)
         end
     end
 
@@ -160,11 +182,24 @@ function simulate(sim::Simulation)
         end
     end
 
+    # Sum down repbox tubes (for surface plots)
+    reptrack = Dict{String,Dict{String,Matrix{Float64}}}()
+    for algo in sim.ALGOS
+        reptrack[algo] = Dict{String,Matrix{Float64}}()
+        for s in ("mean", "median", "std")
+            reptrack[algo][s] = squeeze(mean(repbox[algo], 3), 3)
+        end
+        print_with_color(:white, "Reputation evolution:\n")
+        display(reptrack[algo]["mean"])
+        println("")
+    end
+
     # Convert raw data into means and standard errors for plotting
     processed_data = (String => Any)[
         "iterate" => iterate,
         "liar_threshold" => sim.LIAR_THRESHOLD,
         "trajectory" => trajectory,
+        "reptrack" => reptrack,
     ]
     @inbounds for algo in sim.ALGOS
         processed_data[algo] = Dict{String,Dict{String,Float64}}()
@@ -196,8 +231,8 @@ end
 
 function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     print_with_color(:red, "Simulating:\n")
-
     sim = preprocess(sim)
+    ~sim.VERBOSE || xdump(sim)
 
     # Run parallel simulations
     if parallel && nprocs() > 1
@@ -211,7 +246,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     else
         raw = Dict{String,Any}[]
         for (i, lt) in enumerate(ltr)
-            println(lt)
+            print_with_color(:yellow, "Liar threshold: " * repr(lt) * "\n")
             sim.LIAR_THRESHOLD = lt
             raw = vcat(raw, simulate(sim))
         end
@@ -231,6 +266,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     end
 
     # Sort results using liar_threshold values
+    results["reptracks"] = Array(Dict{String,Dict{String,Matrix{Float64}}}, gridrows)
     results["trajectories"] = Array(Trajectory, gridrows)
     @inbounds for (row, liar_threshold) in enumerate(ltr)
         i = 1
@@ -238,11 +274,14 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
         for i = 1:gridrows
             if raw[i]["liar_threshold"] == liar_threshold
                 matched = splice!(raw, i)
+                display(matched["reptrack"])
+                println("")
                 break
             end
         end
         results["iterate"] = matched["iterate"]
         results["trajectories"][row] = matched["trajectory"]
+        results["reptracks"][row] = matched["reptrack"]
         for algo in sim.ALGOS
             for s in sim.STATISTICS
                 for m in [sim.METRICS, "components"]

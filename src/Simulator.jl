@@ -4,7 +4,10 @@ module Simulator
     using PyCall
     using JointMoments
     using DataFrames
-    using Gadfly
+    # using Gadfly
+    using Debug
+    using PyPlot
+    using QuantEcon: meshgrid
     using HDF5, JLD
 
     export
@@ -23,6 +26,7 @@ module Simulator
         load_time_elapsed,
         save_time_elapsed,
         plot_time_elapsed,
+        plot_reptrack,
         infostring
 
     type Simulation
@@ -164,7 +168,8 @@ module Simulator
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")
-    include("plots.jl")
+    # include("plots.jl")
+    include("reptrack.jl")
     include("files.jl")
 
 end # module

@@ -20,14 +20,15 @@ Monte Carlo simulations, statistics and plotting tools for [Augur](http://www.au
 
 The simulations are parallelized.  To run using all available cores:
 
-    $ cd test && julia -p `nproc` runtests.jl
+    $ cd test
+    $ julia -p `nproc` tinker.jl
 
 ### NYI
 
 - label pairs, triples, quadruples
 - mix conspiracy with regular collusion
-- scalar event resolution -- check reward/vote slopes
+- check reward/vote slopes for scalars
 - port "winning" algo to Serpent
 - plot number of components + % variance explained (scree plots)
 - plot simulation size vs # components
-- the ones with one voter doing 25 truthfully 5 lies, people not colluding w/ him ---- does he get punished as well as w/ pca
+- TRUE and LIAR can be influenced by market size

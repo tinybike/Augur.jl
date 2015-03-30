@@ -2,7 +2,8 @@ tic()
 
 @everywhere using Simulator
 
-liar_thresholds = 0.3:0.1:0.6
+# liar_thresholds = 0.35:0.1:0.95
+liar_thresholds = 0.7:0.7
 param_range = 5:5:250
 
 sim = Simulation()
@@ -21,28 +22,31 @@ end
 
 include("defaults_" * simtype * ".jl")
 
+sim.VERBOSE = true
+
 # Quick run-thru
-sim.EVENTS = 20
-sim.REPORTERS = 40
-sim.ITERMAX = 25
-sim.TIMESTEPS = 10
+sim.EVENTS = 10
+sim.REPORTERS = 20
+sim.ITERMAX = 2
+sim.TIMESTEPS = 5
 
 # Full(er) run
-sim.EVENTS = 50
-sim.REPORTERS = 100
-sim.ITERMAX = 250
-sim.TIMESTEPS = 500
+# sim.EVENTS = 50
+# sim.REPORTERS = 100
+# sim.ITERMAX = 50
+# sim.TIMESTEPS = 150
 
-sim.SCALARS = 0.5
-sim.REP_RAND = true
-sim.REP_RANGE = 1:500 # rep_range = timesteps
-# sim.REP_RANGE = 1:1000 # rep_range > timesteps
+sim.SCALARS = 0.0
+sim.REP_RAND = false
+sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
+# sim.REP_RANGE = 1:sim.TIMESTEPS
+# sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   "sztorc",
-   "fixed-variance",
+   # "sztorc",
+   # "fixed-variance",
    "cokurtosis",
-   "cokurtosis-old",
+   # "cokurtosis-old",
 ]
 
 # Run simulations and save results:
@@ -50,7 +54,8 @@ sim.ALGOS = [
 #   - graphical algorithm comparison
 if simtype == "liar"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
-    plot_simulations(sim_data)
+    plot_reptrack(sim_data)
+    # plot_simulations(sim_data)
 
 # Timing/complexity
 elseif simtype == "cplx"

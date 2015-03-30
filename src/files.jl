@@ -6,6 +6,7 @@ function save_data(sim::Simulation,
     sim_data = (String => Any)[
         "sim" => sim,
         "trajectories" => results["trajectories"],
+        "reptracks" => results["reptracks"],
         "parametrize" => parametrize,
         "liar_threshold" => convert(Array, ltr),
         "iterate" => results["iterate"],
