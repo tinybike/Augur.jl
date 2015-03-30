@@ -58,14 +58,16 @@ function simulate(sim::Simulation)
                 reputation = (t == 1) ?
                     init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
                 repbox[algo][:,t,i] = reputation
-                print_with_color(:white, "t = $t:\n")
-                display(repbox[algo])
-                println("")
 
                 if sim.VERBOSE
+                    print_with_color(:white, "t = $t:\n")
+                    display(repbox[algo])
+                    println("")
+
                     print_with_color(:white, "Reputation [" * algo * "]:\n")
                     display(reputation')
                     println("")
+
                     # print_with_color(:white, "Reports [" * algo * "]:\n")
                     # display(data[:reports])
                     # println("")
@@ -189,9 +191,11 @@ function simulate(sim::Simulation)
         for s in ("mean", "median", "std")
             reptrack[algo][s] = squeeze(mean(repbox[algo], 3), 3)
         end
-        print_with_color(:white, "Reputation evolution:\n")
-        display(reptrack[algo]["mean"])
-        println("")
+        if sim.VERBOSE
+            print_with_color(:white, "Reputation evolution:\n")
+            display(reptrack[algo]["mean"])
+            println("")
+        end
     end
 
     # Convert raw data into means and standard errors for plotting
@@ -274,8 +278,6 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
         for i = 1:gridrows
             if raw[i]["liar_threshold"] == liar_threshold
                 matched = splice!(raw, i)
-                display(matched["reptrack"])
-                println("")
                 break
             end
         end

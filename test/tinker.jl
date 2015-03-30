@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 
 # liar_thresholds = 0.35:0.1:0.95
-liar_thresholds = 0.7:0.7
+liar_thresholds = 0.7:0.1:0.9
 param_range = 5:5:250
 
 sim = Simulation()
@@ -22,13 +22,13 @@ end
 
 include("defaults_" * simtype * ".jl")
 
-sim.VERBOSE = true
+sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 10
-sim.REPORTERS = 20
-sim.ITERMAX = 2
-sim.TIMESTEPS = 5
+sim.EVENTS = 20
+sim.REPORTERS = 40
+sim.ITERMAX = 10
+sim.TIMESTEPS = 50
 
 # Full(er) run
 # sim.EVENTS = 50
@@ -44,8 +44,8 @@ sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
    # "sztorc",
-   # "fixed-variance",
-   "cokurtosis",
+   "fixed-variance",
+   # "cokurtosis",
    # "cokurtosis-old",
 ]
 

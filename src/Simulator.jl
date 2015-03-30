@@ -4,8 +4,7 @@ module Simulator
     using PyCall
     using JointMoments
     using DataFrames
-    # using Gadfly
-    using Debug
+    using Gadfly
     using PyPlot
     using QuantEcon: meshgrid
     using HDF5, JLD
