@@ -239,13 +239,13 @@ function exclude(sim::Simulation, excluded::Tuple)
 end
 
 function preprocess(sim::Simulation)
-    sim = (sim.DISTORTER)
-        ? exclude(sim, (:MCC, :sensitivity, :fallout, :precision))
-        : exclude(sim, (:distorts_bonus, :distorts_rep))
-    (sim.BRIDGE)
-        ? exclude(sim, (:beats, :liars_bonus, :sensitivity, :fallout,
-                        :precision, :MCC, :true_rep, :liar_rep, :gap))
-        : sim
+    sim = (sim.DISTORTER) ?
+        exclude(sim, (:MCC, :sensitivity, :fallout, :precision)) :
+        exclude(sim, (:distorts_bonus, :distorts_rep))
+    (sim.BRIDGE) ?
+        exclude(sim, (:beats, :liars_bonus, :sensitivity, :fallout,
+                      :precision, :MCC, :true_rep, :liar_rep, :gap)) :
+        sim
 end
 
 function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)

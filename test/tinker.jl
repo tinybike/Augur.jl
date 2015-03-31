@@ -1,6 +1,7 @@
 tic()
 
 @everywhere using Simulator
+using Distributions
 
 # liar_thresholds = 0.35:0.1:0.95
 liar_thresholds = 0.3:0.3:0.9
@@ -45,16 +46,16 @@ sim.REP_RANGE = 1:sim.TIMESTEPS
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(3.0)
 
+sim.BRIDGE = false
 sim.CORRUPTION = 0.5
 sim.RARE = 1e-5
-sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, sim.RARE)))
+sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
    "sztorc",
    "fixed-variance",
    "cokurtosis",
-   "cokurtosis-old",
 ]
 
 # Run simulations and save results:

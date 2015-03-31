@@ -29,6 +29,4 @@ The simulations are parallelized.  To run using all available cores:
 - mix conspiracy with regular collusion
 - check reward/vote slopes for scalars
 - port "winning" algo to Serpent
-- plot number of components + % variance explained (scree plots)
 - plot simulation size vs # components
-- TRUE and LIAR can be influenced by market size
