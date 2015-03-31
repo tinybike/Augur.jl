@@ -8,7 +8,10 @@ function plot_reptrack(sim_data::Dict{String,Any})
         for (i, rt) in enumerate(sim_data["reptracks"])
             reptrack = rt[algo]["mean"]::Matrix{Float64}
             fig = PyPlot.figure(figsize=(8, 6))
-            ax = fig[:gca](projection="3d", xlabel="time", ylabel="reporter")
+            ax = fig[:gca](projection="3d",
+                           xlabel="time",
+                           ylabel="reporter",
+                           zlabel="reputation")
             xgrid, ygrid = meshgrid([1:sim.TIMESTEPS], [1:sim.REPORTERS])
             ax[:plot_surface](xgrid, ygrid, reptrack,
                               rstride=1, cstride=1,

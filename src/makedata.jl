@@ -6,14 +6,13 @@ function create_reporters(sim::Simulation)
         distort_threshold = sim.LIAR_THRESHOLD
     end
 
-    # 1. Generate artificial "true, distort, liar" list
+    # Generate artificial "true, distort, liar" list
     honesty = rand(sim.REPORTERS)
     reporters = fill("", sim.REPORTERS)
     reporters[honesty .>= distort_threshold] = "true"
     reporters[sim.LIAR_THRESHOLD .< honesty .< distort_threshold] = "distort"
     reporters[honesty .<= sim.LIAR_THRESHOLD] = "liar"
 
-    # 2. Build report matrix from this list
     trues = find(reporters .== "true")
     distorts = find(reporters .== "distort")
     liars = find(reporters .== "liar")
@@ -66,14 +65,14 @@ function generate_answers(sim::Simulation, data::Dict{Symbol,Any})
                 data[:correct_answers][i] = rand(data[:scalarmin][i]:data[:stepsize]:data[:scalarmax][i])
             end
         end
+        if sim.VERBOSE
+            display([data[:scalarmask] data[:scalarmin] data[:scalarmax]])
+            println("")
+            display(data[:correct_answers])
+            println("")
+            println("% scalars: ", sum(data[:scalarmask]) / sim.EVENTS)
+        end
     end
-    # if sim.VERBOSE
-    #     display([data[:scalarmask] data[:scalarmin] data[:scalarmax]])
-    #     println("")
-    #     display(data[:correct_answers])
-    #     println("")
-    #     println("% scalars: ", sum(data[:scalarmask]) / sim.EVENTS)
-    # end
     data
 end
 

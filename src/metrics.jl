@@ -34,6 +34,10 @@ function compute_metrics(sim::Simulation,
 
     true_rep = median(updated_rep[data[:trues]])
     liar_rep = median(updated_rep[data[:liars]])
+
+    # # Verify conservation of reputation
+    # total_rep = sum(updated_rep)
+    # print_with_color(:white, "Total reputation: $total_rep\n")
     
     metrics = (Symbol => Float64)[
         # Sensitivity (recall/true positive rate): liars punished / num liars

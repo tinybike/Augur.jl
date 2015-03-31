@@ -64,7 +64,7 @@ module Simulator
 
         # Range of possible responses
         # -1:1 for {-1, 0, 1}, -1:2:1 for {-1, 1}, etc.
-        RESPONSES::UnitRange{Int}
+        RESPONSES::Range
 
         # Reputation update smoothing parameter
         ALPHA::Float64
@@ -104,7 +104,7 @@ module Simulator
                     distorter::Bool=false,
                     distort::Float64=0.0,
                     distort_threshold::Float64=0.1,
-                    responses::UnitRange{Int}=-1:1,
+                    responses::Range=1:0.5:2,
                     alpha::Float64=0.2,
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
@@ -167,7 +167,7 @@ module Simulator
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")
-    # include("plots.jl")
+    include("plots.jl")
     include("reptrack.jl")
     include("files.jl")
 
