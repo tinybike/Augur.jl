@@ -3,8 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-# liar_thresholds = 0.35:0.1:0.95
-liar_thresholds = 0.3:0.3:0.9
+liar_thresholds = 0.35:0.1:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -26,16 +25,16 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 20
-sim.REPORTERS = 40
-sim.ITERMAX = 10
-sim.TIMESTEPS = 25
+# sim.EVENTS = 20
+# sim.REPORTERS = 40
+# sim.ITERMAX = 10
+# sim.TIMESTEPS = 25
 
 # Full(er) run
-# sim.EVENTS = 50
-# sim.REPORTERS = 100
-# sim.ITERMAX = 50
-# sim.TIMESTEPS = 150
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 250
+sim.TIMESTEPS = 500
 
 sim.SCALARS = 0.0
 sim.REP_RAND = true
@@ -46,8 +45,8 @@ sim.REP_RANGE = 1:sim.TIMESTEPS
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(3.0)
 
-sim.BRIDGE = false
-sim.CORRUPTION = 0.5
+sim.BRIDGE = true
+sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
@@ -69,9 +68,9 @@ if simtype == "liar"
 # Timing/complexity
 elseif simtype == "cplx"
     println("Timed simulations:")
-    @time complexity(param_range, sim; iterations=500, param="reporters")
-    @time complexity(param_range, sim; iterations=500, param="events")
-    @time complexity(param_range, sim; iterations=500, param="both")
+    @time complexity(param_range, sim; iterations=1000, param="reporters")
+    @time complexity(param_range, sim; iterations=1000, param="events")
+    @time complexity(param_range, sim; iterations=1000, param="both")
 end
 
 t = toq()

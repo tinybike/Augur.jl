@@ -34,10 +34,6 @@ function compute_metrics(sim::Simulation,
 
     true_rep = mean(updated_rep[data[:trues]])
     liar_rep = mean(updated_rep[data[:liars]])
-
-    # # Verify conservation of reputation
-    # total_rep = sum(updated_rep)
-    # print_with_color(:white, "Total reputation: $total_rep\n")
     
     metrics = (Symbol => Float64)[
         # Sensitivity (recall/true positive rate): liars punished / num liars
@@ -45,7 +41,6 @@ function compute_metrics(sim::Simulation,
 
         # Precision (positive predictive value): liars punished / total punished
         :precision => liars_punished / total_punished,
-
 
         # Fall-out/false positive rate (1 - specificity):
         # 1 - trues rewarded / num trues
@@ -74,6 +69,9 @@ function compute_metrics(sim::Simulation,
         # Matthews correlation coefficient
         metrics[:MCC] = liars_punished*trues_rewarded - liars_rewarded*trues_punished
         metrics[:MCC] /= sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded)
+    end
+    if sim.BRIDGE
+        metrics[:corrupted] = countnz(data[:corrupt]) / data[:num_trues] / sim.EVENTS
     end
     metrics
 end

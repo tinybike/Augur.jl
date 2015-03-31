@@ -11,7 +11,6 @@ sim.VARIANCE_THRESHOLD = 0.9
 # sim.DISTORT = 0.0
 # sim.DISTORTER = false
 # sim.ALPHA = 0.2
-# sim.REP_BINS = int(sim.REPORTERS/10)
 sim.REP_RANGE = 1:100
 sim.REP_RAND = false
 sim.BRIDGE = true
@@ -28,7 +27,6 @@ sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "sztorc",
     "fixed-variance",
-    # "covariance",
     "cokurtosis",
 ]
 sim.METRICS = [
@@ -45,6 +43,7 @@ sim.METRICS = [
     "liar_rep",
     "distorts_rep",
     "gap",
+    "corrupted",
 ]
 sim.TRACK = [
     :gini,
@@ -54,5 +53,6 @@ sim.TRACK = [
     :distorts_rep,
     :true_rep,
     :liar_rep,
+    :corrupted,
 ]
 sim.STATISTICS = ["mean", "stderr"]

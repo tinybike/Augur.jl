@@ -245,7 +245,7 @@ function preprocess(sim::Simulation)
     (sim.BRIDGE) ?
         exclude(sim, (:beats, :liars_bonus, :sensitivity, :fallout,
                       :precision, :MCC, :true_rep, :liar_rep, :gap)) :
-        sim
+        exclude(sim, (:corrupted,))
 end
 
 function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
