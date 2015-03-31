@@ -84,6 +84,13 @@ module Simulator
         PRICE_DIST::Distribution
         OVERLAP_DIST::Distribution
 
+        # Corruption: probability of an "honest" reporter switching his report
+        # to a lie at market size = MONEYBIN (where the MARKET_SIZE PDF drops
+        # below RARE)
+        RARE::Float64
+        MONEYBIN::Float64
+        CORRUPTION::Float64
+
         # Collusion: 0.2 => 20% chance liar will copy another user
         # (only other liars unless INDISCRIMINATE=true)
         COLLUDE::Float64
@@ -102,10 +109,10 @@ module Simulator
         # Tracking statistics for time series analysis
         TRACK::Vector{Symbol}
 
-        Simulation(;events::Int=25,
-                    reporters::Int=50,
+        Simulation(;events::Int=50,
+                    reporters::Int=100,
                     itermax::Int=250,
-                    timesteps::Int=100,
+                    timesteps::Int=200,
                     scalars::Float64=0.0,
                     scalarmin::Float64=0.0,
                     scalarmax::Float64=0.0,
@@ -122,6 +129,8 @@ module Simulator
                     market_dist::Distribution=Uniform(),
                     price_dist::Distribution=Uniform(),
                     overlap_dist::Distribution=Uniform(),
+                    rare::Float64=1e-5,
+                    corruption::Float64=0.5,
                     collude::Float64=0.3,
                     indiscriminate::Bool=true,
                     verbose::Bool=false,
@@ -165,6 +174,9 @@ module Simulator
                 market_dist,
                 price_dist,
                 overlap_dist,
+                rare,
+                first(find(pdf(market_dist, rare))),
+                corruption,
                 collude,
                 indiscriminate,
                 verbose,

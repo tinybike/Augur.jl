@@ -47,9 +47,15 @@ function create_reporters(sim::Simulation)
     ]
 end
 
-# Generate the correct answer for each event
+# - Generate the correct answer for each event.
+# - Also generate a vector of "corrupt" answers, which reporters may be swayed
+#   by money to report.  The corrupt answers are assigned at random, so they
+#   are not always incorrect.
 function generate_answers(sim::Simulation, data::Dict{Symbol,Any})
     data[:correct_answers] = convert(Vector{Float64}, rand(sim.RESPONSES, sim.EVENTS))
+    if sim.BRIDGE
+        data[:corrupt_answers] = convert(Vector{Float64}, rand(sim.RESPONSES, sim.EVENTS))
+    end
     if sim.SCALARS > 0
         data[:stepsize] = 0.00001
         data[:scalarmask] = rand(sim.EVENTS) .< sim.SCALARS
@@ -64,6 +70,9 @@ function generate_answers(sim::Simulation, data::Dict{Symbol,Any})
         for i = 1:sim.EVENTS
             if data[:scalarmask][i]
                 data[:correct_answers][i] = rand(data[:scalarmin][i]:data[:stepsize]:data[:scalarmax][i])
+                if sim.BRIDGE
+                    data[:corrupt_answers][i] = rand(data[:scalarmin][i]:data[:stepsize]:data[:scalarmax][i])
+                end
             end
         end
         if sim.VERBOSE
@@ -79,16 +88,18 @@ end
 
 # Assign each event a size and price in the pre-event cash market,
 # and the amount of overlap between the reporters and traders
+# (note: price & overlap not yet used)
 function populate_markets(sim::Simulation)
+    market_size = rand(sim.MARKET_DIST, sim.EVENTS)
     (Symbol => Vector{Float64})[
-        :size => rand(sim.MARKET_DIST, sim.EVENTS),
+        :size => market_size / sim.MONEYBIN,
         :price => rand(sim.PRICE_DIST, sim.EVENTS),
         :overlap => rand(sim.OVERLAP_DIST, sim.EVENTS),
     ]
 end
 
 function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
-    
+
     # True: always report correct answer
     data[:reports] = zeros(sim.REPORTERS, sim.EVENTS)
     data[:reports][data[:trues],:] = convert(
@@ -96,7 +107,23 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
         repmat(data[:correct_answers]', data[:num_trues])
     )
 
+    # Chance of reporting incorrect answer is proportional to the size
+    # of the event's cash market.  Change in status to "corrupt" does
+    # NOT persist across timesteps, or across events.
+    if sim.BRIDGE
+        data[:corrupt] = falses(data[:num_trues], sim.EVENTS)
+        for i = 1:data[:num_trues]
+            for j = 1:sim.EVENTS
+                if rand() < data[:markets][:size][j] * sim.CORRUPTION
+                    data[:corrupt][i,j] = true
+                    data[:reports][data[:trues][i],j] = data[:corrupt_answers][j]
+                end
+            end
+        end
+    end
+
     # Distort: report incorrect answers to DISTORT fraction of events
+    # (not yet compatible with BRIDGE)
     if sim.DISTORTER
         distmask = rand(data[:num_distorts], sim.EVENTS) .< sim.DISTORT
         correct = convert(

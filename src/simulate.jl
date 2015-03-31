@@ -230,19 +230,22 @@ function simulate(sim::Simulation)
     processed_data
 end
 
-function preprocess(sim::Simulation)
-    if ~sim.DISTORTER
-        for x in (:distorts_bonus, :distorts_rep)
-            sim.METRICS = sim.METRICS[sim.METRICS .!= string(x)]
-            sim.TRACK = sim.TRACK[sim.TRACK .!= x]
-        end
-    else
-        for x in (:MCC, :sensitivity, :fallout, :precision)
-            sim.METRICS = sim.METRICS[sim.METRICS .!= string(x)]
-            sim.TRACK = sim.TRACK[sim.TRACK .!= x]
-        end
+function exclude(sim::Simulation, excluded::Tuple)
+    for x in excluded
+        sim.METRICS = sim.METRICS[sim.METRICS .!= string(x)]
+        sim.TRACK = sim.TRACK[sim.TRACK .!= x]
     end
     sim
+end
+
+function preprocess(sim::Simulation)
+    sim = (sim.DISTORTER)
+        ? exclude(sim, (:MCC, :sensitivity, :fallout, :precision))
+        : exclude(sim, (:distorts_bonus, :distorts_rep))
+    (sim.BRIDGE)
+        ? exclude(sim, (:beats, :liars_bonus, :sensitivity, :fallout,
+                        :precision, :MCC, :true_rep, :liar_rep, :gap))
+        : sim
 end
 
 function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
