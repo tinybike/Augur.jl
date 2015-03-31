@@ -47,6 +47,7 @@ function create_reporters(sim::Simulation)
     ]
 end
 
+# Generate the correct answer for each event
 function generate_answers(sim::Simulation, data::Dict{Symbol,Any})
     data[:correct_answers] = convert(Vector{Float64}, rand(sim.RESPONSES, sim.EVENTS))
     if sim.SCALARS > 0
@@ -76,7 +77,17 @@ function generate_answers(sim::Simulation, data::Dict{Symbol,Any})
     data
 end
 
-function generate_reports(sim, data)
+# Assign each event a size and price in the pre-event cash market,
+# and the amount of overlap between the reporters and traders
+function populate_markets(sim::Simulation)
+    (Symbol => Vector{Float64})[
+        :size => rand(sim.MARKET_DIST, sim.EVENTS),
+        :price => rand(sim.PRICE_DIST, sim.EVENTS),
+        :overlap => rand(sim.OVERLAP_DIST, sim.EVENTS),
+    ]
+end
+
+function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
     
     # True: always report correct answer
     data[:reports] = zeros(sim.REPORTERS, sim.EVENTS)
@@ -199,8 +210,10 @@ function generate_reports(sim, data)
     data
 end
 
-generate_data(sim::Simulation, data::Dict{Symbol,Any}) = 
+function generate_data(sim::Simulation, data::Dict{Symbol,Any})
+    data[:markets] = populate_markets(sim)
     generate_reports(sim, generate_answers(sim, data))
+end
 
 init_reputation(sim::Simulation) = normalize(
     (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)

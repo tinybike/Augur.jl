@@ -1,6 +1,7 @@
 module Simulator
 
     using Dates
+    using Distributions
     using PyCall
     using JointMoments
     using DataFrames
@@ -74,6 +75,15 @@ module Simulator
         REP_RANGE::UnitRange{Int}
         REP_RAND::Bool
 
+        # Bridge=true if the reporters take into account the cash markets
+        # when reporting, false if they ignore it (ideal case)
+        BRIDGE::Bool
+
+        # Market size, price, and overlap distributions
+        MARKET_DIST::Distribution
+        PRICE_DIST::Distribution
+        OVERLAP_DIST::Distribution
+
         # Collusion: 0.2 => 20% chance liar will copy another user
         # (only other liars unless INDISCRIMINATE=true)
         COLLUDE::Float64
@@ -108,6 +118,10 @@ module Simulator
                     alpha::Float64=0.2,
                     rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
+                    bridge::Bool=false,
+                    market_dist::Distribution=Uniform(),
+                    price_dist::Distribution=Uniform(),
+                    overlap_dist::Distribution=Uniform(),
                     collude::Float64=0.3,
                     indiscriminate::Bool=true,
                     verbose::Bool=false,
@@ -148,6 +162,9 @@ module Simulator
                 int(reporters/10),
                 rep_range,
                 rep_rand,
+                market_dist,
+                price_dist,
+                overlap_dist,
                 collude,
                 indiscriminate,
                 verbose,

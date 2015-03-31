@@ -32,8 +32,8 @@ function compute_metrics(sim::Simulation,
     gini *= 2 / sim.REPORTERS
     gini -= 1 + 1 / sim.REPORTERS
 
-    true_rep = median(updated_rep[data[:trues]])
-    liar_rep = median(updated_rep[data[:liars]])
+    true_rep = mean(updated_rep[data[:trues]])
+    liar_rep = mean(updated_rep[data[:liars]])
 
     # # Verify conservation of reputation
     # total_rep = sum(updated_rep)
@@ -69,7 +69,7 @@ function compute_metrics(sim::Simulation,
     ]
     if sim.DISTORTER
         metrics[:distorts_bonus] = sum(bonus[data[:distorts]])
-        metrics[:distorts_rep] = median(updated_rep[data[:distorts]])
+        metrics[:distorts_rep] = mean(updated_rep[data[:distorts]])
     else
         # Matthews correlation coefficient
         metrics[:MCC] = liars_punished*trues_rewarded - liars_rewarded*trues_punished

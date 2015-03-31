@@ -41,6 +41,11 @@ sim.REP_RAND = true
 # sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
 sim.REP_RANGE = 1:sim.TIMESTEPS
 # sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
+
+# "Preferential attachment" market size distribution
+sim.MARKET_DIST = Pareto(3.0)
+sim.PRICE_DIST = Uniform()
+
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
    "sztorc",
