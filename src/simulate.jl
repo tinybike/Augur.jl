@@ -95,28 +95,28 @@ function simulate(sim::Simulation)
 
                 elseif algo == "cokurtosis-old"
 
-                    w1 = round(reputation / minimum(reputation))
-                    data[:aux] = [
-                        :cokurt => recombine(
-                            collapse(
-                                replicate(data[:reports], w1)';
-                                order=4,
-                                bias=0,
-                                normalized=true
-                            ),
-                            w1
-                        )
-                    ]
-                    # Per-user cokurtosis contribution
+                    # w1 = round(reputation / minimum(reputation))
                     # data[:aux] = [
-                    #     :cokurt => collapse(
-                    #         data[:reports]';
-                    #         order=4,
-                    #         standardize=false,
-                    #         normalized=true,
-                    #         bias=0,
+                    #     :cokurt => recombine(
+                    #         collapse(
+                    #             replicate(data[:reports], w1)';
+                    #             order=4,
+                    #             bias=0,
+                    #             normalized=true
+                    #         ),
+                    #         w1
                     #     )
                     # ]
+                    # Per-user cokurtosis contribution
+                    data[:aux] = [
+                        :cokurt => collapse(
+                            data[:reports]';
+                            order=4,
+                            standardize=false,
+                            normalized=true,
+                            bias=0,
+                        )
+                    ]
                     if sim.VERBOSE
                         print_with_color(:white, "Collapsed [" * algo * "]:\n")
                         display(data[:aux])
