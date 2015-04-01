@@ -38,21 +38,20 @@ function simulate(sim::Simulation)
     end
 
     @inbounds while i <= sim.ITERMAX
+        for algo in sim.ALGOS
 
-        # Simulate over #TIMESTEPS consensus resolutions:
-        #   - The previous (smoothed) reputation is used as an input to
-        #     the next time step
-        #   - Reporters' labels (true, liar, etc.) do not change
-        #   - Correct answers and reports are generated fresh at each
-        #     time step
-        for t = 1:sim.TIMESTEPS
+            # Simulate over #TIMESTEPS consensus resolutions:
+            #   - The previous (smoothed) reputation is used as an input to
+            #     the next time step
+            #   - Reporters' labels (true, liar, etc.) do not change
+            #   - Correct answers and reports are generated fresh at each
+            #     time step
+            metrics = Dict{Symbol,Float64}()
+            for t = 1:sim.TIMESTEPS
 
-            # Create reporters and assign each reporter a label
-            # Generate reports and correct answers
-            data = generate_data(sim, create_reporters(sim))
-
-            for algo in sim.ALGOS
-                metrics = Dict{Symbol,Float64}()
+                # Create reporters and assign each reporter a label
+                # Generate reports and correct answers
+                data = generate_data(sim, create_reporters(sim))
 
                 # Assign/update reputation
                 reputation = (t == 1) ?
@@ -114,7 +113,7 @@ function simulate(sim::Simulation)
 
                 elseif algo == "virial"
 
-                    data[:aux][:H] = zeros(sim.REPORTERS)
+                    data[:aux] = [:H => zeros(sim.REPORTERS)]
                     for o = 2:2:sim.VIRIALMAX
                         data[:aux][:H] += collapse(
                             data[:reports],

@@ -25,10 +25,10 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 30
-sim.REPORTERS = 50
-sim.ITERMAX = 15
-sim.TIMESTEPS = 75
+sim.EVENTS = 40
+sim.REPORTERS = 80
+sim.ITERMAX = 25
+sim.TIMESTEPS =125
 
 # Full(er) run
 # sim.EVENTS = 50
@@ -52,9 +52,11 @@ sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   "fixed-variance",
    "cokurtosis",
+   "sztorc",
+   "fixed-variance",
    "virial",
+   "covariance",
 ]
 
 # Run simulations and save results:
