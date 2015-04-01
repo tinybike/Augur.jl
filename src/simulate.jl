@@ -114,9 +114,8 @@ function simulate(sim::Simulation)
 
                 elseif algo == "virial"
 
-                    max_order = 5
                     data[:aux][:H] = zeros(sim.REPORTERS)
-                    for o = 2:max_order
+                    for o = 2:2:sim.VIRIALMAX
                         data[:aux][:H] += collapse(
                             data[:reports],
                             reputation;

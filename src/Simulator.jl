@@ -98,6 +98,11 @@ module Simulator
         VERBOSE::Bool
         CONSPIRACY::Bool
         ALLWRONG::Bool
+
+        # Maximum power included in "virial" algo multibody expansion
+        VIRIALMAX::Int
+
+        # Save data at every timestep (uses lots of disk space)
         SAVE_RAW_DATA::Bool
 
         # Event resolution algorithms to test, metrics used to evaluate them,
@@ -136,6 +141,7 @@ module Simulator
                     verbose::Bool=false,
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
+                    virialmax::Int=10,
                     save_raw_data::Bool=false,
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
@@ -183,6 +189,7 @@ module Simulator
                 verbose,
                 conspiracy,
                 allwrong,
+                virialmax,
                 save_raw_data,
                 algos,
                 metrics,

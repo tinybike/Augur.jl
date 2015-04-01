@@ -49,10 +49,12 @@ sim.TRACK = [
     :gini,
     :MCC,
     :correct,
-    :gap,
+    :beats,
     :distorts_rep,
-    :true_rep,
-    :liar_rep,
+    :sensitivity,
+    :precision,
+    :fallout,
+    :liars_bonus,
     :corrupted,
 ]
 sim.STATISTICS = ["mean", "stderr"]

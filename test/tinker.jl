@@ -37,7 +37,7 @@ sim.TIMESTEPS = 75
 # sim.TIMESTEPS = 500
 
 sim.SCALARS = 0.0
-sim.REP_RAND = true
+sim.REP_RAND = false
 sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
 # sim.REP_RANGE = 1:sim.TIMESTEPS
 # sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
