@@ -93,26 +93,15 @@ function simulate(sim::Simulation)
                         println("")
                     end
 
-                elseif algo == "cokurtosis-old"
+                elseif algo == "covariance"
 
-                    # w1 = round(reputation / minimum(reputation))
-                    # data[:aux] = [
-                    #     :cokurt => recombine(
-                    #         collapse(
-                    #             replicate(data[:reports], w1)';
-                    #             order=4,
-                    #             bias=0,
-                    #             normalized=true
-                    #         ),
-                    #         w1
-                    #     )
-                    # ]
-                    # Per-user cokurtosis contribution
+                    # Per-user covariance contribution
                     data[:aux] = [
-                        :cokurt => collapse(
-                            data[:reports]';
-                            order=4,
-                            standardize=false,
+                        :cov => collapse(
+                            data[:reports],
+                            reputation;
+                            order=2,
+                            axis=2,
                             normalized=true,
                             bias=0,
                         )
@@ -122,6 +111,28 @@ function simulate(sim::Simulation)
                         display(data[:aux])
                         println("")
                     end
+
+                elseif algo == "virial"
+
+                    max_order = 5
+                    data[:aux][:H] = zeros(sim.REPORTERS)
+                    for o = 2:max_order
+                        data[:aux][:H] += collapse(
+                            data[:reports],
+                            reputation;
+                            order=o,
+                            axis=2,
+                            normalized=true,
+                            bias=0,
+                        ) / o
+                    end
+                    data[:aux][:H] = normalize(data[:aux][:H])
+                    if sim.VERBOSE
+                        print_with_color(:white, "Collapsed [" * algo * "]:\n")
+                        display(data[:aux])
+                        println("")
+                    end
+
                 end
 
                 # Use pyconsensus for event resolution

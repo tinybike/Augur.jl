@@ -260,7 +260,7 @@ function plot_trajectories(sim::Simulation,
                 timesteps = [timesteps, [1:sim.TIMESTEPS]]
                 liars = [
                     liars,
-                    fill!(Array(String, sim.TIMESTEPS), string(lt*100) * "%")[:],
+                    fill!(Array(String, sim.TIMESTEPS), string(round(lt*100)) * "%")[:],
                 ]
                 algorithms = [
                     algorithms,
@@ -269,20 +269,16 @@ function plot_trajectories(sim::Simulation,
             end
         end
     end
-    df = DataFrame(
-        metric=metrics[:],
-        timesteps=timesteps[:],
-        data=data[:],
-        error_minus=error_minus[:],
-        error_plus=error_plus[:],
-        liars=liars[:],
-        algorithm=algorithms[:],
-    )
-    # display(df)
-    # println("")
-    set_default_plot_size
     pl = Gadfly.plot(
-        df,
+        DataFrame(
+            metric=metrics[:],
+            timesteps=timesteps[:],
+            data=data[:],
+            error_minus=error_minus[:],
+            error_plus=error_plus[:],
+            liars=liars[:],
+            algorithm=algorithms[:],
+        ),
         x=:timesteps,
         y=:data,
         ymin=:error_minus,
