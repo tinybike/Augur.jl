@@ -1,6 +1,7 @@
 using Simulator
 using DataFrames
 using Gadfly
+using Debug
 
 # Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})
@@ -241,8 +242,10 @@ function plot_trajectories(sim::Simulation,
     timesteps = Int[]
     liars = String[]
     algorithms = String[]
-    for (i, lt) in enumerate(liar_thresholds)
-        for algo in sim.ALGOS
+    tr = :correct
+    algo = "cokurtosis"
+    for algo in sim.ALGOS
+        for (i, lt) in enumerate(liar_thresholds)
             for tr in sim.TRACK
                 data = [data, trajectories[i][algo][tr][:mean]]
                 metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
@@ -257,7 +260,7 @@ function plot_trajectories(sim::Simulation,
                 timesteps = [timesteps, [1:sim.TIMESTEPS]]
                 liars = [
                     liars,
-                    fill!(Array(String, sim.TIMESTEPS), string(lt))[:],
+                    fill!(Array(String, sim.TIMESTEPS), string(lt*100) * "%")[:],
                 ]
                 algorithms = [
                     algorithms,
@@ -275,6 +278,9 @@ function plot_trajectories(sim::Simulation,
         liars=liars[:],
         algorithm=algorithms[:],
     )
+    # display(df)
+    # println("")
+    set_default_plot_size
     pl = Gadfly.plot(
         df,
         x=:timesteps,

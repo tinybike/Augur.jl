@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.35:0.1:0.95
+liar_thresholds = 0.35:0.2:0.95
 param_range = 5:5:250
 
 sim = Simulation()
