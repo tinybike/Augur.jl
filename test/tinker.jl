@@ -22,7 +22,7 @@ end
 
 include("defaults_" * simtype * ".jl")
 
-sim.VERBOSE = true
+sim.VERBOSE = false
 
 # Quick run-thru
 # sim.EVENTS = 40
@@ -34,13 +34,13 @@ sim.VERBOSE = true
 sim.EVENTS = 100
 sim.REPORTERS = 250
 sim.ITERMAX = 250
-sim.TIMESTEPS = 500
+sim.TIMESTEPS = 750
 
-sim.SCALARS = 0.5
-sim.REP_RAND = true
+sim.SCALARS = 0.0
+sim.REP_RAND = false
 # sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
-sim.REP_RANGE = 1:sim.TIMESTEPS
-# sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
+# sim.REP_RANGE = 1:sim.TIMESTEPS
+sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
 
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(3.0)
@@ -52,11 +52,11 @@ sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-   "cokurtosis",
-   "sztorc",
-   "fixed-variance",
-   "virial",
-   "covariance",
+    "sztorc",
+    "covariance",
+    "fixed-variance",
+    "cokurtosis",
+    "virial",
 ]
 
 # Run simulations and save results:
