@@ -31,10 +31,10 @@ sim.VERBOSE = false
 # sim.TIMESTEPS = 125
 
 # Full(er) run
-sim.EVENTS = 100
-sim.REPORTERS = 250
-sim.ITERMAX = 250
-sim.TIMESTEPS = 750
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 100
+sim.TIMESTEPS = 500
 
 sim.SCALARS = 0.5
 sim.REP_RAND = true

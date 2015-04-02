@@ -6,7 +6,7 @@ function simulate(sim::Simulation)
     reporters = []
     raw_data = (String => Any)[ "sim" => sim ]
     timesteps = (sim.SAVE_RAW_DATA) ? 1:sim.TIMESTEPS : sim.TIMESTEPS
-    @inbounds for algo in sim.ALGOS
+    for algo in sim.ALGOS
         raw_data[algo] = Dict{String,Any}()
         for m in [sim.METRICS, "components"]
             raw_data[algo][m] = Dict{Int,Vector{Float64}}()
@@ -32,14 +32,16 @@ function simulate(sim::Simulation)
     # Reputation time series (repbox):
     # - column t is the reputation vector at time t
     # - third axis = iteration
-    repbox = Dict{String,Array{Float64,3}}()
-    repdelta = Dict{String,Array{Float64,3}}()
-    for algo in sim.ALGOS
-        repbox[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
-        repdelta[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
+    if sim.VERBOSE
+        repbox = Dict{String,Array{Float64,3}}()
+        repdelta = Dict{String,Array{Float64,3}}()
+        for algo in sim.ALGOS
+            repbox[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
+            repdelta[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
+        end
     end
 
-    @inbounds while i <= sim.ITERMAX
+    while i <= sim.ITERMAX
         for algo in sim.ALGOS
 
             # Create reporters and assign each reporter a label
@@ -60,10 +62,10 @@ function simulate(sim::Simulation)
                 # Assign/update reputation
                 reputation = (t == 1) ?
                     init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
-                repbox[algo][:,t,i] = reputation
-                repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
 
                 if sim.VERBOSE
+                    repbox[algo][:,t,i] = reputation
+                    repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
                     print_with_color(:white, "t = $t:\n")
                     display([data[:reporters] repdelta[algo][:,:,i]])
                     println("")
@@ -194,7 +196,10 @@ function simulate(sim::Simulation)
         jldopen(filename, "w") do file
             write(file, "raw_data", raw_data)
             write(file, "track", track)
-            write(file, "repbox", repbox)
+            if sim.VERBOSE
+                write(file, "repbox", repbox)
+                write(file, "repdelta", repdelta)
+            end
         end
     end
 
