@@ -31,13 +31,8 @@ sim.VERBOSE = false
 # sim.TIMESTEPS = 125
 
 # Full(er) run
-<<<<<<< Updated upstream
 sim.EVENTS = 50
 sim.REPORTERS = 100
-=======
-sim.EVENTS = 100
-sim.REPORTERS = 200
->>>>>>> Stashed changes
 sim.ITERMAX = 100
 sim.TIMESTEPS = 500
 
