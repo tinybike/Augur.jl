@@ -86,7 +86,11 @@ tokens = (Symbol => Float64)[
     :distorts => sum(reputation .* (reporters[:reporters] .== "distort")),
 ]
 
+println("Initial reputation:")
 display([sortrows([reporters[:reporters] reputation]) sortrows([reputation reporters[:reporters]])])
+println("")
+println("Tokens:")
+display(tokens)
 println("")
 
 i = t = 1

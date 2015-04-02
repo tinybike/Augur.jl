@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.3:0.3:0.3
+liar_thresholds = 0.05:0.05:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -25,16 +25,16 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 10
-sim.TIMESTEPS = 50
+# sim.EVENTS = 40
+# sim.REPORTERS = 80
+# sim.ITERMAX = 25
+# sim.TIMESTEPS = 125
 
 # Full(er) run
-# sim.EVENTS = 50
-# sim.REPORTERS = 100
-# sim.ITERMAX = 100
-# sim.TIMESTEPS = 500
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 100
+sim.TIMESTEPS = 500
 
 sim.SCALARS = 0.0
 sim.REP_RAND = false
@@ -50,10 +50,10 @@ sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    # "sztorc",
-    # "fixed-variance",
+    "sztorc",
+    "fixed-variance",
     "cokurtosis",
-    # "virial",
+    "virial",
 ]
 
 # Run simulations and save results:
