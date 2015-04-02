@@ -75,30 +75,37 @@ for algo in sim.ALGOS
     repdelta[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
 end
 
-reputation = zeros(sim.REPORTERS)
+init_rep = init_reputation(sim)
 reporters = create_reporters(sim)
 metrics = Dict{Symbol,Float64}()
 data = Dict{Symbol,Any}()
 
 tokens = (Symbol => Float64)[
-    :trues => sum(reputation .* (reporters[:reporters] .== "true")),
-    :liars => sum(reputation .* (reporters[:reporters] .== "liar")),
-    :distorts => sum(reputation .* (reporters[:reporters] .== "distort")),
+    :trues => sum(init_rep .* (reporters[:reporters] .== "true")),
+    :liars => sum(init_rep .* (reporters[:reporters] .== "liar")),
+    :distorts => sum(init_rep .* (reporters[:reporters] .== "distort")),
 ]
 
-println("Initial reputation:")
-display([sortrows([reporters[:reporters] reputation]) sortrows([reputation reporters[:reporters]])])
-println("")
-println("Tokens:")
+sort_by_label = sortperm(reporters[:reporters])
+sort_by_rep = sortperm(init_rep)
+initdf = DataFrame(
+    label_sort_by_label=reporters[:reporters][sort_by_label],
+    reputation_sort_by_label=init_rep[sort_by_label],
+    label_sort_by_rep=reporters[:reporters][sort_by_rep],
+    reputation_sort_by_rep=init_rep[sort_by_rep],
+)
+
+println("Initial token distribution:")
 display(tokens)
-println("")
+
+reputation = copy(init_rep)
 
 i = t = 1
 for i = 1:sim.ITERMAX
     for algo in sim.ALGOS
         for t = 1:sim.TIMESTEPS
             data = generate_data(sim, reporters)
-            reputation = (t == 1) ? init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
+            reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
             
@@ -113,7 +120,7 @@ for i = 1:sim.ITERMAX
             elseif algo == "virial"
                 data[:aux] = [:H => zeros(sim.REPORTERS)]
                 for o = 2:2:sim.VIRIALMAX
-                    data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true)
+                    data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true) * sim.REPORTERS^o
                 end
                 data[:aux][:H] = normalize(data[:aux][:H])
             end
