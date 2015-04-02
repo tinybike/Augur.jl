@@ -33,8 +33,10 @@ function simulate(sim::Simulation)
     # - column t is the reputation vector at time t
     # - third axis = iteration
     repbox = Dict{String,Array{Float64,3}}()
+    repdelta = Dict{String,Array{Float64,3}}()
     for algo in sim.ALGOS
         repbox[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
+        repdelta[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
     end
 
     @inbounds while i <= sim.ITERMAX
@@ -59,10 +61,11 @@ function simulate(sim::Simulation)
                 reputation = (t == 1) ?
                     init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
                 repbox[algo][:,t,i] = reputation
+                repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
 
                 if sim.VERBOSE
                     print_with_color(:white, "t = $t:\n")
-                    display([data[:reporters] repbox[algo][:,:,i]-repbox[algo][:,1,i]])
+                    display([data[:reporters] repdelta[algo][:,:,i]])
                     println("")
 
                     # print_with_color(:white, "Reputation [" * algo * "]:\n")
