@@ -1,7 +1,6 @@
 using Simulator
 using DataFrames
 using Gadfly
-using Debug
 
 # Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})

@@ -6,7 +6,7 @@ module Simulator
     using JointMoments
     using DataFrames
     using Gadfly
-    using PyPlot
+    # using PyPlot
     using QuantEcon: meshgrid
     using HDF5, JLD
 
@@ -211,7 +211,7 @@ module Simulator
     include("makedata.jl")
     include("metrics.jl")
     include("plots.jl")
-    include("reptrack.jl")
+    # include("reptrack.jl")
     include("files.jl")
 
 end # module
