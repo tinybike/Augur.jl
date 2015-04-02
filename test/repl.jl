@@ -8,6 +8,7 @@ using PyCall
 @pyimport pyconsensus
 
 # test/tinker.jl
+
 sim = Simulation()
 include("defaults_liar.jl")
 
@@ -15,20 +16,22 @@ sim.VERBOSE = false
 
 sim.LIAR_THRESHOLD = 0.7
 
-sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 10
+sim.EVENTS = 40
+sim.REPORTERS = 80
+sim.ITERMAX = 25
 sim.TIMESTEPS = 100
 
 sim.SCALARS = 0.0
-sim.REP_RAND = false
+sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
-sim.MARKET_DIST = Pareto(3.0)
 sim.BRIDGE = false
+sim.MARKET_DIST = Pareto(3.0)
 sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
+
+sim.VIRIALMAX = 4
 
 sim.ALGOS = [
    "cokurtosis",
@@ -38,13 +41,9 @@ sim.ALGOS = [
 ]
 
 # src/simulate.jl
-# run_simulations()
+
 sim = preprocess(sim)
 
-# simulate()
-
-i = 1
-reporters = []
 raw_data = (String => Any)[ "sim" => sim ]
 timesteps = (sim.SAVE_RAW_DATA) ? 1:sim.TIMESTEPS : sim.TIMESTEPS
 for algo in sim.ALGOS
@@ -81,6 +80,15 @@ reporters = create_reporters(sim)
 metrics = Dict{Symbol,Float64}()
 data = Dict{Symbol,Any}()
 
+tokens = (Symbol => Float64)[
+    :trues => sum(reputation .* (reporters[:reporters] .== "true")),
+    :liars => sum(reputation .* (reporters[:reporters] .== "liar")),
+    :distorts => sum(reputation .* (reporters[:reporters] .== "distort")),
+]
+
+display([sortrows([reporters[:reporters] reputation]) sortrows([reputation reporters[:reporters]])])
+println("")
+
 i = t = 1
 for i = 1:sim.ITERMAX
     for algo in sim.ALGOS
@@ -101,7 +109,7 @@ for i = 1:sim.ITERMAX
             elseif algo == "virial"
                 data[:aux] = [:H => zeros(sim.REPORTERS)]
                 for o = 2:2:sim.VIRIALMAX
-                    data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true) / o
+                    data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true)
                 end
                 data[:aux][:H] = normalize(data[:aux][:H])
             end
