@@ -78,8 +78,10 @@ module Simulator
 
         # Allowed initial reputation values and whether randomized
         REP_BINS::Int
-        REP_RANGE::UnitRange{Int}
         REP_RAND::Bool
+
+        # Initial reputation sampling distribution
+        REP_DIST::Distribution
 
         # Bridge=true if the reporters take into account the cash markets
         # when reporting, false if they ignore it (ideal case)
@@ -134,8 +136,8 @@ module Simulator
                     distort_threshold::Float64=0.1,
                     responses::Range=1:0.5:2,
                     alpha::Float64=0.2,
-                    rep_range::UnitRange{Int}=1:25,
                     rep_rand::Bool=false,
+                    rep_dist::Distribution=Uniform(),
                     bridge::Bool=false,
                     market_dist::Distribution=Uniform(),
                     price_dist::Distribution=Uniform(),
@@ -181,8 +183,8 @@ module Simulator
                 responses,
                 alpha,
                 int(reporters/10),
-                rep_range,
                 rep_rand,
+                rep_dist,
                 bridge,
                 market_dist,
                 price_dist,

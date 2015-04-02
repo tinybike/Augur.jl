@@ -243,5 +243,5 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
 end
 
 init_reputation(sim::Simulation) = normalize(
-    (sim.REP_RAND) ? rand(sim.REP_RANGE, sim.REPORTERS) : ones(sim.REPORTERS)
+    (sim.REP_RAND) ? rand(sim.REP_DIST, sim.REPORTERS) : ones(sim.REPORTERS)
 )
