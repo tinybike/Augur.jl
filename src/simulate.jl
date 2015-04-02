@@ -216,16 +216,18 @@ function simulate(sim::Simulation)
     end
 
     # Sum down repbox tubes (for surface plots)
-    reptrack = Dict{String,Dict{String,Matrix{Float64}}}()
-    for algo in sim.ALGOS
-        reptrack[algo] = Dict{String,Matrix{Float64}}()
-        for s in ("mean", "median", "std")
-            reptrack[algo][s] = squeeze(mean(repbox[algo], 3), 3)
-        end
-        if sim.VERBOSE
-            print_with_color(:white, "Reputation evolution:\n")
-            display(reptrack[algo]["mean"])
-            println("")
+    if sim.VERBOSE
+        reptrack = Dict{String,Dict{String,Matrix{Float64}}}()
+        for algo in sim.ALGOS
+            reptrack[algo] = Dict{String,Matrix{Float64}}()
+            for s in ("mean", "median", "std")
+                reptrack[algo][s] = squeeze(mean(repbox[algo], 3), 3)
+            end
+            if sim.VERBOSE
+                print_with_color(:white, "Reputation evolution:\n")
+                display(reptrack[algo]["mean"])
+                println("")
+            end
         end
     end
 
