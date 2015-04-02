@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.35:0.3:0.95
+liar_thresholds = 0.05:0.05:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -25,21 +25,21 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = true
 
 # Quick run-thru
-sim.EVENTS = 40
-sim.REPORTERS = 80
-sim.ITERMAX = 25
-sim.TIMESTEPS = 125
+# sim.EVENTS = 40
+# sim.REPORTERS = 80
+# sim.ITERMAX = 25
+# sim.TIMESTEPS = 125
 
 # Full(er) run
-# sim.EVENTS = 50
-# sim.REPORTERS = 100
-# sim.ITERMAX = 250
-# sim.TIMESTEPS = 500
+sim.EVENTS = 100
+sim.REPORTERS = 250
+sim.ITERMAX = 250
+sim.TIMESTEPS = 500
 
-sim.SCALARS = 0.0
-sim.REP_RAND = false
-sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
-# sim.REP_RANGE = 1:sim.TIMESTEPS
+sim.SCALARS = 0.5
+sim.REP_RAND = true
+# sim.REP_RANGE = 1:int(sim.TIMESTEPS/2)
+sim.REP_RANGE = 1:sim.TIMESTEPS
 # sim.REP_RANGE = 1:(sim.TIMESTEPS*2)
 
 # "Preferential attachment" market size distribution
