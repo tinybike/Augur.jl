@@ -241,7 +241,7 @@ function simulate(sim::Simulation)
     if sim.VERBOSE
         processed_data["reptrack"] = reptrack
     end
-    @inbounds for algo in sim.ALGOS
+    for algo in sim.ALGOS
         processed_data[algo] = Dict{String,Dict{String,Float64}}()
         for s in sim.STATISTICS
             processed_data[algo][s] = Dict{String,Float64}()

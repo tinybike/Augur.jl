@@ -13,15 +13,15 @@ include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.85
+sim.LIAR_THRESHOLD = 0.7
 
 sim.EVENTS = 25
 sim.REPORTERS = 50
-sim.ITERMAX = 1
+sim.ITERMAX = 10
 sim.TIMESTEPS = 100
 
 sim.SCALARS = 0.0
-sim.REP_RAND = true
+sim.REP_RAND = false
 sim.REP_DIST = Pareto(3.0)
 
 sim.MARKET_DIST = Pareto(3.0)
@@ -82,47 +82,60 @@ metrics = Dict{Symbol,Float64}()
 data = Dict{Symbol,Any}()
 
 i = t = 1
-for algo in sim.ALGOS
-    for t = 1:sim.TIMESTEPS
-        data = generate_data(sim, reporters)
-        reputation = (t == 1) ? init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
-        repbox[algo][:,t,i] = reputation
-        repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
-        
-        if algo == "cokurtosis"
-            data[:aux] = [
-                :cokurt => collapse(data[:reports], reputation; order=4, axis=2, normalized=true)
-            ]
-        elseif algo == "covariance"
-            data[:aux] = [
-                :cov => collapse(data[:reports], reputation; axis=2, normalized=true)
-            ]
-        elseif algo == "virial"
-            data[:aux] = [:H => zeros(sim.REPORTERS)]
-            for o = 2:2:sim.VIRIALMAX
-                data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true) / o
+for i = 1:sim.ITERMAX
+    for algo in sim.ALGOS
+        for t = 1:sim.TIMESTEPS
+            data = generate_data(sim, reporters)
+            reputation = (t == 1) ? init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
+            repbox[algo][:,t,i] = reputation
+            repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
+            
+            if algo == "cokurtosis"
+                data[:aux] = [
+                    :cokurt => collapse(data[:reports], reputation; order=4, axis=2, normalized=true)
+                ]
+            elseif algo == "covariance"
+                data[:aux] = [
+                    :cov => collapse(data[:reports], reputation; axis=2, normalized=true)
+                ]
+            elseif algo == "virial"
+                data[:aux] = [:H => zeros(sim.REPORTERS)]
+                for o = 2:2:sim.VIRIALMAX
+                    data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true) / o
+                end
+                data[:aux][:H] = normalize(data[:aux][:H])
             end
-            data[:aux][:H] = normalize(data[:aux][:H])
-        end
 
-        A[algo] = pyconsensus.Oracle(
-            reports=data[:reports],
-            reputation=reputation,
-            alpha=sim.ALPHA,
-            variance_threshold=sim.VARIANCE_THRESHOLD,
-            aux=data[:aux],
-            algorithm=algo,
-        )[:consensus]()
+            A[algo] = pyconsensus.Oracle(
+                reports=data[:reports],
+                reputation=reputation,
+                alpha=sim.ALPHA,
+                variance_threshold=sim.VARIANCE_THRESHOLD,
+                aux=data[:aux],
+                algorithm=algo,
+            )[:consensus]()
 
-        metrics = compute_metrics(
-            sim,
-            data,
-            A[algo]["events"]["outcomes_final"],
-            reputation,
-            A[algo]["agents"]["smooth_rep"],
-        )
-        for tr in sim.TRACK
-            track[algo][tr][t,i] = metrics[tr]
+            metrics = compute_metrics(
+                sim,
+                data,
+                A[algo]["events"]["outcomes_final"],
+                reputation,
+                A[algo]["agents"]["smooth_rep"],
+            )
+            for tr in sim.TRACK
+                track[algo][tr][t,i] = metrics[tr]
+            end
         end
+    end
+end
+
+trajectory = Trajectory()
+for algo in sim.ALGOS
+    trajectory[algo] = Track()
+    for tr in sim.TRACK
+        trajectory[algo][tr] = (Symbol => Vector{Float64})[
+            :mean => mean(track[algo][tr], 2)[:],
+            :stderr => std(track[algo][tr], 2)[:] / sim.SQRTN,
+        ]
     end
 end
