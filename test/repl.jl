@@ -148,6 +148,12 @@ for i = 1:sim.ITERMAX
     end
 end
 
+df = DataFrame(honesty=data[:reporters],
+               fixed_variance=repdelta["fixed-variance"][:,end,1],
+               sztorc=repdelta["sztorc"][:,end,1],
+               cokurtosis=repdelta["cokurtosis"][:,end,1],
+               virial=repdelta["virial"][:,end,1]);
+
 trajectory = Trajectory()
 for algo in sim.ALGOS
     trajectory[algo] = Track()
