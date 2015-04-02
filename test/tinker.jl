@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.15:0.4:0.95
+liar_thresholds = 0.3:0.3:0.9
 param_range = 5:5:250
 
 sim = Simulation()
@@ -22,13 +22,13 @@ end
 
 include("defaults_" * simtype * ".jl")
 
-sim.VERBOSE = true
+sim.VERBOSE = false
 
 # Quick run-thru
 sim.EVENTS = 25
 sim.REPORTERS = 50
 sim.ITERMAX = 10
-sim.TIMESTEPS = 25
+sim.TIMESTEPS = 50
 
 # Full(er) run
 # sim.EVENTS = 50

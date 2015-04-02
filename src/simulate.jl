@@ -42,10 +42,11 @@ function simulate(sim::Simulation)
     end
 
     while i <= sim.ITERMAX
-        for algo in sim.ALGOS
 
-            # Create reporters and assign each reporter a label
-            reporters = create_reporters(sim)
+        # Create reporters and assign each reporter a label
+        reporters = create_reporters(sim)
+
+        for algo in sim.ALGOS
 
             # Simulate over #TIMESTEPS consensus resolutions:
             #   - The previous (smoothed) reputation is used as an input to
@@ -236,8 +237,10 @@ function simulate(sim::Simulation)
         "iterate" => iterate,
         "liar_threshold" => sim.LIAR_THRESHOLD,
         "trajectory" => trajectory,
-        "reptrack" => reptrack,
     ]
+    if sim.VERBOSE
+        processed_data["reptrack"] = reptrack
+    end
     @inbounds for algo in sim.ALGOS
         processed_data[algo] = Dict{String,Dict{String,Float64}}()
         for s in sim.STATISTICS
@@ -306,7 +309,9 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     end
 
     # Sort results using liar_threshold values
-    results["reptracks"] = Array(Dict{String,Dict{String,Matrix{Float64}}}, gridrows)
+    if sim.VERBOSE
+        results["reptracks"] = Array(Dict{String,Dict{String,Matrix{Float64}}}, gridrows)
+    end
     results["trajectories"] = Array(Trajectory, gridrows)
     @inbounds for (row, liar_threshold) in enumerate(ltr)
         i = 1
@@ -319,7 +324,9 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
         end
         results["iterate"] = matched["iterate"]
         results["trajectories"][row] = matched["trajectory"]
-        results["reptracks"][row] = matched["reptrack"]
+        if sim.VERBOSE
+            results["reptracks"][row] = matched["reptrack"]
+        end
         for algo in sim.ALGOS
             for s in sim.STATISTICS
                 for m in [sim.METRICS, "components"]

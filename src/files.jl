@@ -6,11 +6,13 @@ function save_data(sim::Simulation,
     sim_data = (String => Any)[
         "sim" => sim,
         "trajectories" => results["trajectories"],
-        "reptracks" => results["reptracks"],
         "parametrize" => parametrize,
         "liar_threshold" => convert(Array, ltr),
         "iterate" => results["iterate"],
     ]
+    if sim.VERBOSE
+        sim_data["reptracks"] = results["reptracks"]
+    end
     @inbounds for algo in sim.ALGOS
         sim_data[algo] = Dict{String,Array}()
         for s in sim.STATISTICS
