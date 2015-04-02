@@ -25,16 +25,16 @@ function compute_metrics(sim::Simulation,
     # Sensitivity (recall/true positive rate): liars punished / num liars
     sensitivity = liars_punished / data[:num_liars]
 
-    # repcount = reputation_distribution(updated_rep)
+    # repcount = reputation_distribution(sim, updated_rep)
 
     # Gini coefficient
     gini = sum([i*r for (i,r) in enumerate(sort(updated_rep))]) / sum(updated_rep)
     gini *= 2 / sim.REPORTERS
     gini -= 1 + 1 / sim.REPORTERS
 
-    true_rep = mean(updated_rep[data[:trues]])
-    liar_rep = mean(updated_rep[data[:liars]])
-    
+    true_rep = sum(updated_rep[data[:trues]])
+    liar_rep = sum(updated_rep[data[:liars]])
+
     metrics = (Symbol => Float64)[
         # Sensitivity (recall/true positive rate): liars punished / num liars
         :sensitivity => liars_punished / data[:num_liars],
@@ -64,7 +64,7 @@ function compute_metrics(sim::Simulation,
     ]
     if sim.DISTORTER
         metrics[:distorts_bonus] = sum(bonus[data[:distorts]])
-        metrics[:distorts_rep] = mean(updated_rep[data[:distorts]])
+        metrics[:distorts_rep] = sum(updated_rep[data[:distorts]])
     else
         # Matthews correlation coefficient
         metrics[:MCC] = liars_punished*trues_rewarded - liars_rewarded*trues_punished
@@ -77,7 +77,7 @@ function compute_metrics(sim::Simulation,
 end
 
 # Reputation distribution (key=bin center, value=count)
-function reputation_distribution(updated_rep::Vector{Float64})
+function reputation_distribution(sim::Simulation, updated_rep::Vector{Float64})
     bins = linspace(0, 1, sim.REP_BINS)
     repcount = [i::Float64 => 0 for i in bins]
     for r in updated_rep

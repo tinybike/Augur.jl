@@ -22,13 +22,13 @@ end
 
 include("defaults_" * simtype * ".jl")
 
-sim.VERBOSE = false
+sim.VERBOSE = true
 
 # Quick run-thru
 sim.EVENTS = 40
 sim.REPORTERS = 80
 sim.ITERMAX = 25
-sim.TIMESTEPS =125
+sim.TIMESTEPS = 125
 
 # Full(er) run
 # sim.EVENTS = 50

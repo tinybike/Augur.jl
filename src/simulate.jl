@@ -40,6 +40,9 @@ function simulate(sim::Simulation)
     @inbounds while i <= sim.ITERMAX
         for algo in sim.ALGOS
 
+            # Create reporters and assign each reporter a label
+            reporters = create_reporters(sim)
+
             # Simulate over #TIMESTEPS consensus resolutions:
             #   - The previous (smoothed) reputation is used as an input to
             #     the next time step
@@ -49,9 +52,8 @@ function simulate(sim::Simulation)
             metrics = Dict{Symbol,Float64}()
             for t = 1:sim.TIMESTEPS
 
-                # Create reporters and assign each reporter a label
                 # Generate reports and correct answers
-                data = generate_data(sim, create_reporters(sim))
+                data = generate_data(sim, reporters)
 
                 # Assign/update reputation
                 reputation = (t == 1) ?
@@ -59,13 +61,13 @@ function simulate(sim::Simulation)
                 repbox[algo][:,t,i] = reputation
 
                 if sim.VERBOSE
-                    # print_with_color(:white, "t = $t:\n")
-                    # display(repbox[algo])
-                    # println("")
-
-                    print_with_color(:white, "Reputation [" * algo * "]:\n")
-                    display(reputation')
+                    print_with_color(:white, "t = $t:\n")
+                    display([data[:reporters] repbox[algo][:,:,i]-repbox[algo][:,1,i]])
                     println("")
+
+                    # print_with_color(:white, "Reputation [" * algo * "]:\n")
+                    # display(reputation')
+                    # println("")
 
                     # print_with_color(:white, "Reports [" * algo * "]:\n")
                     # display(data[:reports])
@@ -76,7 +78,7 @@ function simulate(sim::Simulation)
 
                     # Per-user cokurtosis contribution
                     data[:aux] = [
-                        :cokurt => collapse(
+                        :cokurt => JointMoments.collapse(
                             data[:reports],
                             reputation;
                             order=4,
@@ -96,7 +98,7 @@ function simulate(sim::Simulation)
 
                     # Per-user covariance contribution
                     data[:aux] = [
-                        :cov => collapse(
+                        :cov => JointMoments.collapse(
                             data[:reports],
                             reputation;
                             order=2,
@@ -115,7 +117,7 @@ function simulate(sim::Simulation)
 
                     data[:aux] = [:H => zeros(sim.REPORTERS)]
                     for o = 2:2:sim.VIRIALMAX
-                        data[:aux][:H] += collapse(
+                        data[:aux][:H] += JointMoments.collapse(
                             data[:reports],
                             reputation;
                             order=o,
@@ -124,7 +126,7 @@ function simulate(sim::Simulation)
                             bias=0,
                         ) / o
                     end
-                    data[:aux][:H] = normalize(data[:aux][:H])
+                    data[:aux][:H] = JointMoments.normalize(data[:aux][:H])
                     if sim.VERBOSE
                         print_with_color(:white, "Collapsed [" * algo * "]:\n")
                         display(data[:aux])

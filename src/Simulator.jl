@@ -27,7 +27,13 @@ module Simulator
         save_time_elapsed,
         plot_time_elapsed,
         plot_reptrack,
-        infostring
+        infostring,
+        exclude,
+        preprocess,
+        reputation_distribution,
+        create_reporters,
+        init_reputation,
+        compute_metrics
 
     type Simulation
 
