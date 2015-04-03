@@ -36,8 +36,8 @@ sim.REPORTERS = 100
 sim.ITERMAX = 100
 sim.TIMESTEPS = 500
 
-sim.SCALARS = 0.0
-sim.REP_RAND = false
+sim.SCALARS = 0.5
+sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
 # "Preferential attachment" market size distribution

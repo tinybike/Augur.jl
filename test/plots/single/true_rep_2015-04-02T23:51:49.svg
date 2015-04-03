@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-2">
+    <text x="123.03" y="169.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-3">
+    <text x="20.63" y="162.19" text-anchor="middle">0</text>
+    <text x="71.83" y="162.19" text-anchor="middle">25</text>
+    <text x="123.03" y="162.19" text-anchor="middle">50</text>
+    <text x="174.23" y="162.19" text-anchor="middle">75</text>
+    <text x="225.43" y="162.19" text-anchor="middle">100</text>
+  </g>
+  <g class="guide colorkey" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-5">
+      <text x="231.25" y="81.94" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-6" class="color_Sztorc">Sztorc</text>
+      <text x="231.25" y="85.56" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-7" class="color_Fixed-variance">Fixed-variance</text>
+      <text x="231.25" y="89.19" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-8" class="color_Cokurtosis">Cokurtosis</text>
+      <text x="231.25" y="92.82" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-9" class="color_Virial">Virial</text>
+    </g>
+    <g stroke="none" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-10">
+      <rect x="228.43" y="81.03" width="1.81" height="1.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-11" class="color_Sztorc" fill="#00BFFF"/>
+      <rect x="228.43" y="84.66" width="1.81" height="1.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-12" class="color_Fixed-variance" fill="#D4CA3A"/>
+      <rect x="228.43" y="88.28" width="1.81" height="1.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-13" class="color_Cokurtosis" fill="#FF5EA0"/>
+      <rect x="228.43" y="91.91" width="1.81" height="1.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-14" class="color_Virial" fill="#00E5B2"/>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-15">
+      <text x="228.43" y="78.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-16">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-bea4538231c94aa4abcba14f4bc2e5cf-element-18)" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-17">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-19">
+      <rect x="18.63" y="12.61" width="208.8" height="145.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-20"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-21">
+      <path fill="none" d="M18.63,156.51 L 227.43 156.51" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-22"/>
+      <path fill="none" d="M18.63,85.56 L 227.43 85.56" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-23"/>
+      <path fill="none" d="M18.63,14.61 L 227.43 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-24"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-25">
+      <path fill="none" d="M20.63,12.61 L 20.63 158.52" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-26"/>
+      <path fill="none" d="M71.83,12.61 L 71.83 158.52" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-27"/>
+      <path fill="none" d="M123.03,12.61 L 123.03 158.52" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-28"/>
+      <path fill="none" d="M174.23,12.61 L 174.23 158.52" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-29"/>
+      <path fill="none" d="M225.43,12.61 L 225.43 158.52" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-30"/>
+    </g>
+    <g class="plotpanel" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-31">
+      <g stroke-width="0.3" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-32">
+        <path fill="none" d="M29.37,14.61 L 32.37 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-33" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M39.61,14.61 L 42.61 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-34" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M49.85,14.61 L 52.85 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-35" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M60.09,14.61 L 63.09 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-36" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M70.33,14.61 L 73.33 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-37" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M80.57,14.61 L 83.57 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-38" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M90.81,14.61 L 93.81 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-39" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M101.05,14.61 L 104.05 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-40" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M111.29,14.61 L 114.29 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-41" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M121.53,14.61 L 124.53 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-42" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M131.77,16.93 L 134.77 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-43" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M142.01,16.93 L 145.01 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-44" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M152.25,16.93 L 155.25 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-45" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M162.49,23.67 L 165.49 23.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-46" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M172.73,26.85 L 175.73 26.85" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-47" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M182.97,34.57 L 185.97 34.57" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-48" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M193.21,61.32 L 196.21 61.32" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-49" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M203.45,80.1 L 206.45 80.1" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-50" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M213.69,127.67 L 216.69 127.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-51" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M29.37,14.61 L 32.37 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-52" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M39.61,14.61 L 42.61 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-53" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M49.85,14.61 L 52.85 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-54" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M60.09,14.61 L 63.09 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-55" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M70.33,14.61 L 73.33 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-56" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M80.57,14.61 L 83.57 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-57" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M90.81,16.91 L 93.81 16.91" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-58" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M101.05,14.61 L 104.05 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-59" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M111.29,14.61 L 114.29 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-60" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M121.53,16.74 L 124.53 16.74" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-61" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M131.77,16.93 L 134.77 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-62" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M142.01,14.61 L 145.01 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-63" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M152.25,16.93 L 155.25 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-64" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M162.49,23.67 L 165.49 23.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-65" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M172.73,26.85 L 175.73 26.85" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-66" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M182.97,36.09 L 185.97 36.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-67" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M193.21,49.57 L 196.21 49.57" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-68" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M203.45,81.53 L 206.45 81.53" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-69" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M213.69,134.44 L 216.69 134.44" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-70" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M29.37,26.85 L 32.37 26.85" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-71" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M39.61,29.96 L 42.61 29.96" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-72" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M49.85,39.12 L 52.85 39.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-73" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M60.09,36.09 L 63.09 36.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-74" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M70.33,58.39 L 73.33 58.39" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-75" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M80.57,59.86 L 83.57 59.86" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-76" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M90.81,67.13 L 93.81 67.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-77" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M101.05,70.03 L 104.05 70.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-78" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M111.29,71.47 L 114.29 71.47" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-79" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M121.53,81.53 L 124.53 81.53" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-80" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M131.77,84.38 L 134.77 84.38" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-81" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M142.01,101.37 L 145.01 101.37" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-82" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M152.25,111.15 L 155.25 111.15" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-83" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M162.49,123.58 L 165.49 123.58" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-84" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M172.73,133.09 L 175.73 133.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-85" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M182.97,137.12 L 185.97 137.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-86" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M193.21,141.1 L 196.21 141.1" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-87" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M203.45,146.33 L 206.45 146.33" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-88" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M213.69,150.14 L 216.69 150.14" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-89" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M29.37,28.41 L 32.37 28.41" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-90" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M39.61,23.67 L 42.61 23.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-91" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M49.85,33.04 L 52.85 33.04" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-92" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M60.09,39.12 L 63.09 39.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-93" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M70.33,53.99 L 73.33 53.99" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-94" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M80.57,51.05 L 83.57 51.05" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-95" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M90.81,61.32 L 93.81 61.32" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-96" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M101.05,78.66 L 104.05 78.66" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-97" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M111.29,85.81 L 114.29 85.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-98" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M121.53,87.23 L 124.53 87.23" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-99" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M131.77,85.81 L 134.77 85.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-100" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M142.01,99.96 L 145.01 99.96" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-101" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M152.25,115.31 L 155.25 115.31" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-102" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M162.49,115.31 L 165.49 115.31" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-103" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M172.73,129.03 L 175.73 129.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-104" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M182.97,124.94 L 185.97 124.94" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-105" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M193.21,135.78 L 196.21 135.78" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-106" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M203.45,145.03 L 206.45 145.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-107" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M213.69,147.61 L 216.69 147.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-108" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M30.87,14.61 L 30.87 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-109" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M41.11,14.61 L 41.11 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-110" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M51.35,14.61 L 51.35 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-111" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M61.59,14.61 L 61.59 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-112" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M71.83,14.61 L 71.83 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-113" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M82.07,14.61 L 82.07 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-114" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M92.31,14.61 L 92.31 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-115" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M102.55,14.61 L 102.55 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-116" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M112.79,14.61 L 112.79 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-117" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M123.03,14.61 L 123.03 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-118" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M133.27,15.13 L 133.27 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-119" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M143.51,15.13 L 143.51 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-120" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M153.75,15.13 L 153.75 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-121" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M163.99,19.74 L 163.99 23.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-122" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M174.23,22.24 L 174.23 26.85" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-123" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M184.47,28.71 L 184.47 34.57" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-124" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M194.71,53.05 L 194.71 61.32" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-125" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M204.95,71.16 L 204.95 80.1" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-126" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M215.19,120.08 L 215.19 127.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-127" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M30.87,14.61 L 30.87 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-128" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M41.11,14.61 L 41.11 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-129" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M51.35,14.61 L 51.35 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-130" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M61.59,14.61 L 61.59 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-131" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M71.83,14.61 L 71.83 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-132" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M82.07,14.61 L 82.07 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-133" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M92.31,15.13 L 92.31 16.91" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-134" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M102.55,14.61 L 102.55 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-135" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M112.79,14.61 L 112.79 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-136" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M123.03,15.09 L 123.03 16.74" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-137" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M133.27,15.13 L 133.27 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-138" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M143.51,14.61 L 143.51 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-139" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M153.75,15.13 L 153.75 16.93" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-140" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M163.99,19.74 L 163.99 23.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-141" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M174.23,22.24 L 174.23 26.85" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-142" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M184.47,30.03 L 184.47 36.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-143" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M194.71,42.09 L 194.71 49.57" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-144" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M204.95,72.57 L 204.95 81.53" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-145" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M215.19,127.51 L 215.19 134.44" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-146" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M30.87,22.24 L 30.87 26.85" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-147" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M41.11,24.8 L 41.11 29.96" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-148" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M51.35,32.68 L 51.35 39.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-149" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M61.59,30.03 L 61.59 36.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-150" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M71.83,50.29 L 71.83 58.39" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-151" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M82.07,51.67 L 82.07 59.86" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-152" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M92.31,58.59 L 92.31 67.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-153" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M102.55,61.37 L 102.55 70.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-154" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M112.79,62.76 L 112.79 71.47" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-155" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M123.03,72.57 L 123.03 81.53" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-156" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M133.27,75.39 L 133.27 84.38" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-157" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M143.51,92.46 L 143.51 101.37" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-158" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M153.75,102.55 L 153.75 111.15" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-159" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M163.99,115.66 L 163.99 123.58" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-160" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M174.23,126.01 L 174.23 133.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-161" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M184.47,130.5 L 184.47 137.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-162" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M194.71,135.03 L 194.71 141.1" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-163" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M204.95,141.16 L 204.95 146.33" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-164" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M215.19,145.86 L 215.19 150.14" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-165" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M30.87,23.52 L 30.87 28.41" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-166" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M41.11,19.74 L 41.11 23.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-167" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M51.35,27.4 L 51.35 33.04" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-168" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M61.59,32.68 L 61.59 39.12" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-169" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M71.83,46.18 L 71.83 53.99" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-170" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M82.07,43.45 L 82.07 51.05" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-171" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M92.31,53.05 L 92.31 61.32" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-172" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M102.55,69.76 L 102.55 78.66" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-173" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M112.79,76.8 L 112.79 85.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-174" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M123.03,78.22 L 123.03 87.23" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-175" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M133.27,76.8 L 133.27 85.81" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-176" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M143.51,91.03 L 143.51 99.96" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-177" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M153.75,106.9 L 153.75 115.31" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-178" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M163.99,106.9 L 163.99 115.31" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-179" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M174.23,121.56 L 174.23 129.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-180" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M184.47,117.13 L 184.47 124.94" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-181" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M194.71,129 L 194.71 135.78" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-182" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M204.95,139.62 L 204.95 145.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-183" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M215.19,142.72 L 215.19 147.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-184" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M29.37,14.61 L 32.37 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-185" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M39.61,14.61 L 42.61 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-186" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M49.85,14.61 L 52.85 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-187" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M60.09,14.61 L 63.09 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-188" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M70.33,14.61 L 73.33 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-189" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M80.57,14.61 L 83.57 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-190" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M90.81,14.61 L 93.81 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-191" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M101.05,14.61 L 104.05 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-192" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M111.29,14.61 L 114.29 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-193" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M121.53,14.61 L 124.53 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-194" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M131.77,15.13 L 134.77 15.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-195" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M142.01,15.13 L 145.01 15.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-196" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M152.25,15.13 L 155.25 15.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-197" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M162.49,19.74 L 165.49 19.74" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-198" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M172.73,22.24 L 175.73 22.24" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-199" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M182.97,28.71 L 185.97 28.71" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-200" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M193.21,53.05 L 196.21 53.05" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-201" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M203.45,71.16 L 206.45 71.16" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-202" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M213.69,120.08 L 216.69 120.08" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-203" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M29.37,14.61 L 32.37 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-204" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M39.61,14.61 L 42.61 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-205" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M49.85,14.61 L 52.85 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-206" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M60.09,14.61 L 63.09 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-207" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M70.33,14.61 L 73.33 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-208" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M80.57,14.61 L 83.57 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-209" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M90.81,15.13 L 93.81 15.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-210" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M101.05,14.61 L 104.05 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-211" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M111.29,14.61 L 114.29 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-212" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M121.53,15.09 L 124.53 15.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-213" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M131.77,15.13 L 134.77 15.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-214" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M142.01,14.61 L 145.01 14.61" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-215" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M152.25,15.13 L 155.25 15.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-216" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M162.49,19.74 L 165.49 19.74" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-217" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M172.73,22.24 L 175.73 22.24" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-218" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M182.97,30.03 L 185.97 30.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-219" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M193.21,42.09 L 196.21 42.09" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-220" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M203.45,72.57 L 206.45 72.57" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-221" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M213.69,127.51 L 216.69 127.51" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-222" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M29.37,22.24 L 32.37 22.24" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-223" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M39.61,24.8 L 42.61 24.8" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-224" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M49.85,32.68 L 52.85 32.68" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-225" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M60.09,30.03 L 63.09 30.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-226" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M70.33,50.29 L 73.33 50.29" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-227" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M80.57,51.67 L 83.57 51.67" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-228" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M90.81,58.59 L 93.81 58.59" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-229" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M101.05,61.37 L 104.05 61.37" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-230" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M111.29,62.76 L 114.29 62.76" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-231" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M121.53,72.57 L 124.53 72.57" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-232" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M131.77,75.39 L 134.77 75.39" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-233" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M142.01,92.46 L 145.01 92.46" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-234" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M152.25,102.55 L 155.25 102.55" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-235" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M162.49,115.66 L 165.49 115.66" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-236" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M172.73,126.01 L 175.73 126.01" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-237" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M182.97,130.5 L 185.97 130.5" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-238" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M193.21,135.03 L 196.21 135.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-239" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M203.45,141.16 L 206.45 141.16" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-240" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M213.69,145.86 L 216.69 145.86" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-241" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M29.37,23.52 L 32.37 23.52" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-242" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M39.61,19.74 L 42.61 19.74" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-243" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M49.85,27.4 L 52.85 27.4" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-244" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M60.09,32.68 L 63.09 32.68" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-245" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M70.33,46.18 L 73.33 46.18" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-246" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M80.57,43.45 L 83.57 43.45" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-247" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M90.81,53.05 L 93.81 53.05" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-248" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M101.05,69.76 L 104.05 69.76" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-249" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M111.29,76.8 L 114.29 76.8" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-250" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M121.53,78.22 L 124.53 78.22" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-251" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M131.77,76.8 L 134.77 76.8" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-252" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M142.01,91.03 L 145.01 91.03" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-253" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M152.25,106.9 L 155.25 106.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-254" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M162.49,106.9 L 165.49 106.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-255" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M172.73,121.56 L 175.73 121.56" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-256" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M182.97,117.13 L 185.97 117.13" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-257" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M193.21,129 L 196.21 129" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-258" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M203.45,139.62 L 206.45 139.62" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-259" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M213.69,142.72 L 216.69 142.72" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-260" class="geometry color_Virial" stroke="#00BA8B"/>
+      </g>
+      <g stroke-width="0.3" fill="none" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-261">
+        <path fill="none" d="M30.87,14.61 L 41.11 14.61 51.35 14.61 61.59 14.61 71.83 14.61 82.07 14.61 92.31 14.61 102.55 14.61 112.79 14.61 123.03 14.61 133.27 16.03 143.51 16.03 153.75 16.03 163.99 21.71 174.23 24.54 184.47 31.64 194.71 57.18 204.95 75.63 215.19 123.88" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-262" class="geometry color_Sztorc" stroke="#00BFFF"/>
+        <path fill="none" d="M30.87,25.96 L 41.11 21.71 51.35 30.22 61.59 35.9 71.83 50.09 82.07 47.25 92.31 57.18 102.55 74.21 112.79 81.31 123.03 82.73 133.27 81.31 143.51 95.5 153.75 111.11 163.99 111.11 174.23 125.3 184.47 121.04 194.71 132.39 204.95 142.32 215.19 145.16" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-263" class="geometry color_Virial" stroke="#00E5B2"/>
+        <path fill="none" d="M30.87,24.54 L 41.11 27.38 51.35 35.9 61.59 33.06 71.83 54.34 82.07 55.76 92.31 62.86 102.55 65.7 112.79 67.12 123.03 77.05 133.27 79.89 143.51 96.92 153.75 106.85 163.99 119.62 174.23 129.55 184.47 133.81 194.71 138.07 204.95 143.74 215.19 148" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-264" class="geometry color_Cokurtosis" stroke="#FF5EA0"/>
+        <path fill="none" d="M30.87,14.61 L 41.11 14.61 51.35 14.61 61.59 14.61 71.83 14.61 82.07 14.61 92.31 16.02 102.55 14.61 112.79 14.61 123.03 15.91 133.27 16.03 143.51 14.61 153.75 16.03 163.99 21.71 174.23 24.54 184.47 33.06 194.71 45.83 204.95 77.05 215.19 130.97" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-265" class="geometry color_Fixed-variance" stroke="#D4CA3A"/>
+      </g>
+      <g class="geometry" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-266">
+        <g stroke-width="0.3" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-267">
+          <circle cx="30.87" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-268" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="41.11" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-269" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="51.35" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-270" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="61.59" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-271" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="71.83" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-272" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="82.07" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-273" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="92.31" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-274" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="102.55" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-275" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="112.79" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-276" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="123.03" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-277" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="133.27" cy="16.03" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-278" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="143.51" cy="16.03" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-279" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="153.75" cy="16.03" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-280" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="163.99" cy="21.71" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-281" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="174.23" cy="24.54" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-282" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="184.47" cy="31.64" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-283" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="194.71" cy="57.18" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-284" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="204.95" cy="75.63" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-285" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="215.19" cy="123.88" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-286" class="color_Sztorc" stroke="#FFFFFF" fill="#00BFFF"/>
+          <circle cx="30.87" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-287" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="41.11" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-288" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="51.35" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-289" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="61.59" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-290" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="71.83" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-291" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="82.07" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-292" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="92.31" cy="16.02" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-293" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="102.55" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-294" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="112.79" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-295" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="123.03" cy="15.91" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-296" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="133.27" cy="16.03" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-297" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="143.51" cy="14.61" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-298" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="153.75" cy="16.03" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-299" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="163.99" cy="21.71" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-300" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="174.23" cy="24.54" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-301" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="184.47" cy="33.06" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-302" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="194.71" cy="45.83" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-303" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="204.95" cy="77.05" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-304" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="215.19" cy="130.97" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-305" class="color_Fixed-variance" stroke="#FFFFFF" fill="#D4CA3A"/>
+          <circle cx="30.87" cy="24.54" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-306" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="41.11" cy="27.38" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-307" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="51.35" cy="35.9" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-308" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="61.59" cy="33.06" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-309" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="71.83" cy="54.34" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-310" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="82.07" cy="55.76" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-311" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="92.31" cy="62.86" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-312" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="102.55" cy="65.7" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-313" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="112.79" cy="67.12" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-314" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="123.03" cy="77.05" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-315" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="133.27" cy="79.89" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-316" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="143.51" cy="96.92" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-317" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="153.75" cy="106.85" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-318" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="163.99" cy="119.62" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-319" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="174.23" cy="129.55" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-320" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="184.47" cy="133.81" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-321" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="194.71" cy="138.07" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-322" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="204.95" cy="143.74" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-323" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="215.19" cy="148" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-324" class="color_Cokurtosis" stroke="#FFFFFF" fill="#FF5EA0"/>
+          <circle cx="30.87" cy="25.96" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-325" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="41.11" cy="21.71" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-326" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="51.35" cy="30.22" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-327" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="61.59" cy="35.9" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-328" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="71.83" cy="50.09" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-329" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="82.07" cy="47.25" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-330" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="92.31" cy="57.18" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-331" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="102.55" cy="74.21" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-332" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="112.79" cy="81.31" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-333" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="123.03" cy="82.73" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-334" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="133.27" cy="81.31" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-335" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="143.51" cy="95.5" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-336" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="153.75" cy="111.11" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-337" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="163.99" cy="111.11" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-338" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="174.23" cy="125.3" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-339" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="184.47" cy="121.04" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-340" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="194.71" cy="132.39" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-341" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="204.95" cy="142.32" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-342" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+          <circle cx="215.19" cy="145.16" r="0.9" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-343" class="color_Virial" stroke="#FFFFFF" fill="#00E5B2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-344">
+    <text x="17.63" y="156.51" text-anchor="end" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-345">0.0</text>
+    <text x="17.63" y="85.56" text-anchor="end" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-346">0.5</text>
+    <text x="17.63" y="14.61" text-anchor="end" dy="0.35em" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-347">1.0</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-348">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-349">true_rep</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-350">
+    <text x="123.03" y="10.61" text-anchor="middle" id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-351">100 users reporting on 50 events over 500 timesteps (100 iterations @ γ = 0.3) REP_RAND INDISCRIMINATE SCALARS</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-bea4538231c94aa4abcba14f4bc2e5cf-element-18">
+  <path d="M18.63,12.61 L 227.43 12.61 227.43 158.52 18.63 158.52" />
+</clipPath
+></defs>
+</svg>
