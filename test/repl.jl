@@ -31,7 +31,7 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
-sim.VIRIALMAX = 4
+sim.VIRIALMAX = 8
 
 sim.ALGOS = [
    "cokurtosis",
@@ -99,11 +99,12 @@ println("Initial token distribution:")
 display(tokens)
 
 reputation = copy(init_rep)
+timesteps = 1:sim.TIMESTEPS
 
 i = t = 1
 for i = 1:sim.ITERMAX
     for algo in sim.ALGOS
-        for t = 1:sim.TIMESTEPS
+        for t = timesteps
             data = generate_data(sim, reporters)
             reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
             repbox[algo][:,t,i] = reputation
@@ -163,4 +164,26 @@ for algo in sim.ALGOS
             :stderr => std(track[algo][tr], 2)[:] / sim.SQRTN,
         ]
     end
+end
+
+mean_repdelta = Dict{String,Matrix{Float64}}()
+std_repdelta = Dict{String,Matrix{Float64}}()
+for algo in sim.ALGOS
+    mean_repdelta[algo] = squeeze(sum(repdelta[algo], 3), 3)
+    std_repdelta[algo] = squeeze(std(repdelta[algo], 3), 3)
+end
+
+mean_rep_trues = Dict{String,Vector{Float64}}()
+mean_rep_liars = Dict{String,Vector{Float64}}()
+mean_rep_gap = Dict{String,Vector{Float64}}()
+std_rep_trues = Dict{String,Vector{Float64}}()
+std_rep_liars = Dict{String,Vector{Float64}}()
+std_rep_gap = Dict{String,Vector{Float64}}()
+for algo in sim.ALGOS
+    mean_rep_trues[algo] = vec(sum(mean_repdelta[algo][data[:trues],:],1))
+    mean_rep_liars[algo] = vec(sum(mean_repdelta[algo][data[:liars],:],1))
+    mean_rep_gap[algo] = vec(sum(mean_repdelta[algo][data[:trues],:],1) - sum(mean_repdelta[algo][data[:liars],:],1))
+    std_rep_trues[algo] = vec(std(std_repdelta[algo][data[:trues],:],1))
+    std_rep_liars[algo] = vec(std(std_repdelta[algo][data[:liars],:],1))
+    std_rep_gap[algo] = vec(std(std_repdelta[algo][data[:trues],:],1) - std(std_repdelta[algo][data[:liars],:],1))
 end
