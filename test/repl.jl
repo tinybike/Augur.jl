@@ -16,10 +16,10 @@ sim.VERBOSE = false
 
 sim.LIAR_THRESHOLD = 0.7
 
-sim.EVENTS = 40
-sim.REPORTERS = 80
-sim.ITERMAX = 25
-sim.TIMESTEPS = 100
+sim.EVENTS = 25
+sim.REPORTERS = 50
+sim.ITERMAX = 10
+sim.TIMESTEPS = 75
 
 sim.SCALARS = 0.0
 sim.REP_RAND = true
@@ -173,17 +173,9 @@ for algo in sim.ALGOS
     std_repdelta[algo] = squeeze(std(repdelta[algo], 3), 3)
 end
 
-mean_rep_trues = Dict{String,Vector{Float64}}()
 mean_rep_liars = Dict{String,Vector{Float64}}()
-mean_rep_gap = Dict{String,Vector{Float64}}()
-std_rep_trues = Dict{String,Vector{Float64}}()
 std_rep_liars = Dict{String,Vector{Float64}}()
-std_rep_gap = Dict{String,Vector{Float64}}()
 for algo in sim.ALGOS
-    mean_rep_trues[algo] = vec(sum(mean_repdelta[algo][data[:trues],:],1))
     mean_rep_liars[algo] = vec(sum(mean_repdelta[algo][data[:liars],:],1))
-    mean_rep_gap[algo] = vec(sum(mean_repdelta[algo][data[:trues],:],1) - sum(mean_repdelta[algo][data[:liars],:],1))
-    std_rep_trues[algo] = vec(std(std_repdelta[algo][data[:trues],:],1))
     std_rep_liars[algo] = vec(std(std_repdelta[algo][data[:liars],:],1))
-    std_rep_gap[algo] = vec(std(std_repdelta[algo][data[:trues],:],1) - std(std_repdelta[algo][data[:liars],:],1))
 end

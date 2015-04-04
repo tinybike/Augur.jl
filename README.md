@@ -29,3 +29,4 @@ The simulations are parallelized.  To run using all available cores:
 - port "winning" algo to Serpent
 - plot simulation size vs # components
 - fit reputation distribution to pareto (or lognormal) and track scaling exponent
+- multimodal event detection
