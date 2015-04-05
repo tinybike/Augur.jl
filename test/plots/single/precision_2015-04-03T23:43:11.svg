@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-2">
+    <text x="123.03" y="169.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-3">
+    <text x="20.63" y="162.19" text-anchor="middle">20</text>
+    <text x="61.59" y="162.19" text-anchor="middle">30</text>
+    <text x="102.55" y="162.19" text-anchor="middle">40</text>
+    <text x="143.51" y="162.19" text-anchor="middle">50</text>
+    <text x="184.47" y="162.19" text-anchor="middle">60</text>
+    <text x="225.43" y="162.19" text-anchor="middle">70</text>
+  </g>
+  <g class="guide colorkey" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-5">
+      <text x="231.25" y="81.94" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-6" class="color_Sztorc">Sztorc</text>
+      <text x="231.25" y="85.56" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-7" class="color_Fixed-variance">Fixed-variance</text>
+      <text x="231.25" y="89.19" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-8" class="color_Cokurtosis">Cokurtosis</text>
+      <text x="231.25" y="92.82" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-9" class="color_Virial">Virial</text>
+    </g>
+    <g stroke="none" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-10">
+      <rect x="228.43" y="81.03" width="1.81" height="1.81" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-11" class="color_Sztorc" fill="#00BFFF"/>
+      <rect x="228.43" y="84.66" width="1.81" height="1.81" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-12" class="color_Fixed-variance" fill="#D4CA3A"/>
+      <rect x="228.43" y="88.28" width="1.81" height="1.81" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-13" class="color_Cokurtosis" fill="#FF5EA0"/>
+      <rect x="228.43" y="91.91" width="1.81" height="1.81" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-14" class="color_Virial" fill="#00E5B2"/>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-15">
+      <text x="228.43" y="78.12" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-16">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-4c19f806e6a344d7966f4177e80b8ddb-element-18)" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-17">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-19">
+      <rect x="18.63" y="12.61" width="208.8" height="145.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-20"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-21">
+      <path fill="none" d="M18.63,156.51 L 227.43 156.51" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-22"/>
+      <path fill="none" d="M18.63,85.56 L 227.43 85.56" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-23"/>
+      <path fill="none" d="M18.63,14.61 L 227.43 14.61" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-24"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-25">
+      <path fill="none" d="M20.63,12.61 L 20.63 158.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-26"/>
+      <path fill="none" d="M61.59,12.61 L 61.59 158.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-27"/>
+      <path fill="none" d="M102.55,12.61 L 102.55 158.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-28"/>
+      <path fill="none" d="M143.51,12.61 L 143.51 158.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-29"/>
+      <path fill="none" d="M184.47,12.61 L 184.47 158.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-30"/>
+      <path fill="none" d="M225.43,12.61 L 225.43 158.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-31"/>
+    </g>
+    <g class="plotpanel" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-32">
+      <g stroke-width="0.3" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-33">
+        <path fill="none" d="M19.13,41.06 L 22.13 41.06" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-34" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M182.97,24.38 L 185.97 24.38" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-35" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M19.13,44.58 L 22.13 44.58" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-36" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M182.97,23.34 L 185.97 23.34" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-37" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M19.13,127.94 L 22.13 127.94" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-38" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M182.97,71.13 L 185.97 71.13" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-39" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M19.13,128.04 L 22.13 128.04" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-40" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M182.97,71.01 L 185.97 71.01" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-41" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M20.63,36.99 L 20.63 41.06" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-42" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M184.47,22.52 L 184.47 24.38" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-43" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M20.63,39.89 L 20.63 44.58" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-44" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M184.47,21.45 L 184.47 23.34" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-45" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M20.63,127.15 L 20.63 127.94" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-46" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M184.47,70.32 L 184.47 71.13" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-47" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M20.63,127.25 L 20.63 128.04" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-48" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M184.47,70.19 L 184.47 71.01" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-49" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M19.13,36.99 L 22.13 36.99" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-50" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M182.97,22.52 L 185.97 22.52" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-51" class="geometry color_Sztorc" stroke="#0096D4"/>
+        <path fill="none" d="M19.13,39.89 L 22.13 39.89" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-52" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M182.97,21.45 L 185.97 21.45" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-53" class="geometry color_Fixed-variance" stroke="#A8A200"/>
+        <path fill="none" d="M19.13,127.15 L 22.13 127.15" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-54" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M182.97,70.32 L 185.97 70.32" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-55" class="geometry color_Cokurtosis" stroke="#D12E7A"/>
+        <path fill="none" d="M19.13,127.25 L 22.13 127.25" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-56" class="geometry color_Virial" stroke="#00BA8B"/>
+        <path fill="none" d="M182.97,70.19 L 185.97 70.19" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-57" class="geometry color_Virial" stroke="#00BA8B"/>
+      </g>
+      <g stroke-width="0.3" fill="none" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-58">
+        <path fill="none" d="M20.63,42.24 L 184.47 22.39" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-59" class="geometry color_Fixed-variance" stroke="#D4CA3A"/>
+        <path fill="none" d="M20.63,39.02 L 184.47 23.45" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-60" class="geometry color_Sztorc" stroke="#00BFFF"/>
+        <path fill="none" d="M20.63,127.55 L 184.47 70.73" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-61" class="geometry color_Cokurtosis" stroke="#FF5EA0"/>
+        <path fill="none" d="M20.63,127.65 L 184.47 70.6" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-62" class="geometry color_Virial" stroke="#00E5B2"/>
+      </g>
+      <g class="geometry" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-63">
+        <g stroke-width="0.3" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-64">
+          <circle cx="20.63" cy="39.02" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-65" class="color_Sztorc" fill="#00BFFF" stroke="#FFFFFF"/>
+          <circle cx="184.47" cy="23.45" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-66" class="color_Sztorc" fill="#00BFFF" stroke="#FFFFFF"/>
+          <circle cx="20.63" cy="42.24" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-67" class="color_Fixed-variance" fill="#D4CA3A" stroke="#FFFFFF"/>
+          <circle cx="184.47" cy="22.39" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-68" class="color_Fixed-variance" fill="#D4CA3A" stroke="#FFFFFF"/>
+          <circle cx="20.63" cy="127.55" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-69" class="color_Cokurtosis" fill="#FF5EA0" stroke="#FFFFFF"/>
+          <circle cx="184.47" cy="70.73" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-70" class="color_Cokurtosis" fill="#FF5EA0" stroke="#FFFFFF"/>
+          <circle cx="20.63" cy="127.65" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-71" class="color_Virial" fill="#00E5B2" stroke="#FFFFFF"/>
+          <circle cx="184.47" cy="70.6" r="0.9" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-72" class="color_Virial" fill="#00E5B2" stroke="#FFFFFF"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-73">
+    <text x="17.63" y="156.51" text-anchor="end" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-74">0.0</text>
+    <text x="17.63" y="85.56" text-anchor="end" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-75">0.5</text>
+    <text x="17.63" y="14.61" text-anchor="end" dy="0.35em" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-76">1.0</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-77">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-78">precision</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-79">
+    <text x="123.03" y="10.61" text-anchor="middle" id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-80">100 users reporting on 50 events over 500 timesteps (100 iterations @ γ = 0.3) REP_RAND INDISCRIMINATE SCALARS</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-4c19f806e6a344d7966f4177e80b8ddb-element-18">
+  <path d="M18.63,12.61 L 227.43 12.61 227.43 158.52 18.63 158.52" />
+</clipPath
+></defs>
+</svg>

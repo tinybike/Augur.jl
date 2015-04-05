@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-a242e968f26e4794b8e45939f74fd05f-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-a242e968f26e4794b8e45939f74fd05f-element-2">
+    <text x="122.7" y="169.8" text-anchor="middle">% liars</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-a242e968f26e4794b8e45939f74fd05f-element-3">
+    <text x="19.96" y="162.19" text-anchor="middle">20</text>
+    <text x="61.05" y="162.19" text-anchor="middle">30</text>
+    <text x="102.15" y="162.19" text-anchor="middle">40</text>
+    <text x="143.24" y="162.19" text-anchor="middle">50</text>
+    <text x="184.34" y="162.19" text-anchor="middle">60</text>
+    <text x="225.43" y="162.19" text-anchor="middle">70</text>
+  </g>
+  <g class="guide colorkey" id="fig-a242e968f26e4794b8e45939f74fd05f-element-4">
+    <g class="color_Fixed-variance" id="fig-a242e968f26e4794b8e45939f74fd05f-element-5">
+      <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-a242e968f26e4794b8e45939f74fd05f-element-6">
+        <text x="231.25" y="87.38" dy="0.35em">Fixed-variance</text>
+      </g>
+      <g fill="#00BFFF" stroke="none" id="fig-a242e968f26e4794b8e45939f74fd05f-element-7">
+        <rect x="228.43" y="86.47" width="1.81" height="1.81"/>
+      </g>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="none" id="fig-a242e968f26e4794b8e45939f74fd05f-element-8">
+      <text x="228.43" y="83.56">algorithm</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-a242e968f26e4794b8e45939f74fd05f-element-10)" id="fig-a242e968f26e4794b8e45939f74fd05f-element-9">
+    <g pointer-events="visible" opacity="1" fill="none" stroke="#848484" class="guide background" id="fig-a242e968f26e4794b8e45939f74fd05f-element-11">
+      <rect x="17.96" y="12.61" width="209.48" height="145.9"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-a242e968f26e4794b8e45939f74fd05f-element-12">
+      <path fill="none" d="M17.96,156.51 L 227.43 156.51"/>
+      <path fill="none" d="M17.96,85.56 L 227.43 85.56"/>
+      <path fill="none" d="M17.96,14.61 L 227.43 14.61"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-a242e968f26e4794b8e45939f74fd05f-element-13">
+      <path fill="none" d="M19.96,12.61 L 19.96 158.51"/>
+      <path fill="none" d="M61.05,12.61 L 61.05 158.51"/>
+      <path fill="none" d="M102.15,12.61 L 102.15 158.51"/>
+      <path fill="none" d="M143.24,12.61 L 143.24 158.51"/>
+      <path fill="none" d="M184.34,12.61 L 184.34 158.51"/>
+      <path fill="none" d="M225.43,12.61 L 225.43 158.51"/>
+    </g>
+    <g class="plotpanel" id="fig-a242e968f26e4794b8e45939f74fd05f-element-14">
+      <g stroke-width="0.3" id="fig-a242e968f26e4794b8e45939f74fd05f-element-15">
+        <path fill="none" d="M18.46,153.24 L 21.46 153.24" class="geometry color_Fixed-variance" stroke="#0096D4"/>
+        <path fill="none" d="M182.84,21.8 L 185.84 21.8" class="geometry color_Fixed-variance" stroke="#0096D4"/>
+        <path fill="none" d="M19.96,152.41 L 19.96 153.24" class="geometry color_Fixed-variance" stroke="#0096D4"/>
+        <path fill="none" d="M184.34,18.78 L 184.34 21.8" class="geometry color_Fixed-variance" stroke="#0096D4"/>
+        <path fill="none" d="M18.46,152.41 L 21.46 152.41" class="geometry color_Fixed-variance" stroke="#0096D4"/>
+        <path fill="none" d="M182.84,18.78 L 185.84 18.78" class="geometry color_Fixed-variance" stroke="#0096D4"/>
+      </g>
+      <g stroke-width="0.3" fill="none" class="geometry color_Fixed-variance" stroke="#00BFFF" id="fig-a242e968f26e4794b8e45939f74fd05f-element-16">
+        <path fill="none" d="M19.96,152.83 L 184.34 20.29"/>
+      </g>
+      <g class="geometry" id="fig-a242e968f26e4794b8e45939f74fd05f-element-17">
+        <g stroke-width="0.3" id="fig-a242e968f26e4794b8e45939f74fd05f-element-18">
+          <circle cx="19.96" cy="152.83" r="0.9" class="color_Fixed-variance" fill="#00BFFF" stroke="#FFFFFF"/>
+          <circle cx="184.34" cy="20.29" r="0.9" class="color_Fixed-variance" fill="#00BFFF" stroke="#FFFFFF"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-a242e968f26e4794b8e45939f74fd05f-element-19">
+    <text x="16.96" y="156.51" text-anchor="end" dy="0.35em">0</text>
+    <text x="16.96" y="85.56" text-anchor="end" dy="0.35em">5</text>
+    <text x="16.96" y="14.61" text-anchor="end" dy="0.35em">10</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-a242e968f26e4794b8e45939f74fd05f-element-20">
+    <text x="8.81" y="83.56" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 85.56)">components</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="none" id="fig-a242e968f26e4794b8e45939f74fd05f-element-21">
+    <text x="122.7" y="10.61" text-anchor="middle">100 users reporting on 50 events over 500 timesteps (100 iterations @ γ = 0.3) REP_RAND INDISCRIMINATE SCALARS</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-a242e968f26e4794b8e45939f74fd05f-element-10">
+  <path d="M17.96,12.61 L 227.43 12.61 227.43 158.51 17.96 158.51" />
+</clipPath
+></defs>
+</svg>
