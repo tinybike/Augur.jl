@@ -16,12 +16,12 @@ sim.VERBOSE = false
 
 sim.LIAR_THRESHOLD = 0.7
 
-sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 10
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 20
 sim.TIMESTEPS = 75
 
-sim.SCALARS = 0.0
+sim.SCALARS = 0.5
 sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
@@ -35,9 +35,9 @@ sim.VIRIALMAX = 8
 
 sim.ALGOS = [
    "cokurtosis",
-   "sztorc",
+   "big-five",
+   "first-third",
    "fixed-variance",
-   "virial",
 ]
 
 # src/simulate.jl
@@ -110,7 +110,7 @@ for i = 1:sim.ITERMAX
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
             
-            if algo == "cokurtosis"
+            if algo == "cokurtosis" || algo == "first-third"
                 data[:aux] = [
                     :cokurt => collapse(data[:reports], reputation; order=4, axis=2, normalized=true)
                 ]
@@ -151,9 +151,9 @@ end
 
 df = DataFrame(honesty=data[:reporters],
                fixed_variance=repdelta["fixed-variance"][:,end,1],
-               sztorc=repdelta["sztorc"][:,end,1],
+               big_five=repdelta["big-five"][:,end,1],
                cokurtosis=repdelta["cokurtosis"][:,end,1],
-               virial=repdelta["virial"][:,end,1]);
+               first_third=repdelta["first-third"][:,end,1]);
 
 trajectory = Trajectory()
 for algo in sim.ALGOS
