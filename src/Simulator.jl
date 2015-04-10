@@ -110,8 +110,14 @@ module Simulator
         # Maximum power included in "virial" algo multibody expansion
         VIRIALMAX::Int
 
+        # If true, sort by liar/true/distort label
+        LABELSORT::Bool
+
         # Save data at every timestep (uses lots of disk space)
         SAVE_RAW_DATA::Bool
+
+        # Number of components to include (e.g., big-five algorithm)
+        COMPONENTS::Int
 
         # Event resolution algorithms to test, metrics used to evaluate them,
         # and statistics of these metrics to calculate
@@ -150,7 +156,9 @@ module Simulator
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
                     virialmax::Int=10,
+                    labelsort::Bool=false,
                     save_raw_data::Bool=false,
+                    components::Int=5,
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
                                                 "covariance",
@@ -198,7 +206,9 @@ module Simulator
                 conspiracy,
                 allwrong,
                 virialmax,
+                labelsort,
                 save_raw_data,
+                components,
                 algos,
                 metrics,
                 statistics,

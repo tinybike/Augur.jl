@@ -9,6 +9,7 @@ sim.VARIANCE_THRESHOLD = 0.9
 # sim.DISTORT = 0.0
 # sim.DISTORTER = false
 # sim.ALPHA = 0.2
+sim.LABELSORT = false
 sim.REP_RANGE = 1:100
 sim.REP_RAND = false
 sim.COLLUDE = 0.3

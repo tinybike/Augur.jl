@@ -14,15 +14,15 @@ include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.75
+sim.LIAR_THRESHOLD = 0.65
 sim.VARIANCE_THRESHOLD = 0.9
 
 sim.EVENTS = 25
 sim.REPORTERS = 50
-sim.ITERMAX = 25
+sim.ITERMAX = 50
 sim.TIMESTEPS = 100
 
-sim.SCALARS = 0.5
+sim.SCALARS = 0.2
 sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
@@ -32,7 +32,11 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
+sim.COMPONENTS = 10
+sim.CONSPIRACY = true
+
 sim.VIRIALMAX = 8
+sim.LABELSORT = true
 
 sim.ALGOS = [
    "sztorc",
@@ -76,69 +80,80 @@ for algo in sim.ALGOS
     repdelta[algo] = zeros(sim.REPORTERS, sim.TIMESTEPS, sim.ITERMAX)
 end
 
-init_rep = init_reputation(sim)
-reporters = create_reporters(sim)
-metrics = Dict{Symbol,Float64}()
-data = Dict{Symbol,Any}()
-
-tokens = (Symbol => Float64)[
-    :trues => sum(init_rep .* (reporters[:reporters] .== "true")),
-    :liars => sum(init_rep .* (reporters[:reporters] .== "liar")),
-    :distorts => sum(init_rep .* (reporters[:reporters] .== "distort")),
-]
-
-sort_by_label = sortperm(reporters[:reporters])
-sort_by_rep = sortperm(init_rep)
-initdf = DataFrame(
-    label_sort_by_label=reporters[:reporters][sort_by_label],
-    reputation_sort_by_label=init_rep[sort_by_label],
-    label_sort_by_rep=reporters[:reporters][sort_by_rep],
-    reputation_sort_by_rep=init_rep[sort_by_rep],
-)
-
-println("Initial token distribution:")
-display(tokens)
-
-reputation = copy(init_rep)
+sort_by_label = []
+sort_by_rep = []
+tokens = {}
+reporters = {}
+metrics = {}
+init_rep = []
+reputation = []
 timesteps = 1:sim.TIMESTEPS
 
 i = t = 1
 for i = 1:sim.ITERMAX
+
+    # Initialize reporters and reputation
+    init_rep = init_reputation(sim)
+    reporters = create_reporters(sim)
+    metrics = Dict{Symbol,Float64}()
+
+    # Create datasets (identical for each algorithm)
+    data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
+    for t = 1:sim.TIMESTEPS
+        data[t] = generate_data(sim, reporters)
+    end
+
+    tokens = (Symbol => Float64)[
+        :trues => sum(init_rep .* (reporters[:reporters] .== "true")),
+        :liars => sum(init_rep .* (reporters[:reporters] .== "liar")),
+        :distorts => sum(init_rep .* (reporters[:reporters] .== "distort")),
+    ]
+
+    sort_by_label = sortperm(reporters[:reporters])
+    sort_by_rep = sortperm(init_rep)
+    # initdf = DataFrame(
+    #     label_sort_by_label=reporters[:reporters][sort_by_label],
+    #     reputation_sort_by_label=init_rep[sort_by_label],
+    #     label_sort_by_rep=reporters[:reporters][sort_by_rep],
+    #     reputation_sort_by_rep=init_rep[sort_by_rep],
+    # )
+    reputation = copy(init_rep)
+
     for algo in sim.ALGOS
         for t = timesteps
-            data = generate_data(sim, reporters)
+            # reportdf = convert(
+            #     DataFrame,
+            #     [["correct", reporters[:reporters]] [data[t][:correct_answers]', data[t][:reports]]],
+            # )
+
             reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
             
             if algo == "cokurtosis"
-                data[:aux] = [
-                    :cokurt => collapse(data[:reports], reputation; order=4, axis=2, normalized=true)
-                ]
-            elseif algo == "covariance"
-                data[:aux] = [
-                    :cov => collapse(data[:reports], reputation; axis=2, normalized=true)
+                data[t][:aux] = [
+                    :cokurt => collapse(data[t][:reports], reputation; order=4, axis=2, normalized=true)
                 ]
             elseif algo == "virial"
-                data[:aux] = [:H => zeros(sim.REPORTERS)]
+                data[t][:aux] = [:H => zeros(sim.REPORTERS)]
                 for o = 2:2:sim.VIRIALMAX
-                    data[:aux][:H] += collapse(data[:reports], reputation; order=o, axis=2, normalized=true) * sim.REPORTERS^o
+                    data[t][:aux][:H] += collapse(data[t][:reports], reputation; order=o, axis=2, normalized=true) * sim.REPORTERS^o
                 end
-                data[:aux][:H] = normalize(data[:aux][:H])
+                data[t][:aux][:H] = normalize(data[t][:aux][:H])
             end
 
             A[algo] = pyconsensus.Oracle(
-                reports=data[:reports],
+                reports=data[t][:reports],
                 reputation=reputation,
                 alpha=sim.ALPHA,
                 variance_threshold=sim.VARIANCE_THRESHOLD,
-                aux=data[:aux],
+                aux=data[t][:aux],
                 algorithm=algo,
             )[:consensus]()
 
             metrics = compute_metrics(
                 sim,
-                data,
+                data[t],
                 A[algo]["events"]["outcomes_final"],
                 reputation,
                 A[algo]["agents"]["smooth_rep"],

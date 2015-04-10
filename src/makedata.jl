@@ -7,7 +7,7 @@ function create_reporters(sim::Simulation)
     end
 
     # Generate artificial "true, distort, liar" list
-    honesty = sort(rand(sim.REPORTERS))
+    honesty = (sim.LABELSORT) ? sort(rand(sim.REPORTERS)) : rand(sim.REPORTERS)
     reporters = fill("", sim.REPORTERS)
     reporters[honesty .>= distort_threshold] = "true"
     reporters[sim.LIAR_THRESHOLD .< honesty .< distort_threshold] = "distort"

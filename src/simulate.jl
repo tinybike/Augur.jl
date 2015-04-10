@@ -43,8 +43,15 @@ function simulate(sim::Simulation)
 
     while i <= sim.ITERMAX
 
-        # Create reporters and assign each reporter a label
+        # Initialize reporters and reputation
+        init_rep = init_reputation(sim)
         reporters = create_reporters(sim)
+
+        # Create datasets (identical for each algorithm)
+        data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
+        for t = 1:sim.TIMESTEPS
+            data[t] = generate_data(sim, reporters)
+        end
 
         for algo in sim.ALGOS
 
@@ -61,8 +68,7 @@ function simulate(sim::Simulation)
                 data = generate_data(sim, reporters)
 
                 # Assign/update reputation
-                reputation = (t == 1) ?
-                    init_reputation(sim) : A[algo]["agents"]["smooth_rep"]
+                reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
 
                 if sim.VERBOSE
                     repbox[algo][:,t,i] = reputation

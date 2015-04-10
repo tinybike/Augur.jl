@@ -23,6 +23,7 @@ sim.INDISCRIMINATE = true
 # sim.VERBOSE = false
 # sim.CONSPIRACY = false
 # sim.ALLWRONG = false
+sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "sztorc",
