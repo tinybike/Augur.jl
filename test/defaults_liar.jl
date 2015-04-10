@@ -26,9 +26,8 @@ sim.INDISCRIMINATE = true
 sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    "sztorc",
+    "big-five",
     "fixed-variance",
-    "cokurtosis",
 ]
 sim.METRICS = [
     "beats",
