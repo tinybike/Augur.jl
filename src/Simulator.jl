@@ -117,7 +117,11 @@ module Simulator
         SAVE_RAW_DATA::Bool
 
         # Number of components to include (e.g., big-five algorithm)
-        COMPONENTS::Int
+        MAX_COMPONENTS::Int
+
+        # Preset (instead of randomized) data
+        PRESET::Bool
+        PRESET_DATA::Dict{Symbol,Any}
 
         # Event resolution algorithms to test, metrics used to evaluate them,
         # and statistics of these metrics to calculate
@@ -155,10 +159,12 @@ module Simulator
                     verbose::Bool=false,
                     conspiracy::Bool=false,
                     allwrong::Bool=false,
-                    virialmax::Int=10,
+                    virialmax::Int=8,
                     labelsort::Bool=false,
                     save_raw_data::Bool=false,
-                    components::Int=5,
+                    max_components::Int=5,
+                    preset::Bool=false,
+                    preset_data::Dict{Symbol,Any}=Dict{Symbol,Any}(),
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
                                                 "covariance",
@@ -208,7 +214,9 @@ module Simulator
                 virialmax,
                 labelsort,
                 save_raw_data,
-                components,
+                max_components,
+                preset,
+                preset_data,
                 algos,
                 metrics,
                 statistics,

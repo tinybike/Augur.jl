@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.1:0.4:0.9
+liar_thresholds = 0.4:0.2:0.8
 param_range = 5:5:250
 
 sim = Simulation()
@@ -27,8 +27,8 @@ sim.VERBOSE = false
 # Quick run-thru
 sim.EVENTS = 25
 sim.REPORTERS = 50
-sim.ITERMAX = 10
-sim.TIMESTEPS = 75
+sim.ITERMAX = 25
+sim.TIMESTEPS = 90
 
 # Full(er) run
 # sim.EVENTS = 50
@@ -48,6 +48,7 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
+sim.MAX_COMPONENTS = 5
 sim.CONSPIRACY = true
 
 sim.LABELSORT = false
@@ -57,7 +58,6 @@ sim.ALGOS = [
     "fixed-variance",
     "absolute",
     "big-five",
-    "cokurtosis",
     "virial",
 ]
 

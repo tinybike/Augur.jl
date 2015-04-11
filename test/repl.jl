@@ -20,7 +20,7 @@ sim.VARIANCE_THRESHOLD = 0.9
 sim.EVENTS = 25
 sim.REPORTERS = 50
 sim.ITERMAX = 25
-sim.TIMESTEPS = 100
+sim.TIMESTEPS = 250
 
 sim.SCALARS = 0.2
 sim.REP_RAND = true
@@ -32,7 +32,7 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
-sim.COMPONENTS = 10
+sim.MAX_COMPONENTS = 3
 sim.CONSPIRACY = true
 
 sim.VIRIALMAX = 8
@@ -83,18 +83,18 @@ end
 sort_by_label = []
 sort_by_rep = []
 tokens = {}
-reporters = {}
 metrics = {}
 init_rep = []
 reputation = []
 timesteps = 1:sim.TIMESTEPS
+
+reporters = create_reporters(sim)
 
 i = t = 1
 for i = 1:sim.ITERMAX
 
     # Initialize reporters and reputation
     init_rep = init_reputation(sim)
-    reporters = create_reporters(sim)
     metrics = Dict{Symbol,Float64}()
 
     # Create datasets (identical for each algorithm)
@@ -135,11 +135,11 @@ for i = 1:sim.ITERMAX
                     :cokurt => collapse(data[t][:reports], reputation; order=4, axis=2, normalized=true)
                 ]
             elseif algo == "virial"
-                data[t][:aux] = [:H => zeros(sim.REPORTERS)]
+                data[t][:aux] = [:virial => zeros(sim.REPORTERS)]
                 for o = 2:2:sim.VIRIALMAX
-                    data[t][:aux][:H] += collapse(data[t][:reports], reputation; order=o, axis=2, normalized=true) * sim.REPORTERS^o
+                    data[t][:aux][:virial] += collapse(data[t][:reports], reputation; order=o, axis=2, normalized=true) * sim.REPORTERS^o
                 end
-                data[t][:aux][:H] = normalize(data[t][:aux][:H])
+                data[t][:aux][:virial] = normalize(data[t][:aux][:virial])
             end
 
             A[algo] = pyconsensus.Oracle(
@@ -147,6 +147,7 @@ for i = 1:sim.ITERMAX
                 reputation=reputation,
                 alpha=sim.ALPHA,
                 variance_threshold=sim.VARIANCE_THRESHOLD,
+                max_components=sim.MAX_COMPONENTS,
                 aux=data[t][:aux],
                 algorithm=algo,
             )[:consensus]()
@@ -165,11 +166,11 @@ for i = 1:sim.ITERMAX
     end
 end
 
-df = DataFrame(honesty=data[:reporters],
-               fixed_variance=repdelta["fixed-variance"][:,end,1],
-               big_five=repdelta["big-five"][:,end,1],
-               sztorc=repdelta["sztorc"][:,end,1],
-               absolute=repdelta["absolute"][:,end,1]);
+# df = DataFrame(honesty=data[1][:reporters],
+#                fixed_variance=repdelta["fixed-variance"][:,end,1],
+#                big_five=repdelta["big-five"][:,end,1],
+#                sztorc=repdelta["sztorc"][:,end,1],
+#                absolute=repdelta["absolute"][:,end,1]);
 
 trajectory = Trajectory()
 for algo in sim.ALGOS
@@ -192,6 +193,6 @@ end
 mean_rep_liars = Dict{String,Vector{Float64}}()
 std_rep_liars = Dict{String,Vector{Float64}}()
 for algo in sim.ALGOS
-    mean_rep_liars[algo] = vec(sum(mean_repdelta[algo][data[:liars],:],1))
-    std_rep_liars[algo] = vec(std(std_repdelta[algo][data[:liars],:],1))
+    mean_rep_liars[algo] = vec(sum(mean_repdelta[algo][reporters[:liars],:],1))
+    std_rep_liars[algo] = vec(std(std_repdelta[algo][reporters[:liars],:],1))
 end

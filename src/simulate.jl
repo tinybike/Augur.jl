@@ -41,16 +41,21 @@ function simulate(sim::Simulation)
         end
     end
 
+    if ~sim.PRESET
+        reporters = create_reporters(sim)
+    end
+
     while i <= sim.ITERMAX
 
         # Initialize reporters and reputation
         init_rep = init_reputation(sim)
-        reporters = create_reporters(sim)
 
         # Create datasets (identical for each algorithm)
-        data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
-        for t = 1:sim.TIMESTEPS
-            data[t] = generate_data(sim, reporters)
+        if ~sim.PRESET
+            data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
+            for t = 1:sim.TIMESTEPS
+                data[t] = generate_data(sim, reporters)
+            end
         end
 
         for algo in sim.ALGOS
@@ -64,9 +69,6 @@ function simulate(sim::Simulation)
             metrics = Dict{Symbol,Float64}()
             for t = 1:sim.TIMESTEPS
 
-                # Generate reports and correct answers
-                data = generate_data(sim, reporters)
-
                 # Assign/update reputation
                 reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
 
@@ -74,7 +76,7 @@ function simulate(sim::Simulation)
                     repbox[algo][:,t,i] = reputation
                     repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
                     print_with_color(:white, "t = $t:\n")
-                    display([data[:reporters] repdelta[algo][:,:,i]])
+                    display([data[t][:reporters] repdelta[algo][:,:,i]])
                     println("")
 
                     # print_with_color(:white, "Reputation [" * algo * "]:\n")
@@ -82,16 +84,16 @@ function simulate(sim::Simulation)
                     # println("")
 
                     # print_with_color(:white, "Reports [" * algo * "]:\n")
-                    # display(data[:reports])
+                    # display(data[t][:reports])
                     # println("")
                 end
 
                 if algo == "cokurtosis"
 
                     # Per-user cokurtosis contribution
-                    data[:aux] = [
+                    data[t][:aux] = [
                         :cokurt => JointMoments.collapse(
-                            data[:reports],
+                            data[t][:reports],
                             reputation;
                             order=4,
                             standardize=false,
@@ -102,16 +104,16 @@ function simulate(sim::Simulation)
                     ]
                     if sim.VERBOSE
                         print_with_color(:white, "Collapsed [" * algo * "]:\n")
-                        display(data[:aux])
+                        display(data[t][:aux])
                         println("")
                     end
 
                 elseif algo == "covariance"
 
                     # Per-user covariance contribution
-                    data[:aux] = [
+                    data[t][:aux] = [
                         :cov => JointMoments.collapse(
-                            data[:reports],
+                            data[t][:reports],
                             reputation;
                             order=2,
                             axis=2,
@@ -121,16 +123,16 @@ function simulate(sim::Simulation)
                     ]
                     if sim.VERBOSE
                         print_with_color(:white, "Collapsed [" * algo * "]:\n")
-                        display(data[:aux])
+                        display(data[t][:aux])
                         println("")
                     end
 
                 elseif algo == "virial"
 
-                    data[:aux] = [:H => zeros(sim.REPORTERS)]
+                    data[t][:aux] = [:virial => zeros(sim.REPORTERS)]
                     for o = 2:2:sim.VIRIALMAX
-                        data[:aux][:H] += JointMoments.collapse(
-                            data[:reports],
+                        data[t][:aux][:virial] += JointMoments.collapse(
+                            data[t][:reports],
                             reputation;
                             order=o,
                             axis=2,
@@ -138,10 +140,10 @@ function simulate(sim::Simulation)
                             bias=0,
                         ) / o
                     end
-                    data[:aux][:H] = JointMoments.normalize(data[:aux][:H])
+                    data[t][:aux][:virial] = JointMoments.normalize(data[t][:aux][:virial])
                     if sim.VERBOSE
                         print_with_color(:white, "Collapsed [" * algo * "]:\n")
-                        display(data[:aux])
+                        display(data[t][:aux])
                         println("")
                     end
 
@@ -149,18 +151,19 @@ function simulate(sim::Simulation)
 
                 # Use pyconsensus for event resolution
                 A[algo] = pyconsensus.Oracle(
-                    reports=data[:reports],
+                    reports=data[t][:reports],
                     reputation=reputation,
                     alpha=sim.ALPHA,
                     variance_threshold=sim.VARIANCE_THRESHOLD,
-                    aux=data[:aux],
+                    max_components=sim.MAX_COMPONENTS,
+                    aux=data[t][:aux],
                     algorithm=algo,
                 )[:consensus]()
 
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
                     sim,
-                    data,
+                    data[t],
                     A[algo]["events"]["outcomes_final"],
                     reputation,
                     A[algo]["agents"]["smooth_rep"],

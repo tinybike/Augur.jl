@@ -1,47 +1,53 @@
 @everywhere using Simulator
-using Base.Test
+@everywhere using Base.Test
+using Distributions
 
-liar_thresholds = 0.1:0.8:0.9
+liar_thresholds = 0.8:0.2:0.8
+param_range = 5:5:250
 
 sim = Simulation()
-sim.EVENTS = 10
-sim.REPORTERS = 20
-sim.ITERMAX = 10
-sim.TIMESTEPS = 2
-# sim.STEADYSTATE = false
-# sim.LIAR_THRESHOLD = 0.6
-# sim.VARIANCE_THRESHOLD = 0.9
-# sim.DISTORT = 0.0
-# sim.RESPONSES = -1:1
-# sim.ALPHA = 0.2
-# sim.BETA = 0.75
-sim.REP_RANGE = 1:100
+
+include("defaults_liar.jl")
+
+sim.VERBOSE = false
+
+# sim.PRESET = true
+# sim.PRESET_DATA = (Symbol => Any)[
+#     :reporters => ,
+#     :trues => ,
+#     :distorts => ,
+#     :liars => ,
+#     :num_trues => ,
+#     :num_distorts => ,
+#     :num_liars => ,
+#     :honesty => ,
+#     :aux => nothing,
+# ]
+
+sim.EVENTS = 25
+sim.REPORTERS = 50
+sim.ITERMAX = 1
+sim.TIMESTEPS = 1
+
+sim.SCALARS = 0.0
 sim.REP_RAND = false
-sim.COLLUDE = 0.3
-sim.INDISCRIMINATE = true
-# sim.VERBOSE = false
-# sim.CONSPIRACY = false
-# sim.ALLWRONG = false
-sim.SAVE_RAW_DATA = true
+sim.REP_DIST = Pareto(3.0)
+
+sim.BRIDGE = false
+sim.MAX_COMPONENTS = 3
+sim.CONSPIRACY = false
+sim.LABELSORT = false
+sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "sztorc",
-    "fixed-variance",
-    # "covariance",
-    "cokurtosis",
-    # "inverse-scores",
-    # "coskewness",
 ]
-sim.METRICS = [
-    "beats",
-    "liars_bonus",
-    "correct",
-    "sensitivity",
-    "fallout",
-    "precision",
-    "MCC",
-]
-sim.STATISTICS = ["mean", "stderr"]
 
-# Run simulations and save results
-sim_data = run_simulations(liar_thresholds, sim)
-plot_simulations(sim_data)
+sim_data = run_simulations(liar_thresholds, sim; parallel=true)
+# plot_reptrack(sim_data)
+# plot_simulations(sim_data)
+
+# include("defaults_cplx.jl")
+
+# @time complexity(param_range, sim; iterations=100, param="reporters")
+# @time complexity(param_range, sim; iterations=100, param="events")
+# @time complexity(param_range, sim; iterations=100, param="both")
