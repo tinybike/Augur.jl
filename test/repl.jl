@@ -17,12 +17,12 @@ sim.VERBOSE = false
 sim.LIAR_THRESHOLD = 0.7
 sim.VARIANCE_THRESHOLD = 0.9
 
-sim.EVENTS = 25
-sim.REPORTERS = 50
+sim.EVENTS = 40
+sim.REPORTERS = 80
 sim.ITERMAX = 25
-sim.TIMESTEPS = 250
+sim.TIMESTEPS = 150
 
-sim.SCALARS = 0.2
+sim.SCALARS = 0.0
 sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
@@ -32,8 +32,8 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
-sim.MAX_COMPONENTS = 3
-sim.CONSPIRACY = true
+sim.MAX_COMPONENTS = 5
+sim.CONSPIRACY = false
 
 sim.VIRIALMAX = 8
 sim.LABELSORT = true
@@ -109,8 +109,8 @@ for i = 1:sim.ITERMAX
         :distorts => sum(init_rep .* (reporters[:reporters] .== "distort")),
     ]
 
-    sort_by_label = sortperm(reporters[:reporters])
-    sort_by_rep = sortperm(init_rep)
+    # sort_by_label = sortperm(reporters[:reporters])
+    # sort_by_rep = sortperm(init_rep)
     # initdf = DataFrame(
     #     label_sort_by_label=reporters[:reporters][sort_by_label],
     #     reputation_sort_by_label=init_rep[sort_by_label],
@@ -137,7 +137,7 @@ for i = 1:sim.ITERMAX
             elseif algo == "virial"
                 data[t][:aux] = [:virial => zeros(sim.REPORTERS)]
                 for o = 2:2:sim.VIRIALMAX
-                    data[t][:aux][:virial] += collapse(data[t][:reports], reputation; order=o, axis=2, normalized=true) * sim.REPORTERS^o
+                    data[t][:aux][:virial] += collapse(data[t][:reports], reputation; order=o, axis=2, normalized=true) / o
                 end
                 data[t][:aux][:virial] = normalize(data[t][:aux][:virial])
             end

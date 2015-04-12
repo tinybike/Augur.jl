@@ -34,7 +34,7 @@ sim.REP_RAND = false
 sim.REP_DIST = Pareto(3.0)
 
 sim.BRIDGE = false
-sim.MAX_COMPONENTS = 3
+sim.MAX_COMPONENTS = 5
 sim.CONSPIRACY = false
 sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
