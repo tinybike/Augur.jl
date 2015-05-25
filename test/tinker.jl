@@ -25,10 +25,10 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 25
+sim.EVENTS = 100
 sim.REPORTERS = 50
-sim.ITERMAX = 25
-sim.TIMESTEPS = 90
+sim.ITERMAX = 50
+sim.TIMESTEPS = 125
 
 # Full(er) run
 # sim.EVENTS = 50
@@ -49,9 +49,9 @@ sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.MAX_COMPONENTS = 5
-sim.CONSPIRACY = true
+sim.CONSPIRACY = false
 
-sim.LABELSORT = false
+sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "sztorc",

@@ -7,23 +7,22 @@ using PyCall
 
 @pyimport pyconsensus
 
-# test/tinker.jl
-
 sim = Simulation()
 include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.7
+sim.LIAR_THRESHOLD = 0.5
 sim.VARIANCE_THRESHOLD = 0.9
 
-sim.EVENTS = 40
-sim.REPORTERS = 80
-sim.ITERMAX = 25
-sim.TIMESTEPS = 150
+sim.EVENTS = 10
+sim.REPORTERS = 20
+sim.ITERMAX = 2
+sim.TIMESTEPS = 15
 
 sim.SCALARS = 0.0
-sim.REP_RAND = true
+sim.RESPONSES = 1:1:2
+sim.REP_RAND = false
 sim.REP_DIST = Pareto(3.0)
 
 sim.BRIDGE = false
@@ -32,10 +31,9 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
+sim.ALPHA = 0.1
 sim.MAX_COMPONENTS = 5
 sim.CONSPIRACY = false
-
-sim.VIRIALMAX = 8
 sim.LABELSORT = true
 
 sim.ALGOS = [
@@ -44,8 +42,6 @@ sim.ALGOS = [
    "absolute",
    "fixed-variance",
 ]
-
-# src/simulate.jl
 
 sim = preprocess(sim)
 
@@ -88,19 +84,59 @@ init_rep = []
 reputation = []
 timesteps = 1:sim.TIMESTEPS
 
-reporters = create_reporters(sim)
+if ~sim.TESTING
+    reporters = create_reporters(sim)
+else
+    trues = find(sim.TEST_REPORTERS .== "true")
+    distorts = find(sim.TEST_REPORTERS .== "distort")
+    liars = find(sim.TEST_REPORTERS .== "liar")
+    num_trues = length(trues)
+    num_distorts = length(distorts)
+    num_liars = length(liars)
+    reporters = (Symbol => Any)[
+        :reporters => sim.TEST_REPORTERS,
+        :trues => trues,
+        :distorts => distorts,
+        :liars => liars,
+        :num_trues => num_trues,
+        :num_distorts => num_distorts,
+        :num_liars => num_liars,
+        :honesty => nothing,
+        :aux => nothing,
+    ]
+end
 
 i = t = 1
+data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
 for i = 1:sim.ITERMAX
 
     # Initialize reporters and reputation
-    init_rep = init_reputation(sim)
+    if ~sim.TESTING
+        init_rep = init_reputation(sim)
+    else
+        init_rep = sim.TEST_INIT_REP
+    end
     metrics = Dict{Symbol,Float64}()
 
     # Create datasets (identical for each algorithm)
-    data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
-    for t = 1:sim.TIMESTEPS
-        data[t] = generate_data(sim, reporters)
+    if ~sim.TESTING
+        for t = 1:sim.TIMESTEPS
+            data[t] = generate_data(sim, reporters)
+        end
+    else
+        data[t] = (Symbol => Any)[
+            :reporters => reporters[:reporters],
+            :honesty => reporters[:honesty],
+            :correct_answers => sim.TEST_CORRECT_ANSWERS,
+            :distorts => reporters[:distorts],
+            :reports => sim.TEST_REPORTS,
+            :aux => nothing,
+            :num_distorts => reporters[:num_distorts],
+            :num_trues => reporters[:num_trues],
+            :num_liars => reporters[:num_liars],
+            :trues => reporters[:trues],
+            :liars => reporters[:liars],
+        ]
     end
 
     tokens = (Symbol => Float64)[
@@ -109,37 +145,26 @@ for i = 1:sim.ITERMAX
         :distorts => sum(init_rep .* (reporters[:reporters] .== "distort")),
     ]
 
-    # sort_by_label = sortperm(reporters[:reporters])
-    # sort_by_rep = sortperm(init_rep)
-    # initdf = DataFrame(
-    #     label_sort_by_label=reporters[:reporters][sort_by_label],
-    #     reputation_sort_by_label=init_rep[sort_by_label],
-    #     label_sort_by_rep=reporters[:reporters][sort_by_rep],
-    #     reputation_sort_by_rep=init_rep[sort_by_rep],
-    # )
+    sort_by_label = sortperm(reporters[:reporters])
+    sort_by_rep = sortperm(init_rep)
+    initdf = DataFrame(
+        label_sort_by_label=reporters[:reporters][sort_by_label],
+        reputation_sort_by_label=init_rep[sort_by_label],
+        label_sort_by_rep=reporters[:reporters][sort_by_rep],
+        reputation_sort_by_rep=init_rep[sort_by_rep],
+    )
     reputation = copy(init_rep)
 
     for algo in sim.ALGOS
         for t = timesteps
-            # reportdf = convert(
-            #     DataFrame,
-            #     [["correct", reporters[:reporters]] [data[t][:correct_answers]', data[t][:reports]]],
-            # )
-
             reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
-            
+
             if algo == "cokurtosis"
                 data[t][:aux] = [
                     :cokurt => collapse(data[t][:reports], reputation; order=4, axis=2, normalized=true)
                 ]
-            elseif algo == "virial"
-                data[t][:aux] = [:virial => zeros(sim.REPORTERS)]
-                for o = 2:2:sim.VIRIALMAX
-                    data[t][:aux][:virial] += collapse(data[t][:reports], reputation; order=o, axis=2, normalized=true) / o
-                end
-                data[t][:aux][:virial] = normalize(data[t][:aux][:virial])
             end
 
             A[algo] = pyconsensus.Oracle(
@@ -152,6 +177,26 @@ for i = 1:sim.ITERMAX
                 algorithm=algo,
             )[:consensus]()
 
+            consensus = A[algo]["agents"]["smooth_rep"]' * data[t][:reports]
+            consensus = squeeze(consensus', 2)
+            data[t][:correct_answers][1.4 .<= consensus .<= 1.6] = 1.5
+            data[t][:correct_answers][consensus .< 1.4] = 1.0
+            data[t][:correct_answers][consensus .> 1.6] = 2.0
+            data[t][:num_answers_correct] = zeros(sim.REPORTERS)
+            for r = 1:sim.REPORTERS
+                data[t][:num_answers_correct][r] = sum(squeeze(data[t][:reports][r,:]', 2) .== data[t][:correct_answers])
+            end
+            data[t][:most_answers_correct] = maximum(data[t][:num_answers_correct])
+            for r = 1:sim.REPORTERS
+                data[t][:reporters][r] = (data[t][:num_answers_correct][r] .== data[t][:most_answers_correct]) ? "true" : "liar"
+            end
+
+            # reportdf = convert(
+            #     DataFrame,
+            #     [["correct", reporters[:reporters]] [data[t][:correct_answers]', data[t][:reports]]],
+            # )
+            # display(reportdf)
+
             metrics = compute_metrics(
                 sim,
                 data[t],
@@ -159,6 +204,11 @@ for i = 1:sim.ITERMAX
                 reputation,
                 A[algo]["agents"]["smooth_rep"],
             )
+            # were you punished according to the number you got wrong?
+            # regress data[t][:num_answers_correct] onto this_rep
+            # yint, slope = linreg(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
+            metrics[:spearman] = corspearman(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
+
             for tr in sim.TRACK
                 track[algo][tr][t,i] = metrics[tr]
             end
@@ -166,11 +216,11 @@ for i = 1:sim.ITERMAX
     end
 end
 
-# df = DataFrame(honesty=data[1][:reporters],
-#                fixed_variance=repdelta["fixed-variance"][:,end,1],
-#                big_five=repdelta["big-five"][:,end,1],
-#                sztorc=repdelta["sztorc"][:,end,1],
-#                absolute=repdelta["absolute"][:,end,1]);
+df = DataFrame(honesty=data[1][:reporters],
+               fixed_variance=repdelta["fixed-variance"][:,end,1],
+               big_five=repdelta["big-five"][:,end,1],
+               sztorc=repdelta["sztorc"][:,end,1],
+               absolute=repdelta["absolute"][:,end,1]);
 
 trajectory = Trajectory()
 for algo in sim.ALGOS

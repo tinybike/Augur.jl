@@ -37,6 +37,12 @@ module Simulator
 
     type Simulation
 
+        TESTING::Bool
+        TEST_REPORTERS::Vector{ASCIIString}
+        TEST_INIT_REP::Vector{Float64}
+        TEST_CORRECT_ANSWERS::Vector{Float64}
+        TEST_REPORTS::Matrix{Float64}
+
         # Report matrix size and number of iterations
         # (per parameter combination)
         EVENTS::Int
@@ -132,7 +138,12 @@ module Simulator
         # Tracking statistics for time series analysis
         TRACK::Vector{Symbol}
 
-        Simulation(;events::Int=50,
+        Simulation(;testing::Bool=false,
+                    test_reporters::Vector{ASCIIString}=(ASCIIString)[],
+                    test_init_rep::Vector{Float64}=(Float64)[],
+                    test_correct_answers::Vector{Float64}=(Float64)[],
+                    test_reports::Matrix{Float64}=Array(Float64,2,2),
+                    events::Int=50,
                     reporters::Int=100,
                     itermax::Int=250,
                     timesteps::Int=200,
@@ -181,7 +192,12 @@ module Simulator
                     track::Vector{Symbol}=[:gini,
                                            :MCC,
                                            :correct]) =
-            new(events,
+            new(testing,
+                test_reporters,
+                test_init_rep,
+                test_correct_answers,
+                test_reports,
+                events,
                 reporters,
                 itermax,
                 sqrt(itermax),

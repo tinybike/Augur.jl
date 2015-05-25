@@ -233,7 +233,11 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
                 end
             end
         end
-    end
+    end    
+    # display(convert(
+    #    DataFrame,
+    #    [["correct", data[:reporters]] [data[:correct_answers]', data[:reports]]],
+    # ))
     data
 end
 

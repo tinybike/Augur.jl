@@ -50,5 +50,6 @@ sim.TRACK = [
     :distorts_rep,
     :liars_bonus,
     :corrupted,
+    :spearman,
 ]
 sim.STATISTICS = ["mean", "stderr"]
