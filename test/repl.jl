@@ -15,10 +15,10 @@ sim.VERBOSE = false
 sim.LIAR_THRESHOLD = 0.5
 sim.VARIANCE_THRESHOLD = 0.9
 
-sim.EVENTS = 10
-sim.REPORTERS = 20
-sim.ITERMAX = 2
-sim.TIMESTEPS = 15
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 50
+sim.TIMESTEPS = 100
 
 sim.SCALARS = 0.0
 sim.RESPONSES = 1:1:2
@@ -191,12 +191,6 @@ for i = 1:sim.ITERMAX
                 data[t][:reporters][r] = (data[t][:num_answers_correct][r] .== data[t][:most_answers_correct]) ? "true" : "liar"
             end
 
-            # reportdf = convert(
-            #     DataFrame,
-            #     [["correct", reporters[:reporters]] [data[t][:correct_answers]', data[t][:reports]]],
-            # )
-            # display(reportdf)
-
             metrics = compute_metrics(
                 sim,
                 data[t],
@@ -206,7 +200,7 @@ for i = 1:sim.ITERMAX
             )
             # were you punished according to the number you got wrong?
             # regress data[t][:num_answers_correct] onto this_rep
-            # yint, slope = linreg(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
+            yint, slope = linreg(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
             metrics[:spearman] = corspearman(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
 
             for tr in sim.TRACK
