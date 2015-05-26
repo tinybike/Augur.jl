@@ -12,17 +12,17 @@ include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.8
+sim.LIAR_THRESHOLD = 0.85
 sim.VARIANCE_THRESHOLD = 0.9
 
-sim.EVENTS = 50
-sim.REPORTERS = 100
-sim.ITERMAX = 50
-sim.TIMESTEPS = 100
+sim.EVENTS = 100
+sim.REPORTERS = 250
+sim.ITERMAX = 100
+sim.TIMESTEPS = 250
 
 sim.SCALARS = 0.0
-sim.RESPONSES = 1:1:2
-sim.REP_RAND = false
+# sim.RESPONSES = 1:1:2
+sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
 sim.BRIDGE = false
@@ -228,7 +228,7 @@ for algo in sim.ALGOS
     for tr in sim.TRACK
         trajectory[algo][tr] = (Symbol => Vector{Float64})[
             :mean => mean(track[algo][tr], 2)[:],
-            :stderr => std(track[algo][tr], 2)[:] / sim.SQRTN,
+            :stderr => std(track[algo][tr], 2)[:], # / sim.SQRTN,
         ]
     end
 end
