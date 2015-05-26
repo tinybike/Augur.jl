@@ -12,12 +12,12 @@ include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.7
+sim.LIAR_THRESHOLD = 0.8
 sim.VARIANCE_THRESHOLD = 0.9
 
 sim.EVENTS = 50
 sim.REPORTERS = 100
-sim.ITERMAX = 25
+sim.ITERMAX = 50
 sim.TIMESTEPS = 100
 
 sim.SCALARS = 0.0
