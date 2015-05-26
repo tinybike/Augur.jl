@@ -12,12 +12,12 @@ include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.5
+sim.LIAR_THRESHOLD = 0.7
 sim.VARIANCE_THRESHOLD = 0.9
 
 sim.EVENTS = 50
 sim.REPORTERS = 100
-sim.ITERMAX = 50
+sim.ITERMAX = 25
 sim.TIMESTEPS = 100
 
 sim.SCALARS = 0.0
@@ -39,7 +39,7 @@ sim.LABELSORT = true
 sim.ALGOS = [
    "sztorc",
    "big-five",
-   "absolute",
+   "clustering",
    "fixed-variance",
 ]
 
@@ -191,6 +191,12 @@ for i = 1:sim.ITERMAX
                 data[t][:reporters][r] = (data[t][:num_answers_correct][r] .== data[t][:most_answers_correct]) ? "true" : "liar"
             end
 
+            # reportdf = convert(
+            #     DataFrame,
+            #     [["correct", reporters[:reporters]] [data[t][:correct_answers]', data[t][:reports]]],
+            # )
+            # display(reportdf)
+
             metrics = compute_metrics(
                 sim,
                 data[t],
@@ -200,7 +206,7 @@ for i = 1:sim.ITERMAX
             )
             # were you punished according to the number you got wrong?
             # regress data[t][:num_answers_correct] onto this_rep
-            yint, slope = linreg(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
+            # yint, slope = linreg(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
             metrics[:spearman] = corspearman(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
 
             for tr in sim.TRACK
@@ -214,7 +220,7 @@ df = DataFrame(honesty=data[1][:reporters],
                fixed_variance=repdelta["fixed-variance"][:,end,1],
                big_five=repdelta["big-five"][:,end,1],
                sztorc=repdelta["sztorc"][:,end,1],
-               absolute=repdelta["absolute"][:,end,1]);
+               clustering=repdelta["clustering"][:,end,1]);
 
 trajectory = Trajectory()
 for algo in sim.ALGOS

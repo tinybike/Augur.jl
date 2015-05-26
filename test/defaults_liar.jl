@@ -21,6 +21,7 @@ sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "big-five",
     "fixed-variance",
+    "clustering"
 ]
 sim.METRICS = [
     "beats",
