@@ -12,7 +12,7 @@ include("defaults_liar.jl")
 
 sim.VERBOSE = false
 
-sim.LIAR_THRESHOLD = 0.85
+sim.LIAR_THRESHOLD = 0.65
 sim.VARIANCE_THRESHOLD = 0.9
 
 sim.EVENTS = 100
@@ -37,9 +37,10 @@ sim.CONSPIRACY = false
 sim.LABELSORT = true
 
 sim.ALGOS = [
-   "sztorc",
+   "PCA",
    "big-five",
-   "clustering",
+   "k-means",
+   "hierarchy",
    "fixed-variance",
 ]
 
@@ -138,35 +139,30 @@ for i = 1:sim.ITERMAX
             :liars => reporters[:liars],
         ]
     end
-
     tokens = (Symbol => Float64)[
         :trues => sum(init_rep .* (reporters[:reporters] .== "true")),
         :liars => sum(init_rep .* (reporters[:reporters] .== "liar")),
         :distorts => sum(init_rep .* (reporters[:reporters] .== "distort")),
     ]
-
-    sort_by_label = sortperm(reporters[:reporters])
-    sort_by_rep = sortperm(init_rep)
-    initdf = DataFrame(
-        label_sort_by_label=reporters[:reporters][sort_by_label],
-        reputation_sort_by_label=init_rep[sort_by_label],
-        label_sort_by_rep=reporters[:reporters][sort_by_rep],
-        reputation_sort_by_rep=init_rep[sort_by_rep],
-    )
+    # sort_by_label = sortperm(reporters[:reporters])
+    # sort_by_rep = sortperm(init_rep)
+    # initdf = DataFrame(
+    #     label_sort_by_label=reporters[:reporters][sort_by_label],
+    #     reputation_sort_by_label=init_rep[sort_by_label],
+    #     label_sort_by_rep=reporters[:reporters][sort_by_rep],
+    #     reputation_sort_by_rep=init_rep[sort_by_rep],
+    # )
     reputation = copy(init_rep)
-
     for algo in sim.ALGOS
         for t = timesteps
             reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
-
             if algo == "cokurtosis"
                 data[t][:aux] = [
                     :cokurt => collapse(data[t][:reports], reputation; order=4, axis=2, normalized=true)
                 ]
             end
-
             A[algo] = pyconsensus.Oracle(
                 reports=data[t][:reports],
                 reputation=reputation,
@@ -176,27 +172,6 @@ for i = 1:sim.ITERMAX
                 aux=data[t][:aux],
                 algorithm=algo,
             )[:consensus]()
-
-            consensus = A[algo]["agents"]["smooth_rep"]' * data[t][:reports]
-            consensus = squeeze(consensus', 2)
-            data[t][:correct_answers][1.4 .<= consensus .<= 1.6] = 1.5
-            data[t][:correct_answers][consensus .< 1.4] = 1.0
-            data[t][:correct_answers][consensus .> 1.6] = 2.0
-            data[t][:num_answers_correct] = zeros(sim.REPORTERS)
-            for r = 1:sim.REPORTERS
-                data[t][:num_answers_correct][r] = sum(squeeze(data[t][:reports][r,:]', 2) .== data[t][:correct_answers])
-            end
-            data[t][:most_answers_correct] = maximum(data[t][:num_answers_correct])
-            for r = 1:sim.REPORTERS
-                data[t][:reporters][r] = (data[t][:num_answers_correct][r] .== data[t][:most_answers_correct]) ? "true" : "liar"
-            end
-
-            # reportdf = convert(
-            #     DataFrame,
-            #     [["correct", reporters[:reporters]] [data[t][:correct_answers]', data[t][:reports]]],
-            # )
-            # display(reportdf)
-
             metrics = compute_metrics(
                 sim,
                 data[t],
@@ -204,11 +179,6 @@ for i = 1:sim.ITERMAX
                 reputation,
                 A[algo]["agents"]["smooth_rep"],
             )
-            # were you punished according to the number you got wrong?
-            # regress data[t][:num_answers_correct] onto this_rep
-            # yint, slope = linreg(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
-            metrics[:spearman] = corspearman(data[t][:num_answers_correct], A[algo]["agents"]["this_rep"])
-
             for tr in sim.TRACK
                 track[algo][tr][t,i] = metrics[tr]
             end
@@ -219,8 +189,9 @@ end
 df = DataFrame(honesty=data[1][:reporters],
                fixed_variance=repdelta["fixed-variance"][:,end,1],
                big_five=repdelta["big-five"][:,end,1],
-               sztorc=repdelta["sztorc"][:,end,1],
-               clustering=repdelta["clustering"][:,end,1]);
+               PCA=repdelta["PCA"][:,end,1],
+               k_means=repdelta["k-means"][:,end,1],
+               hierarchy=repdelta["hierarchy"][:,end,1])
 
 trajectory = Trajectory()
 for algo in sim.ALGOS
@@ -228,7 +199,7 @@ for algo in sim.ALGOS
     for tr in sim.TRACK
         trajectory[algo][tr] = (Symbol => Vector{Float64})[
             :mean => mean(track[algo][tr], 2)[:],
-            :stderr => std(track[algo][tr], 2)[:], # / sim.SQRTN,
+            :stderr => std(track[algo][tr], 2)[:] / sim.SQRTN,
         ]
     end
 end

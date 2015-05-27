@@ -7,6 +7,13 @@ function compute_metrics(sim::Simulation,
     # Changes in reputation this round
     rep_change = updated_rep - initial_rep
 
+    consensus = updated_rep' * data[:reports]
+    consensus = squeeze(consensus', 2)
+    data[:num_answers_correct] = zeros(sim.REPORTERS)
+    for r = 1:sim.REPORTERS
+        data[:num_answers_correct][r] = sum(squeeze(data[:reports][r,:]', 2) .== data[:correct_answers])
+    end
+
     # Difference between reputation received and that received by honest reporters
     bonus = rep_change - rep_change[first(data[:trues])]
 
@@ -25,6 +32,7 @@ function compute_metrics(sim::Simulation,
     # Sensitivity (recall/true positive rate): liars punished / num liars
     sensitivity = liars_punished / data[:num_liars]
 
+    # Histogram reputation
     # repcount = reputation_distribution(sim, updated_rep)
 
     # Gini coefficient
@@ -35,7 +43,14 @@ function compute_metrics(sim::Simulation,
     true_rep = sum(updated_rep[data[:trues]])
     liar_rep = sum(updated_rep[data[:liars]])
 
+    # were you punished according to the number you got wrong?
+    # regress data[:num_answers_correct] onto this_rep
+    # yint, slope = linreg(data[:num_answers_correct], data[algo]["agents"]["this_rep"])
+
     metrics = (Symbol => Float64)[
+        # Spearman's rank correlation coefficient
+        :spearman => corspearman(data[:num_answers_correct], updated_rep), 
+
         # Sensitivity (recall/true positive rate): liars punished / num liars
         :sensitivity => liars_punished / data[:num_liars],
 

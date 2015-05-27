@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.4:0.2:0.8
+liar_thresholds = 0.3:0.2:0.9
 param_range = 5:5:250
 
 sim = Simulation()
@@ -25,16 +25,16 @@ include("defaults_" * simtype * ".jl")
 sim.VERBOSE = false
 
 # Quick run-thru
-sim.EVENTS = 100
-sim.REPORTERS = 50
-sim.ITERMAX = 50
-sim.TIMESTEPS = 125
+# sim.EVENTS = 25
+# sim.REPORTERS = 50
+# sim.ITERMAX = 25
+# sim.TIMESTEPS = 75
 
 # Full(er) run
-# sim.EVENTS = 50
-# sim.REPORTERS = 100
-# sim.ITERMAX = 100
-# sim.TIMESTEPS = 500
+sim.EVENTS = 500
+sim.REPORTERS = 1000
+sim.ITERMAX = 200
+sim.TIMESTEPS = 500
 
 sim.SCALARS = 0.0
 sim.REP_RAND = true
@@ -43,6 +43,7 @@ sim.REP_DIST = Pareto(3.0)
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(3.0)
 
+sim.ALPHA = 0.1
 sim.BRIDGE = false
 sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
@@ -54,11 +55,11 @@ sim.CONSPIRACY = false
 sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    "sztorc",
+    "PCA",
     "fixed-variance",
-    "absolute",
     "big-five",
-    "virial",
+    "k-means",
+    "hierarchy",
 ]
 
 # Run simulations and save results:

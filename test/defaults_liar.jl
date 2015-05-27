@@ -1,7 +1,7 @@
-sim.EVENTS = 50
-sim.REPORTERS = 100
-sim.ITERMAX = 250
-sim.TIMESTEPS = 1
+sim.EVENTS = 125
+sim.REPORTERS = 250
+sim.ITERMAX = 500
+sim.TIMESTEPS = 250
 sim.SCALARS = 0.25
 sim.SCALARMIN = 0.0
 sim.SCALARMAX = 1000.0
@@ -19,31 +19,27 @@ sim.INDISCRIMINATE = true
 sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
+    "PCA",
     "big-five",
+    "k-means",
+    "hierarchy",
     "fixed-variance",
-    "clustering"
 ]
 sim.METRICS = [
     "beats",
     "liars_bonus",
-    "distorts_bonus",
     "correct",
     "MCC",
-    "gini",
     "true_rep",
     "liar_rep",
-    "distorts_rep",
-    "gap",
-    "corrupted",
+    "spearman",
 ]
 sim.TRACK = [
-    :gini,
     :MCC,
     :correct,
     :beats,
-    :distorts_rep,
     :liars_bonus,
-    :corrupted,
+    :liar_rep,
     :spearman,
 ]
 sim.STATISTICS = ["mean", "stderr"]
