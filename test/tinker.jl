@@ -33,7 +33,7 @@ sim.VERBOSE = false
 # Full(er) run
 sim.EVENTS = 250
 sim.REPORTERS = 500
-sim.ITERMAX = 5000
+sim.ITERMAX = 250
 sim.TIMESTEPS = 200
 
 sim.SCALARS = 0.0
@@ -50,14 +50,15 @@ sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.MAX_COMPONENTS = 5
+sim.INDISCRIMINATE = false
 sim.CONSPIRACY = false
 
 sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    "PCA",
-    "fixed-variance",
-    "big-five",
+    #"PCA",
+    #"fixed-variance",
+    #"big-five",
     "k-means",
     "hierarchy",
 ]
