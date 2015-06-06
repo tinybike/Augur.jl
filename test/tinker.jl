@@ -50,7 +50,7 @@ sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.MAX_COMPONENTS = 5
-sim.INDISCRIMINATE = false
+sim.INDISCRIMINATE = true
 sim.CONSPIRACY = true
 
 sim.LABELSORT = true
