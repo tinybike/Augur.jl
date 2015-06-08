@@ -23,6 +23,7 @@ end
 include("defaults_" * simtype * ".jl")
 
 sim.VERBOSE = false
+sim.COLLUDE = 0.75
 
 # Quick run-thru
 # sim.EVENTS = 25
@@ -51,7 +52,7 @@ sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.MAX_COMPONENTS = 5
 sim.INDISCRIMINATE = true
-sim.CONSPIRACY = true
+sim.CONSPIRACY = false
 
 sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
