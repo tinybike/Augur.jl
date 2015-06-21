@@ -22,7 +22,7 @@ sim.ALGOS = [
     "PCA",
     "big-five",
     "k-means",
-    "hierarchy",
+    "hierarchical",
     "fixed-variance",
 ]
 sim.METRICS = [

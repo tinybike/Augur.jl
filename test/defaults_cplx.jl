@@ -10,7 +10,7 @@ sim.REP_RAND = false
 sim.COLLUDE = 0.3
 sim.INDISCRIMINATE = true
 sim.SAVE_RAW_DATA = false
-sim.ALGOS = ["fixed-variance"]
+sim.ALGOS = ["hierarchical"]
 sim.METRICS = [
     "beats",
     "liars_bonus",

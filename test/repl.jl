@@ -40,7 +40,7 @@ sim.ALGOS = [
    "PCA",
    "big-five",
    "k-means",
-   "hierarchy",
+   "hierarchical",
    "fixed-variance",
 ]
 
@@ -191,7 +191,7 @@ df = DataFrame(honesty=data[1][:reporters],
                big_five=repdelta["big-five"][:,end,1],
                PCA=repdelta["PCA"][:,end,1],
                k_means=repdelta["k-means"][:,end,1],
-               hierarchy=repdelta["hierarchy"][:,end,1])
+               hierarchy=repdelta["hierarchical"][:,end,1])
 
 trajectory = Trajectory()
 for algo in sim.ALGOS

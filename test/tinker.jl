@@ -23,19 +23,19 @@ end
 include("defaults_" * simtype * ".jl")
 
 sim.VERBOSE = false
-sim.COLLUDE = 0.75
+sim.COLLUDE = 0.25
 
 # Quick run-thru
-# sim.EVENTS = 25
-# sim.REPORTERS = 50
-# sim.ITERMAX = 25
-# sim.TIMESTEPS = 75
+sim.EVENTS = 100
+sim.REPORTERS = 250
+sim.ITERMAX = 100
+sim.TIMESTEPS = 125
 
 # Full(er) run
-sim.EVENTS = 250
-sim.REPORTERS = 500
-sim.ITERMAX = 250
-sim.TIMESTEPS = 200
+# sim.EVENTS = 250
+# sim.REPORTERS = 500
+# sim.ITERMAX = 250
+# sim.TIMESTEPS = 200
 
 sim.SCALARS = 0.0
 sim.REP_RAND = true
@@ -57,11 +57,11 @@ sim.CONSPIRACY = false
 sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
-    #"PCA",
+    "PCA",
     #"fixed-variance",
     #"big-five",
-    "k-means",
-    "hierarchy",
+    # "k-means",
+    "hierarchical",
 ]
 
 # Run simulations and save results:
