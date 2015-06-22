@@ -38,7 +38,7 @@ sim.LABELSORT = true
 
 sim.ALGOS = [
    "PCA",
-   "big-five",
+   "clusterfeck",
    "k-means",
    "hierarchical",
    "fixed-variance",
@@ -188,10 +188,10 @@ end
 
 df = DataFrame(honesty=data[1][:reporters],
                fixed_variance=repdelta["fixed-variance"][:,end,1],
-               big_five=repdelta["big-five"][:,end,1],
+               clusterfeck=repdelta["clusterfeck"][:,end,1],
                PCA=repdelta["PCA"][:,end,1],
                k_means=repdelta["k-means"][:,end,1],
-               hierarchy=repdelta["hierarchical"][:,end,1])
+               hierarchical=repdelta["hierarchical"][:,end,1])
 
 trajectory = Trajectory()
 for algo in sim.ALGOS

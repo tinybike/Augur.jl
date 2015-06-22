@@ -47,7 +47,7 @@ sim.MAX_COMPONENTS = 5
 sim.CONSPIRACY = false
 sim.LABELSORT = false
 
-sim.ALGOS = [ "PCA", "big-five", "clustering" ]
+sim.ALGOS = [ "PCA", "big-five", "hierarchical" ]
 
 # src/simulate.jl
 

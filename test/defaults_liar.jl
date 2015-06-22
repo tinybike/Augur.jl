@@ -20,7 +20,7 @@ sim.LABELSORT = true
 sim.SAVE_RAW_DATA = false
 sim.ALGOS = [
     "PCA",
-    "big-five",
+    "clusterfeck",
     "k-means",
     "hierarchical",
     "fixed-variance",
