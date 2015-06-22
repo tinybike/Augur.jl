@@ -182,58 +182,60 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
                 data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
             end
         end
-    end
+    
+    else
 
-    # Indiscriminate copying: liars copy anyone, not just other liars
-    if sim.INDISCRIMINATE
-        @inbounds for i = 1:data[:num_liars]
+        # Indiscriminate copying: liars copy anyone, not just other liars
+        if sim.INDISCRIMINATE
+            @inbounds for i = 1:data[:num_liars]
 
-            # Pairs
-            diceroll = first(rand(1))
-            if diceroll < sim.COLLUDE
-                target = int(ceil(first(rand(1))) * sim.REPORTERS)
-                data[:reports][target,:] = data[:reports][data[:liars][i],:]
+                # Pairs
+                diceroll = first(rand(1))
+                if diceroll < sim.COLLUDE
+                    target = int(ceil(first(rand(1))) * sim.REPORTERS)
+                    data[:reports][target,:] = data[:reports][data[:liars][i],:]
 
-                # Triples
-                if diceroll < sim.COLLUDE^2
-                    target2 = int(ceil(first(rand(1))) * sim.REPORTERS)
-                    data[:reports][target2,:] = data[:reports][data[:liars][i],:]
+                    # Triples
+                    if diceroll < sim.COLLUDE^2
+                        target2 = int(ceil(first(rand(1))) * sim.REPORTERS)
+                        data[:reports][target2,:] = data[:reports][data[:liars][i],:]
 
-                    # Quadruples
-                    if diceroll < sim.COLLUDE^3
-                        target3 = int(ceil(first(rand(1))) * sim.REPORTERS)
-                        data[:reports][target3,:] = data[:reports][data[:liars][i],:]
+                        # Quadruples
+                        if diceroll < sim.COLLUDE^3
+                            target3 = int(ceil(first(rand(1))) * sim.REPORTERS)
+                            data[:reports][target3,:] = data[:reports][data[:liars][i],:]
+                        end
                     end
                 end
             end
-        end
 
-    # "Ordinary" (ladder) collusion
-    # todo: remove num_liars upper bounds (these decrease collusion probs)
-    else
-        @inbounds for i = 1:data[:num_liars]-1
+        # "Ordinary" (ladder) collusion
+        # todo: remove num_liars upper bounds (these decrease collusion probs)
+        else
+            @inbounds for i = 1:data[:num_liars]-1
 
-            # Pairs
-            diceroll = first(rand(1))
-            if diceroll < sim.COLLUDE
-                data[:reports][data[:liars][i+1],:] = data[:reports][data[:liars][i],:]
+                # Pairs
+                diceroll = first(rand(1))
+                if diceroll < sim.COLLUDE
+                    data[:reports][data[:liars][i+1],:] = data[:reports][data[:liars][i],:]
 
-                # Triples
-                if i + 2 < data[:num_liars]
-                    if diceroll < sim.COLLUDE^2
-                        data[:reports][data[:liars][i+2],:] = data[:reports][data[:liars][i],:]
-        
-                        # Quadruples
-                        if i + 3 < data[:num_liars]
-                            if diceroll < sim.COLLUDE^3
-                                data[:reports][data[:liars][i+3],:] = data[:reports][data[:liars][i],:]
+                    # Triples
+                    if i + 2 < data[:num_liars]
+                        if diceroll < sim.COLLUDE^2
+                            data[:reports][data[:liars][i+2],:] = data[:reports][data[:liars][i],:]
+            
+                            # Quadruples
+                            if i + 3 < data[:num_liars]
+                                if diceroll < sim.COLLUDE^3
+                                    data[:reports][data[:liars][i+3],:] = data[:reports][data[:liars][i],:]
+                                end
                             end
                         end
                     end
                 end
             end
         end
-    end    
+    end
     # display(convert(
     #    DataFrame,
     #    [["correct", data[:reporters]] [data[:correct_answers]', data[:reports]]],
