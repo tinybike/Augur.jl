@@ -88,6 +88,13 @@ function simulate(sim::Simulation)
                     # println("")
                 end
 
+                # if algo == "clusterfeck" || algo == "hierarchical" || algo =="PCA"
+                #     println(t)
+                #     print_with_color(:white, "Reputation [" * algo * "]:\n")
+                #     display(reputation')
+                #     println("")
+                # end
+
                 if algo == "cokurtosis"
 
                     # Per-user cokurtosis contribution
@@ -169,13 +176,21 @@ function simulate(sim::Simulation)
                     A[algo]["agents"]["smooth_rep"],
                 )
 
-                if sim.VERBOSE
+                if sim.VERBOSE || any(isnan(A[algo]["agents"]["smooth_rep"]))
                     print_with_color(:white, "Oracle output [" * algo * "]:\n")
                     display(A[algo])
                     println("")
                     display(A[algo]["agents"])
                     println("")
                     display(A[algo]["events"])
+                    println("")
+
+                    print_with_color(:white, "Reputation [" * algo * "]:\n")
+                    display(reputation')
+                    println("")
+
+                    print_with_color(:white, "Reports [" * algo * "]:\n")
+                    display(data[t][:reports])
                     println("")
 
                     print_with_color(:white, "Metrics [" * algo * "]:\n")

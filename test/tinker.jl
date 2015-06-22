@@ -60,7 +60,7 @@ sim.ALGOS = [
     "PCA",
     #"fixed-variance",
     #"big-five",
-    "k-means",
+    # "k-means",
     "hierarchical",
     "clusterfeck",
 ]
