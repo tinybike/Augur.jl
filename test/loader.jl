@@ -2,7 +2,7 @@ using Simulator
 using DataFrames
 using Dates
 
-EXAMPLE = "data/sim_2015-03-02T05:56:36.jld"
+EXAMPLE = "data/sim_2015-06-24T00:24:44.jld"
 
 function load_and_plot_data(datafile::String; simtype::String="liar")
     println("Loading $datafile...")

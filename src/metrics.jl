@@ -84,8 +84,12 @@ function compute_metrics(sim::Simulation,
         metrics[:distorts_rep] = sum(updated_rep[data[:distorts]])
     else
         # Matthews correlation coefficient
-        metrics[:MCC] = liars_punished*trues_rewarded - liars_rewarded*trues_punished
-        metrics[:MCC] /= sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded)
+        if total_punished == 0 || data[:num_liars] == 0 || data[:num_trues] == 0 || total_rewarded == 0
+            metrics[:MCC] = 0
+        else
+            metrics[:MCC] = liars_punished*trues_rewarded - liars_rewarded*trues_punished
+            metrics[:MCC] /= sqrt(total_punished*data[:num_liars]*data[:num_trues]*total_rewarded)
+        end
     end
     if sim.BRIDGE
         metrics[:corrupted] = countnz(data[:corrupt]) / data[:num_trues] / sim.EVENTS

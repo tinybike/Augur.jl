@@ -25,20 +25,20 @@ sim.ALGOS = [
     "hierarchical",
 ]
 sim.METRICS = [
-    "beats",
-    "liars_bonus",
+    # "beats",
+    # "liars_bonus",
     "correct",
     "MCC",
-    "true_rep",
+    # "true_rep",
     "liar_rep",
-    "spearman",
+    # "spearman",
 ]
 sim.TRACK = [
     :MCC,
     :correct,
-    :beats,
-    :liars_bonus,
+    # :beats,
+    # :liars_bonus,
     :liar_rep,
-    :spearman,
+    # :spearman,
 ]
 sim.STATISTICS = ["mean", "stderr"]

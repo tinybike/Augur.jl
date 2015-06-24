@@ -2,6 +2,16 @@ using Simulator
 using DataFrames
 using Gadfly
 
+axis_labels = (Symbol => String)[
+    :MCC => "Matthews correlation coefficient",
+    :correct => "% answers determined correctly",
+    :beats => "beats",
+    :liars_bonus => "liars' bonus",
+    :spearman => "Spearman's rho",
+    :liar_rep => "% Reputation held by liars",
+    :true_rep => "% Reputation held by honest reporters",
+]
+
 # Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})
     const num_algos = length(sim_data["sim"].ALGOS)
@@ -19,7 +29,7 @@ function build_dataframe(sim_data::Dict{String,Any})
         for m in sim_data["sim"].METRICS
             m_std = m * "_std"
             data = [data, sim_data[algo][m][:,1]]
-            metrics = [metrics, fill!(Array(String, gridrows), m)]
+            metrics = [metrics, fill!(Array(String, gridrows), axis_labels[symbol(m)])]
             error_minus = [
                 error_minus,
                 sim_data[algo][m][:,1] - sim_data[algo][m_std][:,1],
@@ -249,13 +259,15 @@ function plot_trajectories(sim::Simulation,
     timesteps = Int[]
     liars = String[]
     algorithms = String[]
-    tr = :correct
-    algo = "cokurtosis"
     for algo in sim.ALGOS
         for (i, lt) in enumerate(liar_thresholds)
             for tr in sim.TRACK
                 data = [data, trajectories[i][algo][tr][:mean]]
-                metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
+                # metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
+                metrics = [
+                    metrics,
+                    fill!(Array(String, sim.TIMESTEPS), axis_labels[symbol(tr)])
+                ]
                 error_minus = [
                     error_minus,
                     trajectories[i][algo][tr][:mean] - trajectories[i][algo][tr][:stderr],
@@ -269,9 +281,16 @@ function plot_trajectories(sim::Simulation,
                     liars,
                     fill!(Array(String, sim.TIMESTEPS), string(round(lt*100)) * "%")[:],
                 ]
+                if algo == "PCA"
+                    label = "truthcoin"
+                elseif algo == "hierarchical"
+                    label = "hierarchical clustering"
+                elseif algo == "clusterfeck"
+                    label = "augur"
+                end
                 algorithms = [
                     algorithms,
-                    fill!(Array(String, sim.TIMESTEPS), algo)[:],
+                    fill!(Array(String, sim.TIMESTEPS), label)[:],
                 ]
             end
         end
@@ -293,7 +312,7 @@ function plot_trajectories(sim::Simulation,
         ygroup=:metric,
         xgroup=:algorithm,
         color=:liars,
-        Guide.XLabel("time (# reporting rounds)"),
+        Guide.XLabel("time (number of reporting rounds)"),
         Guide.YLabel(""),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
@@ -373,7 +392,9 @@ function plot_simulations(sim_data::Dict{String,Any})
     print_with_color(:red, "Building plots...\n")
 
     trajectories = pop!(sim_data, "trajectories")
-    title = build_title(sim_data["sim"])
+
+    # title = build_title(sim_data["sim"])
+    title = ""
 
     # Stacked plots with all metrics
     plot_dataframe(build_dataframe(sim_data), title)
@@ -400,11 +421,12 @@ function plot_simulations(sim_data::Dict{String,Any})
     # Separate algos/tracking metrics
     for algo in sim.ALGOS
         for tr in sim.TRACK
+            # title = build_title(sim, algo)
             plot_trajectories(sim,
                               trajectories,
                               sim_data["liar_threshold"],
                               algo,
-                              build_title(sim, algo),
+                              title,
                               tr)
         end
     end
