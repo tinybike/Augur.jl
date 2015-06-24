@@ -162,8 +162,7 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
         end
     end
 
-    # "allwrong": liars always answer incorrectly
-    # [scalars not supported]
+    # "allwrong": liars always answer incorrectly (scalars not supported)
     if sim.ALLWRONG
         @inbounds for i = 1:data[:num_liars]
             for j = 1:sim.EVENTS
@@ -179,10 +178,20 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
         @inbounds for i = 1:data[:num_liars]-1
             diceroll = first(rand(1))
             if diceroll < sim.COLLUDE
-                data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
+                if sim.NUM_CONSPIRACIES > 1
+                    diceroll2 = first(rand(1))
+                    if diceroll2 > 0.5
+                        data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
+                    else
+                        data[:reports][data[:liars][i],:] = data[:reports][data[:liars][2],:]
+                    end
+                else
+                    data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
+                end
             end
         end
     
+    # "Ordinary" (ladder) collusion
     else
 
         # Indiscriminate copying: liars copy anyone, not just other liars
@@ -209,8 +218,7 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
                 end
             end
 
-        # "Ordinary" (ladder) collusion
-        # todo: remove num_liars upper bounds (these decrease collusion probs)
+        # TODO remove num_liars upper bounds (these decrease collusion probs)
         else
             @inbounds for i = 1:data[:num_liars]-1
 
@@ -236,10 +244,13 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
             end
         end
     end
-    # display(convert(
-    #    DataFrame,
-    #    [["correct", data[:reporters]] [data[:correct_answers]', data[:reports]]],
-    # ))
+    if sim.VERBOSE
+        display(convert(
+           DataFrame,
+           [["correct", data[:reporters]] [data[:correct_answers]', data[:reports]]],
+        ))
+        println("");
+    end
     data
 end
 

@@ -14,10 +14,12 @@ function simulate(sim::Simulation)
                 raw_data[algo][m][t] = Float64[]
             end
         end
-        # raw_data[algo]["repcount"] = Dict{Int,Vector{Dict{Float64,Int}}}()
-        # for t in timesteps
-        #     raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
-        # end
+        if sim.HISTOGRAM
+            raw_data[algo]["repcount"] = Dict{Int,Vector{Dict{Float64,Int}}}()
+            for t in timesteps
+                raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
+            end
+        end
     end
     track = Dict{String,Dict{Symbol,Matrix{Float64}}}()
     A = Dict{String,Any}()
@@ -79,21 +81,14 @@ function simulate(sim::Simulation)
                     display([data[t][:reporters] repdelta[algo][:,:,i]])
                     println("")
 
-                    # print_with_color(:white, "Reputation [" * algo * "]:\n")
-                    # display(reputation')
-                    # println("")
+                    print_with_color(:white, "Reputation [" * algo * "]:\n")
+                    display(reputation')
+                    println("")
 
-                    # print_with_color(:white, "Reports [" * algo * "]:\n")
-                    # display(data[t][:reports])
-                    # println("")
+                    print_with_color(:white, "Reports [" * algo * "]:\n")
+                    display(data[t][:reports])
+                    println("")
                 end
-
-                # if algo == "clusterfeck" || algo == "hierarchical" || algo =="PCA"
-                #     println(t)
-                #     print_with_color(:white, "Reputation [" * algo * "]:\n")
-                #     display(reputation')
-                #     println("")
-                # end
 
                 if algo == "cokurtosis"
 
@@ -114,46 +109,6 @@ function simulate(sim::Simulation)
                         display(data[t][:aux])
                         println("")
                     end
-
-                elseif algo == "covariance"
-
-                    # Per-user covariance contribution
-                    data[t][:aux] = [
-                        :cov => JointMoments.collapse(
-                            data[t][:reports],
-                            reputation;
-                            order=2,
-                            axis=2,
-                            normalized=true,
-                            bias=0,
-                        )
-                    ]
-                    if sim.VERBOSE
-                        print_with_color(:white, "Collapsed [" * algo * "]:\n")
-                        display(data[t][:aux])
-                        println("")
-                    end
-
-                elseif algo == "virial"
-
-                    data[t][:aux] = [:virial => zeros(sim.REPORTERS)]
-                    for o = 2:2:sim.VIRIALMAX
-                        data[t][:aux][:virial] += JointMoments.collapse(
-                            data[t][:reports],
-                            reputation;
-                            order=o,
-                            axis=2,
-                            normalized=true,
-                            bias=0,
-                        ) / o
-                    end
-                    data[t][:aux][:virial] = JointMoments.normalize(data[t][:aux][:virial])
-                    if sim.VERBOSE
-                        print_with_color(:white, "Collapsed [" * algo * "]:\n")
-                        display(data[t][:aux])
-                        println("")
-                    end
-
                 end
 
                 # Use pyconsensus for event resolution
@@ -203,7 +158,9 @@ function simulate(sim::Simulation)
                         push!(raw_data[algo][m][t], metrics[symbol(m)])
                     end
                     push!(raw_data[algo]["components"][t], A[algo]["components"])
-                    # push!(raw_data[algo]["repcount"][t], metrics[:repcount])
+                    if sim.HISTOGRAM
+                        push!(raw_data[algo]["repcount"][t], metrics[:repcount])
+                    end
                 end
 
                 # Track the system's evolution

@@ -10,6 +10,7 @@ sim.REP_RAND = false
 sim.COLLUDE = 0.3
 sim.INDISCRIMINATE = true
 sim.SAVE_RAW_DATA = false
+sim.HISTOGRAM = false
 sim.ALGOS = ["hierarchical"]
 sim.METRICS = [
     "beats",

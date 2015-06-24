@@ -111,6 +111,7 @@ module Simulator
         INDISCRIMINATE::Bool
         VERBOSE::Bool
         CONSPIRACY::Bool
+        NUM_CONSPIRACIES::Int
         ALLWRONG::Bool
 
         # Maximum power included in "virial" algo multibody expansion
@@ -121,6 +122,9 @@ module Simulator
 
         # Save data at every timestep (uses lots of disk space)
         SAVE_RAW_DATA::Bool
+
+        # Calculate reputation histograms
+        HISTOGRAM::Bool
 
         # Number of components to include (e.g., big-five algorithm)
         MAX_COMPONENTS::Int
@@ -169,10 +173,12 @@ module Simulator
                     indiscriminate::Bool=true,
                     verbose::Bool=false,
                     conspiracy::Bool=false,
+                    num_conspiracies::Int=1,
                     allwrong::Bool=false,
                     virialmax::Int=8,
                     labelsort::Bool=false,
                     save_raw_data::Bool=false,
+                    histogram::Bool=false,
                     max_components::Int=5,
                     preset::Bool=false,
                     preset_data::Dict{Symbol,Any}=Dict{Symbol,Any}(),
@@ -226,10 +232,12 @@ module Simulator
                 indiscriminate,
                 verbose,
                 conspiracy,
+                num_conspiracies,
                 allwrong,
                 virialmax,
                 labelsort,
                 save_raw_data,
+                histogram,
                 max_components,
                 preset,
                 preset_data,

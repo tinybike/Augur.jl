@@ -16,8 +16,10 @@ sim.OVERLAP_DIST = Exponential()
 sim.CORRUPTION = 0.5
 sim.COLLUDE = 0.3
 sim.INDISCRIMINATE = true
-sim.LABELSORT = true
+sim.NUM_CONSPIRACIES = 2
+sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
+sim.HISTOGRAM = false
 sim.ALGOS = [
     "PCA",
     "clusterfeck",

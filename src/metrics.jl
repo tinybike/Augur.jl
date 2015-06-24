@@ -33,7 +33,9 @@ function compute_metrics(sim::Simulation,
     sensitivity = liars_punished / data[:num_liars]
 
     # Histogram reputation
-    # repcount = reputation_distribution(sim, updated_rep)
+    if sim.HISTOGRAM
+        repcount = reputation_distribution(sim, updated_rep)
+    end
 
     # Gini coefficient
     gini = sum([i*r for (i,r) in enumerate(sort(updated_rep))]) / sum(updated_rep)

@@ -23,7 +23,7 @@ end
 include("defaults_" * simtype * ".jl")
 
 sim.VERBOSE = false
-sim.COLLUDE = 0.25
+sim.COLLUDE = 0.5
 
 # Quick run-thru
 sim.EVENTS = 100
@@ -37,6 +37,9 @@ sim.TIMESTEPS = 125
 # sim.ITERMAX = 250
 # sim.TIMESTEPS = 200
 
+sim.INDISCRIMINATE = false
+sim.CONSPIRACY = true
+sim.NUM_CONSPIRACIES = 2
 sim.SCALARS = 0.0
 sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
@@ -49,13 +52,10 @@ sim.BRIDGE = false
 sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
-
 sim.MAX_COMPONENTS = 5
-sim.INDISCRIMINATE = false
-sim.CONSPIRACY = false
-
-sim.LABELSORT = true
+sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
+sim.HISTOGRAM = false
 sim.ALGOS = [
     "PCA",
     #"fixed-variance",

@@ -35,6 +35,7 @@ sim.ALPHA = 0.1
 sim.MAX_COMPONENTS = 5
 sim.CONSPIRACY = false
 sim.LABELSORT = true
+sim.HISTOGRAM = false
 
 sim.ALGOS = [
    "PCA",
