@@ -1,7 +1,7 @@
 using Simulator
 using DataFrames
 using Gadfly
-using Color
+# using Color
 
 # n = 12
 # distinguishable_colors(n, ColorValue[LCHab(0, 60, 240)],
@@ -135,7 +135,7 @@ function plot_dataframe(df::DataFrame, title::String)
     # pl_file = "plots/metrics_" * repr(now()) * ".svg"
     # Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
     pl_file = "plots/metrics_" * repr(now()) * ".png"
-    Gadfly.draw(PNG(pl_file, 12inch, 12inch), pl)
+    Gadfly.draw(PNG(pl_file, 9inch, 6inch), pl)
     print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
 end

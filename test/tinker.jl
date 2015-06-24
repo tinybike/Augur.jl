@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.1:0.05:0.9
+liar_thresholds = 0.1:0.0125:0.9
 param_range = 5:5:250
 
 sim = Simulation()
@@ -70,7 +70,6 @@ sim.ALGOS = [
 #   - graphical algorithm comparison
 if simtype == "liar"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
-    # plot_overlay(sim_data, :liar_rep)
     plot_simulations(sim_data)
 
 # Timing/complexity
