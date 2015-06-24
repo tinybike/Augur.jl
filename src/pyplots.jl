@@ -91,7 +91,8 @@ function plot_overlay(sim::Simulation,
                                 trajectories[i][algo][metric][:mean][1:time_max]*100,
                                 marker=mrkr[k],
                                 yerr=trajectories[i][algo][metric][:stderr][1:time_max]*100)
-                lgnd[k + (j-1)*3] = label * " (" * string(int(lt*100)) * "% liars)"
+                # lgnd[k + (j-1)*3] = label * " (" * string(int(lt*100)) * "% liars)"
+                lgnd[k + (j-1)*3] = label * " (" * string(int(lt*100)) * "% noise)"
                 hold("on");
                 k += 1
             end
@@ -99,10 +100,10 @@ function plot_overlay(sim::Simulation,
     end
     PyPlot.xlabel("time (number of consecutive reporting rounds elapsed)")
     PyPlot.ylabel(axis_labels[metric])
-    PyPlot.title("Conspiracy")
-    # PyPlot.title("Randomness")
+    # PyPlot.title("Conspiracy")
+    PyPlot.title("Randomness")
     PyPlot.grid()
-    PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.35, 0.55), ncol=1)
+    PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.375, 0.55), ncol=1)
     pl_file = "plots/overlay_" * string(metric) * "_" * repr(Dates.now()) * ".png"
     fig[:canvas][:draw]()
     PyPlot.savefig(pl_file)

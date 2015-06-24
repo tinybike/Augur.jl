@@ -3,12 +3,12 @@ using DataFrames
 using Gadfly
 using Color
 
-n = 12
-distinguishable_colors(n, ColorValue[LCHab(0, 60, 240)],
-                       transform=c->deuteranopic(c, 0.5),
-                       lchoices=Float64[30, 70, 75, 80],
-                       cchoices=Float64[0, 50, 60, 70],
-                       hchoices=linspace(0, 330, 24))
+# n = 12
+# distinguishable_colors(n, ColorValue[LCHab(0, 60, 240)],
+#                        transform=c->deuteranopic(c, 0.5),
+#                        lchoices=Float64[30, 70, 75, 80],
+#                        cchoices=Float64[0, 50, 60, 70],
+#                        hchoices=linspace(0, 330, 24))
 
 axis_labels = (Symbol => String)[
     :MCC => "Matthews correlation coefficient",
@@ -47,11 +47,19 @@ function build_dataframe(sim_data::Dict{String,Any})
                 sim_data[algo][m][:,1] + sim_data[algo][m_std][:,1],
             ]
         end
+        if algo == "PCA"
+            label = "Truthcoin"
+        elseif algo == "hierarchical"
+            label = "hierarchical clustering"
+        elseif algo == "clusterfeck"
+            label = "Augur"
+        end
+        # repmat(fill!(Array(String, gridrows),
+        #              string(uppercase(algo[1]), algo[2:end])),
+        #        num_metrics, 1)[:],
         algos = [
             algos,
-            repmat(fill!(Array(String, gridrows),
-                         string(uppercase(algo[1]), algo[2:end])),
-                   num_metrics, 1)[:],
+            repmat(fill!(Array(String, gridrows), label), num_metrics, 1)[:],
         ]
     end
     DataFrame(
@@ -111,7 +119,8 @@ function plot_dataframe(df::DataFrame, title::String)
         ymax=:error_plus,
         ygroup=:metric,
         color=:algorithm,
-        Guide.XLabel("% liars"),
+        # Guide.XLabel("% liars"),
+        Guide.XLabel("% noise"),
         Guide.YLabel(""),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
@@ -123,8 +132,10 @@ function plot_dataframe(df::DataFrame, title::String)
             free_y_axis=true,
         ),
     )
-    pl_file = "plots/metrics_" * repr(now()) * ".svg"
-    Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
+    # pl_file = "plots/metrics_" * repr(now()) * ".svg"
+    # Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
+    pl_file = "plots/metrics_" * repr(now()) * ".png"
+    Gadfly.draw(PNG(pl_file, 12inch, 12inch), pl)
     print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
 end
@@ -293,11 +304,11 @@ function plot_trajectories(sim::Simulation,
                     fill!(Array(String, sim.TIMESTEPS), string(round(lt*100)) * "%")[:],
                 ]
                 if algo == "PCA"
-                    label = "truthcoin"
+                    label = "Truthcoin"
                 elseif algo == "hierarchical"
                     label = "hierarchical clustering"
                 elseif algo == "clusterfeck"
-                    label = "augur"
+                    label = "Augur"
                 end
                 algorithms = [
                     algorithms,
