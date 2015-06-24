@@ -1,6 +1,14 @@
 using Simulator
 using DataFrames
 using Gadfly
+using Color
+
+n = 12
+distinguishable_colors(n, ColorValue[LCHab(0, 60, 240)],
+                       transform=c->deuteranopic(c, 0.5),
+                       lchoices=Float64[30, 70, 75, 80],
+                       cchoices=Float64[0, 50, 60, 70],
+                       hchoices=linspace(0, 330, 24))
 
 axis_labels = (Symbol => String)[
     :MCC => "Matthews correlation coefficient",
@@ -262,6 +270,9 @@ function plot_trajectories(sim::Simulation,
     for algo in sim.ALGOS
         for (i, lt) in enumerate(liar_thresholds)
             for tr in sim.TRACK
+                if tr == :MCC
+                    continue
+                end
                 data = [data, trajectories[i][algo][tr][:mean]]
                 # metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
                 metrics = [

@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.35:0.1:0.85
+liar_thresholds = 0.1:0.05:0.9
 param_range = 5:5:250
 
 sim = Simulation()
@@ -38,7 +38,7 @@ sim.TIMESTEPS = 100
 # sim.TIMESTEPS = 125
 
 sim.INDISCRIMINATE = false
-sim.CONSPIRACY = true
+sim.CONSPIRACY = false
 sim.NUM_CONSPIRACIES = 5
 sim.SCALARS = 0.0
 sim.REP_RAND = true
@@ -61,7 +61,7 @@ sim.ALGOS = [
     #"fixed-variance",
     #"big-five",
     # "k-means",
-    "hierarchical",
+    # "hierarchical",
     "clusterfeck",
 ]
 
@@ -70,7 +70,7 @@ sim.ALGOS = [
 #   - graphical algorithm comparison
 if simtype == "liar"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
-    # plot_reptrack(sim_data)
+    # plot_overlay(sim_data, :liar_rep)
     plot_simulations(sim_data)
 
 # Timing/complexity

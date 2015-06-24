@@ -2,7 +2,8 @@ using Simulator
 using DataFrames
 using Dates
 
-EXAMPLE = "data/sim_2015-06-24T00:24:44.jld"
+# EXAMPLE = "data/sim_2015-06-24T02:45:10.jld"
+EXAMPLE = "data/sim_2015-06-24T05:50:19.jld"
 
 function load_and_plot_data(datafile::String; simtype::String="liar")
     println("Loading $datafile...")
@@ -11,8 +12,6 @@ end
 
 if length(ARGS) > 0 && ARGS[1] == "cplx"
     datafile = "data/time_both_2015-03-15T05:31:06.jld"
-    # datafile = "data/time_events_2015-03-15T05:30:52.jld"
-    # datafile = "data/time_reporters_2015-03-15T05:30:18.jld"
     (time_elapsed, sim, parameter, iterations, param_range, timestamp) = load_time_elapsed(datafile)
     timestamp = repr(now())
     df = DataFrame(
@@ -24,5 +23,10 @@ if length(ARGS) > 0 && ARGS[1] == "cplx"
     plot_time_elapsed(df, timestamp, parameter, infostring(sim, iterations))
 else
     datafile = (isinteractive() || length(ARGS) == 0) ? EXAMPLE : ARGS[1]
-    load_and_plot_data("$datafile")
+    load_and_plot_data(datafile)
+    sim_data = load_data(datafile)
+    sim = pop!(sim_data, "sim")
+    trajectories = pop!(sim_data, "trajectories")
+    liar_thresholds = pop!(sim_data, "liar_threshold")
+    plot_overlay(sim, trajectories, liar_thresholds, :liar_rep)
 end

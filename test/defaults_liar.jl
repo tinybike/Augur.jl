@@ -28,13 +28,13 @@ sim.METRICS = [
     # "beats",
     # "liars_bonus",
     "correct",
-    "MCC",
+    # "MCC",
     # "true_rep",
     "liar_rep",
     # "spearman",
 ]
 sim.TRACK = [
-    :MCC,
+    # :MCC,
     :correct,
     # :beats,
     # :liars_bonus,

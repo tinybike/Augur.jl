@@ -18,6 +18,7 @@ module Simulator
         simulate,
         run_simulations,
         plot_simulations,
+        plot_overlay,
         build_title,
         plot_trajectories,
         load_data,
@@ -255,7 +256,7 @@ module Simulator
     include("makedata.jl")
     include("metrics.jl")
     include("plots.jl")
-    # include("reptrack.jl")
+    # include("pyplots.jl")
     include("files.jl")
 
 end # module
