@@ -97,16 +97,20 @@ function plot_overlay(sim::Simulation,
             end
         end
     end
-    PyPlot.xlabel("time (number of consecutive reporting rounds)")
+    PyPlot.xlabel("time (number of consecutive reporting rounds elapsed)")
     PyPlot.ylabel(axis_labels[metric])
+    PyPlot.title("Conspiracy")
+    # PyPlot.title("Randomness")
     PyPlot.grid()
     PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.35, 0.55), ncol=1)
-    pl_file = "plots/overlay_liars_rep_" * repr(Dates.now()) * ".png"
+    pl_file = "plots/overlay_" * string(metric) * "_" * repr(Dates.now()) * ".png"
     fig[:canvas][:draw]()
     PyPlot.savefig(pl_file)
     print_with_color(:white, "  overlay: ")
     print_with_color(:cyan, "$pl_file\n")
 end
 
-plot_overlay(sim, trajectories, liar_thresholds, :liar_rep)
-plot_overlay(sim, trajectories, liar_thresholds, :correct)
+if isdefined(:sim) && isdefined(:trajectories) && isdefined(:liar_thresholds)
+    plot_overlay(sim, trajectories, liar_thresholds, :liar_rep)
+    plot_overlay(sim, trajectories, liar_thresholds, :correct)
+end
