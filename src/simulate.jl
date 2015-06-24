@@ -43,9 +43,7 @@ function simulate(sim::Simulation)
         end
     end
 
-    if ~sim.PRESET
-        reporters = create_reporters(sim)
-    end
+    reporters = create_reporters(sim)
 
     while i <= sim.ITERMAX
 
@@ -53,11 +51,9 @@ function simulate(sim::Simulation)
         init_rep = init_reputation(sim)
 
         # Create datasets (identical for each algorithm)
-        if ~sim.PRESET
-            data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
-            for t = 1:sim.TIMESTEPS
-                data[t] = generate_data(sim, reporters)
-            end
+        data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
+        for t = 1:sim.TIMESTEPS
+            data[t] = generate_data(sim, reporters)
         end
 
         for algo in sim.ALGOS

@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.3:0.1:0.9
+liar_thresholds = 0.35:0.1:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -35,11 +35,11 @@ sim.TIMESTEPS = 125
 # sim.EVENTS = 250
 # sim.REPORTERS = 500
 # sim.ITERMAX = 250
-# sim.TIMESTEPS = 200
+# sim.TIMESTEPS = 125
 
 sim.INDISCRIMINATE = false
 sim.CONSPIRACY = true
-sim.NUM_CONSPIRACIES = 2
+sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
 sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)

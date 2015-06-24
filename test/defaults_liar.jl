@@ -22,10 +22,7 @@ sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
     "PCA",
-    "clusterfeck",
-    "k-means",
     "hierarchical",
-    "fixed-variance",
 ]
 sim.METRICS = [
     "beats",

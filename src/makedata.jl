@@ -179,12 +179,10 @@ function generate_reports(sim::Simulation, data::Dict{Symbol,Any})
             diceroll = first(rand(1))
             if diceroll < sim.COLLUDE
                 if sim.NUM_CONSPIRACIES > 1
-                    diceroll2 = first(rand(1))
-                    if diceroll2 > 0.5
-                        data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
-                    else
-                        data[:reports][data[:liars][i],:] = data[:reports][data[:liars][2],:]
-                    end
+                    bins = reverse([1:sim.NUM_CONSPIRACIES+1] / (sim.NUM_CONSPIRACIES+1))
+                    bin = find(first(rand(1)) .> bins[2:end])
+                    conspiracy_index = (any(bin) != false) ? first(bin) : sim.NUM_CONSPIRACIES
+                    data[:reports][data[:liars][i],:] = data[:reports][data[:liars][conspiracy_index],:]
                 else
                     data[:reports][data[:liars][i],:] = data[:reports][data[:liars][1],:]
                 end

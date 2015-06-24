@@ -204,13 +204,19 @@ function build_title(sim::Simulation)
     optstr = ""
     flags = (:REP_RAND,
              :DISTORTER,
-             :CONSPIRACY,
              :ALLWRONG,
              :INDISCRIMINATE,
              :BRIDGE,
              :SCALARS)
     for flag in flags
         optstr *= (sim.(flag) > 0) ? " " * string(flag) : ""
+    end
+    if sim.CONSPIRACY 
+        if sim.NUM_CONSPIRACIES > 1
+            optstr *= " CONSPIRACIES [" * string(sim.NUM_CONSPIRACIES) * "]"
+        else
+            optstr *= " CONSPIRACY"
+        end
     end
     string(
         sim.REPORTERS,
