@@ -58,11 +58,11 @@ sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
     "PCA",
-    #"fixed-variance",
-    #"big-five",
-    # "k-means",
     "hierarchical",
+    "fixed-variance",
     "clusterfeck",
+    "k-means",
+    "big-five",
 ]
 
 # Run simulations and save results:

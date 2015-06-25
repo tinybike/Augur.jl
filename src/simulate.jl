@@ -86,27 +86,6 @@ function simulate(sim::Simulation)
                     println("")
                 end
 
-                if algo == "cokurtosis"
-
-                    # Per-user cokurtosis contribution
-                    data[t][:aux] = [
-                        :cokurt => JointMoments.collapse(
-                            data[t][:reports],
-                            reputation;
-                            order=4,
-                            standardize=false,
-                            axis=2,
-                            normalized=true,
-                            bias=0,
-                        )
-                    ]
-                    if sim.VERBOSE
-                        print_with_color(:white, "Collapsed [" * algo * "]:\n")
-                        display(data[t][:aux])
-                        println("")
-                    end
-                end
-
                 # Use pyconsensus for event resolution
                 A[algo] = pyconsensus.Oracle(
                     reports=data[t][:reports],

@@ -16,29 +16,44 @@ sim.OVERLAP_DIST = Exponential()
 sim.CORRUPTION = 0.5
 sim.COLLUDE = 0.3
 sim.INDISCRIMINATE = true
-sim.NUM_CONSPIRACIES = 2
+sim.NUM_CONSPIRACIES = 4
 sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
     "PCA",
     "hierarchical",
+    "fixed-variance",
+    "clusterfeck",
+    "k-means",
+    "big-five",
 ]
 sim.METRICS = [
-    # "beats",
-    # "liars_bonus",
+    "beats",
+    "liars_bonus",
     "correct",
-    # "MCC",
-    # "true_rep",
+    "MCC",
+    "true_rep",
     "liar_rep",
-    # "spearman",
+    "spearman",
+    "gini",
+    "gap",
+    "sensitivity",
+    "precision",
+    "fallout",
 ]
 sim.TRACK = [
-    # :MCC,
-    :correct,
-    # :beats,
-    # :liars_bonus,
-    :liar_rep,
-    # :spearman,
+    "beats",
+    "liars_bonus",
+    "correct",
+    "MCC",
+    "true_rep",
+    "liar_rep",
+    "spearman",
+    "gini",
+    "gap",
+    "sensitivity",
+    "precision",
+    "fallout",
 ]
 sim.STATISTICS = ["mean", "stderr"]
