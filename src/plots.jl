@@ -1,14 +1,6 @@
 using Simulator
 using DataFrames
 using Gadfly
-# using Color
-
-# n = 12
-# distinguishable_colors(n, ColorValue[LCHab(0, 60, 240)],
-#                        transform=c->deuteranopic(c, 0.5),
-#                        lchoices=Float64[30, 70, 75, 80],
-#                        cchoices=Float64[0, 50, 60, 70],
-#                        hchoices=linspace(0, 330, 24))
 
 axis_labels = (Symbol => String)[
     :MCC => "Matthews correlation coefficient",
@@ -47,19 +39,12 @@ function build_dataframe(sim_data::Dict{String,Any})
                 sim_data[algo][m][:,1] + sim_data[algo][m_std][:,1],
             ]
         end
-        if algo == "PCA"
-            label = "Truthcoin"
-        elseif algo == "hierarchical"
-            label = "hierarchical clustering"
-        elseif algo == "clusterfeck"
-            label = "Augur"
-        end
-        # repmat(fill!(Array(String, gridrows),
-        #              string(uppercase(algo[1]), algo[2:end])),
-        #        num_metrics, 1)[:],
         algos = [
             algos,
-            repmat(fill!(Array(String, gridrows), label), num_metrics, 1)[:],
+            # repmat(fill!(Array(String, gridrows), label), num_metrics, 1)[:],
+            repmat(fill!(Array(String, gridrows),
+                   string(uppercase(algo[1]), algo[2:end])),
+                   num_metrics, 1)[:],
         ]
     end
     DataFrame(
@@ -132,10 +117,10 @@ function plot_dataframe(df::DataFrame, title::String)
             free_y_axis=true,
         ),
     )
-    # pl_file = "plots/metrics_" * repr(now()) * ".svg"
-    # Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
-    pl_file = "plots/metrics_" * repr(now()) * ".png"
-    Gadfly.draw(PNG(pl_file, 9inch, 6inch), pl)
+    pl_file = "plots/metrics_" * repr(now()) * ".svg"
+    Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
+    # pl_file = "plots/metrics_" * repr(now()) * ".png"
+    # Gadfly.draw(PNG(pl_file, 9inch, 6inch), pl)
     print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
 end
@@ -281,9 +266,6 @@ function plot_trajectories(sim::Simulation,
     for algo in sim.ALGOS
         for (i, lt) in enumerate(liar_thresholds)
             for tr in sim.TRACK
-                if tr == :MCC
-                    continue
-                end
                 data = [data, trajectories[i][algo][tr][:mean]]
                 # metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
                 metrics = [
@@ -415,8 +397,7 @@ function plot_simulations(sim_data::Dict{String,Any})
 
     trajectories = pop!(sim_data, "trajectories")
 
-    # title = build_title(sim_data["sim"])
-    title = ""
+    title = build_title(sim_data["sim"])
 
     # Stacked plots with all metrics
     plot_dataframe(build_dataframe(sim_data), title)
@@ -443,7 +424,7 @@ function plot_simulations(sim_data::Dict{String,Any})
     # Separate algos/tracking metrics
     for algo in sim.ALGOS
         for tr in sim.TRACK
-            # title = build_title(sim, algo)
+            title = build_title(sim, algo)
             plot_trajectories(sim,
                               trajectories,
                               sim_data["liar_threshold"],

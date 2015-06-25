@@ -2,8 +2,8 @@ using Simulator
 using DataFrames
 using Dates
 
-EXAMPLE = "data/sim_2015-06-24T02:45:10.jld" # conspiracy
-# EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # randomness
+# EXAMPLE = "data/sim_2015-06-24T02:45:10.jld" # conspiracy
+EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # randomness
 # EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # parameter sampling
 
 function load_and_plot_data(datafile::String; simtype::String="liar")
@@ -24,7 +24,7 @@ if length(ARGS) > 0 && ARGS[1] == "cplx"
     plot_time_elapsed(df, timestamp, parameter, infostring(sim, iterations))
 else
     datafile = (isinteractive() || length(ARGS) == 0) ? EXAMPLE : ARGS[1]
-    # load_and_plot_data(datafile)
+    load_and_plot_data(datafile)
     sim_data = load_data(datafile)
     sim = pop!(sim_data, "sim")
     trajectories = pop!(sim_data, "trajectories")

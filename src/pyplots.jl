@@ -83,8 +83,8 @@ function plot_overlay(sim::Simulation,
     lgnd = ["", "", "", "", "", ""]
     mrkr = ["+", ".", "d", "+", ".", "d"]
     for (j, algo) in enumerate(("clusterfeck", "PCA"))
-        # label = (algo == "clusterfeck") ? "Augur" : "Truthcoin"
-        label = (algo == "clusterfeck") ? "Clustering" : "Truthcoin"
+        label = (algo == "clusterfeck") ? "Augur" : "Truthcoin"
+        # label = (algo == "clusterfeck") ? "Clustering" : "Truthcoin"
         k = 1
         for (i, lt) in enumerate(liar_thresholds)
             if lt == 0.55 || lt == 0.65 || lt == 0.85
@@ -101,7 +101,7 @@ function plot_overlay(sim::Simulation,
     end
     PyPlot.xlabel("time (number of consecutive reporting rounds elapsed)")
     PyPlot.ylabel(axis_labels[metric])
-    PyPlot.title("Conspiracy")
+    # PyPlot.title("Conspiracy")
     # PyPlot.title("Randomness")
     PyPlot.grid()
     PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.375, 0.55), ncol=1)
