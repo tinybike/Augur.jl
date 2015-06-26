@@ -1,3 +1,5 @@
+using DataFrames
+
 function infostring(sim::Simulation, iterations::Int)
     string(
         first(sim.ALGOS),

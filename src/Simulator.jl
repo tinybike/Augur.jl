@@ -3,11 +3,6 @@ module Simulator
     using Dates
     using Distributions
     using PyCall
-    using JointMoments
-    using DataFrames
-    using Gadfly
-    # using PyPlot
-    using QuantEcon: meshgrid
     using HDF5, JLD
 
     export
@@ -154,6 +149,8 @@ module Simulator
         # Tracking statistics for time series analysis
         TRACK::Vector{Symbol}
 
+        AXIS_LABELS::Dict{Symbol,String}
+
         Simulation(;testing::Bool=false,
                     test_reporters::Vector{ASCIIString}=(ASCIIString)[],
                     test_init_rep::Vector{Float64}=(Float64)[],
@@ -258,11 +255,28 @@ module Simulator
                 algos,
                 metrics,
                 statistics,
-                track)
+                track,
+                (Symbol => String)[
+                    :MCC => "Matthews correlation coefficient",
+                    :correct => "% answers determined correctly",
+                    :beats => "beats",
+                    :liars_bonus => "liars' bonus",
+                    :spearman => "Spearman's rho",
+                    :liar_rep => "% Reputation held by liars",
+                    :true_rep => "% Reputation held by honest reporters",
+                    :gini => "Gini coefficient",
+                    :gap => "% Reputation gap",
+                    :sensitivity => "sensitivity (true positive rate)",
+                    :precision => "precision",
+                    :fallout => "fall-out (false positive rate)",
+                ])
     end
 
     Track = Dict{Symbol,Dict{Symbol,Vector{Float64}}}
     Trajectory = Dict{String,Track}
+
+    normalize{T<:Real}(v::Vector{T}) = vec(v) / sum(v)
+    normalize{T<:Real}(v::Matrix{T}) = normalize(vec(v))
 
     include("simulate.jl")
     include("complexity.jl")

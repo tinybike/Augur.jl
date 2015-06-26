@@ -192,7 +192,7 @@ function simulate(sim::Simulation)
         for t = 1:sim.TIMESTEPS
             data[t] = generate_data(sim, reporters)
         end
-        # print_with_color(:white, "Reports (iteration " * string(i) * ":\n")
+        # print_with_color(:white, "Data (iteration " * string(i) * ":\n")
         # display(data)
         # println("")
 
