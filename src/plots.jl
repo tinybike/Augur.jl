@@ -10,6 +10,11 @@ axis_labels = (Symbol => String)[
     :spearman => "Spearman's rho",
     :liar_rep => "% Reputation held by liars",
     :true_rep => "% Reputation held by honest reporters",
+    :gini => "Gini coefficient",
+    :gap => "% Reputation gap",
+    :sensitivity => "Sensitivity",
+    :precision => "Precision",
+    :fallout => "Fallout",
 ]
 
 # Build plotting dataframe
@@ -328,7 +333,7 @@ function plot_trajectories(sim::Simulation,
         ),
     )
     pl_file = string("plots/trajectory_", repr(now()), ".svg")
-    Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
+    Gadfly.draw(SVG(pl_file, 12inch, 16inch), pl)
     print_with_color(:white, "  stacked time series: ")
     print_with_color(:cyan, "$pl_file\n")
 end

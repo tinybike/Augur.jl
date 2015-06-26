@@ -34,7 +34,16 @@ module Simulator
         reputation_distribution,
         create_reporters,
         init_reputation,
-        compute_metrics
+        compute_metrics,
+        reptrack_sums,
+        init_raw_data,
+        process_raw_data,
+        calculate_trajectories,
+        save_raw_data,
+        print_oracle_output,
+        print_repbox,
+        init_repbox,
+        init_tracking
 
     type Simulation
 
@@ -132,6 +141,8 @@ module Simulator
 
         # Preset (instead of randomized) data
         PRESET::Bool
+
+        SURFACE::Bool
         PRESET_DATA::Dict{Symbol,Any}
 
         # Event resolution algorithms to test, metrics used to evaluate them,
@@ -182,6 +193,7 @@ module Simulator
                     histogram::Bool=false,
                     max_components::Int=5,
                     preset::Bool=false,
+                    surface::Bool=false,
                     preset_data::Dict{Symbol,Any}=Dict{Symbol,Any}(),
                     algos::Vector{ASCIIString}=["sztorc",
                                                 "fixed-variance",
@@ -241,6 +253,7 @@ module Simulator
                 histogram,
                 max_components,
                 preset,
+                surface,
                 preset_data,
                 algos,
                 metrics,

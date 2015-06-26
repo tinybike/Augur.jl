@@ -8,18 +8,10 @@ Monte Carlo simulations, statistics and plotting tools for [Augur](http://www.au
 
 ### Usage
 
-    julia> using Simulator
-
-    julia> percent_liars = 0.1:0.1:0.9
-
-    julia> simulation_results = run_simulations(percent_liars)
-
-    julia> plot_simulations(simulation_results)
-
 The simulations are parallelized.  To run using all available cores:
 
     $ cd test
-    $ julia -p `nproc` tinker.jl
+    $ julia -p `nproc` test/tinker.jl
 
 ### NYI
 
