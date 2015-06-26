@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.5:0.1:0.8
+liar_thresholds = 0.1:0.05:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -26,26 +26,26 @@ sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
 # Quick run-thru
-sim.EVENTS = 50
-sim.REPORTERS = 100
-sim.ITERMAX = 50
-sim.TIMESTEPS = 100
+# sim.EVENTS = 50
+# sim.REPORTERS = 100
+# sim.ITERMAX = 50
+# sim.TIMESTEPS = 100
 
 # Full(er) run
-# sim.EVENTS = 250
-# sim.REPORTERS = 500
-# sim.ITERMAX = 250
-# sim.TIMESTEPS = 125
+sim.EVENTS = 100
+sim.REPORTERS = 250
+sim.ITERMAX = 100
+sim.TIMESTEPS = 125
 
 sim.INDISCRIMINATE = false
-sim.CONSPIRACY = false
-sim.NUM_CONSPIRACIES = 5
+sim.CONSPIRACY = true
+sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
 sim.REP_RAND = true
-sim.REP_DIST = Pareto(3.0)
+sim.REP_DIST = Pareto(2.0)
 
 # "Preferential attachment" market size distribution
-sim.MARKET_DIST = Pareto(3.0)
+sim.MARKET_DIST = Pareto(2.0)
 
 sim.ALPHA = 0.1
 sim.BRIDGE = false
