@@ -129,8 +129,8 @@ function test_track_evolution(sim::Simulation)
                                   results["events"]["outcomes_final"],
                                   sim.TEST_INIT_REP,
                                   updated_rep)::Dict{Symbol,Float64}
-        track = track_evolution(sim, metrics, track[algo],
-                                t, i)::Dict{Symbol,Matrix{Float64}}
+        track[algo] = track_evolution(sim, metrics, track[algo],
+                                      t, i)::Dict{Symbol,Matrix{Float64}}
         println(algo)
         display(track)
         println("")

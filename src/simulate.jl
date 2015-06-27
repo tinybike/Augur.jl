@@ -270,8 +270,8 @@ function simulate(sim::Simulation)
                 end
 
                 # Track the system's evolution
-                track = track_evolution(sim, metrics, track[algo],
-                                        t, i)::Dict{Symbol,Matrix{Float64}}
+                track[algo] = track_evolution(sim, metrics, track[algo],
+                                              t, i)::Dict{Symbol,Matrix{Float64}}
             end
         end
 
