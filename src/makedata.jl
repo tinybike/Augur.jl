@@ -257,6 +257,9 @@ function generate_data(sim::Simulation, data::Dict{Symbol,Any})
     generate_reports(sim, generate_answers(sim, data))
 end
 
+normalize{T<:Real}(v::Vector{T}) = vec(v) / sum(v)
+normalize{T<:Real}(v::Matrix{T}) = normalize(vec(v))
+
 init_reputation(sim::Simulation) = normalize(
     (sim.REP_RAND) ? rand(sim.REP_DIST, sim.REPORTERS) : ones(sim.REPORTERS)
 )

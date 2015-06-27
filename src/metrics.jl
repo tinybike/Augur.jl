@@ -45,10 +45,6 @@ function compute_metrics(sim::Simulation,
     true_rep = sum(updated_rep[data[:trues]])
     liar_rep = sum(updated_rep[data[:liars]])
 
-    # were you punished according to the number you got wrong?
-    # regress data[:num_answers_correct] onto this_rep
-    # yint, slope = linreg(data[:num_answers_correct], data[algo]["agents"]["this_rep"])
-
     metrics = (Symbol => Float64)[
         # Spearman's rank correlation coefficient
         :spearman => corspearman(data[:num_answers_correct], updated_rep), 

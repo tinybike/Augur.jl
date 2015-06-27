@@ -103,8 +103,10 @@ function save_timestep_data(sim::Simulation,
     return raw_data
 end
 
-function print_oracle_output(A, metrics, algo, t)
+function print_oracle_output(A, reputation, metrics, algo, t)
     print_with_color(:white, "Oracle output [" * algo * "]:\n")
+    display(A["original"])
+    println("")
     display(A[algo])
     println("")
     display(A[algo]["agents"])
@@ -188,10 +190,9 @@ function init_raw_data(sim::Simulation)
 end
 
 function simulate(sim::Simulation)
-    iterate = (Int64)[]
     i = 1
     raw_data = init_raw_data(sim)::Dict{String,Any}
-    (A, track) = init_tracking(sim)
+    (A, track) = init_tracking(sim)::Tuple
     reptrack = Dict{String,Dict{String,Matrix{Float64}}}()
 
     # Reputation time series (repbox):
@@ -203,7 +204,7 @@ function simulate(sim::Simulation)
 
     reporters = create_reporters(sim)::Dict{Symbol,Any}
 
-    while i <= sim.ITERMAX
+    for i = 1:sim.ITERMAX
 
         # Initialize reporters and reputation
         init_rep = init_reputation(sim)
@@ -254,7 +255,7 @@ function simulate(sim::Simulation)
                 )::Dict{Symbol,Float64}
 
                 if sim.VERBOSE || any(isnan(updated_rep))
-                    print_oracle_output(A, metrics, algo, t)
+                    print_oracle_output(A, reputation, metrics, algo, t)
                 end
 
                 if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
@@ -266,9 +267,6 @@ function simulate(sim::Simulation)
                 track[algo] = track_evolution(sim, metrics, track[algo], t, i)
             end
         end
-
-        push!(iterate, i)
-        i += 1
     end
 
     if sim.SAVE_RAW_DATA
@@ -281,7 +279,8 @@ function simulate(sim::Simulation)
         reptrack = reptrack_sums(sim, repbox)::Dict{String,Dict{String,Matrix{Float64}}}
     end
 
-    process_raw_data(sim, raw_data, reptrack, iterate, trajectory)::Dict{String,Any}
+    process_raw_data(sim, raw_data, reptrack,
+                     [1:sim.ITERMAX], trajectory)::Dict{String,Any}
 end
 
 function exclude(sim::Simulation, excluded::Tuple)
@@ -303,13 +302,13 @@ function preprocess(sim::Simulation)
 end
 
 function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
-    print_with_color(:red, "Simulating:\n")
+    sim.TESTING || print_with_color(:red, "Simulating:\n")
     sim = preprocess(sim)
 
     # Run parallel simulations
     if parallel && nprocs() > 1
         raw::Array{Dict{String,Any},1} = @sync @parallel (vcat) for lt in ltr
-            println(lt)
+            sim.TESTING || println(lt)
             sim.LIAR_THRESHOLD = lt
             simulate(sim)
         end
@@ -318,7 +317,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     else
         raw = Dict{String,Any}[]
         for (i, lt) in enumerate(ltr)
-            print_with_color(:yellow, "Liar threshold: " * repr(lt) * "\n")
+            sim.TESTING || print_with_color(:yellow, "Liar threshold: " * repr(lt) * "\n")
             sim.LIAR_THRESHOLD = lt
             raw = vcat(raw, simulate(sim))
         end
@@ -338,7 +337,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     end
 
     # Sort results using liar_threshold values
-    if sim.VERBOSE
+    if sim.SURFACE
         results["reptracks"] = Array(Dict{String,Dict{String,Matrix{Float64}}}, gridrows)
     end
     results["trajectories"] = Array(Trajectory, gridrows)
@@ -364,7 +363,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
             end
         end
     end
-    save_data(sim, results, ltr)
+    sim.TESTING || save_data(sim, results, ltr)
 end
 
 function run_simulations(ltr::Range;

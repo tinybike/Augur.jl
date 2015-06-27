@@ -40,7 +40,8 @@ module Simulator
         init_repbox,
         init_tracking,
         save_timestep_data,
-        track_evolution
+        track_evolution,
+        normalize
 
     type Simulation
 
@@ -277,9 +278,6 @@ module Simulator
 
     Track = Dict{Symbol,Dict{Symbol,Vector{Float64}}}
     Trajectory = Dict{String,Track}
-
-    normalize{T<:Real}(v::Vector{T}) = vec(v) / sum(v)
-    normalize{T<:Real}(v::Matrix{T}) = normalize(vec(v))
 
     include("simulate.jl")
     include("complexity.jl")
