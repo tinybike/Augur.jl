@@ -79,7 +79,50 @@ end
 
 function test_calculate_trajectories(sim::Simulation)
     println("  - calculate_trajectories")
-    calculate_trajectories(sim)
+    sim.TIMESTEPS = 2
+    sim.ITERMAX = 2
+    expected_trajectory = [
+        "PCA" => [
+            :liars_bonus => [-0.06942541767660715, -0.06942541767660715],
+            :liar_rep => [0.6435248607744642, 0.6435248607744642],
+        ],
+        "hierarchical" => [
+            :liars_bonus => [-0.050000000000000044, -0.050000000000000044],
+            :liar_rep => [0.6499999999999999, 0.6499999999999999],
+        ],
+    ]
+    data = setup(sim)::Dict{Symbol,Any}
+    (A, track) = init_tracking(sim)
+    raw_data = init_raw_data(sim)::Dict{String,Any}
+    for i = 1:sim.ITERMAX
+        for algo in sim.ALGOS
+            for t = 1:sim.TIMESTEPS
+                results = pyconsensus.Oracle(
+                    reports=sim.TEST_REPORTS,
+                    reputation=sim.TEST_INIT_REP,
+                    alpha=sim.ALPHA,
+                    variance_threshold=sim.VARIANCE_THRESHOLD,
+                    max_components=sim.MAX_COMPONENTS,
+                    algorithm=algo,
+                )[:consensus]()
+                updated_rep = convert(Vector{Float64},
+                                      results["agents"]["reporter_bonus"])
+                metrics = compute_metrics(sim,
+                                          data,
+                                          results["events"]["outcomes_final"],
+                                          sim.TEST_INIT_REP,
+                                          updated_rep)::Dict{Symbol,Float64}
+                track[algo] = track_evolution(sim, metrics, track[algo], t, i)
+            end
+        end
+    end
+    trajectory = calculate_trajectories(sim, track)
+    for algo in sim.ALGOS
+        @test trajectory[algo][:liars_bonus][:mean][1] == expected_trajectory[algo][:liars_bonus][1]
+        @test trajectory[algo][:liars_bonus][:mean][2] == expected_trajectory[algo][:liars_bonus][2]
+        @test trajectory[algo][:liar_rep][:mean][1] == expected_trajectory[algo][:liar_rep][1]
+        @test trajectory[algo][:liar_rep][:mean][2] == expected_trajectory[algo][:liar_rep][2]
+    end
 end
 
 function test_save_raw_data(sim::Simulation)
@@ -107,9 +150,27 @@ function test_init_raw_data(sim::Simulation)
 end
 
 function test_track_evolution(sim::Simulation)
+    println("  - track_evolution")
     data = setup(sim)::Dict{Symbol,Any}
     (A, track) = init_tracking(sim)
-    display(track)
+    expected_track = [
+        "PCA" => [
+            :MCC         => [0.0],
+            :beats       => [0.0],
+            :correct     => [0.5],
+            :liars_bonus => [-0.06942541767660715],
+            :liar_rep    => [0.6435248607744642],
+            :spearman    => [1.0],
+        ],
+        "hierarchical" => [
+            :MCC         => [0.0],
+            :beats       => [0.5],
+            :correct     => [0.5],
+            :liars_bonus => [-0.050000000000000044],
+            :liar_rep    => [0.6499999999999999],
+            :spearman    => [0.0],
+        ],
+    ]
     t = 1
     i = 1
     for algo in sim.ALGOS
@@ -129,15 +190,15 @@ function test_track_evolution(sim::Simulation)
                                   results["events"]["outcomes_final"],
                                   sim.TEST_INIT_REP,
                                   updated_rep)::Dict{Symbol,Float64}
-        track[algo] = track_evolution(sim, metrics, track[algo],
-                                      t, i)::Dict{Symbol,Matrix{Float64}}
-        println(algo)
-        display(track)
-        println("")
+        track[algo] = track_evolution(sim, metrics, track[algo], t, i)
+        for tr in sim.TRACK
+            @test track[algo][tr][t,i] == expected_track[algo][tr][t,i]
+        end
     end
 end
 
 function test_save_timestep_data(sim::Simulation)
+    println("  - save_timestep_data")
     data = setup(sim)::Dict{Symbol,Any}
     expected_raw_data = (String => Dict{String,Dict{Int,Vector{Float64}}})[
         "PCA" => (String => Dict{Int,Vector{Float64}})[
@@ -149,11 +210,11 @@ function test_save_timestep_data(sim::Simulation)
             "MCC"         => [1=>[0.0]],
         ],
         "hierarchical" => (String => Dict{Int,Vector{Float64}})[
-            "spearman"    => [1=>[1.0]],
-            "beats"       => [1=>[0.0]],
+            "spearman"    => [1=>[0.0]],
+            "beats"       => [1=>[0.5]],
             "correct"     => [1=>[0.5]],
-            "liar_rep"    => [1=>[0.6435248607744642]],
-            "liars_bonus" => [1=>[-0.06942541767660715]],
+            "liar_rep"    => [1=>[0.6499999999999999]],
+            "liars_bonus" => [1=>[-0.050000000000000044]],
             "MCC"         => [1=>[0.0]],
         ],
     ]
@@ -185,9 +246,6 @@ function test_save_timestep_data(sim::Simulation)
         raw_data = save_timestep_data(sim, raw_data, metrics, algo, t)::Dict{String,Any}
         @test raw_data["sim"] == sim
         @test haskey(raw_data, algo)
-        println("raw data " * algo)
-        display(raw_data[algo])
-        println("")
         for m in sim.METRICS
             @test haskey(raw_data[algo], m)
             @test isa(raw_data[algo][m], Dict{Int,Vector{Float64}})
@@ -322,6 +380,7 @@ function test_run_simulations(sim::Simulation)
     run_simulations(sim)
 end
 
+print_with_color(:white, "Testing Simulator.jl...\n")
 # test_run_simulations(sim)
 # test_preprocess(sim)
 # test_exclude(sim)
@@ -333,6 +392,6 @@ test_compute_metrics(sim)
 test_init_raw_data(sim)
 # test_init_repbox(sim)
 # test_save_raw_data(sim)
-# test_calculate_trajectories(sim)
+test_calculate_trajectories(sim)
 # test_reptrack_sums(sim)
 # test_process_raw_data(sim)

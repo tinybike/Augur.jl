@@ -203,10 +203,6 @@ function simulate(sim::Simulation)
 
     reporters = create_reporters(sim)::Dict{Symbol,Any}
 
-    # print_with_color(:white, "Reporters:\n")
-    # display(reporters)
-    # println("")
-
     while i <= sim.ITERMAX
 
         # Initialize reporters and reputation
@@ -217,9 +213,6 @@ function simulate(sim::Simulation)
         for t = 1:sim.TIMESTEPS
             data[t] = generate_data(sim, reporters)
         end
-        # print_with_color(:white, "Data (iteration " * string(i) * ":\n")
-        # display(data)
-        # println("")
 
         for algo in sim.ALGOS
 
@@ -270,8 +263,7 @@ function simulate(sim::Simulation)
                 end
 
                 # Track the system's evolution
-                track[algo] = track_evolution(sim, metrics, track[algo],
-                                              t, i)::Dict{Symbol,Matrix{Float64}}
+                track[algo] = track_evolution(sim, metrics, track[algo], t, i)
             end
         end
 
