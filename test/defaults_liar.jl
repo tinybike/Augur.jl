@@ -35,10 +35,10 @@ sim.METRICS = [
     "MCC",
     "liar_rep",
     "spearman",
-    "gini",
-    "sensitivity",
-    "precision",
-    "fallout",
+    # "gini",
+    # "sensitivity",
+    # "precision",
+    # "fallout",
 ]
 sim.TRACK = [
     "beats",
@@ -47,9 +47,9 @@ sim.TRACK = [
     "MCC",
     "liar_rep",
     "spearman",
-    "gini",
-    "sensitivity",
-    "precision",
-    "fallout",
+    # "gini",
+    # "sensitivity",
+    # "precision",
+    # "fallout",
 ]
 sim.STATISTICS = ["mean", "stderr"]

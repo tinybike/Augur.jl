@@ -35,7 +35,6 @@ function build_dataframe(sim_data::Dict{String,Any})
         end
         algos = [
             algos,
-            # repmat(fill!(Array(String, gridrows), label), num_metrics, 1)[:],
             repmat(fill!(Array(String, gridrows),
                    string(uppercase(algo[1]), algo[2:end])),
                    num_metrics, 1)[:],
@@ -98,7 +97,6 @@ function plot_dataframe(df::DataFrame, title::String)
         ymax=:error_plus,
         ygroup=:metric,
         color=:algorithm,
-        # Guide.XLabel("% liars"),
         Guide.XLabel("% noise"),
         Guide.YLabel(""),
         Guide.Title(title),
@@ -113,8 +111,6 @@ function plot_dataframe(df::DataFrame, title::String)
     )
     pl_file = "plots/metrics_" * repr(now()) * ".svg"
     Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
-    # pl_file = "plots/metrics_" * repr(now()) * ".png"
-    # Gadfly.draw(PNG(pl_file, 9inch, 6inch), pl)
     print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
 end
@@ -398,11 +394,7 @@ function plot_simulations(sim_data::Dict{String,Any})
     plot_dataframe(build_dataframe(sim_data), title)
 
     # Separate plots for each metric
-    if "fixed-variance" in sim_data["sim"].ALGOS
-        metrics = [sim_data["sim"].METRICS, "components"]
-    else
-        metrics = sim_data["sim"].METRICS
-    end
+    metrics = sim_data["sim"].METRICS
     for m in metrics
         plot_dataframe(build_dataframe(sim_data, m), title, m)
     end

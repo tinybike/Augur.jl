@@ -13,16 +13,15 @@ function plot_overlay(sim::Simulation,
     fig = PyPlot.figure()
     lgnd = ["", "", "", "", "", ""]
     mrkr = ["s", "o", "d", "s", "o", "d"]
-    for (j, algo) in enumerate(("clusterfeck", "PCA"))
-        label = (algo == "clusterfeck") ? "Augur" : "Truthcoin"
+    for (j, algo) in enumerate(("hierarchical", "PCA"))
+        label = (algo == "hierarchical") ? "Augur" : "Truthcoin"
         k = 1
         for (i, lt) in enumerate(liar_thresholds)
-            if lt == 0.55 || lt == 0.65 || lt == 0.7
+            if lt == 0.65 || lt == 0.75 || lt == 0.85
                 PyPlot.errorbar(timesteps,
                                 trajectories[i][algo][metric][:mean][1:time_max]*100,
                                 marker=mrkr[k],
                                 yerr=trajectories[i][algo][metric][:stderr][1:time_max]*100)
-                # lgnd[k + (j-1)*3] = label * " (" * string(int(lt*100)) * "% liars)"
                 lgnd[k + (j-1)*3] = label * " (" * string(int(lt*100)) * "% noise)"
                 hold("on");
                 k += 1
@@ -45,6 +44,6 @@ end
 
 if isdefined(:sim) && isdefined(:trajectories) && isdefined(:liar_thresholds)
     plot_overlay(sim, trajectories, liar_thresholds, :liar_rep)
-    # plot_overlay(sim, trajectories, liar_thresholds, :correct)
-    # plot_overlay(sim, trajectories, liar_thresholds, :sensitivity)
+    plot_overlay(sim, trajectories, liar_thresholds, :correct)
+    plot_overlay(sim, trajectories, liar_thresholds, :sensitivity)
 end

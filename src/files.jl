@@ -16,7 +16,7 @@ function save_data(sim::Simulation,
     @inbounds for algo in sim.ALGOS
         sim_data[algo] = Dict{String,Array}()
         for s in sim.STATISTICS
-            for m in [sim.METRICS, "components"]
+            for m in [sim.METRICS]
                 metric = (s == "mean") ? m : m * "_std"
                 sim_data[algo][metric] = results[algo][s][m]
             end

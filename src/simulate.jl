@@ -18,7 +18,7 @@ function process_raw_data(sim::Simulation,
         processed_data[algo] = Dict{String,Dict{String,Float64}}()
         for s in sim.STATISTICS
             processed_data[algo][s] = Dict{String,Float64}()
-            for m in [sim.METRICS, "components"]
+            for m in [sim.METRICS]
                 if s == "mean"
                     processed_data[algo][s][m] = mean(raw_data[algo][m][sim.TIMESTEPS])
                 elseif s == "stderr"
@@ -78,7 +78,32 @@ function save_raw_data(raw_data::Dict{String,Any},
     end
 end
 
-function print_oracle_output(A, algo, t)
+function track_evolution(sim::Simulation,
+                         metrics::Dict{Symbol,Float64},
+                         track::Dict{Symbol,Matrix{Float64}},
+                         t::Int,
+                         i::Int)
+    for tr in sim.TRACK
+        track[tr][t,i] = metrics[tr]
+    end
+    return track
+end
+
+function save_timestep_data(sim::Simulation,
+                            raw_data::Dict{String,Any},
+                            metrics::Dict{Symbol,Float64},
+                            algo::String,
+                            t::Int)
+    for m in sim.METRICS
+        push!(raw_data[algo][m][t], metrics[symbol(m)])
+    end
+    if sim.HISTOGRAM
+        push!(raw_data[algo]["repcount"][t], metrics[:repcount])
+    end
+    return raw_data
+end
+
+function print_oracle_output(A, metrics, algo, t)
     print_with_color(:white, "Oracle output [" * algo * "]:\n")
     display(A[algo])
     println("")
@@ -146,7 +171,7 @@ function init_raw_data(sim::Simulation)
     timesteps = (sim.SAVE_RAW_DATA) ? 1:sim.TIMESTEPS : sim.TIMESTEPS
     for algo in sim.ALGOS
         raw_data[algo] = Dict{String,Any}()
-        for m in [sim.METRICS, "components"]
+        for m in [sim.METRICS]
             raw_data[algo][m] = Dict{Int,Vector{Float64}}()
             for t in timesteps
                 raw_data[algo][m][t] = Float64[]
@@ -233,26 +258,20 @@ function simulate(sim::Simulation)
                     A[algo]["events"]["outcomes_final"],
                     reputation,
                     updated_rep,
-                )
+                )::Dict{Symbol,Float64}
 
                 if sim.VERBOSE || any(isnan(updated_rep))
-                    print_oracle_output(A, algo, t)
+                    print_oracle_output(A, metrics, algo, t)
                 end
 
                 if sim.SAVE_RAW_DATA || t == sim.TIMESTEPS
-                    for m in sim.METRICS
-                        push!(raw_data[algo][m][t], metrics[symbol(m)])
-                    end
-                    push!(raw_data[algo]["components"][t], A[algo]["components"])
-                    if sim.HISTOGRAM
-                        push!(raw_data[algo]["repcount"][t], metrics[:repcount])
-                    end
+                    raw_data = save_timestep_data(sim, raw_data, metrics,
+                                                  algo, t)::Dict{String,Any}
                 end
 
                 # Track the system's evolution
-                for tr in sim.TRACK
-                    track[algo][tr][t,i] = metrics[tr]
-                end
+                track = track_evolution(sim, metrics, track[algo],
+                                        t, i)::Dict{Symbol,Matrix{Float64}}
             end
         end
 
@@ -320,7 +339,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
         results[algo] = Dict{String,Dict}()
         for s in sim.STATISTICS
             results[algo][s] = Dict{String,Array}()
-            for m in [sim.METRICS, "components"]
+            for m in [sim.METRICS]
                 results[algo][s][m] = zeros(gridrows)
             end
         end
@@ -347,7 +366,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
         end
         for algo in sim.ALGOS
             for s in sim.STATISTICS
-                for m in [sim.METRICS, "components"]
+                for m in [sim.METRICS]
                     results[algo][s][m][row,1] = matched[algo][s][m]
                 end
             end

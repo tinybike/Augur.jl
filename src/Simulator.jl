@@ -38,10 +38,13 @@ module Simulator
         print_oracle_output,
         print_repbox,
         init_repbox,
-        init_tracking
+        init_tracking,
+        save_timestep_data,
+        track_evolution
 
     type Simulation
 
+        # Pre-defined data for unit testing
         TESTING::Bool
         TEST_REPORTERS::Vector{ASCIIString}
         TEST_INIT_REP::Vector{Float64}
