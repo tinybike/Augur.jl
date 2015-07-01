@@ -1,9 +1,3 @@
-using StatsBase
-using DataStructures
-using Distances
-using HClust
-using Clustering
-
 # TODO move these to Simulator type
 NO = 1.0
 YES = 2.0
@@ -27,22 +21,6 @@ type ClusterNode
                      dist=-1) =
         new(vec, numItems, meanVec, rep, repVec, reporterIndexVec, dist)
 end
-
-function roundoff(x)
-    if x < BAD - CATCH_TOLERANCE
-        NO
-    elseif x > BAD + CATCH_TOLERANCE
-        YES
-    else
-        BAD
-    end
-end
-
-normalize{T<:Real}(v::Vector{T}) = vec(v) / sum(v)
-
-normalize{T<:Real}(v::Matrix{T}) = normalize(vec(v))
-
-L2dist(v1, v2) = sqrt(sum((vec(v1) - vec(v2)).^2))
 
 function newMean(cmax)
     weighted = zeros(cmax.numItems, size(cmax.vec, 2))
@@ -151,29 +129,7 @@ end
 
 function PCA(reports, rep)
     (first_loading, first_score) = wPCA(reports, rep)
-    nonconformity(first_score, reports, rep)
-end
-
-function rankdata(a)
-    n = length(a)
-    ivec = sortperm(a)
-    svec = [a[rank] for rank in ivec]
-    sumranks = 0
-    dupcount = 0
-    newarray = zeros(n)
-    for i = 1:n
-        sumranks += i
-        dupcount += 1
-        if i == n || svec[i] != svec[i+1]
-            averank = sumranks / dupcount + 1
-            for j = (i-dupcount+1):i
-                newarray[ivec[j]] = averank
-            end
-            sumranks = 0
-            dupcount = 0
-        end
-    end
-    return newarray
+    nc_rankdata(first_score, reports, rep)
 end
 
 function nc_rankdata(scores, reports, rep)
@@ -200,9 +156,6 @@ function nonconformity(scores, reports, rep)
     ref_ind = sum((new1 - old).^2) - sum((new2 - old).^2)
     (ref_ind <= 0) ? set1 : set2
 end
-
-most_common(c::Accumulator) = most_common(c, length(c))
-most_common(c::Accumulator, k::Int) = select!(collect(c), 1:k, by=kv->kv[2], rev=true)
 
 function update_reputation(clustered)
     counts = most_common(counter(clustered))
@@ -310,6 +263,7 @@ function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
             :participation_rows => participation_rows,
             :relative_part => na_bonus_reporters,
             :reporter_bonus => reporter_bonus,
+            :nonconformity => nc,
         ],
         :events => [
             :outcomes_raw => outcomes_raw,
@@ -324,20 +278,3 @@ function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
         :avg_certainty => avg_certainty,
     ]
 end
-
-# reports = [ 2.000000  2.000000  1.000000  1.000000
-#             2.000000  1.000000  1.000000  1.000000
-#             2.000000  2.000000  1.000000  1.000000
-#             2.000000  2.000000  2.000000  1.000000
-#             1.000000  1.000000  2.000000  2.000000
-#             1.000000  1.000000  2.000000  2.000000 ]
-
-# rep = convert(Vector{Float64}, [166666, 166666, 166666, 166666, 166666, 166666])
-
-# results = consensus(reports, rep; algo="affinity")
-# display(results)
-# println("")
-# display(results[:agents])
-# println("")
-# display(results[:events])
-# println("")

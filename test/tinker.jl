@@ -28,7 +28,7 @@ sim.COLLUDE = 0.33
 # Quick run-thru
 sim.EVENTS = 25
 sim.REPORTERS = 50
-sim.ITERMAX = 100
+sim.ITERMAX = 25
 sim.TIMESTEPS = 100
 
 # Full(er) run

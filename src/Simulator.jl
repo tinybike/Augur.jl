@@ -285,6 +285,7 @@ module Simulator
 
     include("simulate.jl")
     include("consensus.jl")
+    include("statistics.jl")
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")
