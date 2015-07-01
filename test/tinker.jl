@@ -58,7 +58,7 @@ sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
     "clusterfeck",
-    # "hierarchical",
+    "hierarchical",
     # "big-five",
     # "fixed-variance",
     "PCA",

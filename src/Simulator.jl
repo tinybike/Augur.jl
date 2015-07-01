@@ -3,6 +3,9 @@ module Simulator
     using Dates
     using Distributions
     using StatsBase
+    using Distances
+    using DataStructures
+    using HClust
     using HDF5, JLD
 
     export
