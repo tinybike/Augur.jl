@@ -36,7 +36,7 @@ function setup(sim::Simulation; reset::Bool=false)
     sim.MAX_COMPONENTS = 5
     sim.CONSPIRACY = false
     sim.LABELSORT = false
-    sim.ALGOS = [ "clusterfeck" ]
+    sim.ALGOS = [ "clusterfeck", "PCA", "hierarchical" ]
 
     trues = find(sim.TEST_REPORTERS .== "true")
     distorts = find(sim.TEST_REPORTERS .== "distort")

@@ -154,14 +154,35 @@ function PCA(reports, rep)
     nonconformity(first_score, reports, rep)
 end
 
-function nonconformity_rank(scores, reports, rep)
+function rankdata(a)
+    n = length(a)
+    ivec = sortperm(a)
+    svec = [a[rank] for rank in ivec]
+    sumranks = 0
+    dupcount = 0
+    newarray = zeros(n)
+    for i = 1:n
+        sumranks += i
+        dupcount += 1
+        if i == n || svec[i] != svec[i+1]
+            averank = sumranks / dupcount + 1
+            for j = (i-dupcount+1):i
+                newarray[ivec[j]] = averank
+            end
+            sumranks = 0
+            dupcount = 0
+        end
+    end
+    return newarray
+end
+
+function nc_rankdata(scores, reports, rep)
     set1 = scores + abs(minimum(scores))
     set2 = scores - maximum(scores)
     old = vec(rep' * reports)
-    # TODO rankdata
-    rank_old = rank(old)
-    new1 = rank(normalize(set1)' * reports + 0.01*old)
-    new2 = rank(normalize(set2)' * reports + 0.01*old)
+    rank_old = rankdata(old)
+    new1 = rankdata(vec(normalize(set1)' * reports) + 0.01*old)
+    new2 = rankdata(vec(normalize(set2)' * reports) + 0.01*old)
     ref_ind = sum(abs(new1 - rank_old)) - sum(abs(new2 - rank_old))
     if ref_ind == 0
         nonconformity(scores, reports, rep)

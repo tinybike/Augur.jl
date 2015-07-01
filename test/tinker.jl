@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.65:0.1:0.95
+liar_thresholds = 0.55:0.1:0.85
 param_range = 5:5:250
 
 sim = Simulation()
@@ -26,8 +26,8 @@ sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
 # Quick run-thru
-sim.EVENTS = 50
-sim.REPORTERS = 100
+sim.EVENTS = 25
+sim.REPORTERS = 50
 sim.ITERMAX = 100
 sim.TIMESTEPS = 100
 
@@ -60,7 +60,7 @@ sim.ALGOS = [
     "clusterfeck",
     "hierarchical",
     "DBSCAN",
-    "affinity",
+    # "affinity",
     "PCA",
 ]
 
