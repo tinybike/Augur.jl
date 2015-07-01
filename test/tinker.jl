@@ -60,6 +60,7 @@ sim.ALGOS = [
     "clusterfeck",
     "hierarchical",
     "DBSCAN",
+    "affinity",
     "PCA",
 ]
 

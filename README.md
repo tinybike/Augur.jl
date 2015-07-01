@@ -1,6 +1,6 @@
 # Augur Simulator
 
-Monte Carlo simulations, statistics and plotting tools for [Augur](http://www.augur.net)'s [event consensus algorithm](http://www.augur.net/blog/a-decentralized-lie-detector).
+Monte Carlo simulations, statistics and plotting tools for [Augur](http://www.augur.net)'s [event consensus algorithm](http://www.augur.net/blog/building-a-better-lie-detector).
 
 ### Installation
 

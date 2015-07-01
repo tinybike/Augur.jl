@@ -183,10 +183,7 @@ end
 most_common(c::Accumulator) = most_common(c, length(c))
 most_common(c::Accumulator, k::Int) = select!(collect(c), 1:k, by=kv->kv[2], rev=true)
 
-function hierarchical(reports, rep; threshold=0.50)
-    centered = reports .- mean(reports, weights(rep), 1)
-    dist = pairwise(Euclidean(), centered')
-    clustered = cutree(hclust(dist, :single); h=threshold)
+function update_reputation(clustered)
     counts = most_common(counter(clustered))
     new_rep = Dict{Int,Int}()
     for c in counts
@@ -198,6 +195,13 @@ function hierarchical(reports, rep; threshold=0.50)
     end
     new_rep_list .-= minimum(new_rep_list)
     new_rep_list / sum(new_rep_list)
+end
+
+function hierarchical(reports, rep; threshold=0.50)
+    centered = reports .- mean(reports, weights(rep), 1)
+    dist = pairwise(Euclidean(), centered')
+    clustered = cutree(hclust(dist, :single); h=threshold)
+    update_reputation(clustered)
 end
 
 function DBSCAN(reports, rep; eps=0.5, minpts=1)
@@ -216,6 +220,13 @@ function DBSCAN(reports, rep; eps=0.5, minpts=1)
     new_rep_list / sum(new_rep_list)
 end
 
+function affinity(reports, rep)
+    centered = reports .- mean(reports, weights(rep), 1)
+    dist = pairwise(Euclidean(), centered')
+    clustered = affinityprop(dist).assignments
+    update_reputation(clustered)
+end
+
 function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
     (num_reports, num_events) = size(reports)
     reptokens = rep
@@ -229,6 +240,8 @@ function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
         nc = hierarchical(reports, rep; threshold=0.5)
     elseif algo == "DBSCAN"
         nc = DBSCAN(reports, rep; eps=0.5, minpts=1)
+    elseif algo == "affinity"
+        nc = affinity(reports, rep)
     end
     this_rep = normalize(nc .* rep / mean(rep))
     smooth_rep = alpha*this_rep + (1-alpha)*rep
@@ -300,7 +313,7 @@ end
 
 # rep = convert(Vector{Float64}, [166666, 166666, 166666, 166666, 166666, 166666])
 
-# results = consensus(reports, rep; algo="DBSCAN")
+# results = consensus(reports, rep; algo="affinity")
 # display(results)
 # println("")
 # display(results[:agents])
