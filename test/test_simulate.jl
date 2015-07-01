@@ -203,42 +203,6 @@ function test_save_timestep_data(sim::Simulation)
     end
 end
 
-function test_consensus(sim::Simulation)
-    println("   - consensus")
-    data = setup(sim)::Dict{Symbol,Any}
-    sim = pop!(data, :sim)
-    expected_rep = (String => Vector{Float64})[
-        "PCA" => [
-            0.178238,
-            0.171762,
-            0.178238,
-            0.171762,
-            0.15    ,
-            0.15    , 
-        ],
-        "hierarchical" => [
-            0.175 ,
-            0.15  ,
-            0.175 ,
-            0.15  ,
-            0.175 ,
-            0.175 ,
-        ],
-        "clusterfeck" => [
-            0.183333,
-            0.166667,
-            0.183333,
-            0.166667,
-            0.15    ,
-            0.15    ,
-        ],
-    ]
-    for algo in sim.ALGOS
-        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
-        @test round(results[:agents][:reporter_bonus], 6) == expected_rep[algo]
-    end
-end
-
 function test_simulate(sim::Simulation)
     println("   - simulate")
     data = setup(sim)::Dict{Symbol,Any}
@@ -296,12 +260,11 @@ setup(sim; reset=true)
 # test_preprocess(sim)
 test_init_raw_data(sim)
 # test_init_repbox(sim)
-test_consensus(sim)
 test_track_evolution(sim)
 test_save_timestep_data(sim)
 test_calculate_trajectories(sim)
 # test_save_raw_data(sim)
 # test_reptrack_sums(sim)
 # test_process_raw_data(sim)
-test_simulate(sim)
-test_run_simulations(sim)
+# test_simulate(sim)
+# test_run_simulations(sim)

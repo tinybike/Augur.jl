@@ -3,10 +3,12 @@ using Simulator
 tests = [
     "setup",
     # "test_makedata",
+    "test_consensus",
+    "test_metrics",
     "test_simulate",
     "test_repl",
-    "test_metrics",
     # "test_plots",
+    # "test_statistics",
 ]
 
 print_with_color(:blue, "Testing Simulator.jl...\n")
