@@ -1,5 +1,3 @@
-@pyimport pyconsensus
-
 # Convert raw data into means and standard errors for plotting
 function process_raw_data(sim::Simulation,
                           raw_data::Dict{String,Any},
@@ -105,7 +103,7 @@ end
 
 function print_oracle_output(A, reputation, metrics, algo, t)
     print_with_color(:white, "Oracle output [" * algo * "]:\n")
-    display(A["original"])
+    display(A)
     println("")
     display(A[algo])
     println("")
@@ -210,7 +208,7 @@ function simulate(sim::Simulation)
         init_rep = init_reputation(sim)
 
         # Create datasets (identical for each algorithm)
-        data = convert(Vector{Any}, zeros(sim.TIMESTEPS));
+        data = convert(Vector{Any}, zeros(sim.TIMESTEPS))
         for t = 1:sim.TIMESTEPS
             data[t] = generate_data(sim, reporters)
         end
@@ -233,23 +231,16 @@ function simulate(sim::Simulation)
                     print_repbox(repbox, repdelta, reputation, data, algo, t, i)
                 end
 
-                # Use pyconsensus for event resolution
-                A[algo] = pyconsensus.Oracle(
-                    reports=data[t][:reports],
-                    reputation=reputation,
-                    alpha=sim.ALPHA,
-                    variance_threshold=sim.VARIANCE_THRESHOLD,
-                    max_components=sim.MAX_COMPONENTS,
-                    algorithm=algo,
-                )[:consensus]()
+                # Consensus/event resolution
+                A[algo] = consensus(data[t][:reports], reputation; alpha=sim.ALPHA, algo=algo)
 
-                updated_rep = convert(Vector{Float64}, A[algo]["agents"]["reporter_bonus"])
+                updated_rep = convert(Vector{Float64}, A[algo][:agents][:reporter_bonus])
 
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
                     sim,
                     data[t],
-                    A[algo]["events"]["outcomes_final"],
+                    A[algo][:events][:outcomes_final],
                     reputation,
                     updated_rep,
                 )::Dict{Symbol,Float64}

@@ -2,7 +2,7 @@ module Simulator
 
     using Dates
     using Distributions
-    using PyCall
+    using StatsBase
     using HDF5, JLD
 
     export
@@ -11,6 +11,7 @@ module Simulator
         Track,
         generate_data,
         simulate,
+        consensus,
         run_simulations,
         plot_simulations,
         plot_overlay,
@@ -280,6 +281,7 @@ module Simulator
     Trajectory = Dict{String,Track}
 
     include("simulate.jl")
+    include("consensus.jl")
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")

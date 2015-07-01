@@ -1,11 +1,8 @@
 using Simulator
 using Base.Test
 using Distributions
-using PyCall
 
 include("setup.jl")
-
-@pyimport pyconsensus
 
 function test_process_raw_data(sim::Simulation)
     println("   - process_raw_data")
@@ -34,6 +31,10 @@ function test_calculate_trajectories(sim::Simulation)
             :liars_bonus => [-0.050000000000000044, -0.050000000000000044],
             :liar_rep => [0.6499999999999999, 0.6499999999999999],
         ],
+        "clusterfeck" => [
+            :liars_bonus => [-0.09999999900000023, -0.09999999900000023],
+            :liar_rep => [0.6333333336666667, 0.6333333336666667],
+        ],
     ]
     sim.TIMESTEPS = 2
     sim.ITERMAX = 2
@@ -42,19 +43,12 @@ function test_calculate_trajectories(sim::Simulation)
     for i = 1:sim.ITERMAX
         for algo in sim.ALGOS
             for t = 1:sim.TIMESTEPS
-                results = pyconsensus.Oracle(
-                    reports=sim.TEST_REPORTS,
-                    reputation=sim.TEST_INIT_REP,
-                    alpha=sim.ALPHA,
-                    variance_threshold=sim.VARIANCE_THRESHOLD,
-                    max_components=sim.MAX_COMPONENTS,
-                    algorithm=algo,
-                )[:consensus]()
+                results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
                 updated_rep = convert(Vector{Float64},
-                                      results["agents"]["reporter_bonus"])
+                                      results[:agents][:reporter_bonus])
                 metrics = compute_metrics(sim,
                                           data,
-                                          results["events"]["outcomes_final"],
+                                          results[:events][:outcomes_final],
                                           sim.TEST_INIT_REP,
                                           updated_rep)
                 track[algo] = track_evolution(sim, metrics, track[algo], t, i)
@@ -120,24 +114,25 @@ function test_track_evolution(sim::Simulation)
             :liar_rep    => [0.6499999999999999],
             :spearman    => [0.0],
         ],
+        "clusterfeck" => [
+            :beats       => [0.0],
+            :liars_bonus => [-0.09999999900000023],
+            :correct     => [0.5],
+            :MCC         => [0.0],
+            :liar_rep    => [0.6333333336666667],
+            :spearman    => [1.0],
+        ],
     ]
     t = 1
     i = 1
     for algo in sim.ALGOS
         raw_data = init_raw_data(sim)::Dict{String,Any}
-        results = pyconsensus.Oracle(
-            reports=sim.TEST_REPORTS,
-            reputation=sim.TEST_INIT_REP,
-            alpha=sim.ALPHA,
-            variance_threshold=sim.VARIANCE_THRESHOLD,
-            max_components=sim.MAX_COMPONENTS,
-            algorithm=algo,
-        )[:consensus]()
+        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
         updated_rep = convert(Vector{Float64},
-                              results["agents"]["reporter_bonus"])
+                              results[:agents][:reporter_bonus])
         metrics = compute_metrics(sim,
                                   data,
-                                  results["events"]["outcomes_final"],
+                                  results[:events][:outcomes_final],
                                   sim.TEST_INIT_REP,
                                   updated_rep)::Dict{Symbol,Float64}
         track[algo] = track_evolution(sim, metrics, track[algo], t, i)
@@ -168,6 +163,14 @@ function test_save_timestep_data(sim::Simulation)
             "liars_bonus" => [1=>[-0.050000000000000044]],
             "MCC"         => [1=>[0.0]],
         ],
+        "clusterfeck" => (String => Dict{Int,Vector{Float64}})[
+            "spearman"    => [1=>[1.0]],
+            "beats"       => [1=>[0.0]],
+            "correct"     => [1=>[0.5]],
+            "liar_rep"    => [1=>[0.6333333336666667]],
+            "liars_bonus" => [1=>[-0.09999999900000023]],
+            "MCC"         => [1=>[0.0]],
+        ],
     ]
     t = 1
     for algo in sim.ALGOS
@@ -179,19 +182,12 @@ function test_save_timestep_data(sim::Simulation)
             @test haskey(raw_data[algo][m], sim.TIMESTEPS)
             @test isa(raw_data[algo][m][sim.TIMESTEPS], Vector{Float64})
         end
-        results = pyconsensus.Oracle(
-            reports=sim.TEST_REPORTS,
-            reputation=sim.TEST_INIT_REP,
-            alpha=sim.ALPHA,
-            variance_threshold=sim.VARIANCE_THRESHOLD,
-            max_components=sim.MAX_COMPONENTS,
-            algorithm=algo,
-        )[:consensus]()
+        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
         updated_rep = convert(Vector{Float64},
-                              results["agents"]["reporter_bonus"])
+                              results[:agents][:reporter_bonus])
         metrics = compute_metrics(sim,
                                   data,
-                                  results["events"]["outcomes_final"],
+                                  results[:events][:outcomes_final],
                                   sim.TEST_INIT_REP,
                                   updated_rep)::Dict{Symbol,Float64}
         raw_data = save_timestep_data(sim, raw_data, metrics, algo, t)
@@ -229,24 +225,17 @@ function test_consensus(sim::Simulation)
             0.175 ,
         ],
         "clusterfeck" => [
-            0.186735,
-            0.159184,
-            0.186735,
-            0.159184,
-            0.154082,
-            0.154082,
+            0.183333,
+            0.166667,
+            0.183333,
+            0.166667,
+            0.15    ,
+            0.15    ,
         ],
     ]
     for algo in sim.ALGOS
-        results = pyconsensus.Oracle(
-            reports=sim.TEST_REPORTS,
-            reputation=sim.TEST_INIT_REP,
-            alpha=sim.ALPHA,
-            variance_threshold=sim.VARIANCE_THRESHOLD,
-            max_components=sim.MAX_COMPONENTS,
-            algorithm=algo,
-        )[:consensus]()
-        @test round(results["agents"]["reporter_bonus"], 6) == expected_rep[algo]
+        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
+        @test round(results[:agents][:reporter_bonus], 6) == expected_rep[algo]
     end
 end
 
@@ -305,6 +294,7 @@ setup(sim; reset=true)
 
 # test_exclude(sim)
 # test_preprocess(sim)
+test_simulate(sim)
 test_init_raw_data(sim)
 # test_init_repbox(sim)
 test_consensus(sim)
@@ -314,5 +304,4 @@ test_calculate_trajectories(sim)
 # test_save_raw_data(sim)
 # test_reptrack_sums(sim)
 # test_process_raw_data(sim)
-test_simulate(sim)
 test_run_simulations(sim)

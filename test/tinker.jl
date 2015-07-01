@@ -26,10 +26,10 @@ sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
 # Quick run-thru
-sim.EVENTS = 10
-sim.REPORTERS = 25
-sim.ITERMAX = 10
-sim.TIMESTEPS = 50
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 100
+sim.TIMESTEPS = 100
 
 # Full(er) run
 # sim.EVENTS = 100
@@ -38,10 +38,10 @@ sim.TIMESTEPS = 50
 # sim.TIMESTEPS = 125
 
 sim.INDISCRIMINATE = false
-sim.CONSPIRACY = true
-sim.NUM_CONSPIRACIES = 2
+sim.CONSPIRACY = false
+sim.NUM_CONSPIRACIES = 6
 sim.SCALARS = 0.0
-sim.REP_RAND = true
+sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
 
 # "Preferential attachment" market size distribution
@@ -57,11 +57,11 @@ sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
-    "PCA",
+    "clusterfeck",
+    # "hierarchical",
     # "big-five",
     # "fixed-variance",
-    "hierarchical",
-    "clusterfeck",
+    "PCA",
     # "k-means",
 ]
 

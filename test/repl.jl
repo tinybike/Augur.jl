@@ -164,15 +164,7 @@ for i = 1:sim.ITERMAX
                     :cokurt => collapse(data[t][:reports], reputation; order=4, axis=2, normalized=true)
                 ]
             end
-            A[algo] = pyconsensus.Oracle(
-                reports=data[t][:reports],
-                reputation=reputation,
-                alpha=sim.ALPHA,
-                variance_threshold=sim.VARIANCE_THRESHOLD,
-                max_components=sim.MAX_COMPONENTS,
-                aux=data[t][:aux],
-                algorithm=algo,
-            )[:consensus]()
+            A[algo] = consensus(data[t][:reports], reputation; alpha=sim.ALPHA, algo=algo)
             metrics = compute_metrics(
                 sim,
                 data[t],

@@ -1,6 +1,6 @@
 function compute_metrics(sim::Simulation,
                          data::Dict{Symbol,Any},
-                         outcomes::Vector{Any},
+                         outcomes::Vector{Float64},
                          initial_rep::Vector{Float64},
                          updated_rep::Vector{Float64})
 

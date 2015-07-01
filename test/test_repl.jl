@@ -2,9 +2,6 @@ using Simulator
 using Base.Test
 using DataFrames
 using Dates
-using PyCall
-
-@pyimport pyconsensus
 
 include("setup.jl")
 
@@ -126,26 +123,18 @@ for i = 1:sim.ITERMAX
 
     for algo in sim.ALGOS
         for t = timesteps
-            reputation = (t == 1) ? init_rep : A[algo]["agents"]["reporter_bonus"]
+            reputation = (t == 1) ? init_rep : A[algo][:agents][:reporter_bonus]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
 
-            A[algo] = pyconsensus.Oracle(
-                reports=data[t][:reports],
-                reputation=reputation,
-                alpha=sim.ALPHA,
-                variance_threshold=sim.VARIANCE_THRESHOLD,
-                max_components=sim.MAX_COMPONENTS,
-                aux=data[t][:aux],
-                algorithm=algo,
-            )[:consensus]()
+            A[algo] = consensus(data[t][:reports], reputation; alpha=sim.ALPHA, algo=algo)
 
             updated_rep = convert(Vector{Float64},
-                                  A[algo]["agents"]["reporter_bonus"])
+                                  A[algo][:agents][:reporter_bonus])
             metrics = compute_metrics(
                 sim,
                 data[t],
-                A[algo]["events"]["outcomes_final"],
+                A[algo][:events][:outcomes_final],
                 reputation,
                 updated_rep,
             )
@@ -156,9 +145,9 @@ for i = 1:sim.ITERMAX
     end
 end
 
-@test round(A["PCA"]["agents"]["reporter_bonus"], 6) == [ 0.178238 ;
-                                                          0.171762 ;
-                                                          0.178238 ;
-                                                          0.171762 ;
-                                                          0.15     ;
-                                                          0.15     ]
+@test round(A["clusterfeck"][:agents][:reporter_bonus], 6) == [ 0.183333,
+                                                                0.166667,
+                                                                0.183333,
+                                                                0.166667,
+                                                                0.15    ,
+                                                                0.15    ]
