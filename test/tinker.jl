@@ -59,10 +59,8 @@ sim.HISTOGRAM = false
 sim.ALGOS = [
     "clusterfeck",
     "hierarchical",
-    # "big-five",
-    # "fixed-variance",
+    "DBSCAN",
     "PCA",
-    # "k-means",
 ]
 
 # Run simulations and save results:

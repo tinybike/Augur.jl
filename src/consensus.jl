@@ -1,4 +1,8 @@
 using StatsBase
+using DataStructures
+using Distances
+using HClust
+using Clustering
 
 # TODO move these to Simulator type
 NO = 1.0
@@ -137,26 +141,6 @@ function clusterfeck(features, rep; threshold=0.50)
     cluster(features, rep; times=1, threshold=threshold)
 end
 
-most_common(c::Accumulator) = most_common(c, length(c))
-most_common(c::Accumulator, k::Int) = select!(collect(c), 1:k, by=kv->kv[2], rev=true)
-
-function hierarchical(reports, rep; threshold=0.50)
-    centered = reports .- mean(reports, weights(rep), 1)
-    dist = pairwise(Euclidean(), centered')
-    clustered = cutree(hclust(dist, :single); h=threshold)
-    counts = most_common(counter(clustered))
-    new_rep = Dict{Int,Int}()
-    for c in counts
-        new_rep[c[1]] = c[2]
-    end
-    new_rep_list = Int[]
-    for c in clustered
-        push!(new_rep_list, new_rep[c])
-    end
-    new_rep_list .-= minimum(new_rep_list)
-    new_rep_list / sum(new_rep_list)
-end
-
 function wPCA(reports, rep)
     centered = reports .- mean(reports, weights(rep), 1)
     (U, S, Vt) = svd(cov(centered))
@@ -196,6 +180,42 @@ function nonconformity(scores, reports, rep)
     (ref_ind <= 0) ? set1 : set2
 end
 
+most_common(c::Accumulator) = most_common(c, length(c))
+most_common(c::Accumulator, k::Int) = select!(collect(c), 1:k, by=kv->kv[2], rev=true)
+
+function hierarchical(reports, rep; threshold=0.50)
+    centered = reports .- mean(reports, weights(rep), 1)
+    dist = pairwise(Euclidean(), centered')
+    clustered = cutree(hclust(dist, :single); h=threshold)
+    counts = most_common(counter(clustered))
+    new_rep = Dict{Int,Int}()
+    for c in counts
+        new_rep[c[1]] = c[2]
+    end
+    new_rep_list = Int[]
+    for c in clustered
+        push!(new_rep_list, new_rep[c])
+    end
+    new_rep_list .-= minimum(new_rep_list)
+    new_rep_list / sum(new_rep_list)
+end
+
+function DBSCAN(reports, rep; eps=0.5, minpts=1)
+    centered = reports .- mean(reports, weights(rep), 1)
+    dist = pairwise(Euclidean(), centered')
+    result = dbscan(dist, eps, minpts)
+    new_rep = Dict{Int,Int}()
+    for (i, c) in enumerate(result.counts)
+        new_rep[i] = c
+    end
+    new_rep_list = Int[]
+    for c in result.assignments
+        push!(new_rep_list, new_rep[c])
+    end
+    new_rep_list .-= minimum(new_rep_list)
+    new_rep_list / sum(new_rep_list)
+end
+
 function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
     (num_reports, num_events) = size(reports)
     reptokens = rep
@@ -206,7 +226,9 @@ function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
     elseif algo == "PCA"
         nc = PCA(reports, rep)
     elseif algo == "hierarchical"
-        nc = hierarchical(reports, rep)
+        nc = hierarchical(reports, rep; threshold=0.5)
+    elseif algo == "DBSCAN"
+        nc = DBSCAN(reports, rep; eps=0.5, minpts=1)
     end
     this_rep = normalize(nc .* rep / mean(rep))
     smooth_rep = alpha*this_rep + (1-alpha)*rep
@@ -278,7 +300,7 @@ end
 
 # rep = convert(Vector{Float64}, [166666, 166666, 166666, 166666, 166666, 166666])
 
-# results = consensus(reports, rep; algo="PCA")
+# results = consensus(reports, rep; algo="DBSCAN")
 # display(results)
 # println("")
 # display(results[:agents])
