@@ -8,7 +8,7 @@ using PyCall
 @pyimport pyconsensus
 
 sim = Simulation()
-include("defaults_liar.jl")
+include("defaults_noise.jl")
 
 sim.VERBOSE = false
 

@@ -2,14 +2,14 @@ using Simulator
 using Distributions
 
 sim = Simulation()
-include("defaults_liar.jl")
+include("defaults_noise.jl")
 
 function setup(sim::Simulation; reset::Bool=false)
 
     if reset
         sim = Simulation()
     end
-    reload("defaults_liar.jl")
+    reload("defaults_noise.jl")
 
     sim.VERBOSE = false
     sim.TESTING = true

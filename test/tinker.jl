@@ -3,17 +3,17 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.55:0.2:0.95
+liar_thresholds = 0.6:0.1:0.8
 param_range = 5:5:250
 
 sim = Simulation()
 
-simtype = "liar"
+simtype = "noise"
 if ~isinteractive() && length(ARGS) > 0
     if ARGS[1] == "cplx"
         simtype = "cplx"
-    elseif ARGS[1] == "liar"
-        simtype = "liar"
+    elseif ARGS[1] == "noise"
+        simtype = "noise"
     else
         println("Unknown mode")
         exit()
@@ -29,7 +29,7 @@ sim.COLLUDE = 0.33
 sim.EVENTS = 10
 sim.REPORTERS = 25
 sim.ITERMAX = 10
-sim.TIMESTEPS = 30
+sim.TIMESTEPS = 100
 
 # Full(er) run
 # sim.EVENTS = 100
@@ -83,7 +83,7 @@ sim.TRACK = [
 # Run simulations and save results:
 #   - binary classifier quality metrics
 #   - graphical algorithm comparison
-if simtype == "liar"
+if simtype == "noise"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
     for metric in sim.METRICS
         plot_overlay(sim,
