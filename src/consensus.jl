@@ -64,7 +64,7 @@ function process(clusters::Vector{ClusterNode},
         end
         repVector = zeros(numReporters)
         for i = 1:length(distMatrix)
-            repVector[i] = 1 - distMatrix[i] / (maximum(distMatrix) + 0.00000001)
+            repVector[i] = 1 - distMatrix[i] / (maximum(distMatrix))
         end
         normalize(repVector)
     end
