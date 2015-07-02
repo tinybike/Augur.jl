@@ -53,6 +53,8 @@ sim.INDISCRIMINATE = false
 sim.CONSPIRACY = false
 sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
+sim.SCALARMIN = 0.0
+sim.SCALARMAX = 1000.0
 sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
 
