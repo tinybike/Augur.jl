@@ -5,11 +5,7 @@ using Dates
 
 include("setup.jl")
 
-sim = Simulation()
-
-data = setup(sim; reset=true)
-sim = pop!(data, :sim)
-sim = preprocess(sim)
+sim = preprocess(setup(Simulation())[:sim])
 
 raw_data = (String => Any)[ "sim" => sim ]
 timesteps = (sim.SAVE_RAW_DATA) ? 1:sim.TIMESTEPS : sim.TIMESTEPS
@@ -123,18 +119,18 @@ for i = 1:sim.ITERMAX
 
     for algo in sim.ALGOS
         for t = timesteps
-            reputation = (t == 1) ? init_rep : A[algo][:agents][:reporter_bonus]
+            reputation = (t == 1) ? init_rep : A[algo][:reporter_bonus]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
 
-            A[algo] = consensus(data[t][:reports], reputation; alpha=sim.ALPHA, algo=algo)
+            A[algo] = consensus(sim, data[t][:reports], reputation; algo=algo)
 
             updated_rep = convert(Vector{Float64},
-                                  A[algo][:agents][:reporter_bonus])
+                                  A[algo][:reporter_bonus])
             metrics = compute_metrics(
                 sim,
                 data[t],
-                A[algo][:events][:outcomes_final],
+                A[algo][:outcomes_final],
                 reputation,
                 updated_rep,
             )
@@ -145,9 +141,9 @@ for i = 1:sim.ITERMAX
     end
 end
 
-@test round(A["clusterfeck"][:agents][:reporter_bonus], 6) == [ 0.183333,
-                                                                0.166667,
-                                                                0.183333,
-                                                                0.166667,
-                                                                0.15    ,
-                                                                0.15    ]
+@test round(A["clusterfeck"][:reporter_bonus], 6) == [ 0.183333 ,
+                                                       0.166667 ,
+                                                       0.183333 ,
+                                                       0.166667 ,
+                                                       0.15     ,
+                                                       0.15     ]

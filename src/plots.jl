@@ -122,7 +122,7 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
         ymin=:error_minus,
         ymax=:error_plus,
         color=:algorithm,
-        Guide.XLabel("% liars"),
+        Guide.XLabel("% noise"),
         Guide.YLabel(metric),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
@@ -183,7 +183,7 @@ function plot_median_rep(sim_data::Dict{String,Any}, metric::String, algo::Strin
         ymin=:error_minus,
         ymax=:error_plus,
         color=:metric,
-        Guide.XLabel("% liars"),
+        Guide.XLabel("% noise"),
         Guide.YLabel("median reputation fraction"),
         Guide.Title(title),
         Theme(panel_stroke=color("#848484")),
@@ -409,15 +409,17 @@ function plot_simulations(sim_data::Dict{String,Any})
                       title)
 
     # Separate algos/tracking metrics
-    for algo in sim.ALGOS
-        for tr in sim.TRACK
-            title = build_title(sim, algo)
-            plot_trajectories(sim,
-                              trajectories,
-                              sim_data["liar_threshold"],
-                              algo,
-                              title,
-                              tr)
+    if sim.SINGLE_PLOTS
+        for algo in sim.ALGOS
+            for tr in sim.TRACK
+                title = build_title(sim, algo)
+                plot_trajectories(sim,
+                                  trajectories,
+                                  sim_data["liar_threshold"],
+                                  algo,
+                                  title,
+                                  tr)
+            end
         end
     end
 end

@@ -25,17 +25,18 @@ function setup(sim::Simulation; reset::Bool=false)
     sim.ITERMAX = 1
     sim.TIMESTEPS = 1
     sim.LIAR_THRESHOLD = 0.7
-    sim.VARIANCE_THRESHOLD = 0.9
     sim.EVENTS = 4
     sim.REPORTERS = 6
     sim.SCALARS = 0.0
     sim.REP_RAND = false
-    sim.REP_DIST = Pareto(2.0)
     sim.BRIDGE = false
     sim.ALPHA = 0.1
-    sim.MAX_COMPONENTS = 5
     sim.CONSPIRACY = false
     sim.LABELSORT = false
+    sim.HIERARCHICAL_THRESHOLD = 0.5
+    sim.HIERARCHICAL_LINKAGE = :single
+    sim.DBSCAN_EPSILON = 0.5
+    sim.DBSCAN_MINPOINTS = 1
     sim.ALGOS = [ "clusterfeck", "PCA", "hierarchical" ]
 
     trues = find(sim.TEST_REPORTERS .== "true")

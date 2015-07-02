@@ -107,9 +107,9 @@ function print_oracle_output(A, reputation, metrics, algo, t)
     println("")
     display(A[algo])
     println("")
-    display(A[algo][:agents])
+    display(A[algo])
     println("")
-    display(A[algo][:events])
+    display(A[algo])
     println("")
 
     print_with_color(:white, "Reputation [" * algo * "]:\n")
@@ -232,15 +232,15 @@ function simulate(sim::Simulation)
                 end
 
                 # Consensus/event resolution
-                A[algo] = consensus(data[t][:reports], reputation; alpha=sim.ALPHA, algo=algo)
+                A[algo] = consensus(sim, data[t][:reports], reputation; algo=algo)
 
-                updated_rep = convert(Vector{Float64}, A[algo][:agents][:reporter_bonus])
+                updated_rep = convert(Vector{Float64}, A[algo][:reporter_bonus])
 
                 # Measure this algorithm's performance
                 metrics = compute_metrics(
                     sim,
                     data[t],
-                    A[algo][:events][:outcomes_final],
+                    A[algo][:outcomes_final],
                     reputation,
                     updated_rep,
                 )::Dict{Symbol,Float64}

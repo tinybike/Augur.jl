@@ -49,6 +49,13 @@ module Simulator
 
     type Simulation
 
+        YES::Float64
+        NO::Float64
+        BAD::Float64
+        NULL::Float64
+
+        CATCH_TOLERANCE::Float64
+
         # Pre-defined data for unit testing
         TESTING::Bool
         TEST_REPORTERS::Vector{ASCIIString}
@@ -118,6 +125,12 @@ module Simulator
         MONEYBIN::Float64
         CORRUPTION::Float64
 
+        # Simulation-specific parameters
+        HIERARCHICAL_THRESHOLD::Float64
+        HIERARCHICAL_LINKAGE::Symbol
+        DBSCAN_EPSILON::Float64
+        DBSCAN_MINPOINTS::Int
+
         # Collusion: 0.2 => 20% chance liar will copy another user
         # (only other liars unless INDISCRIMINATE=true)
         COLLUDE::Float64
@@ -154,12 +167,19 @@ module Simulator
         METRICS::Vector{ASCIIString}
         STATISTICS::Vector{ASCIIString}
 
+        SINGLE_PLOTS::Bool
+
         # Tracking statistics for time series analysis
         TRACK::Vector{Symbol}
 
         AXIS_LABELS::Dict{Symbol,String}
 
-        Simulation(;testing::Bool=false,
+        Simulation(;yes::Float64=2.0,
+                    no::Float64=1.0,
+                    bad::Float64=1.5,
+                    null::Float64=0.0,
+                    catch_tolerance::Float64=0.1,
+                    testing::Bool=false,
                     test_reporters::Vector{ASCIIString}=(ASCIIString)[],
                     test_init_rep::Vector{Float64}=(Float64)[],
                     test_correct_answers::Vector{Float64}=(Float64)[],
@@ -186,6 +206,10 @@ module Simulator
                     overlap_dist::Distribution=Uniform(),
                     rare::Float64=1e-5,
                     corruption::Float64=0.5,
+                    hierarchical_threshold::Float64=0.5,
+                    hierarchical_linkage::Symbol=:single,
+                    dbscan_epsilon::Float64=0.5,
+                    dbscan_minpoints::Int=1,
                     collude::Float64=0.3,
                     indiscriminate::Bool=true,
                     verbose::Bool=false,
@@ -200,12 +224,11 @@ module Simulator
                     preset::Bool=false,
                     surface::Bool=false,
                     preset_data::Dict{Symbol,Any}=Dict{Symbol,Any}(),
-                    algos::Vector{ASCIIString}=["sztorc",
-                                                "fixed-variance",
-                                                "covariance",
-                                                "cokurtosis"],
-                    metrics::Vector{ASCIIString}=["beats",
-                                                  "liars_bonus",
+                    algos::Vector{ASCIIString}=["hierarchical",
+                                                "clusterfeck",
+                                                "DBSCAN"],
+                    metrics::Vector{ASCIIString}=["liar_rep",
+                                                  "beats",
                                                   "correct",
                                                   "sensitivity",
                                                   "fallout",
@@ -213,10 +236,16 @@ module Simulator
                                                   "MCC"],
                     statistics::Vector{ASCIIString}=["mean",
                                                      "stderr"],
-                    track::Vector{Symbol}=[:gini,
+                    single_plots::Bool=false,
+                    track::Vector{Symbol}=[:liar_rep,
                                            :MCC,
                                            :correct]) =
-            new(testing,
+            new(yes,
+                no,
+                bad,
+                null,
+                catch_tolerance,
+                testing,
                 test_reporters,
                 test_init_rep,
                 test_correct_answers,
@@ -246,6 +275,10 @@ module Simulator
                 rare,
                 first(find(pdf(market_dist, 1:1e4) .< rare)),
                 corruption,
+                hierarchical_threshold,
+                hierarchical_linkage,
+                dbscan_epsilon,
+                dbscan_minpoints,
                 collude,
                 indiscriminate,
                 verbose,
@@ -263,6 +296,7 @@ module Simulator
                 algos,
                 metrics,
                 statistics,
+                single_plots,
                 track,
                 (Symbol => String)[
                     :MCC => "Matthews correlation coefficient",

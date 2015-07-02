@@ -20,20 +20,6 @@ function test_compute_metrics(sim::Simulation)
             :liar_rep    => 0.6435248607744642,
             :sensitivity => 1.0,
         ],
-        # "clusterfeck" => (Symbol => Float64)[
-        #     :spearman    => 1.0,
-        #     :true_rep    => 0.373469387755102,
-        #     :MCC         => 0.0,
-        #     :correct     => 0.5,
-        #     :precision   => 0.6666666666666666,
-        #     :fallout     => 1.0,
-        #     :gap         => -0.2530612244897959,
-        #     :beats       => 0.0,
-        #     :gini        => 0.0435374149659864,
-        #     :liars_bonus => -0.12040816326530623,
-        #     :liar_rep    => 0.6265306122448979,
-        #     :sensitivity => 1.0,
-        # ],
         "clusterfeck" => (Symbol => Float64)[
             :spearman    => 1.0,
             :true_rep    => 0.36666666633333334,
@@ -65,16 +51,16 @@ function test_compute_metrics(sim::Simulation)
     ]
     data = setup(sim)::Dict{Symbol,Any}
     for algo in sim.ALGOS
-        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
+        results = consensus(sim, sim.TEST_REPORTS, sim.TEST_INIT_REP; algo=algo)
         updated_rep = convert(Vector{Float64},
-                              results[:agents][:reporter_bonus])
+                              results[:reporter_bonus])
         metrics = compute_metrics(sim,
                                   data,
-                                  results[:events][:outcomes_final],
+                                  results[:outcomes_final],
                                   sim.TEST_INIT_REP,
                                   updated_rep)
         @test metrics == expected_metrics[algo]
     end
 end
 
-test_compute_metrics(sim)
+test_compute_metrics(setup(Simulation())[:sim])

@@ -1,9 +1,8 @@
-# TODO move these to Simulator type
-NO = 1.0
-YES = 2.0
-BAD = 1.5
-NA = 0.0
-CATCH_TOLERANCE = 0.1
+using StatsBase
+using Distances
+using DataStructures
+using HClust
+using Clustering
 
 type ClusterNode
     vec::Matrix{Float64}
@@ -70,6 +69,9 @@ function cluster(features, rep; times=1, threshold=0.50, distance=L2dist)
     # cluster the rows of the "features" matrix
     if threshold == 0.50
         threshold = log10(size(features, 2)) / 1.77
+        if threshold == 0
+            threshold = 0.3
+        end
     end
     clusters = ClusterNode[]
     for i = 1:length(rep)
@@ -111,6 +113,9 @@ end
 function clusterfeck(features, rep; threshold=0.50)
     if threshold == 0.50
         threshold = log10(size(features, 2)) / 1.77
+        if threshold == 0
+            threshold = 0.3
+        end
     end
     global best, bestDist, bestClusters
     best = nothing
@@ -171,17 +176,18 @@ function update_reputation(clustered)
     new_rep_list / sum(new_rep_list)
 end
 
-function hierarchical(reports, rep; threshold=0.50)
+function hierarchical(sim::Simulation, reports, rep)
     centered = reports .- mean(reports, weights(rep), 1)
     dist = pairwise(Euclidean(), centered')
-    clustered = cutree(hclust(dist, :single); h=threshold)
+    clustered = cutree(hclust(dist, sim.HIERARCHICAL_LINKAGE);
+                       h=sim.HIERARCHICAL_THRESHOLD)
     update_reputation(clustered)
 end
 
-function DBSCAN(reports, rep; eps=0.5, minpts=1)
+function DBSCAN(sim::Simulation, reports, rep)
     centered = reports .- mean(reports, weights(rep), 1)
     dist = pairwise(Euclidean(), centered')
-    result = dbscan(dist, eps, minpts)
+    result = dbscan(dist, sim.DBSCAN_EPSILON, sim.DBSCAN_MINPOINTS)
     new_rep = Dict{Int,Int}()
     for (i, c) in enumerate(result.counts)
         new_rep[i] = c
@@ -201,29 +207,29 @@ function affinity(reports, rep)
     update_reputation(clustered)
 end
 
-function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
+function consensus(sim::Simulation, reports, rep; algo="clusterfeck")
     (num_reports, num_events) = size(reports)
     reptokens = rep
     rep = normalize(rep)
     # TODO interpolate
     if algo == "clusterfeck"
-        nc = clusterfeck(reports, rep)
+        nonconform = clusterfeck(reports, rep)
     elseif algo == "PCA"
-        nc = PCA(reports, rep)
+        nonconform = PCA(reports, rep)
     elseif algo == "hierarchical"
-        nc = hierarchical(reports, rep; threshold=0.5)
+        nonconform = hierarchical(sim, reports, rep)
     elseif algo == "DBSCAN"
-        nc = DBSCAN(reports, rep; eps=0.5, minpts=1)
+        nonconform = DBSCAN(sim, reports, rep)
     elseif algo == "affinity"
-        nc = affinity(reports, rep)
+        nonconform = affinity(reports, rep)
     end
-    this_rep = normalize(nc .* rep / mean(rep))
-    smooth_rep = alpha*this_rep + (1-alpha)*rep
-    outcomes_raw = vec(smooth_rep' * reports)
+    this_rep = normalize(nonconform .* rep / mean(rep))
+    updated_rep = sim.ALPHA*this_rep + (1 - sim.ALPHA)*rep
+    outcomes_raw = vec(updated_rep' * reports)
     # TODO scaled
     outcomes_adj = zeros(num_events)
     for i = 1:num_events
-        outcomes_adj[i] = roundoff(outcomes_raw[i])
+        outcomes_adj[i] = roundoff(sim, outcomes_raw[i])
     end
     outcomes_final = zeros(num_events)
     # TODO scaled
@@ -232,7 +238,7 @@ function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
     end
     certainty = zeros(num_events)
     for i = 1:num_events
-        certainty[i] = sum(smooth_rep[reports[:,i] .== outcomes_adj[i]])
+        certainty[i] = sum(updated_rep[reports[:,i] .== outcomes_adj[i]])
     end
     consensus_reward = normalize(certainty)
     avg_certainty = mean(certainty)
@@ -240,41 +246,23 @@ function consensus(reports, rep; algo="clusterfeck", alpha=0.1)
     # Participation
     na_mat = zeros(num_reports, num_events)
     na_mat[isnan(reports)] = 1
-    na_mat[reports .== NA] = 1
-
-    participation_columns = 1 - smooth_rep' * na_mat
+    na_mat[reports .== sim.NULL] = 1
+    participation_columns = 1 - updated_rep' * na_mat
     participation_rows = 1 - sum(na_mat, 2) / size(na_mat, 2)
-
     percent_na = 1 - mean(participation_columns)
     na_bonus_reporters = normalize(participation_rows)
-
-    reporter_bonus = na_bonus_reporters.*percent_na + smooth_rep.*(1-percent_na)
-
+    reporter_bonus = na_bonus_reporters.*percent_na + updated_rep.*(1-percent_na)
     na_bonus_events = normalize(participation_columns)
     author_bonus = na_bonus_events*percent_na + consensus_reward*(1-percent_na)
     [
-        :original => reports,
-        :filled => reports,
-        :agents => [
-            :old_rep => rep,
-            :this_rep => this_rep,
-            :smooth_rep => smooth_rep,
-            :na_row => sum(na_mat, 2),
-            :participation_rows => participation_rows,
-            :relative_part => na_bonus_reporters,
-            :reporter_bonus => reporter_bonus,
-            :nonconformity => nc,
-        ],
-        :events => [
-            :outcomes_raw => outcomes_raw,
-            :consensus_reward => consensus_reward,
-            :certainty => certainty,
-            :nas_filled => sum(na_mat, 1),
-            :participation_columns => participation_columns,
-            :author_bonus => author_bonus,
-            :outcomes_final => outcomes_final,
-        ],
-        :participation => 1 - percent_na,
-        :avg_certainty => avg_certainty,
+        :reports => reports,
+        :initial_rep => rep,
+        :updated_rep => updated_rep,
+        :participation => participation_rows,
+        :reporter_bonus => reporter_bonus,
+        :nonconformity => nonconform,
+        :outcomes_raw => outcomes_raw,
+        :certainty => certainty,
+        :outcomes_final => outcomes_final,
     ]
 end

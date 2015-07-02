@@ -26,10 +26,10 @@ sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
 # Quick run-thru
-sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 25
-sim.TIMESTEPS = 100
+sim.EVENTS = 10
+sim.REPORTERS = 25
+sim.ITERMAX = 10
+sim.TIMESTEPS = 30
 
 # Full(er) run
 # sim.EVENTS = 100
@@ -39,10 +39,15 @@ sim.TIMESTEPS = 100
 
 sim.INDISCRIMINATE = false
 sim.CONSPIRACY = false
-sim.NUM_CONSPIRACIES = 6
+sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
 sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
+
+sim.HIERARCHICAL_THRESHOLD = 0.5
+sim.HIERARCHICAL_LINKAGE = :average
+sim.DBSCAN_EPSILON = 0.5
+sim.DBSCAN_MINPOINTS = 1
 
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(2.0)
@@ -52,7 +57,6 @@ sim.BRIDGE = false
 sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
-sim.MAX_COMPONENTS = 5
 sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false

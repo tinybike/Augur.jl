@@ -1,19 +1,15 @@
 using Simulator
 using DataFrames
 using Dates
-using JointMoments
 using Distributions
-using PyCall
 
-@pyimport pyconsensus
+include("setup.jl")
 
-sim = Simulation()
-include("defaults_liar.jl")
+sim = preprocess(setup(Simulation())[:sim])
 
 sim.VERBOSE = false
 
 sim.LIAR_THRESHOLD = 0.65
-sim.VARIANCE_THRESHOLD = 0.9
 
 sim.EVENTS = 100
 sim.REPORTERS = 250
@@ -32,7 +28,6 @@ sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 
 sim.ALPHA = 0.1
-sim.MAX_COMPONENTS = 5
 sim.CONSPIRACY = false
 sim.LABELSORT = true
 sim.HISTOGRAM = false
@@ -159,12 +154,7 @@ for i = 1:sim.ITERMAX
             reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
-            if algo == "cokurtosis"
-                data[t][:aux] = [
-                    :cokurt => collapse(data[t][:reports], reputation; order=4, axis=2, normalized=true)
-                ]
-            end
-            A[algo] = consensus(data[t][:reports], reputation; alpha=sim.ALPHA, algo=algo)
+            A[algo] = consensus(sim, data[t][:reports], reputation; algo=algo)
             metrics = compute_metrics(
                 sim,
                 data[t],

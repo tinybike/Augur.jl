@@ -43,12 +43,12 @@ function test_calculate_trajectories(sim::Simulation)
     for i = 1:sim.ITERMAX
         for algo in sim.ALGOS
             for t = 1:sim.TIMESTEPS
-                results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
+                results = consensus(sim, sim.TEST_REPORTS, sim.TEST_INIT_REP; algo=algo)
                 updated_rep = convert(Vector{Float64},
-                                      results[:agents][:reporter_bonus])
+                                      results[:reporter_bonus])
                 metrics = compute_metrics(sim,
                                           data,
-                                          results[:events][:outcomes_final],
+                                          results[:outcomes_final],
                                           sim.TEST_INIT_REP,
                                           updated_rep)
                 track[algo] = track_evolution(sim, metrics, track[algo], t, i)
@@ -127,12 +127,12 @@ function test_track_evolution(sim::Simulation)
     i = 1
     for algo in sim.ALGOS
         raw_data = init_raw_data(sim)::Dict{String,Any}
-        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
+        results = consensus(sim, sim.TEST_REPORTS, sim.TEST_INIT_REP; algo=algo)
         updated_rep = convert(Vector{Float64},
-                              results[:agents][:reporter_bonus])
+                              results[:reporter_bonus])
         metrics = compute_metrics(sim,
                                   data,
-                                  results[:events][:outcomes_final],
+                                  results[:outcomes_final],
                                   sim.TEST_INIT_REP,
                                   updated_rep)::Dict{Symbol,Float64}
         track[algo] = track_evolution(sim, metrics, track[algo], t, i)
@@ -182,12 +182,12 @@ function test_save_timestep_data(sim::Simulation)
             @test haskey(raw_data[algo][m], sim.TIMESTEPS)
             @test isa(raw_data[algo][m][sim.TIMESTEPS], Vector{Float64})
         end
-        results = consensus(sim.TEST_REPORTS, sim.TEST_INIT_REP; alpha=sim.ALPHA, algo=algo)
+        results = consensus(sim, sim.TEST_REPORTS, sim.TEST_INIT_REP; algo=algo)
         updated_rep = convert(Vector{Float64},
-                              results[:agents][:reporter_bonus])
+                              results[:reporter_bonus])
         metrics = compute_metrics(sim,
                                   data,
-                                  results[:events][:outcomes_final],
+                                  results[:outcomes_final],
                                   sim.TEST_INIT_REP,
                                   updated_rep)::Dict{Symbol,Float64}
         raw_data = save_timestep_data(sim, raw_data, metrics, algo, t)
