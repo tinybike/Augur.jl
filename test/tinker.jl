@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.6:0.1:0.8
+liar_thresholds = 0.6:0.15:0.9
 param_range = 5:5:250
 
 sim = Simulation()
@@ -45,7 +45,7 @@ sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
 
 sim.HIERARCHICAL_THRESHOLD = 0.5
-sim.HIERARCHICAL_LINKAGE = :complete
+sim.HIERARCHICAL_LINKAGE = :average
 sim.CLUSTERFECK_THRESHOLD = 0.5
 sim.DBSCAN_EPSILON = 0.5
 sim.DBSCAN_MINPOINTS = 1
@@ -64,9 +64,9 @@ sim.HISTOGRAM = false
 sim.ALGOS = [
     "clusterfeck",
     "hierarchical",
+    "PCA",
     "DBSCAN",
     # "affinity",
-    "PCA",
 ]
 
 sim.METRICS = [

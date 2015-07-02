@@ -324,7 +324,7 @@ function run_simulations(ltr::Range, sim::Simulation; parallel::Bool=false)
     else
         raw = Dict{String,Any}[]
         for (i, lt) in enumerate(ltr)
-            sim.TESTING || print_with_color(:yellow, "Liar threshold: " * repr(lt) * "\n")
+            sim.TESTING || println("Liar threshold: " * repr(lt))
             sim.LIAR_THRESHOLD = lt
             raw = vcat(raw, simulate(sim))
         end

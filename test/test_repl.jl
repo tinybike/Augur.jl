@@ -141,9 +141,4 @@ for i = 1:sim.ITERMAX
     end
 end
 
-@test round(A["clusterfeck"][:reporter_bonus], 6) == [ 0.183333 ,
-                                                       0.166667 ,
-                                                       0.183333 ,
-                                                       0.166667 ,
-                                                       0.15     ,
-                                                       0.15     ]
+@test round(A["hierarchical"][:reporter_bonus], 6) == [ 0.175, 0.15, 0.175, 0.15, 0.175, 0.175 ]
