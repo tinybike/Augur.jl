@@ -4,6 +4,10 @@ using DataStructures
 using HClust
 using Clustering
 
+best = nothing
+bestDist = Inf
+bestClusters = nothing
+
 type ClusterNode
     vec::Matrix{Float64}
     numItems::Int
