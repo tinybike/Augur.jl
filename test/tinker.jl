@@ -3,7 +3,7 @@ tic()
 @everywhere using Simulator
 using Distributions
 
-liar_thresholds = 0.55:0.1:0.85
+liar_thresholds = 0.55:0.2:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -69,12 +69,29 @@ sim.ALGOS = [
     "PCA",
 ]
 
+sim.METRICS = [
+    "correct",
+    "MCC",
+    "liar_rep",
+]
+sim.TRACK = [
+    "correct",
+    "MCC",
+    "liar_rep",
+]
+
 # Run simulations and save results:
 #   - binary classifier quality metrics
 #   - graphical algorithm comparison
 if simtype == "liar"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
-    plot_simulations(sim_data)
+    for metric in sim.METRICS
+        plot_overlay(sim,
+                     sim_data["trajectories"],
+                     [liar_thresholds],
+                     symbol(metric))
+    end
+    # plot_simulations(sim_data)
 
 # Timing/complexity
 elseif simtype == "cplx"

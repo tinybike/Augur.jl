@@ -2,7 +2,7 @@ using Simulator
 using DataFrames
 using Dates
 
-EXAMPLE = "data/sim_2015-06-26T18:06:33.jld"
+EXAMPLE = "data/sim_2015-07-01T19:44:23.jld"
 # EXAMPLE = "data/sim_2015-06-24T02:45:10.jld" # conspiracy
 # EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # randomness
 # EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # parameter sampling
@@ -25,11 +25,12 @@ if length(ARGS) > 0 && ARGS[1] == "cplx"
     plot_time_elapsed(df, timestamp, parameter, infostring(sim, iterations))
 else
     datafile = (isinteractive() || length(ARGS) == 0) ? EXAMPLE : ARGS[1]
-    load_and_plot_data(datafile)
+    # load_and_plot_data(datafile)
     sim_data = load_data(datafile)
     sim = pop!(sim_data, "sim")
     trajectories = pop!(sim_data, "trajectories")
     liar_thresholds = pop!(sim_data, "liar_threshold")
+    for metric in sim.METRICS
+        plot_overlay(sim, trajectories, liar_thresholds, symbol(metric))
+    end
 end
-
-include("../src/pyplots.jl")

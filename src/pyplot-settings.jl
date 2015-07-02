@@ -32,18 +32,28 @@ PyPlot.matplotlib[:rc]("axes", axisbelow=true)
 PyPlot.matplotlib[:rc]("axes", color_cycle=["8A084B",
                                             "8A084B",
                                             "8A084B",
+                                            "8A084B",
                                             # "5DA5DA",  # blue
                                             # "60BD68",  # green
                                             # "B276B2",  # purple
                                             "0174DF",
                                             "0174DF",
                                             "0174DF",
+                                            "0174DF",
                                             # "F15854",  # red
                                             # "FAA43A",  # orange
                                             # "B2912F",  # brown
-                                            "F17CB0",  # pink
-                                            "DECF3F",  # yellow
-                                            "4D4D4D"]) # gray
+                                            "60BD68",
+                                            "60BD68",
+                                            "60BD68",
+                                            "60BD68",
+                                            # "F17CB0",  # pink
+                                            # "DECF3F",  # yellow
+                                            # "4D4D4D",  # gray
+                                            "F15854",
+                                            "F15854",
+                                            "F15854",
+                                            "F15854"])
 PyPlot.matplotlib[:rc]("axes", xmargin="0")
 PyPlot.matplotlib[:rc]("axes", ymargin="0")
 PyPlot.matplotlib[:rc]("legend", fancybox=false)

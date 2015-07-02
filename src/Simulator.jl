@@ -326,8 +326,9 @@ module Simulator
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")
-    include("plots.jl")
-    # include("pyplots.jl")
+    # include("plots.jl")
+    include("pyplots.jl")
+    include("pyplot-settings.jl")
     include("files.jl")
 
 end # module
