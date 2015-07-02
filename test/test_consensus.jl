@@ -1,4 +1,4 @@
-using Simulator
+using Augur
 using Base.Test
 
 ɛ = 1e-6

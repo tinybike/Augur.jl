@@ -1,4 +1,4 @@
-module Simulator
+module Augur
 
     using Dates
     using Distributions
@@ -16,18 +16,11 @@ module Simulator
         simulate,
         consensus,
         run_simulations,
-        # plot_simulations,
-        # plot_overlay,
-        # build_title,
-        # plot_trajectories,
         load_data,
         save_data,
         complexity,
         load_time_elapsed,
         save_time_elapsed,
-        # plot_time_elapsed,
-        # plot_reptrack,
-        # infostring,
         exclude,
         preprocess,
         reputation_distribution,
@@ -326,9 +319,6 @@ module Simulator
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")
-    # include("plots.jl")
-    # include("pyplots.jl")
-    # include("pyplot-settings.jl")
     include("files.jl")
 
 end # module

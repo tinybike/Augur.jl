@@ -1,4 +1,4 @@
-using Simulator
+using Augur
 using Distributions
 
 sim = Simulation()

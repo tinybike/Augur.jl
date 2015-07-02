@@ -1,4 +1,4 @@
-using Simulator
+using Augur
 using Base.Test
 using Distributions
 using PyCall

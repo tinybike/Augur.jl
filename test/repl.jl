@@ -1,4 +1,4 @@
-using Simulator
+using Augur
 using DataFrames
 using Dates
 using Distributions

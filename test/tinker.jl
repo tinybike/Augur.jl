@@ -1,6 +1,6 @@
 tic()
 
-@everywhere using Simulator
+@everywhere using Augur
 using Distributions
 
 liar_thresholds = 0.6:0.15:0.9

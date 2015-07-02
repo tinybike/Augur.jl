@@ -1,4 +1,4 @@
-using Simulator
+using Augur
 using Base.Test
 using DataFrames
 using Dates
