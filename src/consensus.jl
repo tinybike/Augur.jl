@@ -75,12 +75,12 @@ function cluster(features::Matrix{Float64},
                  times::Int=1,
                  threshold::Float64=0.50)
     # cluster the rows of the "features" matrix
-    #if threshold == 0.50
-    #    threshold = log10(size(features, 2)) / 1.77
-    #    if threshold == 0
-    #        threshold = 0.3
-    #    end
-    #end
+    if threshold == 0.50
+        threshold = log10(size(features, 2)) / 1.77
+        if threshold == 0
+            threshold = 0.3
+        end
+    end
     clusters = ClusterNode[]
     for i = 1:length(rep)
         if rep[i] == 0.0
@@ -121,12 +121,12 @@ end
 function clusterfeck(features::Matrix{Float64},
                      rep::Vector{Float64};
                      threshold::Float64=0.50)
-    #if threshold == 0.50
-    #    threshold = log10(size(features, 2)) / 1.77
-    #    if threshold == 0
-    #        threshold = 0.3
-    #    end
-    #end
+    if threshold == 0.50
+        threshold = log10(size(features, 2)) / 1.77
+        if threshold == 0
+            threshold = 0.3
+        end
+    end
     global best, bestDist, bestClusters
     best = nothing
     bestDist = Inf
