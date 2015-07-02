@@ -1,13 +1,12 @@
 language: julia
 os:
   - linux
-  - osx
 julia:
   - release
 notifications:
   email: false
 script:
-  - sudo apt-get install python-matplotlib
+  - sudo apt-get install python-pyside python-matplotlib
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.clone("git://github.com/davidavdav/HClust.jl"); Pkg.build("Simulator"); Pkg.test("Simulator"; coverage=true)'
 after_success:
