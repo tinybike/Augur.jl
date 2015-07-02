@@ -2,14 +2,15 @@ using Augur
 using Distributions
 
 sim = Simulation()
-include("defaults_noise.jl")
+defaults = joinpath(Pkg.dir("Augur"), "test", "defaults_noise.jl")
+include(defaults)
 
 function setup(sim::Simulation; reset::Bool=false)
 
     if reset
         sim = Simulation()
     end
-    reload("defaults_noise.jl")
+    reload(defaults)
 
     sim.VERBOSE = false
     sim.TESTING = true

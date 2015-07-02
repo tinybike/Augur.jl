@@ -8,6 +8,9 @@ param_range = 5:5:250
 
 sim = Simulation()
 
+srcpath = joinpath(Pkg.dir("Augur"), "src")
+testpath = joinpath(Pkg.dir("Augur"), "test")
+
 simtype = "noise"
 plots = nothing
 if ~isinteractive() && length(ARGS) > 0
@@ -28,7 +31,8 @@ if isinteractive() && simtype == "noise" && plots == nothing
     plots = "pyplot"    
 end
 
-include("defaults_" * simtype * ".jl")
+joinpath(Pkg.dir("Augur"), "test", "defaults_noise.jl")
+include(joinpath(testpath, "defaults_" * simtype * ".jl"))
 
 sim.VERBOSE = false
 sim.COLLUDE = 0.33
@@ -94,8 +98,7 @@ sim.TRACK = [
 if simtype == "noise"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
     if plots == "pyplot"
-        println("pyplot!")
-        include("../src/pyplots.jl")
+        include(joinpath(srcpath, "pyplots.jl"))
         for metric in sim.METRICS
             plot_overlay(sim,
                          sim_data["trajectories"],
@@ -103,7 +106,7 @@ if simtype == "noise"
                          symbol(metric))
         end
     elseif plots == "gadfly"
-        include("../src/plots.jl")
+        include(joinpath(srcpath, "plots.jl"))
         plot_simulations(sim_data)
     end
 

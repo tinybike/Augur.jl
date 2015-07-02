@@ -21,8 +21,9 @@ function save_data(sim::Simulation,
                 sim_data[algo][metric] = results[algo][s][m]
             end
         end
-    end
-    filename = "data/sim_" * repr(now()) * ".jld"
+    end 
+    filename = joinpath(Pkg.dir("Augur"), "test", "data",
+                        "sim_" * repr(now()) * ".jld")
     jldopen(filename, "w") do file
         write(file, "sim_data", sim_data)
     end
@@ -44,7 +45,8 @@ function save_time_elapsed(time_elapsed::Dict{Symbol,Vector{Float64}},
                            sim::Simulation,
                            iterations::Int,
                            param_range::Range)
-    filename = "data/time_" * param * "_" * timestamp * ".jld"
+    filename = joinpath(Pkg.dir("Augur"), "test", "data",
+                        "time_" * param * "_" * timestamp * ".jld")
     jldopen(filename, "w") do file
         write(file, "time_elapsed", time_elapsed)
         write(file, "sim", sim)

@@ -37,7 +37,8 @@ function plot_overlay(sim::Simulation,
     # PyPlot.title("Conspiracy")
     PyPlot.grid()
     PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.32, 0.55), ncol=1)
-    pl_file = "plots/overlay_" * string(metric) * "_" * repr(Dates.now()) * ".png"
+    pl_file = joinpath(Pkg.dir("Augur"), "test", "plots",
+                       "overlay_" * string(metric) * "_" * repr(Dates.now()) * ".png")
     fig[:canvas][:draw]()
     PyPlot.savefig(pl_file)
     print_with_color(:grey, "saved plot: ")

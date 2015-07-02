@@ -109,7 +109,8 @@ function plot_dataframe(df::DataFrame, title::String)
             free_y_axis=true,
         ),
     )
-    pl_file = "plots/metrics_" * repr(now()) * ".svg"
+    pl_file = joinpath(Pkg.dir("Augur"), "test", "plots",
+                       "metrics_" * repr(now()) * ".svg")
     Gadfly.draw(SVG(pl_file, 12inch, 12inch), pl)
     print_with_color(:white, "  stacked: ")
     print_with_color(:cyan, "$pl_file\n")
@@ -135,7 +136,8 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
         Geom.line,
         Geom.errorbar,
     )
-    pl_file = "plots/single/" * metric * "_" * repr(now()) * ".svg"
+    pl_file = joinpath(Pkg.dir("Augur"), "test", "plots", "single",
+                       metric * "_" * repr(now()) * ".svg"
     Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> $pl_file")
 end
@@ -196,7 +198,8 @@ function plot_median_rep(sim_data::Dict{String,Any}, metric::String, algo::Strin
         Geom.line,
         Geom.errorbar,
     )
-    pl_file = "plots/single/median_rep_" * algo * "_" * repr(now()) * ".svg"
+    pl_file = joinpath(Pkg.dir("Augur"), "test", "plots", "single",
+                       "median_rep_" * algo * "_" * repr(now()) * ".svg"
     Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> $pl_file")
 end
@@ -318,7 +321,8 @@ function plot_trajectories(sim::Simulation,
             free_y_axis=true,
         ),
     )
-    pl_file = string("plots/trajectory_", repr(now()), ".svg")
+    pl_file = joinpath(Pkg.dir("Augur"), "test", "plots",
+                       string("trajectory_", repr(now()), ".svg"))
     Gadfly.draw(SVG(pl_file, 12inch, 16inch), pl)
     print_with_color(:white, "  stacked time series: ")
     print_with_color(:cyan, "$pl_file\n")
@@ -376,8 +380,9 @@ function plot_trajectories(sim::Simulation,
         Geom.line,
         Geom.ribbon,
     )
-    pl_file = string("plots/single/trajectory_",
-                     algo, "_", tr, "_", repr(now()), ".svg")
+    pl_file = joinpath(Pkg.dir("Augur"), "test", "plots", "single",
+                       string("trajectory_", algo, "_", tr, "_",
+                              repr(now()), ".svg"))
     Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> ", pl_file)
 end
