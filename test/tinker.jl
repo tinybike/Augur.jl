@@ -37,7 +37,7 @@ sim.TIMESTEPS = 50
 # sim.ITERMAX = 100
 # sim.TIMESTEPS = 125
 
-sim.INDISCRIMINATE = true
+sim.INDISCRIMINATE = false
 sim.CONSPIRACY = false
 sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
@@ -45,7 +45,7 @@ sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
 
 sim.HIERARCHICAL_THRESHOLD = 0.5
-sim.HIERARCHICAL_LINKAGE = :average
+sim.HIERARCHICAL_LINKAGE = :complete
 sim.CLUSTERFECK_THRESHOLD = 0.5
 sim.DBSCAN_EPSILON = 0.5
 sim.DBSCAN_MINPOINTS = 1
@@ -59,7 +59,7 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 sim.LABELSORT = false
-sim.SAVE_RAW_DATA = false
+sim.SAVE_RAW_DATA = true
 sim.HISTOGRAM = false
 sim.ALGOS = [
     "clusterfeck",

@@ -151,16 +151,16 @@ for i = 1:sim.ITERMAX
     reputation = copy(init_rep)
     for algo in sim.ALGOS
         for t = timesteps
-            reputation = (t == 1) ? init_rep : A[algo]["agents"]["smooth_rep"]
+            reputation = (t == 1) ? init_rep : A[algo][:updated_rep]
             repbox[algo][:,t,i] = reputation
             repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
             A[algo] = consensus(sim, data[t][:reports], reputation; algo=algo)
             metrics = compute_metrics(
                 sim,
                 data[t],
-                A[algo]["events"]["outcomes_final"],
+                A[algo][:outcomes_final],
                 reputation,
-                A[algo]["agents"]["smooth_rep"],
+                A[algo][:updated_rep],
             )
             for tr in sim.TRACK
                 track[algo][tr][t,i] = metrics[tr]
