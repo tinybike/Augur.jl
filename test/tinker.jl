@@ -9,15 +9,23 @@ param_range = 5:5:250
 sim = Simulation()
 
 simtype = "noise"
+plots = nothing
 if ~isinteractive() && length(ARGS) > 0
     if ARGS[1] == "cplx"
         simtype = "cplx"
     elseif ARGS[1] == "noise"
         simtype = "noise"
+    elseif ARGS[1] == "pyplot" || (length(ARGS) > 1 && ARGS[2] == "pyplot")
+        plots = "pyplot"
+    elseif ARGS[1] == "gadfly" || (length(ARGS) > 1 && ARGS[2] == "gadfly")
+        plots = "gadfly"
     else
         println("Unknown mode")
         exit()
     end
+end
+if isinteractive() && simtype == "noise" && plots == nothing
+    plots = "pyplot"    
 end
 
 include("defaults_" * simtype * ".jl")
@@ -85,13 +93,19 @@ sim.TRACK = [
 #   - graphical algorithm comparison
 if simtype == "noise"
     @time sim_data = run_simulations(liar_thresholds, sim; parallel=true)
-    for metric in sim.METRICS
-        plot_overlay(sim,
-                     sim_data["trajectories"],
-                     [liar_thresholds],
-                     symbol(metric))
+    if plots == "pyplot"
+        println("pyplot!")
+        include("../src/pyplots.jl")
+        for metric in sim.METRICS
+            plot_overlay(sim,
+                         sim_data["trajectories"],
+                         [liar_thresholds],
+                         symbol(metric))
+        end
+    elseif plots == "gadfly"
+        include("../src/plots.jl")
+        plot_simulations(sim_data)
     end
-    # plot_simulations(sim_data)
 
 # Timing/complexity
 elseif simtype == "cplx"

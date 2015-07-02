@@ -2,6 +2,8 @@ using Simulator
 using Dates
 using PyPlot
 
+include("../src/pyplot-settings.jl")
+
 function plot_overlay(sim::Simulation,
                       trajectories::Vector{Trajectory},
                       liar_thresholds::Vector{Float64},
