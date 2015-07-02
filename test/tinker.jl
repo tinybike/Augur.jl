@@ -59,7 +59,7 @@ sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
 sim.LABELSORT = false
-sim.SAVE_RAW_DATA = true
+sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
     "clusterfeck",

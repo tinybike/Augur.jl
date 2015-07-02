@@ -237,8 +237,11 @@ function simulate(sim::Simulation)
 
                 # Assign/update reputation
                 reputation = (t == 1) ? init_rep : updated_rep
-                repbox[algo][:,t,i] = reputation
-                repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
+
+                if sim.SAVE_RAW_DATA
+                    repbox[algo][:,t,i] = reputation
+                    repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
+                end
 
                 # if sim.VERBOSE
                 #     print_repbox(repbox, repdelta, reputation, data, algo, t, i)
