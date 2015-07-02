@@ -35,6 +35,7 @@ function setup(sim::Simulation; reset::Bool=false)
     sim.LABELSORT = false
     sim.HIERARCHICAL_THRESHOLD = 0.5
     sim.HIERARCHICAL_LINKAGE = :single
+    sim.CLUSTERFECK_THRESHOLD = 0.5
     sim.DBSCAN_EPSILON = 0.5
     sim.DBSCAN_MINPOINTS = 1
     sim.ALGOS = [ "clusterfeck", "PCA", "hierarchical" ]

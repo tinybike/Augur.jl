@@ -21,7 +21,7 @@ type ClusterNode
         new(vec, numItems, meanVec, rep, repVec, reporterIndexVec, dist)
 end
 
-function newMean(cmax)
+function newMean(cmax::ClusterNode)
     weighted = zeros(cmax.numItems, size(cmax.vec, 2))
     for i = 1:cmax.numItems
         weighted[i,:] = cmax.vec[i,:] * cmax.repVec[i]
@@ -29,7 +29,12 @@ function newMean(cmax)
     vec(sum(weighted, 1) / cmax.rep)
 end
 
-function process(clusters, numReporters, times, features, rep, threshold)
+function process(clusters::Vector{ClusterNode},
+                 numReporters::Int,
+                 times::Int,
+                 features::Matrix{Float64},
+                 rep::Vector{Float64},
+                 threshold::Float64)
     mode = nothing
     numInMode = 0
     global best, bestClusters, bestDist
@@ -39,7 +44,7 @@ function process(clusters, numReporters, times, features, rep, threshold)
             mode = clusters[i]
         end
     end
-    outcomes = mean(features, weights(rep), 1)'
+    outcomes = vec(mean(features, weights(rep), 1))
     if L2dist(mode.meanVec, outcomes) < bestDist
         bestDist = L2dist(mode.meanVec, outcomes)
         best = mode
@@ -65,7 +70,10 @@ function process(clusters, numReporters, times, features, rep, threshold)
     end
 end
 
-function cluster(features, rep; times=1, threshold=0.50, distance=L2dist)
+function cluster(features::Matrix{Float64},
+                 rep::Vector{Float64};
+                 times::Int=1,
+                 threshold::Float64=0.50)
     # cluster the rows of the "features" matrix
     if threshold == 0.50
         threshold = log10(size(features, 2)) / 1.77
@@ -84,13 +92,13 @@ function cluster(features, rep; times=1, threshold=0.50, distance=L2dist)
         cmax = nothing
         shortestDist = Inf
         for n = 1:length(clusters)
-            dist = L2dist(features[i,:], clusters[n].meanVec)
+            dist = L2dist(vec(features[i,:]), clusters[n].meanVec)
             if dist < shortestDist
                 cmax = clusters[n]
                 shortestDist = dist
             end
         end
-        if cmax != nothing && L2dist(features[i,:], cmax.meanVec) < threshold
+        if cmax != nothing && L2dist(vec(features[i,:]), cmax.meanVec) < threshold
             cmax.vec = vcat(cmax.vec, features[i,:])
             cmax.numItems += 1
             cmax.rep += rep[i]
@@ -110,7 +118,9 @@ function cluster(features, rep; times=1, threshold=0.50, distance=L2dist)
     process(clusters, size(features, 1), times, features, rep, threshold)
 end
 
-function clusterfeck(features, rep; threshold=0.50)
+function clusterfeck(features::Matrix{Float64},
+                     rep::Vector{Float64};
+                     threshold::Float64=0.50)
     if threshold == 0.50
         threshold = log10(size(features, 2)) / 1.77
         if threshold == 0
@@ -124,7 +134,7 @@ function clusterfeck(features, rep; threshold=0.50)
     cluster(features, rep; times=1, threshold=threshold)
 end
 
-function wPCA(reports, rep)
+function wPCA(reports::Matrix{Float64}, rep::Vector{Float64})
     centered = reports .- mean(reports, weights(rep), 1)
     (U, S, Vt) = svd(cov(centered))
     first_loading = U[:,1] / sqrt(sum(U[:,1].^2))
@@ -132,12 +142,14 @@ function wPCA(reports, rep)
     (first_loading, first_score)
 end
 
-function PCA(reports, rep)
+function PCA(reports::Matrix{Float64}, rep::Vector{Float64})
     (first_loading, first_score) = wPCA(reports, rep)
     nc_rankdata(first_score, reports, rep)
 end
 
-function nc_rankdata(scores, reports, rep)
+function nc_rankdata(scores::Vector{Float64},
+                     reports::Matrix{Float64},
+                     rep::Vector{Float64})
     set1 = scores + abs(minimum(scores))
     set2 = scores - maximum(scores)
     old = vec(rep' * reports)
@@ -162,7 +174,7 @@ function nonconformity(scores, reports, rep)
     (ref_ind <= 0) ? set1 : set2
 end
 
-function update_reputation(clustered)
+function update_reputation(clustered::Vector{Int})
     counts = most_common(counter(clustered))
     new_rep = Dict{Int,Int}()
     for c in counts
@@ -176,7 +188,9 @@ function update_reputation(clustered)
     new_rep_list / sum(new_rep_list)
 end
 
-function hierarchical(sim::Simulation, reports, rep)
+function hierarchical(sim::Simulation,
+                      reports::Matrix{Float64},
+                      rep::Vector{Float64})
     centered = reports .- mean(reports, weights(rep), 1)
     dist = pairwise(Euclidean(), centered')
     clustered = cutree(hclust(dist, sim.HIERARCHICAL_LINKAGE);
@@ -184,7 +198,9 @@ function hierarchical(sim::Simulation, reports, rep)
     update_reputation(clustered)
 end
 
-function DBSCAN(sim::Simulation, reports, rep)
+function DBSCAN(sim::Simulation,
+                reports::Matrix{Float64},
+                rep::Vector{Float64})
     centered = reports .- mean(reports, weights(rep), 1)
     dist = pairwise(Euclidean(), centered')
     result = dbscan(dist, sim.DBSCAN_EPSILON, sim.DBSCAN_MINPOINTS)
@@ -200,20 +216,23 @@ function DBSCAN(sim::Simulation, reports, rep)
     new_rep_list / sum(new_rep_list)
 end
 
-function affinity(reports, rep)
+function affinity(reports::Matrix{Float64}, rep::Vector{Float64})
     centered = reports .- mean(reports, weights(rep), 1)
     dist = pairwise(Euclidean(), centered')
     clustered = affinityprop(dist).assignments
     update_reputation(clustered)
 end
 
-function consensus(sim::Simulation, reports, rep; algo="clusterfeck")
+function consensus(sim::Simulation,
+                   reports::Matrix{Float64},
+                   rep::Vector{Float64};
+                   algo::ASCIIString="clusterfeck")
     (num_reports, num_events) = size(reports)
     reptokens = rep
     rep = normalize(rep)
     # TODO interpolate
     if algo == "clusterfeck"
-        nonconform = clusterfeck(reports, rep)
+        nonconform = clusterfeck(reports, rep; threshold=sim.CLUSTERFECK_THRESHOLD)
     elseif algo == "PCA"
         nonconform = PCA(reports, rep)
     elseif algo == "hierarchical"
@@ -254,7 +273,7 @@ function consensus(sim::Simulation, reports, rep; algo="clusterfeck")
     reporter_bonus = na_bonus_reporters.*percent_na + updated_rep.*(1-percent_na)
     na_bonus_events = normalize(participation_columns)
     author_bonus = na_bonus_events*percent_na + consensus_reward*(1-percent_na)
-    [
+    (Symbol => Array{Float64})[
         :reports => reports,
         :initial_rep => rep,
         :updated_rep => updated_rep,

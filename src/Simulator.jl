@@ -128,6 +128,7 @@ module Simulator
         # Simulation-specific parameters
         HIERARCHICAL_THRESHOLD::Float64
         HIERARCHICAL_LINKAGE::Symbol
+        CLUSTERFECK_THRESHOLD::Float64
         DBSCAN_EPSILON::Float64
         DBSCAN_MINPOINTS::Int
 
@@ -208,6 +209,7 @@ module Simulator
                     corruption::Float64=0.5,
                     hierarchical_threshold::Float64=0.5,
                     hierarchical_linkage::Symbol=:single,
+                    clusterfeck_threshold::Float64=0.5,
                     dbscan_epsilon::Float64=0.5,
                     dbscan_minpoints::Int=1,
                     collude::Float64=0.3,
@@ -277,6 +279,7 @@ module Simulator
                 corruption,
                 hierarchical_threshold,
                 hierarchical_linkage,
+                clusterfeck_threshold,
                 dbscan_epsilon,
                 dbscan_minpoints,
                 collude,
