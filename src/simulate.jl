@@ -61,18 +61,19 @@ function calculate_trajectories(sim::Simulation,
     return trajectory
 end
 
-function save_raw_data(raw_data::Dict{String,Any},
+function save_raw_data(sim::Simulation,
+                       raw_data::Dict{String,Any},
                        track::Dict{String,Dict{Symbol,Matrix{Float64}}},
                        repbox::Dict{String,Array{Float64,3}},
-                       repdelta::Dict{String,Array{Float64,3}})
+                       repdelta::Dict{String,Array{Float64,3}},
+                       full_data)
     filename = "data/raw/raw_sim_" * repr(now()) * ".jld"
     jldopen(filename, "w") do file
         write(file, "raw_data", raw_data)
         write(file, "track", track)
-        if sim.SURFACE
-            write(file, "repbox", repbox)
-            write(file, "repdelta", repdelta)
-        end
+        write(file, "repbox", repbox)
+        write(file, "repdelta", repdelta)
+        write(file, "full_data", full_data)
     end
 end
 
@@ -168,19 +169,26 @@ end
 
 function init_raw_data(sim::Simulation)
     raw_data = (String => Any)[ "sim" => sim ]
-    timesteps = (sim.SAVE_RAW_DATA) ? 1:sim.TIMESTEPS : sim.TIMESTEPS
     for algo in sim.ALGOS
         raw_data[algo] = Dict{String,Any}()
         for m in [sim.METRICS]
             raw_data[algo][m] = Dict{Int,Vector{Float64}}()
-            for t in timesteps
-                raw_data[algo][m][t] = Float64[]
+            if sim.SAVE_RAW_DATA
+                for t = 1:sim.TIMESTEPS
+                    raw_data[algo][m][t] = Float64[]
+                end
+            else
+                raw_data[algo][m][sim.TIMESTEPS] = Float64[]
             end
         end
         if sim.HISTOGRAM
             raw_data[algo]["repcount"] = Dict{Int,Vector{Dict{Float64,Int}}}()
-            for t in timesteps
-                raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
+            if sim.SAVE_RAW_DATA
+                for t = 1:sim.TIMESTEPS
+                    raw_data[algo]["repcount"][t] = Dict{Float64,Int}[]
+                end
+            else
+                raw_data[algo]["repcount"][sim.TIMESTEPS] = Dict{Float64,Int}[]
             end
         end
     end
@@ -196,11 +204,12 @@ function simulate(sim::Simulation)
     # Reputation time series (repbox):
     # - column t is the reputation vector at time t
     # - third axis = iteration
-    if sim.SURFACE
+    if sim.SAVE_RAW_DATA
         (repbox, repdelta) = init_repbox(sim)
     end
 
     reporters = create_reporters(sim)::Dict{Symbol,Any}
+    full_data = Vector{Any}[]
 
     for i = 1:sim.ITERMAX
 
@@ -212,6 +221,8 @@ function simulate(sim::Simulation)
         for t = 1:sim.TIMESTEPS
             data[t] = generate_data(sim, reporters)
         end
+
+        push!(full_data, data)
 
         for algo in sim.ALGOS
 
@@ -227,9 +238,14 @@ function simulate(sim::Simulation)
                 # Assign/update reputation
                 reputation = (t == 1) ? init_rep : updated_rep
 
-                if sim.VERBOSE
-                    print_repbox(repbox, repdelta, reputation, data, algo, t, i)
+                if sim.SAVE_RAW_DATA
+                    repbox[algo][:,t,i] = reputation
+                    repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
                 end
+
+                # if sim.VERBOSE
+                #     print_repbox(repbox, repdelta, reputation, data, algo, t, i)
+                # end
 
                 # Consensus/event resolution
                 A[algo] = consensus(sim, data[t][:reports], reputation; algo=algo)
@@ -261,7 +277,7 @@ function simulate(sim::Simulation)
     end
 
     if sim.SAVE_RAW_DATA
-        save_raw_data(raw_data, track, repbox, repdelta)    
+        save_raw_data(sim, raw_data, track, repbox, repdelta, full_data)
     end
 
     trajectory = calculate_trajectories(sim, track)::Trajectory
