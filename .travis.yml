@@ -7,7 +7,6 @@ julia:
 notifications:
   email: false
 script:
-  - sudo pip install pyconsensus
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.build("Simulator"); Pkg.test("Simulator"; coverage=true)'
 after_success:
