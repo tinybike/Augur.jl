@@ -2,7 +2,7 @@ using Simulator
 using DataFrames
 using Dates
 
-EXAMPLE = "data/sim_2015-07-01T19:44:23.jld"
+EXAMPLE = "data/sim_2015-07-01T23:02:41.jld"
 # EXAMPLE = "data/sim_2015-06-24T02:45:10.jld" # conspiracy
 # EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # randomness
 # EXAMPLE = "data/sim_2015-06-24T05:50:19.jld" # parameter sampling

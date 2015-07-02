@@ -26,10 +26,10 @@ sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
 # Quick run-thru
-sim.EVENTS = 10
-sim.REPORTERS = 25
-sim.ITERMAX = 10
-sim.TIMESTEPS = 100
+sim.EVENTS = 25
+sim.REPORTERS = 50
+sim.ITERMAX = 25
+sim.TIMESTEPS = 50
 
 # Full(er) run
 # sim.EVENTS = 100
@@ -37,7 +37,7 @@ sim.TIMESTEPS = 100
 # sim.ITERMAX = 100
 # sim.TIMESTEPS = 125
 
-sim.INDISCRIMINATE = false
+sim.INDISCRIMINATE = true
 sim.CONSPIRACY = false
 sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0

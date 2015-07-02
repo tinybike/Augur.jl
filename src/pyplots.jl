@@ -28,7 +28,11 @@ function plot_overlay(sim::Simulation,
     end
     PyPlot.xlabel("time (number of consecutive reporting rounds elapsed)")
     PyPlot.ylabel(sim.AXIS_LABELS[metric])
-    PyPlot.ylim([-1, 101])
+    if metric == :MCC
+        PyPlot.ylim([-101, 101])
+    else
+        PyPlot.ylim([-1, 101])
+    end
     # PyPlot.title("Conspiracy")
     PyPlot.grid()
     PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.32, 0.55), ncol=1)
