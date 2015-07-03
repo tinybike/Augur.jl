@@ -3,7 +3,7 @@ tic()
 @everywhere using Augur
 using Distributions
 
-liar_thresholds = 0.6:0.15:0.9
+liar_thresholds = 0.7:0.05:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -37,20 +37,13 @@ include(joinpath(testpath, "defaults_" * simtype * ".jl"))
 sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
-# Quick run-thru
-sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 25
-sim.TIMESTEPS = 50
-
-# Full(er) run
-# sim.EVENTS = 100
-# sim.REPORTERS = 250
-# sim.ITERMAX = 100
-# sim.TIMESTEPS = 125
+sim.EVENTS = 50
+sim.REPORTERS = 100
+sim.ITERMAX = 50
+sim.TIMESTEPS = 100
 
 sim.INDISCRIMINATE = false
-sim.CONSPIRACY = false
+sim.CONSPIRACY = true
 sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
 sim.SCALARMIN = 0.0
