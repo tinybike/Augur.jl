@@ -3,7 +3,7 @@ tic()
 @everywhere using Augur
 using Distributions
 
-liar_thresholds = 0.7:0.05:0.95
+liar_thresholds = 0.75:0.1:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -37,8 +37,8 @@ include(joinpath(testpath, "defaults_" * simtype * ".jl"))
 sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
-sim.EVENTS = 50
-sim.REPORTERS = 100
+sim.EVENTS = 25
+sim.REPORTERS = 50
 sim.ITERMAX = 50
 sim.TIMESTEPS = 100
 
@@ -54,8 +54,9 @@ sim.REP_DIST = Pareto(2.0)
 sim.HIERARCHICAL_THRESHOLD = 0.5
 sim.HIERARCHICAL_LINKAGE = :average
 sim.CLUSTERFECK_THRESHOLD = 0.5
-sim.DBSCAN_EPSILON = 0.5
+sim.DBSCAN_EPSILON = 0.25
 sim.DBSCAN_MINPOINTS = 1
+sim.AFFINITY_DAMPENING = 0.8
 
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(2.0)
@@ -73,7 +74,7 @@ sim.ALGOS = [
     "hierarchical",
     "PCA",
     "DBSCAN",
-    # "affinity",
+    "affinity",
 ]
 
 sim.METRICS = [

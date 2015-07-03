@@ -220,10 +220,12 @@ function DBSCAN(sim::Simulation,
     new_rep_list / sum(new_rep_list)
 end
 
-function affinity(reports::Matrix{Float64}, rep::Vector{Float64})
+function affinity(sim::Simulation,
+                  reports::Matrix{Float64},
+                  rep::Vector{Float64})
     centered = reports .- mean(reports, weights(rep), 1)
     dist = pairwise(Euclidean(), centered')
-    clustered = affinityprop(dist).assignments
+    clustered = affinityprop(dist; damp=sim.AFFINITY_DAMPENING).assignments
     update_reputation(clustered)
 end
 
@@ -244,7 +246,7 @@ function consensus(sim::Simulation,
     elseif algo == "DBSCAN"
         nonconform = DBSCAN(sim, reports, rep)
     elseif algo == "affinity"
-        nonconform = affinity(reports, rep)
+        nonconform = affinity(sim, reports, rep)
     end
     this_rep = normalize(nonconform .* rep / mean(rep))
     updated_rep = sim.ALPHA*this_rep + (1 - sim.ALPHA)*rep

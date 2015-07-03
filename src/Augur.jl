@@ -124,6 +124,7 @@ module Augur
         CLUSTERFECK_THRESHOLD::Float64
         DBSCAN_EPSILON::Float64
         DBSCAN_MINPOINTS::Int
+        AFFINITY_DAMPENING::Float64
 
         # Collusion: 0.2 => 20% chance liar will copy another user
         # (only other liars unless INDISCRIMINATE=true)
@@ -205,6 +206,7 @@ module Augur
                     clusterfeck_threshold::Float64=0.5,
                     dbscan_epsilon::Float64=0.5,
                     dbscan_minpoints::Int=1,
+                    affinity_dampening::Float64=0.5,
                     collude::Float64=0.3,
                     indiscriminate::Bool=true,
                     verbose::Bool=false,
@@ -275,6 +277,7 @@ module Augur
                 clusterfeck_threshold,
                 dbscan_epsilon,
                 dbscan_minpoints,
+                affinity_dampening,
                 collude,
                 indiscriminate,
                 verbose,
