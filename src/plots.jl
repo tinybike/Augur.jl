@@ -137,7 +137,7 @@ function plot_dataframe(df::DataFrame, title::String, metric::String)
         Geom.errorbar,
     )
     pl_file = joinpath(Pkg.dir("Augur"), "test", "plots", "single",
-                       metric * "_" * repr(now()) * ".svg"
+                       metric * "_" * repr(now()) * ".svg")
     Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> $pl_file")
 end
@@ -199,7 +199,7 @@ function plot_median_rep(sim_data::Dict{String,Any}, metric::String, algo::Strin
         Geom.errorbar,
     )
     pl_file = joinpath(Pkg.dir("Augur"), "test", "plots", "single",
-                       "median_rep_" * algo * "_" * repr(now()) * ".svg"
+                       "median_rep_" * algo * "_" * repr(now()) * ".svg")
     Gadfly.draw(SVG(pl_file, 10inch, 7inch), pl)
     println("    -> $pl_file")
 end
