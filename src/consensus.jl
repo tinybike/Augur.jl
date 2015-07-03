@@ -25,6 +25,26 @@ type ClusterNode
         new(vec, numItems, meanVec, rep, repVec, reporterIndexVec, dist)
 end
 
+function roundoff(sim::Simulation, x::Float64)
+    if x < sim.BAD - sim.CATCH_TOLERANCE
+        sim.NO
+    elseif x > sim.BAD + sim.CATCH_TOLERANCE
+        sim.YES
+    else
+        sim.BAD
+    end
+end
+
+normalize{T<:Real}(v::Vector{T}) = vec(v) / sum(v)
+
+normalize{T<:Real}(v::Matrix{T}) = normalize(vec(v))
+
+L2dist(v::Vector{Float64}, u::Vector{Float64}) = sqrt(sum((v - u).^2))
+
+most_common(c::Accumulator) = most_common(c, length(c))
+
+most_common(c::Accumulator, k::Int) = select!(collect(c), 1:k, by=kv->kv[2], rev=true)
+
 function newMean(cmax::ClusterNode)
     weighted = zeros(cmax.numItems, size(cmax.vec, 2))
     for i = 1:cmax.numItems
@@ -157,9 +177,9 @@ function nc_rankdata(scores::Vector{Float64},
     set1 = scores + abs(minimum(scores))
     set2 = scores - maximum(scores)
     old = vec(rep' * reports)
-    rank_old = rankdata(old)
-    new1 = rankdata(vec(normalize(set1)' * reports) + 0.01*old)
-    new2 = rankdata(vec(normalize(set2)' * reports) + 0.01*old)
+    rank_old = tiedrank(old)
+    new1 = tiedrank(vec(normalize(set1)' * reports) + 0.01*old)
+    new2 = tiedrank(vec(normalize(set2)' * reports) + 0.01*old)
     ref_ind = sum(abs(new1 - rank_old)) - sum(abs(new2 - rank_old))
     if ref_ind == 0
         nonconformity(scores, reports, rep)
