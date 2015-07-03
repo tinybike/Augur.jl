@@ -11,8 +11,11 @@ function plot_overlay(sim::Simulation,
     time_max = sim.TIMESTEPS
     timesteps = [1:time_max]
     fig = PyPlot.figure()
-    # mrkr = ["s", "o", "d", "v"]
-    mrkr = ["s", "o", "d"]
+    if length(liar_thresholds) == 3
+        mrkr = ["s", "o", "d"]
+    else
+        mrkr = ["s", "o", "d", "v"]
+    end
     num_curves = length(mrkr)
     lgnd = fill("", num_curves*length(sim.ALGOS))
     y_min = 100.0
@@ -39,7 +42,6 @@ function plot_overlay(sim::Simulation,
     PyPlot.legend(lgnd, loc="center right", bbox_to_anchor=(1.32, 0.55), ncol=1)
     pl_file = joinpath(Pkg.dir("Augur"), "test", "plots",
                        "overlay_" * string(metric) * "_" * repr(Dates.now()) * ".png")
-    fig[:canvas][:draw]()
     PyPlot.savefig(pl_file)
     print_with_color(:grey, "saved plot: ")
     print_with_color(:cyan, "$pl_file\n")

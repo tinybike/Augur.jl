@@ -1,6 +1,7 @@
 using Augur
 using DataFrames
 using Gadfly
+using Dates
 
 # Build plotting dataframe
 function build_dataframe(sim_data::Dict{String,Any})
