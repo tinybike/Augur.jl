@@ -241,11 +241,10 @@ function simulate(sim::Simulation)
                 if sim.SAVE_RAW_DATA
                     repbox[algo][:,t,i] = reputation
                     repdelta[algo][:,t,i] = reputation - repbox[algo][:,1,i]
+                    if sim.VERBOSE
+                        print_repbox(repbox, repdelta, reputation, data, algo, t, i)
+                    end
                 end
-
-                # if sim.VERBOSE
-                #     print_repbox(repbox, repdelta, reputation, data, algo, t, i)
-                # end
 
                 # Consensus/event resolution
                 A[algo] = consensus(sim, data[t][:reports], reputation; algo=algo)

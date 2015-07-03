@@ -3,7 +3,7 @@ tic()
 @everywhere using Augur
 using Distributions
 
-liar_thresholds = 0.75:0.1:0.95
+liar_thresholds = 0.5:0.1:0.8
 param_range = 5:5:250
 
 sim = Simulation()
@@ -22,9 +22,6 @@ if ~isinteractive() && length(ARGS) > 0
         plots = "pyplot"
     elseif ARGS[1] == "gadfly" || (length(ARGS) > 1 && ARGS[2] == "gadfly")
         plots = "gadfly"
-    else
-        println("Unknown mode")
-        exit()
     end
 end
 if isinteractive() && simtype == "noise" && plots == nothing
@@ -37,10 +34,10 @@ include(joinpath(testpath, "defaults_" * simtype * ".jl"))
 sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
-sim.EVENTS = 25
-sim.REPORTERS = 50
-sim.ITERMAX = 50
-sim.TIMESTEPS = 100
+sim.EVENTS = 50
+sim.REPORTERS = 250
+sim.ITERMAX = 100
+sim.TIMESTEPS = 200
 
 sim.INDISCRIMINATE = false
 sim.CONSPIRACY = true
@@ -53,10 +50,10 @@ sim.REP_DIST = Pareto(2.0)
 
 sim.HIERARCHICAL_THRESHOLD = 0.5
 sim.HIERARCHICAL_LINKAGE = :average
-sim.CLUSTERFECK_THRESHOLD = 0.5
+sim.CLUSTERFECK_THRESHOLD = 0.7
 sim.DBSCAN_EPSILON = 0.25
 sim.DBSCAN_MINPOINTS = 1
-sim.AFFINITY_DAMPENING = 0.8
+sim.AFFINITY_DAMPENING = 0.5
 
 # "Preferential attachment" market size distribution
 sim.MARKET_DIST = Pareto(2.0)
@@ -74,17 +71,17 @@ sim.ALGOS = [
     "hierarchical",
     "PCA",
     "DBSCAN",
-    "affinity",
+    # "affinity",
 ]
 
 sim.METRICS = [
-    "correct",
-    "MCC",
+    # "correct",
+    # "MCC",
     "liar_rep",
 ]
 sim.TRACK = [
-    "correct",
-    "MCC",
+    # "correct",
+    # "MCC",
     "liar_rep",
 ]
 
