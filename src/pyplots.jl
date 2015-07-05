@@ -74,7 +74,7 @@ function plot_overlay(sim::Simulation,
         k = 1
         for (i, lt) in enumerate(liar_thresholds)
             y_points = trajectories[i][algo][metric][:mean][1:time_max]*100
-            println(algo, " ", string(metric), " @ time_max: ", y_points[end])
+            # println(algo, " ", string(metric), " @ time_max: ", y_points[end])
             y_errors = trajectories[i][algo][metric][:stderr][1:time_max]*100
             PyPlot.errorbar(timesteps, y_points, marker=markers[k], yerr=y_errors)
             y_min = min(y_min, minimum(y_points - abs(y_errors)))

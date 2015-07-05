@@ -11,7 +11,7 @@ sim.COLLUDE = 0.3
 sim.INDISCRIMINATE = true
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
-sim.ALGOS = ["hierarchical"]
+sim.ALGOS = ["clusterfeck"]
 sim.METRICS = [
     "beats",
     "liars_bonus",

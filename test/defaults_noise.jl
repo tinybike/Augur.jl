@@ -21,12 +21,11 @@ sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
-    "PCA",
-    "hierarchical",
-    "fixed-variance",
     "clusterfeck",
-    "k-means",
-    "big-five",
+    "hierarchical",
+    "PCA",
+    "DBSCAN",
+    "affinity",
 ]
 sim.METRICS = [
     "beats",

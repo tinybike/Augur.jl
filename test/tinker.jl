@@ -3,7 +3,7 @@ tic()
 @everywhere using Augur
 using Distributions
 
-liar_thresholds = 0.5:0.1:0.8
+liar_thresholds = 0.85:0.05:0.95
 param_range = 5:5:250
 
 sim = Simulation()
@@ -34,13 +34,13 @@ include(joinpath(testpath, "defaults_" * simtype * ".jl"))
 sim.VERBOSE = false
 sim.COLLUDE = 0.33
 
-sim.EVENTS = 50
-sim.REPORTERS = 250
+sim.EVENTS = 100
+sim.REPORTERS = 300
 sim.ITERMAX = 100
-sim.TIMESTEPS = 200
+sim.TIMESTEPS = 150
 
 sim.INDISCRIMINATE = false
-sim.CONSPIRACY = true
+sim.CONSPIRACY = false
 sim.NUM_CONSPIRACIES = 4
 sim.SCALARS = 0.0
 sim.SCALARMIN = 0.0
@@ -48,7 +48,7 @@ sim.SCALARMAX = 1000.0
 sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
 
-sim.HIERARCHICAL_THRESHOLD = 0.5
+sim.HIERARCHICAL_THRESHOLD = 0.7
 sim.HIERARCHICAL_LINKAGE = :average
 sim.CLUSTERFECK_THRESHOLD = 0.7
 sim.DBSCAN_EPSILON = 0.25
@@ -71,18 +71,23 @@ sim.ALGOS = [
     "hierarchical",
     "PCA",
     "DBSCAN",
-    # "affinity",
 ]
 
 sim.METRICS = [
-    # "correct",
-    # "MCC",
+    "correct",
+    "MCC",
     "liar_rep",
+    "precision",
+    "sensitivity",
+    "fallout",
 ]
 sim.TRACK = [
-    # "correct",
-    # "MCC",
+    "correct",
+    "MCC",
     "liar_rep",
+    "precision",
+    "sensitivity",
+    "fallout",
 ]
 
 # Run simulations and save results:
