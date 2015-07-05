@@ -35,6 +35,10 @@ function test_calculate_trajectories(sim::Simulation)
             :liars_bonus => [-0.09999999900000023, -0.09999999900000023],
             :liar_rep => [0.6333333336666667, 0.6333333336666667],
         ],
+        "DBSCAN" => [
+            :liars_bonus => [-0.050000000000000044, -0.050000000000000044],
+            :liar_rep => [0.6499999999999999, 0.6499999999999999],
+        ],
     ]
     sim.TIMESTEPS = 2
     sim.ITERMAX = 2
@@ -122,6 +126,14 @@ function test_track_evolution(sim::Simulation)
             :liar_rep    => [0.6333333336666667],
             :spearman    => [1.0],
         ],
+        "DBSCAN" => [
+            :MCC         => [0.0],
+            :beats       => [0.5],
+            :correct     => [0.5],
+            :liars_bonus => [-0.050000000000000044],
+            :liar_rep    => [0.6499999999999999],
+            :spearman    => [0.0],
+        ],
     ]
     t = 1
     i = 1
@@ -169,6 +181,14 @@ function test_save_timestep_data(sim::Simulation)
             "correct"     => [1=>[0.5]],
             "liar_rep"    => [1=>[0.6333333336666667]],
             "liars_bonus" => [1=>[-0.09999999900000023]],
+            "MCC"         => [1=>[0.0]],
+        ],
+        "DBSCAN" => (String => Dict{Int,Vector{Float64}})[
+            "spearman"    => [1=>[0.0]],
+            "beats"       => [1=>[0.5]],
+            "correct"     => [1=>[0.5]],
+            "liar_rep"    => [1=>[0.6499999999999999]],
+            "liars_bonus" => [1=>[-0.050000000000000044]],
             "MCC"         => [1=>[0.0]],
         ],
     ]

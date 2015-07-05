@@ -141,4 +141,4 @@ for i = 1:sim.ITERMAX
     end
 end
 
-@test round(A["hierarchical"][:reporter_bonus], 6) == [ 0.175, 0.15, 0.175, 0.15, 0.175, 0.175 ]
+@test round(A["DBSCAN"][:reporter_bonus], 6) == [ 0.175, 0.15, 0.175, 0.15, 0.175, 0.175 ]

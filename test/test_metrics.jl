@@ -48,6 +48,20 @@ function test_compute_metrics(sim::Simulation)
             :liar_rep    => 0.6499999999999999,
             :sensitivity => 1.0,
         ],
+        "DBSCAN" => (Symbol => Float64)[
+            :spearman    => 0.0,
+            :true_rep    => 0.35,
+            :MCC         => 0.0,
+            :correct     => 0.5,
+            :precision   => 0.6666666666666666,
+            :fallout     => 1.0,
+            :gap         => -0.29999999999999993,
+            :beats       => 0.5,
+            :gini        => 0.03333333333333299,
+            :liars_bonus => -0.050000000000000044,
+            :liar_rep    => 0.6499999999999999,
+            :sensitivity => 1.0,
+        ],
     ]
     data = setup(sim)::Dict{Symbol,Any}
     for algo in sim.ALGOS

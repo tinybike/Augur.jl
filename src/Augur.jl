@@ -5,7 +5,7 @@ module Augur
     using StatsBase
     using Distances
     using DataStructures
-    using HClust
+    using Clustering
     using HDF5, JLD
 
     export
@@ -38,7 +38,11 @@ module Augur
         init_tracking,
         save_timestep_data,
         track_evolution,
-        normalize
+        normalize,
+        update_reputation,
+        most_common,
+        clusterfeck,
+        hierarchical
 
     type Simulation
 
@@ -318,6 +322,10 @@ module Augur
 
     include("simulate.jl")
     include("consensus.jl")
+    include("clusterfeck.jl")
+    include("hierarchical.jl")
+    include("clustering.jl")
+    include("pca.jl")
     include("complexity.jl")
     include("makedata.jl")
     include("metrics.jl")

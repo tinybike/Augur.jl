@@ -8,10 +8,9 @@ tests = [
     "test_simulate",
     "test_repl",
     # "test_plots",
-    # "test_statistics",
 ]
 
-print_with_color(:blue, "Testing Simulator.jl...\n")
+print_with_color(:blue, "Testing Augur.jl...\n")
 
 for t in tests
     tfile = string(t, ".jl")
