@@ -39,7 +39,7 @@ function setup(sim::Simulation; reset::Bool=false)
     sim.CLUSTERFECK_THRESHOLD = 0.5
     sim.DBSCAN_EPSILON = 0.5
     sim.DBSCAN_MINPOINTS = 1
-    sim.ALGOS = [ "DBSCAN", "PCA" ]
+    sim.ALGOS = [ "DBSCAN", "hierarchical", "PCA" ]
 
     trues = find(sim.TEST_REPORTERS .== "true")
     distorts = find(sim.TEST_REPORTERS .== "distort")

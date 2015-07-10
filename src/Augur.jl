@@ -323,7 +323,6 @@ module Augur
     include("simulate.jl")
     include("consensus.jl")
     include("clusterfeck.jl")
-    include("hierarchical.jl")
     include("clustering.jl")
     include("pca.jl")
     include("complexity.jl")

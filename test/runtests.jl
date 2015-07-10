@@ -7,7 +7,6 @@ tests = [
     "test_metrics",
     "test_simulate",
     "test_repl",
-    # "test_plots",
 ]
 
 print_with_color(:blue, "Testing Augur.jl...\n")
