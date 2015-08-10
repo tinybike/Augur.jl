@@ -37,13 +37,13 @@ end
 function consensus(sim::Simulation,
                    reports::Matrix{Float64},
                    rep::Vector{Float64};
-                   algo::ASCIIString="clusterfeck")
+                   algo::ASCIIString="cflash")
     (num_reports, num_events) = size(reports)
     reptokens = rep
     rep = normalize(rep)
     # TODO interpolate
-    if algo == "clusterfeck"
-        nonconform = clusterfeck(reports, rep; threshold=sim.CLUSTERFECK_THRESHOLD)
+    if algo == "cflash"
+        nonconform = cflash(reports, rep; threshold=sim.CLUSTERFECK_THRESHOLD)
     elseif algo == "PCA"
         nonconform = PCA(reports, rep)
     elseif algo == "hierarchical"

@@ -10,9 +10,9 @@ Monte Carlo simulations, statistics and plotting tools for the [Augur](http://ww
 
 ### Usage
 
-The simulations are parallelized.  To run using all available cores:
+Run simulations with default settings using all available cores:
 
-    $ julia -p `nproc` test/tinker.jl
+    $ julia -p `nproc` test/controller.jl
 
 To run unit tests:
 

@@ -13,6 +13,9 @@ module Augur
         Trajectory,
         Track,
         generate_data,
+        generate_answers,
+        populate_markets,
+        generate_reports,
         simulate,
         consensus,
         run_simulations,
@@ -41,7 +44,7 @@ module Augur
         normalize,
         update_reputation,
         most_common,
-        clusterfeck,
+        cflash,
         hierarchical
 
     type Simulation
@@ -207,7 +210,7 @@ module Augur
                     corruption::Float64=0.5,
                     hierarchical_threshold::Float64=0.5,
                     hierarchical_linkage::Symbol=:single,
-                    clusterfeck_threshold::Float64=0.5,
+                    cflash_threshold::Float64=0.5,
                     dbscan_epsilon::Float64=0.5,
                     dbscan_minpoints::Int=1,
                     affinity_dampening::Float64=0.5,
@@ -226,7 +229,7 @@ module Augur
                     surface::Bool=false,
                     preset_data::Dict{Symbol,Any}=Dict{Symbol,Any}(),
                     algos::Vector{ASCIIString}=["hierarchical",
-                                                "clusterfeck",
+                                                "cflash",
                                                 "DBSCAN"],
                     metrics::Vector{ASCIIString}=["liar_rep",
                                                   "beats",
@@ -278,7 +281,7 @@ module Augur
                 corruption,
                 hierarchical_threshold,
                 hierarchical_linkage,
-                clusterfeck_threshold,
+                cflash_threshold,
                 dbscan_epsilon,
                 dbscan_minpoints,
                 affinity_dampening,
@@ -322,7 +325,6 @@ module Augur
 
     include("simulate.jl")
     include("consensus.jl")
-    include("clusterfeck.jl")
     include("clustering.jl")
     include("pca.jl")
     include("complexity.jl")

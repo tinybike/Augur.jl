@@ -8,7 +8,7 @@ include("setup.jl")
 function test_consensus(sim::Simulation)
     println("   - consensus")
     expected = [
-        "clusterfeck" => [
+        "cflash" => [
             :nonconformity => [ 0.333333, 0.166667, 0.333333, 0.166667, 0.0, 0.0 ],
             :outcomes_final => [ 2.0, 1.5, 1.5, 1.0 ],
             :outcomes_raw => [ 1.7, 1.533333, 1.466667, 1.3 ],

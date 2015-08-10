@@ -37,14 +37,15 @@ sim.COLLUDE = 0.33
 sim.EVENTS = 100
 sim.REPORTERS = 300
 sim.ITERMAX = 100
-sim.TIMESTEPS = 150
+sim.TIMESTEPS = 125
 
 sim.INDISCRIMINATE = false
 sim.CONSPIRACY = false
-sim.NUM_CONSPIRACIES = 4
+sim.NUM_CONSPIRACIES = 6
 sim.SCALARS = 0.0
 sim.SCALARMIN = 0.0
 sim.SCALARMAX = 1000.0
+sim.ALPHA = 0.1
 sim.REP_RAND = false
 sim.REP_DIST = Pareto(2.0)
 
@@ -55,21 +56,21 @@ sim.DBSCAN_EPSILON = 0.25
 sim.DBSCAN_MINPOINTS = 1
 sim.AFFINITY_DAMPENING = 0.5
 
-# "Preferential attachment" market size distribution
-sim.MARKET_DIST = Pareto(2.0)
-
-sim.ALPHA = 0.1
+# Market bridge options
 sim.BRIDGE = false
 sim.CORRUPTION = 0.75
 sim.RARE = 1e-5
 sim.MONEYBIN = first(find(pdf(sim.MARKET_DIST, 1:1e4) .< sim.RARE))
+
+# "Preferential attachment" market size distribution
+sim.MARKET_DIST = Pareto(2.0)
+
 sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
-    "clusterfeck",
+    "cflash",
     "hierarchical",
-    "PCA",
     "DBSCAN",
 ]
 

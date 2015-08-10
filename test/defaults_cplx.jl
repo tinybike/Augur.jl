@@ -6,12 +6,12 @@ sim.LIAR_THRESHOLD = 0.6
 sim.VARIANCE_THRESHOLD = 0.9
 sim.LABELSORT = false
 sim.REP_DIST = Uniform()
-sim.REP_RAND = false
+sim.REP_RAND = true
 sim.COLLUDE = 0.3
-sim.INDISCRIMINATE = true
+sim.INDISCRIMINATE = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
-sim.ALGOS = ["clusterfeck"]
+sim.ALGOS = ["cflash"]
 sim.METRICS = [
     "beats",
     "liars_bonus",

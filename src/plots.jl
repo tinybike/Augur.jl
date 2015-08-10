@@ -261,7 +261,6 @@ function plot_trajectories(sim::Simulation,
         for (i, lt) in enumerate(liar_thresholds)
             for tr in sim.TRACK
                 data = [data, trajectories[i][algo][tr][:mean]]
-                # metrics = [metrics, fill!(Array(String, sim.TIMESTEPS), string(tr))]
                 metrics = [
                     metrics,
                     fill!(Array(String, sim.TIMESTEPS), sim.AXIS_LABELS[symbol(tr)])
@@ -284,7 +283,7 @@ function plot_trajectories(sim::Simulation,
                     label = "Truthcoin"
                 elseif algo == "hierarchical"
                     label = "hierarchical clustering"
-                elseif algo == "clusterfeck"
+                elseif algo == "cflash"
                     label = "Augur"
                 end
                 algorithms = [

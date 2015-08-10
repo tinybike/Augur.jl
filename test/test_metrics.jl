@@ -20,7 +20,7 @@ function test_compute_metrics(sim::Simulation)
             :liar_rep    => 0.6435248607744642,
             :sensitivity => 1.0,
         ],
-        "clusterfeck" => (Symbol => Float64)[
+        "cflash" => (Symbol => Float64)[
             :spearman    => 1.0,
             :true_rep    => 0.36666666633333334,
             :MCC         => 0.0,

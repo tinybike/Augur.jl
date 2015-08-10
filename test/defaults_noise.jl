@@ -9,23 +9,21 @@ sim.LIAR_THRESHOLD = 0.6
 sim.VARIANCE_THRESHOLD = 0.9
 sim.REP_RAND = false
 sim.REP_DIST = Uniform()
-sim.BRIDGE = true
+sim.BRIDGE = false
 sim.MARKET_DIST = Exponential()
 sim.PRICE_DIST = Uniform()
 sim.OVERLAP_DIST = Exponential()
 sim.CORRUPTION = 0.5
 sim.COLLUDE = 0.3
-sim.INDISCRIMINATE = true
-sim.NUM_CONSPIRACIES = 4
+sim.INDISCRIMINATE = false
+sim.NUM_CONSPIRACIES = 5
 sim.LABELSORT = false
 sim.SAVE_RAW_DATA = false
 sim.HISTOGRAM = false
 sim.ALGOS = [
-    "clusterfeck",
+    "cflash",
     "hierarchical",
-    "PCA",
     "DBSCAN",
-    "affinity",
 ]
 sim.METRICS = [
     "beats",

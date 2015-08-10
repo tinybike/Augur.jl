@@ -31,7 +31,7 @@ function test_calculate_trajectories(sim::Simulation)
             :liars_bonus => [-0.050000000000000044, -0.050000000000000044],
             :liar_rep => [0.6499999999999999, 0.6499999999999999],
         ],
-        "clusterfeck" => [
+        "cflash" => [
             :liars_bonus => [-0.09999999900000023, -0.09999999900000023],
             :liar_rep => [0.6333333336666667, 0.6333333336666667],
         ],
@@ -118,7 +118,7 @@ function test_track_evolution(sim::Simulation)
             :liar_rep    => [0.6499999999999999],
             :spearman    => [0.0],
         ],
-        "clusterfeck" => [
+        "cflash" => [
             :beats       => [0.0],
             :liars_bonus => [-0.09999999900000023],
             :correct     => [0.5],
@@ -175,7 +175,7 @@ function test_save_timestep_data(sim::Simulation)
             "liars_bonus" => [1=>[-0.050000000000000044]],
             "MCC"         => [1=>[0.0]],
         ],
-        "clusterfeck" => (String => Dict{Int,Vector{Float64}})[
+        "cflash" => (String => Dict{Int,Vector{Float64}})[
             "spearman"    => [1=>[1.0]],
             "beats"       => [1=>[0.0]],
             "correct"     => [1=>[0.5]],

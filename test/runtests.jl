@@ -2,7 +2,7 @@ using Augur
 
 tests = [
     "setup",
-    # "test_makedata",
+    "test_makedata",
     "test_consensus",
     "test_metrics",
     "test_simulate",

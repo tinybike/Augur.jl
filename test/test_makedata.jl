@@ -1,59 +1,57 @@
 using Augur
 using Base.Test
-using Distributions
-using PyCall
+
+ɛ = 1e-12
 
 include("setup.jl")
 
-@pyimport pyconsensus
-
 function test_create_reporters()
-    println("   - test_create_reporters")
+    println("   - create_reporters")
     data = setup(Simulation(); reset=true)
     sim = pop!(data, :sim)
     create_reporters(sim)
 end
 
 function test_generate_answers()
-    println("   - test_generate_answers")
+    println("   - generate_answers")
     data = setup(Simulation(); reset=true)
     sim = pop!(data, :sim)
-    generate_answers(sim)
+    generate_answers(sim, data)
 end
 
 function test_populate_markets()
-    println("   - test_populate_markets")
+    println("   - populate_markets")
     data = setup(Simulation(); reset=true)
     sim = pop!(data, :sim)
     populate_markets(sim)
 end
 
 function test_generate_reports()
-    println("   - test_generate_reports")
+    println("   - generate_reports")
     data = setup(Simulation(); reset=true)
     sim = pop!(data, :sim)
-    generate_reports(sim)
+    generate_reports(sim, data)
 end
 
 function test_generate_data()
-    println("   - test_generate_data")
+    println("   - generate_data")
     data = setup(Simulation(); reset=true)
     sim = pop!(data, :sim)
-    generate_data(sim)
+    generate_data(sim, data)
 end
 
 function test_init_reputation()
-    println("   - test_init_population")
+    println("   - init_population")
     data = setup(Simulation(); reset=true)
     sim = pop!(data, :sim)
     init_reputation(sim)
 end
 
 function test_normalize()
-    println("   - test_normalize")
+    println("   - normalize")
     test_vector = [1.0, 2.0, 3.0, 4.0, 5.0]
     normalized_vector = normalize(test_vector)
-    @test_approx_eq sum(normalized_vector) 1.0
+    @test_approx_eq_eps sum(normalized_vector) 1.0 ɛ
 end
 
 test_create_reporters()

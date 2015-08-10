@@ -17,7 +17,6 @@ sim.ITERMAX = 100
 sim.TIMESTEPS = 250
 
 sim.SCALARS = 0.0
-# sim.RESPONSES = 1:1:2
 sim.REP_RAND = true
 sim.REP_DIST = Pareto(3.0)
 
@@ -34,7 +33,7 @@ sim.HISTOGRAM = false
 
 sim.ALGOS = [
    "PCA",
-   "clusterfeck",
+   "cflash",
    "k-means",
    "hierarchical",
    "fixed-variance",
@@ -171,7 +170,7 @@ end
 
 df = DataFrame(honesty=data[1][:reporters],
                fixed_variance=repdelta["fixed-variance"][:,end,1],
-               clusterfeck=repdelta["clusterfeck"][:,end,1],
+               cflash=repdelta["cflash"][:,end,1],
                PCA=repdelta["PCA"][:,end,1],
                k_means=repdelta["k-means"][:,end,1],
                hierarchical=repdelta["hierarchical"][:,end,1])
