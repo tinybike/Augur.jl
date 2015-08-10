@@ -14,6 +14,16 @@ Run simulations with default settings using all available cores:
 
     $ julia -p `nproc` test/controller.jl
 
-To run unit tests:
+Simulation results are automatically saved to `test/data`.  If `sim.SAVE_RAW_DATA = true`, in addition to the output data, full time traces will be saved to `test/data/raw`.  (Caution: this option both slows down the simulations and requires considerable storage space to store the results.)
+
+Augur.jl includes plotters written for PyPlot and Gadfly.  To generate plots, just specify `pyplot` or `gadfly` when you run the simulations:
+
+    $ julia -p `nproc` test/controller.jl pyplot
+
+Plots are saved to `test/plots`.
+
+### Tests
+
+Unit tests are included with Augur.jl, and can be run from the `test/runtests.jl` script:
 
     $ julia test/runtests.jl
